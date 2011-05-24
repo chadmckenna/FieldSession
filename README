@@ -7,4 +7,11 @@ Jerel Miller (jermille@mines.edu)
 Thomas Mesquita: tmesquit@mines.edu
 Jerel Miller (jermille@mines.edu)
 
+Add this to the bottom of .git/config file in your directory:
+
+[remote "staging"]
+	url = git@heroku.com:fieldsession.git
+	fetch = +refs/heads/*:refs/remotes/heroku/*
+
 This is the working directory for CSCI 370 team R41nB0W K4TZ
+
