@@ -9,7 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524173323) do
+ActiveRecord::Schema.define(:version => 20110524200522) do
+
+  create_table "children", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "date_of_birth"
+    t.string   "dietary_restrictions"
+    t.string   "allergies"
+    t.string   "medications"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "households", :force => true do |t|
+    t.string   "name"
+    t.integer  "credits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "requests", :force => true do |t|
     t.datetime "date"
@@ -19,6 +38,16 @@ ActiveRecord::Schema.define(:version => 20110524173323) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",                       :null => false
+    t.string   "description"
+    t.integer  "users_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "username"
