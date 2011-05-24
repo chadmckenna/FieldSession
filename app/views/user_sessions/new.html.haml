@@ -2,7 +2,7 @@
 
 %p Don't have an account? #{link_to "Sign up!", signup_path}
 
-= form_for @user_session do |f|
+- form_for @user_session do |f|
   = f.error_messages
   %p
     = f.label :username
