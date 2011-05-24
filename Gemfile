@@ -21,6 +21,7 @@ group :development, :test do
   gem 'annotate'
   gem 'mocha'
   gem 'haml_scaffold'
+  gem 'nifty-generators'
 end
 
 group :production do
