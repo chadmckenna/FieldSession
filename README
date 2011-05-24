@@ -5,4 +5,8 @@ Josh Dinges
 Thomas Mesquita
 Jerel Miller, jermille@mines.edu
 
-Something
+Add this to the bottom of .git/config file in your directory:
+
+[remote "staging"]
+	url = git@heroku.com:fieldsession.git
+	fetch = +refs/heads/*:refs/remotes/heroku/*
