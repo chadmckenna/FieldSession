@@ -10,6 +10,7 @@ gem 'authlogic'
 gem 'declarative_authorization'
 gem 'delayed_job', '~> 2.0.4'
 gem 'aws-s3'
+gem 'nifty-generators'
 
 group :development, :test do
   gem 'heroku'

@@ -53,6 +53,7 @@ GEM
     linecache (0.43)
     mime-types (1.16)
     mocha (0.9.12)
+    nifty-generators (0.4.6)
     paper_trail (1.6.5)
       actionpack (~> 2.3)
       activerecord (~> 2.3)
@@ -98,6 +99,7 @@ DEPENDENCIES
   heroku
   heroku_san
   mocha
+  nifty-generators
   paper_trail (~> 1)
   paperclip (~> 2.3)
   rails (= 2.3.11)
