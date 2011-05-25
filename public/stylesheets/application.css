@@ -1,7 +1,8 @@
 body {
   background-color: #aaffaa;
   font-family: Verdana, Helvetica, Arial;
-  font-size: 14px; }
+  font-size: 14px;
+  margin: 0 !important; }
 
 a {
   color: #338833;
@@ -16,28 +17,38 @@ a {
   height: 0;
   overflow: hidden; }
 
+#masthead {
+  padding: 0 !important;
+  height: 50px;
+  background: white;
+  border-bottom: 1px solid black;
+  -webkit-box-shadow: 0 0 20px black; }
+  #masthead h1 {
+    float: left;
+    width: 30%;
+    padding: 0 !important;
+    margin: 0.4em; }
+  #masthead #userbar {
+    float: right;
+    width: 60%; }
+    #masthead #userbar p {
+      float: right;
+      display: inline;
+      margin-right: 1em; }
+  #masthead .menubar {
+    list-style-type: none;
+    float: left;
+    display: inline !important; }
+    #masthead .menubar li {
+      display: inline;
+      float: left;
+      margin-right: 1em; }
+
 #container {
   width: 75%;
   margin: 0 auto;
   background: white;
-  border: solid 1px black;
-  margin-top: 20px; }
-  #container #masthead {
-    padding: 0 !important;
-    height: 50px;
-    border: 1px solid #66cc66; }
-    #container #masthead h1 {
-      float: left;
-      width: 30%;
-      padding: 0 !important;
-      margin: 0.4em; }
-    #container #masthead #userbar {
-      float: right;
-      width: 60%; }
-      #container #masthead #userbar p {
-        float: right;
-        display: inline;
-        margin-right: 1em; }
+  z-index: -2 !important; }
   #container #content {
     padding: 20px 40px; }
 

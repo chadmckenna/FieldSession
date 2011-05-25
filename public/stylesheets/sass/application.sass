@@ -7,6 +7,7 @@ body
   background-color: $primary_color
   font-family: Verdana, Helvetica, Arial
   font-size: 14px
+  margin: 0 !important
 
 a
   color: $linkColor
@@ -20,29 +21,39 @@ a
   clear: both
   height: 0
   overflow: hidden
+    
+#masthead
+  padding: 0 !important
+  height: 50px
+  background: white
+  border-bottom: 1px solid black
+  -webkit-box-shadow: 0 0 20px black
+  h1
+    float: left
+    width: 30%
+    padding: 0 !important
+    margin: .4em
+  #userbar
+    float: right
+    width: 60%
+    p
+      float: right
+      display: inline
+      margin-right: 1em
+  .menubar
+    list-style-type: none
+    float: left
+    display: inline !important
+    li
+      display: inline
+      float: left
+      margin-right: 1em
 
 #container
   width: 75%
   margin: 0 auto
   background: white
-  border: solid 1px black
-  margin-top: 20px
-  #masthead
-    padding: 0 !important
-    height: 50px
-    border: 1px solid $noticeBorder
-    h1
-      float: left
-      width: 30%
-      padding: 0 !important
-      margin: .4em
-    #userbar
-      float: right
-      width: 60%
-      p
-        float: right
-        display: inline
-        margin-right: 1em
+  z-index: -2 !important
   #content
     padding: 20px 40px
 
