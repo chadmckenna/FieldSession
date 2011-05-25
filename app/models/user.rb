@@ -3,6 +3,14 @@ class User < ActiveRecord::Base
 
   belongs_to :household
   belongs_to :role
+
+  default_scope :include => :role
+
+  before_create :assign_default_role
+  
+  def is?(role_symbol)
+    role_symbols.include? role_symbol
+  end
   
   def is_admin?
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)

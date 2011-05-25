@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :children
     admin.resources :households
     admin.resources :requests
-    admin.root :controller => 'admin', :action => 'index'
+    admin.root :controller => 'users'
   end
 
   map.namespace :members do |members|
