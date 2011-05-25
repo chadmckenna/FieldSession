@@ -1,0 +1,20 @@
+<% title "Role" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @role.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @role.description %>
+</p>
+<p>
+  <strong>Users Count:</strong>
+  <%=h @role.users_count %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_role_path(@role) %> |
+  <%= link_to "Destroy", @role, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", roles_path %>
+</p>

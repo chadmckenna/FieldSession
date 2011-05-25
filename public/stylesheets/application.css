@@ -1,8 +1,9 @@
 /* $primary_color = #4B7399 */
-/*  :background-color = $primary_color
- * :font
- *   :family Verdana, Helvetica, Arial
- *   :size 14px */
+body {
+  background-color: #4b7399;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px; }
+
 a {
   color: blue; }
   a img {
@@ -65,7 +66,3 @@ a {
 #main {
   height: 100px;
   background-color: white; }
-
-#title {
-  font-family: "Wire One";
-  font-size: 3em; }

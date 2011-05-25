@@ -1,0 +1,32 @@
+- form_for [:members, @child] do |f|
+  = f.error_messages
+  %p
+    = f.label :first_name
+    %br
+    = f.text_field :first_name
+  %p
+    = f.label :last_name
+    %br
+    = f.text_field :last_name
+  %p
+    = f.label :date_of_birth
+    %br
+    = f.date_select :date_of_birth
+  %p
+    = f.label :dietary_restrictions
+    %br
+    = f.text_field :dietary_restrictions
+  %p
+    = f.label :allergies
+    %br
+    = f.text_field :allergies
+  %p
+    = f.label :medications
+    %br
+    = f.text_field :medications
+  %p
+    = f.label :notes
+    %br
+    = f.text_field :notes
+  %p
+    = f.submit

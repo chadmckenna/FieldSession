@@ -1,0 +1,12 @@
+- form_for [:admin, @household] do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :credits
+    %br
+    = f.text_field :credits
+  %p
+    = f.submit
