@@ -19,6 +19,5 @@ test/coverage/*
 Vagrantfile
 *.box
 *.*~
-armada.gitignore
+villages.gitignore
 .rvmrc
-armada.komodoproject
