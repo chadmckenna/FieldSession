@@ -13,6 +13,7 @@
     #container
       #masthead
         %h1= link_to APP_TITLE, root_path, :title => 'Home Screen'
+        %h1= link_to image_tag('/images/villages_logo.png'), root_path, :title => 'Home Screen'
         = menubar(current_user)
         = userbar(current_user)
       #content
