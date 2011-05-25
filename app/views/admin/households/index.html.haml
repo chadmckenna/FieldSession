@@ -8,8 +8,8 @@
     %tr
       %td= h household.name
       %td= h household.credits
-      %td= link_to 'Show', household
-      %td= link_to 'Edit', edit_household_path(household)
-      %td= link_to 'Destroy', household, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', admin_household_path(household)
+      %td= link_to 'Edit', edit_admin_household_path(household)
+      %td= link_to 'Destroy', admin_household_path(household), :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Household", new_household_path

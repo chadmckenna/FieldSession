@@ -7,8 +7,8 @@
   =h @household.credits
 
 %p
-  = link_to "Edit", edit_household_path(@household)
+  = link_to "Edit", edit_members_household_path(@household)
   |
-  = link_to "Destroy", @household, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Destroy", members_household_path(@household), :confirm => 'Are you sure?', :method => :delete
   |
-  = link_to "View All", households_path
+  = link_to "View All", members_households_path
