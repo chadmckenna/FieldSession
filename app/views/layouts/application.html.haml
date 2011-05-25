@@ -13,7 +13,7 @@
     #container
       #masthead
         = userbar(current_user)
-        %h1= link_to APP_TITLE, root_path, :title => 'Home Screen'
+        %h1= link_to image_tag('/images/villages_logo.png'), root_path, :title => 'Home Screen'
         = menubar(current_user)
       #content
         - unless flash.empty?
