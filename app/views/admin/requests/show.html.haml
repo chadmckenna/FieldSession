@@ -12,7 +12,7 @@
   %strong Cost:
   = h @request.cost
 %p
-  = link_to "Edit", edit_request_path(@request)
+  = link_to "Edit", edit_admin_request_path(@request)
   |
   \#{link_to "Destroy", @request, :confirm => 'Are you sure?', :method => :delete} |
   \#{link_to "View All", requests_path}
