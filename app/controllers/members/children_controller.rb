@@ -1,4 +1,4 @@
-class ChildrenController < ApplicationController
+class Members::ChildrenController < Members::MembersController
   def index
     @children = Child.all
   end

@@ -1,4 +1,4 @@
-class RolesController < ApplicationController
+class Admin::RolesController < Admin::AdminController
   def index
     @roles = Role.all
   end
