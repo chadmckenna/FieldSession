@@ -1099,3 +1099,49 @@ LoadError (Expected /home/ben/csci370/villages/app/controllers/admin/requests_co
 Rendered rescues/_trace (268.2ms)
 Rendered rescues/_request_and_response (61.4ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-05-25 10:29:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/requests"}
+
+SyntaxError (/home/ben/csci370/villages/app/controllers/admin/admin_controller.rb:22: syntax error, unexpected tRSHFT, expecting $end
+>>>>>>> f72359fb99c0ddba4e52123451f771bb94a2b215
+  ^):
+  app/controllers/admin/requests_controller.rb:1
+  sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (304.3ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::RequestsController#index (for 127.0.0.1 at 2011-05-25 10:30:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/requests"}
+
+NoMethodError (undefined method `require_user' for #<Admin::RequestsController:0xb683c974>):
+  compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+  sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (333.4ms)
+Rendered rescues/_request_and_response (5.5ms)
+Rendering rescues/layout (internal_server_error)
