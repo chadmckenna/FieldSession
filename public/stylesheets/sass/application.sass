@@ -4,7 +4,7 @@ $noticeBorder: #66cc66
 $linkColor: #338833
 
 body
-  background-color: $primary_color
+  background-color: #fff
   font-family: Verdana, Helvetica, Arial
   font-size: 14px
   margin: 0 !important
@@ -23,16 +23,16 @@ a
   overflow: hidden
     
 #masthead
-  padding: 0 !important
-  height: 50px
-  background: white
+  padding: 10px 10px 10px 10px !important
+  background: $primary_color
   border-bottom: 1px solid black
-  -webkit-box-shadow: 0 0 20px black
+  -webkit-box-shadow: 0 0 12px #888
   h1
     float: left
     width: 30%
     padding: 0 !important
     margin: .4em
+    font-size: 4em
   #userbar
     float: right
     width: 60%
@@ -48,11 +48,13 @@ a
       display: inline
       float: left
       margin-right: 1em
+  #clear
+    
 
 #container
   width: 75%
   margin: 0 auto
-  background: white
+  position: relative
   z-index: -2 !important
   #content
     padding: 20px 40px

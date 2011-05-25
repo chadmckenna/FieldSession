@@ -1,5 +1,5 @@
 body {
-  background-color: #aaffaa;
+  background-color: white;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   margin: 0 !important; }
@@ -18,16 +18,16 @@ a {
   overflow: hidden; }
 
 #masthead {
-  padding: 0 !important;
-  height: 50px;
-  background: white;
+  padding: 10px 10px 10px 10px !important;
+  background: #aaffaa;
   border-bottom: 1px solid black;
-  -webkit-box-shadow: 0 0 20px black; }
+  -webkit-box-shadow: 0 0 12px #888888; }
   #masthead h1 {
     float: left;
     width: 30%;
     padding: 0 !important;
-    margin: 0.4em; }
+    margin: 0.4em;
+    font-size: 4em; }
   #masthead #userbar {
     float: right;
     width: 60%; }
@@ -47,7 +47,7 @@ a {
 #container {
   width: 75%;
   margin: 0 auto;
-  background: white;
+  position: relative;
   z-index: -2 !important; }
   #container #content {
     padding: 20px 40px; }
