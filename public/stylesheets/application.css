@@ -1,11 +1,13 @@
-/* $primary_color = #4B7399 */
 body {
-  background-color: #4b7399;
+  background-color: #aaffaa;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px; }
 
 a {
-  color: blue; }
+  color: #338833;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
   a img {
     border: none; }
 
@@ -18,12 +20,28 @@ a {
   width: 75%;
   margin: 0 auto;
   background: white;
-  padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px; }
+  #container #masthead {
+    padding: 0 !important;
+    height: 50px;
+    border: 1px solid #66cc66; }
+    #container #masthead h1 {
+      float: left;
+      width: 30%;
+      padding: 0 !important;
+      margin: 0.4em; }
+    #container #masthead #userbar {
+      float: right;
+      width: 60%; }
+      #container #masthead #userbar p {
+        float: right;
+        display: inline;
+        margin-right: 1em; }
+  #container #content {
+    padding: 20px 40px; }
 
-#flash_notice,
-#flash_error {
+#flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0; }
 
