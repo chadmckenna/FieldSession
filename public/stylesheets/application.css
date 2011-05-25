@@ -1,3 +1,4 @@
+/*$linkColor: #39f */
 body {
   background-color: white;
   font-family: Verdana, Helvetica, Arial;
@@ -5,10 +6,10 @@ body {
   margin: 0 !important; }
 
 a {
-  color: #3399ff;
+  color: #c4d7a4;
   text-decoration: none; }
   a:hover {
-    color: red; }
+    color: #e1e6b9; }
   a img {
     border: none; }
 
@@ -20,7 +21,8 @@ a {
 #masthead {
   font-family: "Rokkitt", serif;
   padding: 0 !important;
-  background: #c7e3ff;
+  /*background: #c7e3ff */
+  background: #375d3b;
   position: fixed;
   width: 100%;
   top: 0;
@@ -58,10 +60,11 @@ a {
   width: 75%;
   margin: 100px auto 0 auto;
   background: white;
-  /*z-index: -1 !important */
   position: relative; }
   #container #content {
     padding: 20px 40px; }
+    #container #content #form a {
+      color: #375d38; }
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
