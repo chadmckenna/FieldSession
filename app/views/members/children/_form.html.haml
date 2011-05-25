@@ -1,4 +1,4 @@
-- form_for @child do |f|
+- form_for [:members, @child] do |f|
   = f.error_messages
   %p
     = f.label :first_name

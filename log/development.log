@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 Processing ApplicationController#index (for 127.0.0.1 at 2011-05-24 12:58:41) [GET]
@@ -1311,3 +1312,5 @@ ActionView::TemplateError (undefined method `userbar' for #<ActionView::Base:0xb
 Rendered rescues/_trace (395.4ms)
 Rendered rescues/_request_and_response (1.9ms)
 Rendering rescues/layout (internal_server_error)
+=======
+>>>>>>> 595e2e6b478340231fcc4f72af4a138fd1dec93a
