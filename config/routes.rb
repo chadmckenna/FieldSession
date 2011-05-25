@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :children
-
   map.resources :households
-
   map.resources :roles
+  map.resources :users, :only => [:new, :create]
+  map.resources :requests
+  map.root :login
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
@@ -16,21 +17,17 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :children
     admin.resources :households
     admin.resources :requests
+    admin.root :controller => 'admin', :action => 'index'
   end
 
   map.namespace :members do |members|
     members.resources :roles
-    members.resources :users
+    members.resources :users, :only => [:show, :edit, :update]
     members.resources :children
     members.resources :households
     members.resources :requests
+    members.root :controller => 'admin', :action => 'index'
   end
-
-  map.resources :users
-
-  map.resources :requests
-  
-  map.root :requests
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

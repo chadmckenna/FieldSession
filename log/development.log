@@ -1099,3 +1099,44 @@ LoadError (Expected /home/ben/csci370/villages/app/controllers/admin/requests_co
 Rendered rescues/_trace (268.2ms)
 Rendered rescues/_request_and_response (61.4ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing RequestsController#index (for 127.0.0.1 at 2011-05-25 10:20:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"requests"}
+  [4;36;1mRequest Load (0.2ms)[0m   [0;1mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering requests/index
+Completed in 255ms (View: 28, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 10:20:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 57ms (View: 34, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-05-25 10:20:27) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"username"=>"cmckenna", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"3PqVZKxzDPQuB4kanXpgFEhhUYCvwdJyUGA/gc9MMm0=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".username) = 'cmckenna') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 361ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing RequestsController#index (for 127.0.0.1 at 2011-05-25 10:20:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"requests"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRequest Load (0.2ms)[0m   [0mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering requests/index
+Completed in 39ms (View: 5, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing RequestsController#edit (for 127.0.0.1 at 2011-05-25 10:20:37) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"requests"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRequest Load (0.2ms)[0m   [0mSELECT * FROM "requests" WHERE ("requests"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering requests/edit
+Rendered requests/_form (33.0ms)
+Completed in 211ms (View: 59, DB: 1) | 200 OK [http://localhost/requests/1/edit]
