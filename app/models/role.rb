@@ -9,10 +9,12 @@ class Role < ActiveRecord::Base
   def to_s
     self.name
   end
-  
-  protected
+
+  def after_initialize
+    self.name = name.downcase.strip unless name.nil?
+  end
     
-    def after_initialize
-      self.name = name.downcase.strip unless name.nil?
-    end
+  def name=(name)
+    self[:name] = name.strip.downcase
+  end
 end

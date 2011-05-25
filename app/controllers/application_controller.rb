@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   filter_parameter_logging :password
-  helper_method :current_user_session, :current_user, :home_url_for, :velociraptor_url_for
+  helper_method :current_user_session, :current_user, :home_url_for
 
   # A simple route for the application home page or root_url.
   def show
