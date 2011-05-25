@@ -21,6 +21,7 @@ a {
   padding: 0 !important;
   height: 50px;
   position: fixed;
+  top: 0 !important;
   width: 100%;
   background: white;
   border-bottom: 1px solid black;
@@ -49,6 +50,7 @@ a {
 
 #container {
   width: 75%;
+  min-height: 30px;
   margin: 50px auto;
   background: white;
   z-index: -1 !important;
