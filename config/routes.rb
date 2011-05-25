@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :requests
   
-  map.root :login
+  map.root :requests
 
   # The priority is based upon order of creation: first created -> highest priority.
 

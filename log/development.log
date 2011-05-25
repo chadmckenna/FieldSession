@@ -982,3 +982,99 @@ Processing RolesController#index (for 127.0.0.1 at 2011-05-24 14:28:26) [GET]
 Rendering template within layouts/application
 Rendering roles/index
 Completed in 161ms (View: 9, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-24 19:29:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 225ms (View: 81, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 06:55:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 262ms (View: 81, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 09:27:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 411ms (View: 160, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2011-05-25 09:27:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"roles"}
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT * FROM "roles" [0m
+Rendering template within layouts/application
+Rendering roles/index
+Completed in 551ms (View: 88, DB: 1) | 200 OK [http://localhost/roles]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2011-05-25 09:27:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, current_user, current_user_session, logged_in?, login_required, new, and redirect_to_target_or_default):
+  compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+  sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ChildrenController#index (for 127.0.0.1 at 2011-05-25 09:27:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"children"}
+  [4;35;1mChild Load (13.7ms)[0m   [0mSELECT * FROM "children" [0m
+Rendering template within layouts/application
+Rendering children/index
+Completed in 200ms (View: 63, DB: 14) | 200 OK [http://localhost/children]
+
+
+Processing RequestsController#index (for 127.0.0.1 at 2011-05-25 09:28:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"requests"}
+  [4;36;1mRequest Load (0.6ms)[0m   [0;1mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering requests/index
+Completed in 166ms (View: 57, DB: 1) | 200 OK [http://localhost/requests]
+
+
+Processing RequestsController#new (for 127.0.0.1 at 2011-05-25 09:28:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"requests"}
+Rendering template within layouts/application
+Rendering requests/new
+Rendered requests/_form (124.5ms)
+Completed in 242ms (View: 162, DB: 0) | 200 OK [http://localhost/requests/new]
+
+
+Processing RequestsController#create (for 127.0.0.1 at 2011-05-25 09:29:08) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"xALEI2+4kNR1iGHEbn+Biz7btIh+BNTxQ4MjZllcoCE=", "request"=>{"start_time(1i)"=>"2011", "date(1i)"=>"2011", "cost"=>"2", "start_time(2i)"=>"5", "date(2i)"=>"5", "start_time(3i)"=>"26", "date(3i)"=>"26", "end_time(1i)"=>"2011", "start_time(4i)"=>"15", "date(4i)"=>"15", "end_time(2i)"=>"5", "start_time(5i)"=>"28", "date(5i)"=>"28", "end_time(3i)"=>"26", "end_time(4i)"=>"17", "end_time(5i)"=>"28"}, "controller"=>"requests"}
+  [4;35;1mRequest Create (25.6ms)[0m   [0mINSERT INTO "requests" ("end_time", "created_at", "cost", "updated_at", "date", "start_time") VALUES('2011-05-26 17:28:00', '2011-05-25 15:29:09', 2.0, '2011-05-25 15:29:09', '2011-05-26 15:28:00', '2011-05-26 15:28:00')[0m
+Redirected to http://localhost:3000/requests/1
+Completed in 304ms (DB: 26) | 302 Found [http://localhost/requests]
+
+
+Processing RequestsController#show (for 127.0.0.1 at 2011-05-25 09:29:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"requests"}
+  [4;36;1mRequest Load (0.8ms)[0m   [0;1mSELECT * FROM "requests" WHERE ("requests"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering requests/show
+Completed in 160ms (View: 53, DB: 1) | 200 OK [http://localhost/requests/1]
+
+
+Processing RequestsController#index (for 127.0.0.1 at 2011-05-25 09:30:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"requests"}
+  [4;35;1mRequest Load (0.8ms)[0m   [0mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering requests/index
+Completed in 115ms (View: 16, DB: 1) | 200 OK [http://localhost/]
