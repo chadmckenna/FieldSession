@@ -68,7 +68,7 @@ GEM
       activeresource (= 2.3.11)
       activesupport (= 2.3.11)
       rake (>= 0.8.3)
-    rake (0.8.7)
+    rake (0.9.0)
     rcov (0.9.9)
     rest-client (1.6.1)
       mime-types (>= 1.16)
