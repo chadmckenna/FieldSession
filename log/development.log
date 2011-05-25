@@ -2450,3 +2450,141 @@ Rendering template within layouts/application
 Rendering members/requests/index
 Rendered layouts/_loginbar (1.0ms)
 Completed in 351ms (View: 97, DB: 9) | 200 OK [http://localhost/members/requests]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 11:33:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered layouts/_loginbar (3.9ms)
+Completed in 599ms (View: 204, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 11:33:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered layouts/_loginbar (1.7ms)
+Completed in 404ms (View: 97, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-05-25 11:33:23) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"username"=>"bmakuh", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"xALEI2+4kNR1iGHEbn+Biz7btIh+BNTxQ4MjZllcoCE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (48.4ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".username) = 'bmakuh') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered layouts/_loginbar (10.2ms)
+Completed in 3168ms (View: 125, DB: 48) | 200 OK [http://localhost/user_sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2011-05-25 11:33:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered partials/_header (14.3ms)
+Rendered layouts/_loginbar (10.2ms)
+Completed in 2306ms (View: 1801, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2011-05-25 11:33:49) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"xALEI2+4kNR1iGHEbn+Biz7btIh+BNTxQ4MjZllcoCE=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"bmakuh", "password"=>"[FILTERED]", "email"=>"bmakuh@mines.edu"}}
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'bmakuh@mines.edu') LIMIT 1[0m
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'bmakuh') LIMIT 1[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '44dcafa3a883c642ce4cbf1fba8a7be0092152b0aaabbe13a7c39f20ddf555557f78a64507893b7563cec452de829bbf6b9cda88ad23ece60ae66ad57cb92b15') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered partials/_header (1.0ms)
+Rendered layouts/_loginbar (1.6ms)
+Completed in 782ms (View: 187, DB: 6) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2011-05-25 11:34:06) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"xALEI2+4kNR1iGHEbn+Biz7btIh+BNTxQ4MjZllcoCE=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"bmakuh", "password"=>"[FILTERED]", "email"=>"bmakuh@mines.edu"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'bmakuh@mines.edu') LIMIT 1[0m
+  [4;36;1mUser Load (5.8ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'bmakuh') LIMIT 1[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '22ad5670e28ae1292e7f4ab9530ea9d5edb6059b659fe83387a34664035f13c9f4c803d492f5807b777271347ad17c30ac499cae08af666601d7667b067a1488') LIMIT 1[0m
+  [4;36;1mUser Create (29.7ms)[0m   [0;1mINSERT INTO "users" ("created_at", "crypted_password", "updated_at", "username", "role_id", "password_salt", "persistence_token", "phone", "last_name", "email", "first_name") VALUES('2011-05-25 17:34:07', 'b9e361412e0d704689637fd1a8b391988a9dcc02de8cf9a1bfe9cbb300a741946ec1a64d06c2e6a90a723ddb73c2dca7701bbcefd80169fefbde857cfa499765', '2011-05-25 17:34:07', 'bmakuh', NULL, 'NBf548FaG39FUaEurhZ5', '22ad5670e28ae1292e7f4ab9530ea9d5edb6059b659fe83387a34664035f13c9f4c803d492f5807b777271347ad17c30ac499cae08af666601d7667b067a1488', NULL, NULL, 'bmakuh@mines.edu', NULL)[0m
+Redirected to http://localhost:3000/
+Completed in 743ms (DB: 37) | 302 Found [http://localhost/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 11:34:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (6.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '22ad5670e28ae1292e7f4ab9530ea9d5edb6059b659fe83387a34664035f13c9f4c803d492f5807b777271347ad17c30ac499cae08af666601d7667b067a1488') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+
+ActionView::TemplateError (undefined method `role' for #<User:0xb674f7b4>) on line #3 of app/views/layouts/_userbar.html.haml:
+1: #userbar
+2:   %p
+3:     = "#{current_user}, #{current_user.role.to_s.capitalize}"
+4:     = link_to 'log out', logout_path
+5:   %p= Time.now.to_s(:datetime)
+
+    app/views/layouts/_userbar.html.haml:3:in `_run_haml_app47views47layouts47_userbar46html46haml_locals_object_userbar'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.1.1) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/helpers/application_helper.rb:9:in `userbar'
+    app/views/layouts/application.html.haml:15:in `_run_haml_app47views47layouts47application46html46haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+    sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (494.7ms)
+Rendered rescues/_request_and_response (11.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-05-25 11:36:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '22ad5670e28ae1292e7f4ab9530ea9d5edb6059b659fe83387a34664035f13c9f4c803d492f5807b777271347ad17c30ac499cae08af666601d7667b067a1488') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered layouts/_userbar (1.1ms)
+
+ActionView::TemplateError (undefined method `is_admin?' for #<User:0xb6908268>) on line #2 of app/views/layouts/_menubar.html.haml:
+1: %ul.menubar
+2:   %li= link_to 'home', home_url_for(current_user), :title => 'Home'
+3:   = admin_menu_items(current_user)
+4:   %li= link_to 'Requests', request_url_for(current_user), :title => 'Requests'
+5:   = members_menu_items(current_user)
+
+    app/controllers/application_controller.rb:16:in `home_url_for'
+    (eval):2:in `send'
+    (eval):2:in `home_url_for'
+    app/views/layouts/_menubar.html.haml:2:in `_run_haml_app47views47layouts47_menubar46html46haml_locals_menubar_object'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.1.1) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/helpers/application_helper.rb:16:in `menubar'
+    app/views/layouts/application.html.haml:17:in `_run_haml_app47views47layouts47application46html46haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+    sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (219.8ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
