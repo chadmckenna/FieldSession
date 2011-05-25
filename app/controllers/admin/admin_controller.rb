@@ -19,4 +19,3 @@ class Admin::AdminController < ApplicationController
     end
   
 end
->>>>>>> f72359fb99c0ddba4e52123451f771bb94a2b215
