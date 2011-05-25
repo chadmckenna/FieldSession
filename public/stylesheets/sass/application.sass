@@ -1,10 +1,10 @@
 $primary_color: #aaffaa
 $errorBorder: #cc6666
 $noticeBorder: #66cc66
-$linkColor: #338833
+$linkColor: #39f
 
 body
-  background-color: $primary_color
+  background-color: #fff
   font-family: Verdana, Helvetica, Arial
   font-size: 14px
   margin: 0 !important
@@ -13,7 +13,7 @@ a
   color: $linkColor
   text-decoration: none
   &:hover
-    text-decoration: underline
+    color: red
   img
     border: none
 
@@ -23,23 +23,28 @@ a
   overflow: hidden
     
 #masthead
+  font-family: 'Rokkitt', serif
   padding: 0 !important
-  height: 50px
+  background: #c7e3ff
   position: fixed
   top: 0 !important
   width: 100%
-  background: white
+  top: 0
+  z-index: 1
   border-bottom: 1px solid black
-  -webkit-box-shadow: 0 0 20px black
-  -moz-box-shadow: 0 0 20px black
+  -webkit-box-shadow: 0 0 12px #888
+  -moz-box-shadow: 0 0 12px #888
   h1
     float: left
     width: 30%
     padding: 0 !important
     margin: .4em
+    font-size: 4em
   #userbar
     float: right
     width: 60%
+    font-size: 1.5em
+    margin: 1em 0 1em 0
     p
       float: right
       display: inline
@@ -52,13 +57,13 @@ a
       display: inline
       float: left
       margin-right: 1em
+  #clear
+    clear: both
 
 #container
   width: 75%
-  min-height: 30px
-  margin: 50px auto
+  margin: 100px auto 0 auto
   background: white
-  z-index: -1 !important
   position: relative
   #content
     padding: 20px 40px

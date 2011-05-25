@@ -1,14 +1,14 @@
 body {
-  background-color: #aaffaa;
+  background-color: white;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   margin: 0 !important; }
 
 a {
-  color: #338833;
+  color: #3399ff;
   text-decoration: none; }
   a:hover {
-    text-decoration: underline; }
+    color: red; }
   a img {
     border: none; }
 
@@ -18,23 +18,28 @@ a {
   overflow: hidden; }
 
 #masthead {
+  font-family: "Rokkitt", serif;
   padding: 0 !important;
-  height: 50px;
+  background: #c7e3ff;
   position: fixed;
   top: 0 !important;
   width: 100%;
-  background: white;
+  top: 0;
+  z-index: 1;
   border-bottom: 1px solid black;
-  -webkit-box-shadow: 0 0 20px black;
-  -moz-box-shadow: 0 0 20px black; }
+  -webkit-box-shadow: 0 0 12px #888888;
+  -moz-box-shadow: 0 0 12px #888888; }
   #masthead h1 {
     float: left;
     width: 30%;
     padding: 0 !important;
-    margin: 0.4em; }
+    margin: 0.4em;
+    font-size: 4em; }
   #masthead #userbar {
     float: right;
-    width: 60%; }
+    width: 60%;
+    font-size: 1.5em;
+    margin: 1em 0 1em 0; }
     #masthead #userbar p {
       float: right;
       display: inline;
@@ -47,13 +52,13 @@ a {
       display: inline;
       float: left;
       margin-right: 1em; }
+  #masthead #clear {
+    clear: both; }
 
 #container {
   width: 75%;
-  min-height: 30px;
-  margin: 50px auto;
+  margin: 100px auto 0 auto;
   background: white;
-  z-index: -1 !important;
   position: relative; }
   #container #content {
     padding: 20px 40px; }
