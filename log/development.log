@@ -1145,3 +1145,169 @@ NoMethodError (undefined method `require_user' for #<Admin::RequestsController:0
 Rendered rescues/_trace (333.4ms)
 Rendered rescues/_request_and_response (5.5ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::RequestsController#index (for 127.0.0.1 at 2011-05-25 10:40:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/requests"}
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 124ms (DB: 0) | 302 Found [http://localhost/admin/requests]
+
+
+Processing RequestsController#index (for 127.0.0.1 at 2011-05-25 10:40:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"requests"}
+  [4;36;1mRequest Load (3.1ms)[0m   [0;1mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering requests/index
+Completed in 83ms (View: 41, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2011-05-25 10:40:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+Redirected to http://localhost:3000/
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 175ms (DB: 0) | 302 Found [http://localhost/admin/users]
+
+
+Processing RequestsController#index (for 127.0.0.1 at 2011-05-25 10:40:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"requests"}
+  [4;35;1mRequest Load (3.8ms)[0m   [0mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering requests/index
+Completed in 76ms (View: 40, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing Members::UsersController#index (for 127.0.0.1 at 2011-05-25 10:42:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"members/users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, new, and show):
+  compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+  sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Members::RequestsController#index (for 127.0.0.1 at 2011-05-25 10:42:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"members/requests"}
+  [4;36;1mRequest Load (1.8ms)[0m   [0;1mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering members/requests/index
+Completed in 2449ms (View: 1903, DB: 2) | 200 OK [http://localhost/members/requests]
+
+
+Processing Members::RequestsController#index (for 127.0.0.1 at 2011-05-25 11:06:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"members/requests"}
+  [4;35;1mRequest Load (0.8ms)[0m   [0mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering members/requests/index
+
+ActionView::TemplateError (undefined method `userbar' for #<ActionView::Base:0xb67b1568>) on line #13 of app/views/layouts/application.html.haml:
+10: 
+11:   %body
+12:     #container
+13:       = userbar(current_user)
+14:       - flash.each do |name, msg|
+15:         = content_tag :div, msg, :id => "flash_#{name}"
+16: 
+
+    app/views/layouts/application.html.haml:13:in `_run_haml_app47views47layouts47application46html46haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+    sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (179.5ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Members::RequestsController#index (for 127.0.0.1 at 2011-05-25 11:09:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"members/requests"}
+  [4;36;1mRequest Load (3.9ms)[0m   [0;1mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering members/requests/index
+
+ActionView::TemplateError (undefined method `google_webfont_stylesheet' for #<ActionView::Base:0xb686dfd8>) on line #9 of app/views/layouts/application.html.haml:
+6:     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+7:     %link{ :rel => "shortcut icon", :href => "/favicon.png" }
+8:     = stylesheet_link_tag 'screen'
+9:     = google_webfont_stylesheet('Slackey')
+10:     = javascript_include_tag :defaults
+11:   %body{:class => controller.action_name, :id => controller.controller_name}
+12:     #wrapper
+
+    app/views/layouts/application.html.haml:9:in `_run_haml_app47views47layouts47application46html46haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+    sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (368.9ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Members::RequestsController#index (for 127.0.0.1 at 2011-05-25 11:10:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"members/requests"}
+  [4;35;1mRequest Load (1.7ms)[0m   [0mSELECT * FROM "requests" [0m
+Rendering template within layouts/application
+Rendering members/requests/index
+
+ActionView::TemplateError (undefined method `userbar' for #<ActionView::Base:0xb6512a78>) on line #13 of app/views/layouts/application.html.haml:
+10:   %body{:class => controller.action_name, :id => controller.controller_name}
+11:     #wrapper
+12:       #masthead
+13:         = userbar(current_user)
+14:         %h1= link_to APP_TITLE, root_path, :title => 'Home Screen'
+15:         = menubar(current_user)
+16:       #content
+
+    app/views/layouts/application.html.haml:13:in `_run_haml_app47views47layouts47application46html46haml'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.1.1) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    compass (0.11.1) lib/compass/app_integration/rails/actionpack2/action_controller.rb:7:in `process'
+    sass (3.1.1) rails/./lib/sass/plugin/rack.rb:54:in `call'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (395.4ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
