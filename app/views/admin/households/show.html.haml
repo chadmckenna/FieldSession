@@ -1,0 +1,14 @@
+- title "Household"
+
+%p
+  %strong Name:
+  =h @household.name
+  %strong Credits:
+  =h @household.credits
+
+%p
+  = link_to "Edit", edit_household_path(@household)
+  |
+  = link_to "Destroy", @household, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", households_path

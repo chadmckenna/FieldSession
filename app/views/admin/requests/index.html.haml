@@ -1,0 +1,17 @@
+- title "Requests"
+%table
+  %tr
+    %th Date
+    %th Start Time
+    %th End Time
+    %th Cost
+  - for request in @requests
+    %tr
+      %td= h request.date
+      %td= h request.start_time
+      %td= h request.end_time
+      %td= h request.cost
+      %td= link_to "Show", request
+      %td= link_to "Edit", edit_request_path(request)
+      %td= link_to "Destroy", request, :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Request", new_request_path
