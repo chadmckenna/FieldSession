@@ -1,4 +1,4 @@
-class HouseholdsController < ApplicationController
+class Admin::HouseholdsController < Admin::AdminController
   def index
     @households = Household.all
   end

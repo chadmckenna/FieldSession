@@ -1,4 +1,4 @@
-class RequestsController < ApplicationController
+class Admin::RequestsController < Admin::AdminController
   def index
     @requests = Request.all
   end
