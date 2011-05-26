@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_salt
       t.string :phone
       t.integer :role_id
-      t.integer :household_id
       t.string :first_name
       t.string :last_name
       t.timestamps

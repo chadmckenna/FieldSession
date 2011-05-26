@@ -13,10 +13,13 @@ class Members::HouseholdsController < Members::MembersController
 
   def create
     @household = Household.new(params[:household])
+    current_user.household = @household
+    current_user.save!
     if @household.save
-      flash[:notice] = "Successfully created household."
-      redirect_to @household
+      flash[:success] = "Successfully created #{@household.name} household."
+      redirect_to members_root_url
     else
+      flash[:error] = "Error creating household"
       render :action => 'new'
     end
   end
@@ -28,9 +31,10 @@ class Members::HouseholdsController < Members::MembersController
   def update
     @household = Household.find(params[:id])
     if @household.update_attributes(params[:household])
-      flash[:notice] = "Successfully updated household."
+      flash[:success] = "Successfully updated #{@household.name} household."
       redirect_to @household
     else
+      flash[:error] = "Error updating household"
       render :action => 'edit'
     end
   end
@@ -38,7 +42,7 @@ class Members::HouseholdsController < Members::MembersController
   def destroy
     @household = Household.find(params[:id])
     @household.destroy
-    flash[:notice] = "Successfully destroyed household."
+    flash[:success] = "Successfully deleted #{@household.name} household."
     redirect_to households_url
   end
 end

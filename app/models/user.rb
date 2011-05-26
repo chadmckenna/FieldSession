@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   belongs_to :household
   belongs_to :role
+  
+  has_many :requests
 
   default_scope :include => :role
 
