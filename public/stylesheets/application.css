@@ -70,9 +70,7 @@ a {
   #container #content {
     padding: 20px 40px; }
     #container #content #left-column {
-      height: 500px;
       width: 300px;
-      border: 1px solid;
       float: left; }
       #container #content #left-column #photo {
         width: 280px;
@@ -83,12 +81,34 @@ a {
         margin: 10px 10px 0px 10px; }
         #container #content #left-column #info .title {
           font-weight: bold;
-          font-size: 1.1em; }
+          font-size: 1em; }
     #container #content #right-column {
-      height: 500px;
       width: 800px;
-      border: 1px solid;
-      float: right; }
+      float: right;
+      padding: 0px; }
+      #container #content #right-column #top {
+        width: 97%;
+        height: 100px;
+        padding: 10px; }
+        #container #content #right-column #top #household-info {
+          width: 70%;
+          float: left; }
+          #container #content #right-column #top #household-info h1 {
+            margin: 0px; }
+        #container #content #right-column #top #buttons {
+          float: right;
+          margin: 10px 10px 0px 0px;
+          width: 28%; }
+      #container #content #right-column #content {
+        width: 98%;
+        font-weight: bold;
+        padding: 0px; }
+        #container #content #right-column #content #requests {
+          width: 100%;
+          border: 1px solid;
+          height: 500px;
+          overflow: auto;
+          margin-top: 10px; }
     #container #content a {
       border: 1px solid #464f3f;
       background: #dddddd;
