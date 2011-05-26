@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :households
   map.resources :roles
   map.resources :requests
-  map.root :controller => 'user_sessions', :action => 'new'
+  map.root :controller => 'home'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
