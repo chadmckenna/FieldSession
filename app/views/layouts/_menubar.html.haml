@@ -1,4 +1,6 @@
 %ul.menubar
   %li= link_to 'home', home_url_for(current_user), :title => 'Home'
   = admin_menu_items(current_user)
-  %li= link_to 'requests', "request_url_for(current_user)", :title => 'Requests'
+  %li= link_to 'requests', members_requests_path, :title => 'Requests'
+  %li= link_to 'settings', edit_members_user_path(current_user)
+  %li= link_to 'log out', logout_path

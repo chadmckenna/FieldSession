@@ -6,10 +6,15 @@ class Members::UsersController < Members::MembersController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Thank you for signing up! You are now logged in."
-      redirect_to root_url
+      flash[:success] = "Thank you for signing up! You are now logged in."
+      redirect_to members_root_url
     else
       render :action => 'new'
     end
+  end
+  
+  def edit
+    flash[:success] = "This is where you'd edit your info."
+    redirect_to members_root_url
   end
 end

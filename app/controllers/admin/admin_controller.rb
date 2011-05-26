@@ -17,5 +17,4 @@ class Admin::AdminController < ApplicationController
         format.js { head :unauthorized }
       end
     end
-  
 end
