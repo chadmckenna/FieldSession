@@ -3,6 +3,9 @@ $errorBorder: #cc6666
 $noticeBorder: #66cc66
 /*$linkColor: #39f*/
 $linkColor: #C4D7A4
+$mastheadBG: #464F3F
+$lightGrey: #ddd
+$darkGrey: #aaa
 
 body
   background-color: #fff
@@ -22,12 +25,12 @@ a
   clear: both
   height: 0
   overflow: hidden
-    
+
 #masthead
   font-family: 'Rokkitt', serif
   padding: 0 !important
   /*background: #c7e3ff*/
-  background: #464F3F
+  background: $mastheadBG
   position: fixed
   top: 0 !important
   width: 100%
@@ -44,7 +47,7 @@ a
     font-size: 4em
   #userbar
     float: right
-    /*width: 60%
+    /*width: 60%*/
     font-size: 1.5em
     margin: 2em 0 2em 0
     p
@@ -59,7 +62,7 @@ a
     display: inline !important
     li
       display: inline
-      /*float: left
+      /*float: left*/
       margin-right: 1em
   #clear
     clear: both
@@ -71,13 +74,33 @@ a
   position: relative
   #content
     padding: 20px 40px
+    a
+      border: 1px solid $mastheadBG
+      background: $lightGrey
+      color: $mastheadBG
+      padding: .2em
+      -moz-border-radius: .3em
+      -webkit-border-radius: .3em
+      /* fallback/image non-cover color */
+      /* fallback image */
+      background-image: url(images/fallback-gradient.png)
+      /* Firefox 3.6+ */
+      background-image: -moz-linear-gradient($lightGrey, $darkGrey)
+      /* Safari 4+, Chrome 1+ */
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($darkGrey), to($lightGrey))
+      /* Safari 5.1+, Chrome 10+ */
+      background-image: -webkit-linear-gradient($lightGrey, $darkGrey)
+      /* Opera 11.10+ */
+      background-image: -o-linear-gradient($lightGrey, $darkGrey)
+      &:hover
+        border: 1px solid $darkGrey
     #form
       a
         color: #375D38
 
-/*#flash_notice, #flash_error
-/*  padding: 5px 8px
-/*  margin: 10px 0
+/*#flash_notice, #flash_error*/
+/*  padding: 5px 8px*/
+/*  margin: 10px 0*/
 
 /*#flash_notice
 /*  background-color: #ccffcc
@@ -85,7 +108,7 @@ a
 
 /*#flash_error
 /*  background-color: #ffcccc
-/*  border: solid 1px $errorBorder
+/*  border: solid 1px $errorBorder*/
 
 .flash.success
   background: #F0FFF0
@@ -97,12 +120,12 @@ a
 
 .flash.error
   background: #FFF0F0
-  color: #900 
+  color: #900
   border: solid
   border-color: #900
   text-align: center
   -moz-border-radius: 10px
-  -webkit-border-radius: 10px  
+  -webkit-border-radius: 10px
 
 
 .fieldWithErrors
@@ -143,3 +166,4 @@ a
 
 .center
   text-align: center
+
