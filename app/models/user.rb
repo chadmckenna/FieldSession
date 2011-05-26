@@ -45,6 +45,6 @@ class User < ActiveRecord::Base
     end
 
     def assign_default_role
-      self.role = Role.find_by_name('member') if role_id.blank?
+      self.role = Role.find_by_name('member') if role.nil?
     end
 end
