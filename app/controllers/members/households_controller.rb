@@ -13,9 +13,11 @@ class Members::HouseholdsController < Members::MembersController
 
   def create
     @household = Household.new(params[:household])
+    current_user.household = @household
+    current_user.save!
     if @household.save
       flash[:notice] = "Successfully created household."
-      redirect_to @household
+      redirect_to members_root_url
     else
       render :action => 'new'
     end
