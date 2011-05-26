@@ -8,6 +8,7 @@ class CreateChildren < ActiveRecord::Migration
       t.string :allergies
       t.string :medications
       t.string :notes
+      t.integer :household_id
       t.timestamps
     end
   end
