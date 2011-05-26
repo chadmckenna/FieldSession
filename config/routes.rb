@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :children
     members.resources :households
     members.resources :requests
-    members.root :controller => 'members', :action => 'index'
+    members.root :controller => 'children', :action => 'index'
   end
 
   map.connect ':controller/:action/:id'
