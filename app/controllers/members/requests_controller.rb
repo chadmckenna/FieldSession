@@ -15,7 +15,7 @@ class Members::RequestsController < Members::MembersController
     @request = Request.new(params[:request])
     if @request.save
       flash[:notice] = "Successfully created request."
-      redirect_to @request
+      redirect_to members_request_path(@request)
     else
       render :action => 'new'
     end
@@ -29,7 +29,7 @@ class Members::RequestsController < Members::MembersController
     @request = Request.find(params[:id])
     if @request.update_attributes(params[:request])
       flash[:notice] = "Successfully updated request."
-      redirect_to @request
+      redirect_to members_request_path(@request)
     else
       render :action => 'edit'
     end
@@ -39,6 +39,6 @@ class Members::RequestsController < Members::MembersController
     @request = Request.find(params[:id])
     @request.destroy
     flash[:notice] = "Successfully destroyed request."
-    redirect_to requests_url
+    redirect_to members_requests_url
   end
 end
