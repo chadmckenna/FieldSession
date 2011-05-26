@@ -10,7 +10,7 @@ class Request < ActiveRecord::Base
 
   protected
     def assign_household
-      self.household = user.household if self.household.nil?
+      self.household = @user.household if self.household.nil?
     end
 end
 
