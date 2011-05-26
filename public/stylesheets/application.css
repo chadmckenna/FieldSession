@@ -68,17 +68,32 @@ a {
     #container #content #form a {
       color: #375d38; }
 
-#flash_notice, #flash_error {
-  padding: 5px 8px;
-  margin: 10px 0; }
+/*#flash_notice, #flash_error */
+/*  padding: 5px 8px */
+/*  margin: 10px 0 */
+/*#flash_notice */
+/*  background-color: #ccffcc */
+/*  border: solid 1px $noticeBorder */
+/*#flash_error */
+/*  background-color: #ffcccc */
+/*  border: solid 1px $errorBorder */
+.flash.success {
+  background: #f0fff0;
+  color: #006600;
+  border: solid;
+  border-color: #006600;
+  text-align: center;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px; }
 
-#flash_notice {
-  background-color: #ccffcc;
-  border: solid 1px #66cc66; }
-
-#flash_error {
-  background-color: #ffcccc;
-  border: solid 1px #cc6666; }
+.flash.error {
+  background: #fff0f0;
+  color: #990000;
+  border: solid;
+  border-color: #990000;
+  text-align: center;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px; }
 
 .fieldWithErrors {
   display: inline; }
