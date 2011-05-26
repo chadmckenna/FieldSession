@@ -68,8 +68,8 @@ a {
   #container #content {
     padding: 20px 40px; }
     #container #content a {
-      border: 1px solid #464f3f;
-      background: #dddddd;
+      border: 1px solid #aaaaaa;
+      background: #eeeeee;
       color: #464f3f;
       padding: 0.2em;
       -moz-border-radius: 0.3em;
@@ -78,15 +78,15 @@ a {
       /* fallback image */
       background-image: url(images/fallback-gradient.png);
       /* Firefox 3.6+ */
-      background-image: -moz-linear-gradient(#dddddd, #aaaaaa);
+      background-image: -moz-linear-gradient(#eeeeee, #cccccc);
       /* Safari 4+, Chrome 1+ */
-      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aaaaaa), to(#dddddd));
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#eeeeee));
       /* Safari 5.1+, Chrome 10+ */
-      background-image: -webkit-linear-gradient(#dddddd, #aaaaaa);
+      background-image: -webkit-linear-gradient(#eeeeee, #cccccc);
       /* Opera 11.10+ */
-      background-image: -o-linear-gradient(#dddddd, #aaaaaa); }
+      background-image: -o-linear-gradient(#eeeeee, #cccccc); }
       #container #content a:hover {
-        border: 1px solid #aaaaaa; }
+        border: 1px solid #777777; }
     #container #content #form a {
       color: #375d38; }
 

@@ -11,7 +11,7 @@
   %p
     = f.label :date_of_birth
     %br
-    = f.date_select :date_of_birth
+    = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year)
   %p
     = f.label :dietary_restrictions
     %br
@@ -30,3 +30,4 @@
     = f.text_field :notes
   %p
     = f.submit
+
