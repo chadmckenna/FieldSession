@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20110526180432) do
     t.string   "password_salt"
     t.string   "phone"
     t.integer  "role_id"
+    t.integer  "household_id"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
