@@ -200,6 +200,10 @@ a {
     margin: 0.5em;
     float: left; }
 
+input[type="text"], select {
+  border: 1px solid #464f3f;
+  padding: 0.2em; }
+
 #main {
   height: 100px;
   background-color: white; }
