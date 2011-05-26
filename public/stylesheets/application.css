@@ -185,6 +185,21 @@ a {
       font-size: 12px;
       list-style: disc; }
 
+/* Requests styles */
+.request {
+  border: 1px solid #464f3f;
+  margin-bottom: 1em; }
+  .request .tools {
+    float: right;
+    margin: 0.5em; }
+  .request .clear {
+    clear: both; }
+  .request img {
+    width: 48px;
+    height: 48px;
+    margin: 0.5em;
+    float: left; }
+
 #main {
   height: 100px;
   background-color: white; }
