@@ -3,17 +3,18 @@
   %p
     = f.label :date
     %br/
-    = f.datetime_select :date
+    = f.date_select(:date, :start_year => Time.now.year, :end_year => Time.now.year + 1, :order => [:month, :day, :year])
   %p
     = f.label :start_time
     %br/
-    = f.datetime_select :start_time
+    = f.time_select :start_time
   %p
     = f.label :end_time
     %br/
-    = f.datetime_select :end_time
+    = f.time_select :end_time
   %p
     = f.label :cost
     %br/
     = f.text_field :cost
   %p= f.submit
+

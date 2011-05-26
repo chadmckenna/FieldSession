@@ -5,6 +5,7 @@ class Request < ActiveRecord::Base
   belongs_to :household
 
   validates_presence_of :cost
+  validates_numericality_of :cost
 
   before_create :assign_household
 

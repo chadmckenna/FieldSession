@@ -117,29 +117,29 @@ a
           height: 500px
           overflow: auto
           margin-top: 10px
-    a
-      border: 1px solid #aaa
-      background: $lightGrey
-      color: $mastheadBG
-      padding: .2em
-      -moz-border-radius: .3em
-      -webkit-border-radius: .3em
-      /* fallback/image non-cover color */
-      /* fallback image */
-      background-image: url(images/fallback-gradient.png)
-      /* Firefox 3.6+ */
-      background-image: -moz-linear-gradient($lightGrey, $darkGrey)
-      /* Safari 4+, Chrome 1+ */
-      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($darkGrey), to($lightGrey))
-      /* Safari 5.1+, Chrome 10+ */
-      background-image: -webkit-linear-gradient($lightGrey, $darkGrey)
-      /* Opera 11.10+ */
-      background-image: -o-linear-gradient($lightGrey, $darkGrey)
-      &:hover
-        border: 1px solid #777
     #form
       a
         color: #375D38
+  a, input[type="submit"], select
+    border: 1px solid #aaa
+    background: $lightGrey
+    color: $mastheadBG
+    padding: .2em
+    -moz-border-radius: .3em
+    -webkit-border-radius: .3em
+    /* fallback/image non-cover color */
+    /* fallback image */
+    background-image: url(images/fallback-gradient.png)
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient($lightGrey, $darkGrey)
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($darkGrey), to($lightGrey))
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient($lightGrey, $darkGrey)
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient($lightGrey, $darkGrey)
+    &:hover
+      border: 1px solid #777
 
 /*#flash_notice, #flash_error*/
 /*  padding: 5px 8px*/
@@ -221,7 +221,7 @@ a
     margin: .5em
     float: left
 
-input[type="text"], select
+input[type="text"], input[type="password"]
   border: 1px solid $mastheadBG
   padding: .2em
 

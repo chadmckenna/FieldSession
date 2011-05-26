@@ -109,28 +109,28 @@ a {
           height: 500px;
           overflow: auto;
           margin-top: 10px; }
-    #container #content a {
-      border: 1px solid #aaaaaa;
-      background: #eeeeee;
-      color: #464f3f;
-      padding: 0.2em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em;
-      /* fallback/image non-cover color */
-      /* fallback image */
-      background-image: url(images/fallback-gradient.png);
-      /* Firefox 3.6+ */
-      background-image: -moz-linear-gradient(#eeeeee, #cccccc);
-      /* Safari 4+, Chrome 1+ */
-      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#eeeeee));
-      /* Safari 5.1+, Chrome 10+ */
-      background-image: -webkit-linear-gradient(#eeeeee, #cccccc);
-      /* Opera 11.10+ */
-      background-image: -o-linear-gradient(#eeeeee, #cccccc); }
-      #container #content a:hover {
-        border: 1px solid #777777; }
     #container #content #form a {
       color: #375d38; }
+  #container a, #container input[type="submit"], #container select {
+    border: 1px solid #aaaaaa;
+    background: #eeeeee;
+    color: #464f3f;
+    padding: 0.2em;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    /* fallback/image non-cover color */
+    /* fallback image */
+    background-image: url(images/fallback-gradient.png);
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(#eeeeee, #cccccc);
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#eeeeee));
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(#eeeeee, #cccccc);
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(#eeeeee, #cccccc); }
+    #container a:hover, #container input[type="submit"]:hover, #container select:hover {
+      border: 1px solid #777777; }
 
 /*#flash_notice, #flash_error */
 /*  padding: 5px 8px */
@@ -208,7 +208,7 @@ a {
     margin: 0.5em;
     float: left; }
 
-input[type="text"], select {
+input[type="text"], input[type="password"] {
   border: 1px solid #464f3f;
   padding: 0.2em; }
 
