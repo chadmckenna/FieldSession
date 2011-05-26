@@ -64,15 +64,35 @@ a
     clear: both
 
 #container
-  width: 75%
+  width: 98%
   margin: 100px auto 0 auto
   background: white
   position: relative
+  a
+    color: #375D38
   #content
     padding: 20px 40px
-    #form
-      a
-        color: #375D38
+    #left-column
+      height: 500px
+      width: 300px
+      border: 1px solid
+      float: left
+      #photo
+        width: 280px
+        height: 280px
+        border: 1px solid
+        margin: 10px auto 0px auto
+      #info
+        margin: 10px 10px 0px 10px
+        .title
+          font-weight: bold
+          font-size: 1.1em
+    #right-column
+      height: 500px
+      width: 800px
+      border: 1px solid
+      float: right
+    
 
 /*#flash_notice, #flash_error
 /*  padding: 5px 8px
@@ -97,8 +117,7 @@ a
 .flash.error
   background: #FFF0F0
   color: #900 
-  border: solid
-  border-color: #900
+  border: 1px solid #900
   text-align: center
   -moz-border-radius: 10px
   -webkit-border-radius: 10px  
