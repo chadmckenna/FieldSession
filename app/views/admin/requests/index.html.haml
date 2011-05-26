@@ -1,17 +1,17 @@
 - title "Requests"
-%table
-  %tr
-    %th Date
-    %th Start Time
-    %th End Time
-    %th Cost
-  - for request in @requests
-    %tr
-      %td= h request.date
-      %td= h request.start_time
-      %td= h request.end_time
-      %td= h request.cost
-      %td= link_to "Show", admin_request_path(request)
-      %td= link_to "Edit", edit_admin_request_path(request)
-      %td= link_to "Destroy", admin_request_path(request), :confirm => 'Are you sure?', :method => :delete
+- for request in @requests
+  .request
+    %img
+    -#%h2=h request.household.name
+    %h2 household title here
+    .date=h request.date
+    .start_time=h request.start_time
+    .end_time=h request.end_time
+    .cost=h request.cost
+    .tools
+      %span= link_to "Show", admin_request_path(request)
+      %span= link_to "Edit", edit_admin_request_path(request)
+      %span= link_to admin_request_path(request), :confirm => 'Are you sure?', :method => :delete
+    .clear .
 %p= link_to "New Request", new_admin_request_path
+
