@@ -1,16 +1,15 @@
 authorization do
   role :member do
     has_permission_on :members_members, :to => :read
-    has_permission_on :members_velociraptors, :to => :manage
     has_permission_on :members_favorites, :to => :manage
     has_permission_on :members_favorites, :to => :toggle
+    has_permission_on :members_children, :to => :manage
   end
   role :administrator do
     includes :member
     has_permission_on :admin_admin, :to => :read
     has_permission_on :admin_users, :to => :manage
     has_permission_on :admin_roles, :to => :manage
-    has_permission_on :admin_velociraptors, :to => :manage
   end
   role :developer do
     includes :administrator

@@ -100,8 +100,7 @@ a {
 .flash.success {
   background: #f0fff0;
   color: #006600;
-  border: solid;
-  border-color: #006600;
+  border: 1px solid #006600;
   text-align: center;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
