@@ -3,4 +3,7 @@ class Request < ActiveRecord::Base
 
   has_many :children
   belongs_to :household
+
+  validates_presence_of :cost
 end
+
