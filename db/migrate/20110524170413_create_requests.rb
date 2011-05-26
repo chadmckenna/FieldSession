@@ -4,7 +4,6 @@ class CreateRequests < ActiveRecord::Migration
       t.datetime :date
       t.datetime :start_time
       t.datetime :end_time
-      t.integer :user_id
       t.decimal :cost
       t.timestamps
     end
