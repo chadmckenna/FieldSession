@@ -6,9 +6,9 @@ class Request < ActiveRecord::Base
 
   validates_presence_of :cost
   validates_numericality_of :cost
-  validates_is_after :date
-  validates_is_after :start_time
-  validates_is_after :end_time, :after => :start_time
+  #validates_is_after :date
+  #validates_is_after :start_time
+  #validates_is_after :end_time, :after => :start_time
 
 end
 

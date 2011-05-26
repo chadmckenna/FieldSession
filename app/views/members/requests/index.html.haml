@@ -3,7 +3,7 @@
   .request
     %img
     -#%h2=h request.household.name
-    %h2 household title here
+    %h2="#{request.user.household}'s Household"
     .date
       =h request.start_time.to_s(:nicetime)
       to
