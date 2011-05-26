@@ -5,9 +5,7 @@ module ApplicationHelper
   end
   
   def userbar(user)
-    if user
-      render :partial => 'layouts/userbar'
-    else
+    unless user
       render :partial => 'layouts/loginbar'
     end
   end
