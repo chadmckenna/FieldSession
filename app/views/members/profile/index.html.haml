@@ -29,9 +29,9 @@
 #right-column
   #top
     #household-info
-      %h1 The Household
+      %h1= "The #{@household.name.capitalize} Household"
       %br
-      Credit Balance: | #{link_to 'edit household', '#'}
+      = "Credit Balance: #{@household.credits} | #{link_to 'edit household', '#'}"
     #buttons
       = link_to '+ Create a New Request', new_members_request_path
   #content
