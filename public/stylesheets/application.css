@@ -42,15 +42,16 @@ a {
     float: right;
     /*width: 60% */
     font-size: 1.5em;
-    margin: 1em 20px 1em 0; }
+    margin: 2em 0 2em 0; }
     #masthead #userbar p {
       float: right;
       display: inline;
       margin-right: 1em; }
   #masthead .menubar {
+    margin: 1.9em 0 0 0;
     list-style-type: none;
     font-size: 1.5em;
-    float: left;
+    float: right;
     display: inline !important; }
     #masthead .menubar li {
       display: inline;
