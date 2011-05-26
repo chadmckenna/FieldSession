@@ -189,6 +189,14 @@ a {
 .request {
   border: 1px solid #464f3f;
   margin-bottom: 1em; }
+  .request h2 {
+    margin-bottom: 0;
+    float: left;
+    display: inline; }
+  .request .date {
+    clear: both; }
+  .request .cost {
+    clear: both; }
   .request .tools {
     float: right;
     margin: 0.5em; }

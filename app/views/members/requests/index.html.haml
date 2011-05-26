@@ -4,10 +4,16 @@
     %img
     -#%h2=h request.household.name
     %h2 household title here
-    .date=h request.date
-    .start_time=h request.start_time
-    .end_time=h request.end_time
-    .cost=h request.cost
+    .date
+      =h request.start_time.to_s(:nicetime)
+      to
+      =h request.end_time.to_s(:nicetime)
+      on
+      =h request.date.to_s(:short)
+    .cost
+      Cost:
+      =h request.cost
+      credits
     .tools
       %span= link_to "Show", members_request_path(request)
       %span= link_to "Edit", edit_members_request_path(request)
