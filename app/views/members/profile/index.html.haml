@@ -1,0 +1,40 @@
+#left-column
+  #photo
+    photo
+  #info
+    %font.title Primary Caregivers
+    %br
+    Caregivers here
+    %br
+    %br
+    %font.title Secondary Caregivers
+    %br
+    Caregivers
+    %br
+    %br
+    %font.title Children
+    %br
+    Children
+    %br
+    %br
+    %font.title Address
+    %br
+    Address
+    %br
+    %br
+    %font.title Phone
+    %br
+    Phone
+
+#right-column
+  #top
+    #household-info
+      %h1 The Household
+      %br
+      Credit Balance: | #{link_to 'edit household', '#'}
+    #buttons
+      = link_to '+ Create a New Request', new_members_request_path
+  #content
+    My Open Requests
+    #requests
+      requests here

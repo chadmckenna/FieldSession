@@ -69,12 +69,54 @@ a
     clear: both
 
 #container
-  width: 75%
+  width: 98%
   margin: 100px auto 0 auto
   background: white
   position: relative
+  a
+    color: #375D38
   #content
     padding: 20px 40px
+    #left-column
+      width: 300px
+      float: left
+      #photo
+        width: 280px
+        height: 280px
+        border: 1px solid
+        margin: 10px auto 0px auto
+      #info
+        margin: 10px 10px 0px 10px
+        .title
+          font-weight: bold
+          font-size: 1em
+    #right-column
+      width: 800px
+      float: right
+      padding: 0px
+      #top
+        width: 97%
+        height: 100px
+        padding: 10px
+        #household-info
+          width: 70%
+          float: left
+          h1
+            margin: 0px
+        #buttons
+          float: right
+          margin: 10px 10px 0px 0px
+          width: 28%
+      #content
+        width: 98%
+        font-weight: bold
+        padding: 0px
+        #requests
+          width: 100%
+          border: 1px solid
+          height: 500px
+          overflow: auto
+          margin-top: 10px
     a
       border: 1px solid #aaa
       background: $lightGrey
@@ -121,9 +163,8 @@ a
 
 .flash.error
   background: #FFF0F0
-  color: #900
-  border: solid
-  border-color: #900
+  color: #900 
+  border: 1px solid #900
   text-align: center
   -moz-border-radius: 10px
   -webkit-border-radius: 10px

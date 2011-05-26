@@ -61,12 +61,54 @@ a {
     clear: both; }
 
 #container {
-  width: 75%;
+  width: 98%;
   margin: 100px auto 0 auto;
   background: white;
   position: relative; }
+  #container a {
+    color: #375d38; }
   #container #content {
     padding: 20px 40px; }
+    #container #content #left-column {
+      width: 300px;
+      float: left; }
+      #container #content #left-column #photo {
+        width: 280px;
+        height: 280px;
+        border: 1px solid;
+        margin: 10px auto 0px auto; }
+      #container #content #left-column #info {
+        margin: 10px 10px 0px 10px; }
+        #container #content #left-column #info .title {
+          font-weight: bold;
+          font-size: 1em; }
+    #container #content #right-column {
+      width: 800px;
+      float: right;
+      padding: 0px; }
+      #container #content #right-column #top {
+        width: 97%;
+        height: 100px;
+        padding: 10px; }
+        #container #content #right-column #top #household-info {
+          width: 70%;
+          float: left; }
+          #container #content #right-column #top #household-info h1 {
+            margin: 0px; }
+        #container #content #right-column #top #buttons {
+          float: right;
+          margin: 10px 10px 0px 0px;
+          width: 28%; }
+      #container #content #right-column #content {
+        width: 98%;
+        font-weight: bold;
+        padding: 0px; }
+        #container #content #right-column #content #requests {
+          width: 100%;
+          border: 1px solid;
+          height: 500px;
+          overflow: auto;
+          margin-top: 10px; }
     #container #content a {
       border: 1px solid #aaaaaa;
       background: #eeeeee;
@@ -110,8 +152,7 @@ a {
 .flash.error {
   background: #fff0f0;
   color: #990000;
-  border: solid;
-  border-color: #990000;
+  border: 1px solid #990000;
   text-align: center;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
