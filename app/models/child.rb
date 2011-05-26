@@ -3,4 +3,13 @@ class Child < ActiveRecord::Base
 
   belongs_to :household
 
+  before_create :assign_default_household
+
+  protected
+
+    def assign_default_household
+      self.household = current_user.household if household.nil?
+    end
+
 end
+
