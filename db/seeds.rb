@@ -9,5 +9,5 @@
 #Role.create!(:name => 'administrator', :description => 'A system administrator. Full access to all features.')
 #Role.create!(:name => 'member', :description => 'A typical application user.')
 
-User.create!(:username => "bmakuh", :email => "bmakuh@mines.edu", :password => "changeme", :password_confirmation => "changeme", :first_name => "Ben", :last_name => "Makuh", :household => Household.new(:name => "Makuh", :credits => 2000))
+User.create!(:username => "bmakuh", :email => "bmakuh@mines.edu", :password => "changeme", :password_confirmation => "changeme", :first_name => "Ben", :last_name => "Makuh", :household => Household.new(:name => "Makuh", :credits => 2000), :role_id => 1)
 

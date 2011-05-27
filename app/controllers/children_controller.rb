@@ -9,6 +9,7 @@ class ChildrenController < ApplicationController
 
   def new
     @child = Child.new
+    @current_household = Household.find_by_id(current_user.household.id)
   end
 
   def create
@@ -42,3 +43,4 @@ class ChildrenController < ApplicationController
     redirect_to children_url
   end
 end
+
