@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20110526200813) do
     t.string   "allergies"
     t.string   "medications"
     t.string   "notes"
-    t.integer  "household_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20110526200813) do
     t.string   "password_salt"
     t.string   "phone"
     t.integer  "role_id"
-    t.integer  "household_id"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
