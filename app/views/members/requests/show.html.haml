@@ -1,13 +1,14 @@
 - title "Request"
 %p
-  %strong Date:
-  = h @request.date
+  %strong From:
+  =h @request.from_date.to_s(:short)
+  at
+  =h @request.start_time.to_s(:justTime)
 %p
-  %strong Start Time:
-  = h @request.start_time
-%p
-  %strong End Time:
-  = h @request.end_time
+  %strong To:
+  =h @request.to_date.to_s(:short) 
+  at
+  =h @request.end_time.to_s(:justTime)
 %p
   %strong Cost:
   = h @request.cost

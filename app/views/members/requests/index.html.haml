@@ -1,5 +1,5 @@
 - title "Requests"
-- for request in @requests
+- for request in @requests.each
   .request
     %img
     -#%h2=h request.household.name
@@ -9,7 +9,7 @@
       to
       =h request.end_time.to_s(:nicetime)
       on
-      =h request.date.to_s(:short)
+      =h request.from_date.to_s(:short)
     .cost
       Cost:
       =h request.cost

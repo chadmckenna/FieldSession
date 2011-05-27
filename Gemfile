@@ -11,6 +11,7 @@ gem 'declarative_authorization'
 gem 'delayed_job', '~> 2.0.4'
 gem 'aws-s3'
 gem 'nifty-generators'
+gem 'formtastic'
 
 group :development, :test do
   gem 'heroku'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'mocha'
   gem 'haml_scaffold'
   gem 'nifty-generators'
+  gem 'formtastic'
 end
 
 group :production do
