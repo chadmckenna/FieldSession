@@ -1,20 +1,18 @@
 - title "Household"
 #left-column
   #photo
-    photo
+    =image_tag "household_image.png"
   #info
-    %font.title Primary Caregivers
-    %br
-    Caregivers here
-    %br
-    %br
-    %font.title Secondary Caregivers
-    %br
-    Caregivers
-    %br
-    %br
-    %font.title
-      Children
+    %div.title Caregivers
+    %div
+      -for user in @household.users
+        -unless @household.users == nil
+          =h user.first_name
+          =h user.last_name
+        -else
+          You have no caregivers
+      %p
+    %div.title Children
     %div
       -for child in @household.children
         -unless @household.children == nil
@@ -22,13 +20,12 @@
           =h child.last_name
         -else
           You have no children.
-    %font.title Address
-    %br
-    Address
-    %br
-    %br
-    %font.title Phone
-    %br
+      %p
+    %div.title Address
+    %div
+      Address
+      %p
+    %div.title Phone
     Phone
 
 #right-column
@@ -36,7 +33,7 @@
     #household-info
       %h1= "The #{@household.name.capitalize} Household"
       %br
-      = "Credit Balance: #{@household.credits} | #{link_to "Edit", edit_members_household_path(@household)}"
+      = "Credit Balance: #{@household.credits} | #{link_to "Edit my household", edit_members_household_path(@household)}"
     #buttons
       = link_to '+ Create a New Request', new_members_request_path
   #content
