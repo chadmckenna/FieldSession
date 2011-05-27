@@ -6,6 +6,9 @@ class Request < ActiveRecord::Base
 
   validates_presence_of :cost
   validates_numericality_of :cost
+  validates_presence_of :start_time
+  validates_presence_of :start_date
+  validates_presence_of :end_time
   
   protected
   
