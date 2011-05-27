@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20110527004503) do
     t.string   "allergies"
     t.string   "medications"
     t.string   "notes"
-    t.integer  "household_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
