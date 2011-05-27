@@ -26,3 +26,4 @@ privileges do
   privilege :update, :includes => [:edit]
   privilege :delete, :includes => :destroy
 end
+

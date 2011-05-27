@@ -10,7 +10,7 @@ class Child < ActiveRecord::Base
   protected
 
     def assign_default_household
-      self.household = current_user.household if household.nil?
+      self.household = @current_household if self.household.nil?
     end
 
     def validate

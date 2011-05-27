@@ -6,12 +6,14 @@
     = f.text_field :from_date, :value => (@request.from_date.blank? ? '' : @request.from_date.to_s(:numDate))
     at
     = f.text_field :start_time, :value => (@request.start_time.blank? ? '' : @request.start_time.to_s(:justTime))
+    %span#hint for example, 5 pm
   %p
     = f.label :to
     %br/
     = f.text_field :to_date, :value => (@request.to_date.blank? ? '' : @request.to_date.to_s(:numDate))
     at
     = f.text_field :end_time, :value => (@request.end_time.blank? ? '' : @request.end_time.to_s(:justTime))
+    %span#hint for example, 8 pm
   %p
     = f.label :cost
     %br/
