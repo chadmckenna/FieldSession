@@ -1,0 +1,28 @@
+!!! XML
+!!!
+%html{ :'xml:lang' => "en", :lang => "en" }
+  %head
+    %title
+      = h(yield(:title) || "Untitled")
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag 'guest'
+    = google_webfont_stylesheet('Wire One')
+    = google_webfont_stylesheet('Rokkitt')
+    = yield(:head)
+
+  %body
+    #masthead
+      %ul.menubar
+        %li= link_to "Home", root_url
+        %li= link_to "Our Vision", "#"
+        %li= link_to "Our Security", '#'
+        %li= link_to "Register", "#"
+        %li= link_to "Login", "#"
+      #clear
+    #container
+      #content
+        - unless flash.empty?
+          - flash.each do |key, msg|
+            %div{:class => "flash #{key}"}
+              %p= msg
+        = yield

@@ -1,0 +1,17 @@
+.menubar {
+  list-style-type: none;
+  background: green;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px; }
+  .menubar li {
+    float: left; }
+  .menubar a {
+    display: block;
+    width: 150px;
+    border: 1px solid black;
+    -moz-box-shadow: 2px 2px 4px #555555;
+    margin: 0px auto 0px auto; }

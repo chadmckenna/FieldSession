@@ -4,9 +4,9 @@
     %img
     -#%h2=h request.household.name
     %h2 household title here
-    .date=h request.date
-    .start_time=h request.start_time
-    .end_time=h request.end_time
+    .date=h request.from_date.to_s(:short)
+    .start_time=h request.start_time.to_s(:nicetime)
+    .end_time=h request.end_time.to_s(:nicetime)
     .cost=h request.cost
     .tools
       %span= link_to "Show", admin_request_path(request)

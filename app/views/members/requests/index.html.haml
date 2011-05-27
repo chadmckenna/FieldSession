@@ -1,23 +1,24 @@
 - title "Requests"
-- for request in @requests
-  .request
-    %img
-    -#%h2=h request.household.name
-    %h2="#{request.user.household}'s Household"
-    .date
-      =h request.start_time.to_s(:nicetime)
-      to
-      =h request.end_time.to_s(:nicetime)
-      on
-      =h request.date.to_s(:short)
-    .cost
-      Cost:
-      =h request.cost
-      credits
-    .tools
-      %span= link_to "Show", members_request_path(request)
-      %span= link_to "Edit", edit_members_request_path(request)
-      %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
-    .clear .
+- for request in @requests.each
+  -unless request.user == current_user
+    .request
+      %img
+      -#%h2=h request.household.name
+      %h2="#{request.user.household}'s Household"
+      .date
+        =h request.start_time.to_s(:nicetime)
+        to
+        =h request.end_time.to_s(:nicetime)
+        on
+        =h request.from_date.to_s(:short)
+      .cost
+        Cost:
+        =h request.cost
+        credits
+      .tools
+        %span= link_to "Show", members_request_path(request)
+        %span= link_to "Edit", edit_members_request_path(request)
+        %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+      .clear .
 %p= link_to "New Request", new_members_request_path
 

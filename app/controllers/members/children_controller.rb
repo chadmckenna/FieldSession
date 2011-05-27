@@ -1,4 +1,5 @@
 class Members::ChildrenController < Members::MembersController
+    
   def index
     @children = Child.all
   end
@@ -13,9 +14,11 @@ class Members::ChildrenController < Members::MembersController
 
   def create
     @child = Child.new(params[:child])
+    @child.household = current_user.household
+    
     if @child.save
       flash[:notice] = "Successfully created child."
-      redirect_to @child
+      redirect_to members_children_path
     else
       render :action => 'new'
     end
@@ -41,4 +44,5 @@ class Members::ChildrenController < Members::MembersController
     flash[:notice] = "Successfully destroyed child."
     redirect_to children_url
   end
+  
 end

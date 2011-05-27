@@ -1,14 +1,63 @@
 - title "Household"
+#left-column
+  #photo
+    =image_tag "household_image.png"
+  #info
+    %div.title Caregivers
+    %div
+      -for user in @household.users
+        -unless @household.users == nil
+          =h user.first_name
+          =h user.last_name
+        -else
+          You have no caregivers
+      %p
+    %div.title Children
+    %div
+      -for child in @household.children
+        -unless @household.children == nil
+          =h child.first_name
+          =h child.last_name
+        -else
+          You have no children.
+      %p
+    %div.title Address
+    %div
+      Address
+      %p
+    %div.title Phone
+    Phone
 
-%p
-  %strong Name:
-  =h @household.name
-  %strong Credits:
-  =h @household.credits
+#right-column
+  #top
+    #household-info
+      %h1= "The #{@household.name.capitalize} Household"
+      %br
+      = "Credit Balance: #{@household.credits} | #{link_to "Edit my household", edit_members_household_path(@household)}"
+    #buttons
+      = link_to '+ Create a New Request', new_members_request_path
+  #content
+    My Open Requests
+    #requests
+//      - for request in @household.users.requests.each
+//        .request
+//          %img
+//          -#%h2=h request.household.name
+//          %h2="#{request.user.household}'s Household"
+//          .date
+//            =h request.start_time.to_s(:nicetime)
+//            to
+//            =h request.end_time.to_s(:nicetime)
+//            on
+//            =h request.from_date.to_s(:short)
+//          .cost
+//            Cost:
+//            =h request.cost
+//            credits
+//          .tools
+//            %span= link_to "Show", members_request_path(request)
+//            %span= link_to "Edit", edit_members_request_path(request)
+//            %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+//          .clear .
+//%p= link_to "New Request", new_members_request_path
 
-%p
-  = link_to "Edit", edit_members_household_path(@household)
-  |
-  = link_to "Destroy", members_household_path(@household), :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", members_households_path

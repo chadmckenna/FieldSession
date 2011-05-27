@@ -5,7 +5,9 @@
     %title
       = h(yield(:title) || "Untitled")
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'application', 'jquery-ui-1.8.13.custom.css'
+    = javascript_include_tag 'jquery-1.5.1.min.js', 'application'
+    = javascript_include_tag 'jquery-ui-1.8.13.custom.min.js'
     = google_webfont_stylesheet('Wire One')
     = google_webfont_stylesheet('Rokkitt')
     = yield(:head)
@@ -17,7 +19,7 @@
         - if current_user.is_admin?
           %h1= link_to "Villages", root_path, :title => 'Home'
         - else
-          %h1= link_to "Villages", members_profile_path, :title => 'View Profile'
+          %h1= link_to "Villages", members_household_path(@current_user.household.id), :title => 'View Profile'
       - else
         %h1= link_to "Villages", root_path, :title => 'Home'
       = menubar(current_user)
@@ -30,3 +32,4 @@
             %div{:class => "flash #{key}"}
               %p= msg
         = yield
+
