@@ -1,17 +1,37 @@
-.menubar {
-  list-style-type: none;
-  background: green;
-  margin: 0;
-  padding: 0;
+#masthead .menubar {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0px;
+  margin: 40px auto 0px auto;
   width: 800px; }
-  .menubar li {
+  #masthead .menubar ul {
+    list-style-type: none;
+    height: 35px;
+    margin-left: 80px; }
+  #masthead .menubar li {
     float: left; }
-  .menubar a {
+  #masthead .menubar a {
     display: block;
-    width: 150px;
+    width: 125px;
+    padding: 0px;
     border: 1px solid black;
-    -moz-box-shadow: 2px 2px 4px #555555;
-    margin: 0px auto 0px auto; }
+    -moz-box-shadow: 2px 2px 4px #333333;
+    height: 25px;
+    line-height: 1.7em;
+    background: #464f3f;
+    text-decoration: none;
+    color: #c4d7a4; }
+    #masthead .menubar a:hover {
+      background: #505c45; }
+#masthead .title {
+  font-size: 4em;
+  width: 800px;
+  margin: 30px auto 0px auto;
+  color: #464f3f; }
+  #masthead .title .small {
+    font-size: 0.4em;
+    color: black;
+    margin-left: 200px; }
+
+#container #video {
+  width: 600px;
+  margin: 20px auto 0px auto; }
