@@ -1,6 +1,6 @@
 class Members::RequestsController < Members::MembersController
   def index
-    @requests = Request.all
+    @requests = Request.find(:all, :order => 'created_at').reverse
   end
 
   def show
