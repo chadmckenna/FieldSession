@@ -1,6 +1,8 @@
 class HouseholdsController < ApplicationController
   def index
     @households = Household.all
+    @users = User.find_all_by_household_id(current_user.household.id)
+    @requests = @users.requests.all
   end
 
   def show
@@ -42,3 +44,4 @@ class HouseholdsController < ApplicationController
     redirect_to households_url
   end
 end
+
