@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :children
+
   map.resources :households
   map.resources :roles
   map.resources :requests
