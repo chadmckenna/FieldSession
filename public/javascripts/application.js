@@ -5,7 +5,6 @@ $(function() {
 										onSelect: function(dateStr, inst)
 										{
 											var min = $(this).datepicker("getDate");
-											setDate(min);
 											$('#request_to_date').datepicker();
 											$('#request_to_date').datepicker("option", "minDate", min);
 										}});
