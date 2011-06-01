@@ -40,7 +40,7 @@
   #content
     My Open Requests
     #requests
-      - for request in @requests
+      - @my_requests.each do |request|
         .request
           %img
           -#%h2=h request.household.name

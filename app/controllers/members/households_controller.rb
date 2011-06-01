@@ -3,6 +3,7 @@ class Members::HouseholdsController < Members::MembersController
   
   def index
     @households = Household.all
+    @my_requests = Request.find_all_by_household_id(current_user.household.id)
   end
 
   def show
