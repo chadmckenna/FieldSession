@@ -12,9 +12,9 @@
     = f.text_field :to_date, :value => (@request.to_date.blank? ? '' : @request.to_date.to_s(:numDate))
     at
     = f.time_select :end_time, :minute_step => 15
-  %p
-    = f.label :cost
-    %br/
-    = f.text_field :cost
+  -#%p
+    -#= f.label :cost
+    -#%br/
+    -#= f.text_field :cost
   %p= f.submit
 

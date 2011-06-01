@@ -86,8 +86,14 @@ a {
       #container #content #left-column #info {
         margin: 10px 10px 0px 10px; }
         #container #content #left-column #info .title {
-          font-weight: bold;
-          font-size: 1em; }
+          font-size: 1.1em;
+          text-decoration: underline; }
+        #container #content #left-column #info .child a {
+          background: none;
+          border: none; }
+          #container #content #left-column #info .child a:hover {
+            color: #999999;
+            text-decoration: underline; }
     #container #content #right-column {
       width: 75%;
       float: right;

@@ -1,24 +1,37 @@
 - title "Request"
-%p
-  %strong From:
-  =h @request.from_date.to_s(:short)
-  at
-  =h @request.start_time.to_s(:justTime)
-%p
-  %strong To:
-  =h @request.to_date.to_s(:short) 
-  at
-  =h @request.end_time.to_s(:justTime)
-%p
-  %strong Phone:
-  - current_user.phone = current_user.phone.gsub (/\D/, "")
-  =h number_to_phone(current_user.phone, :area_code => true)
-%p
-  %strong Cost:
-  = h @request.cost
-%p
-  = link_to "Edit", edit_members_request_path(@request)
-  |
-  = link_to "Destroy", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", members_requests_path
+-#
+-#%p
+-#  %strong From:
+-#  =h @request.from_date.to_s(:short)
+-#  at
+-#  =h @request.start_time.to_s(:justTime)
+-#%p
+-#  %strong To:
+-#  =h @request.to_date.to_s(:short) 
+-#  at
+-#  =h @request.end_time.to_s(:justTime)
+-#%p
+-#  %strong Cost:
+-#  = h @request.cost
+
+.request
+  %img
+  -#%h2=h request.household.name
+  %h2="#{@request.household} Household"
+  .date
+    =h @request.start_time.to_s(:nicetime)
+    to
+    =h @request.end_time.to_s(:nicetime)
+    on
+    =h @request.from_date.to_s(:short)
+  .cost
+    Cost:
+    =h @request.cost
+    credits
+  .tools
+    - if @request.household_id.eql? current_user.household_id
+      %span= link_to "Edit", edit_members_request_path(@request)
+      %span= link_to "Destroy", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
+    %span= link_to "View All Requests", members_requests_path
+    %span= link_to "View All My Requests", members_household_path(@request.household)
+  .clear

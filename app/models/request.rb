@@ -4,15 +4,25 @@ class Request < ActiveRecord::Base
   has_many :children
   belongs_to :household
 
-  validates_presence_of :cost
-  validates_numericality_of :cost
+  #validates_presence_of :cost
+  #validates_numericality_of :cost
   validates_presence_of :start_time
   validates_presence_of :end_time
   validates_presence_of :from_date
   validates_presence_of :to_date
 
-  protected
+  before_create :calculate_cost 
 
+  def calculate_cost
+    if self.from_date.eql?(self.to_date)
+      @day_to_hours = 0
+    else
+      @days_to_hours = ((self.to_date - self.from_date)/1.hour)
+    end
+    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours)#*4
+  end
+
+  protected
     def validate
       if !self.from_date.nil? && !self.to_date.nil?
         if self.from_date == self.to_date
