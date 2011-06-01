@@ -3,32 +3,52 @@ class Members::HouseholdsController < Members::MembersController
 
   def show
     @household = Household.find(params[:id])
+    unless @household.id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to view that page."
+      redirect_to members_household_path(current_user.household)
+    end
   end
 
   def new
     @household = Household.new
+    unless @household.id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to create that page."
+      redirect_to members_household_path(current_user.household)
+    end
   end
 
   def create
-    @household = Household.new(params[:household])
-    current_user.household = @household
-    current_user.save!
-    if @household.save
-      flash[:success] = "Successfully created #{@household.name} household."
-      redirect_to members_root_url
+    if current_user.household_id.eql? nil
+      @household = Household.new(params[:household])
+      current_user.household = @household
+      current_user.save!
+      if @household.save
+        flash[:success] = "Successfully created #{@household.name} household."
+        redirect_to members_root_url
+      else
+        flash[:error] = "Error creating household"
+        render :action => 'new'
+      end
     else
-      flash[:error] = "Error creating household"
-      render :action => 'new'
+      flash[:error] = "You do not have permission to create that page."
+      redirect_to members_household_path(current_user.household)
     end
   end
 
   def edit
     @household = Household.find(params[:id])
+    unless @household.id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to edit that page."
+      redirect_to members_household_path(current_user.household)
+    end
   end
 
   def update
     @household = Household.find(params[:id])
-    if @household.update_attributes(params[:household])
+    if @household.id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to update that page."
+      redirect_to members_household_path(current_user.household)
+    elsif @household.update_attributes(params[:household])
       flash[:success] = "Successfully updated #{@household.name} household."
       redirect_to members_household_path(@household)
     else
