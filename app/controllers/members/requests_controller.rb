@@ -15,7 +15,7 @@ class Members::RequestsController < Members::MembersController
     @request = Request.new(params[:request])
     @request.household = current_user.household
     if @request.save
-      flash[:notice] = "Successfully created request."
+      flash[:success] = "Successfully created request."
       redirect_to members_request_path(@request)
     else
       render :action => 'new'
@@ -24,12 +24,19 @@ class Members::RequestsController < Members::MembersController
 
   def edit
     @request = Request.find(params[:id])
+    unless @request.household_id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to access this page."
+      redirect_to members_request_path(@request)
+    end
   end
 
   def update
     @request = Request.find(params[:id])
-    if @request.update_attributes(params[:request])
-      flash[:notice] = "Successfully updated request."
+    if !@request.household_id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to access this page."
+      redirect_to members_request_path(@request)
+    elsif @request.update_attributes(params[:request])
+      flash[:success] = "Successfully updated request."
       redirect_to members_request_path(@request)
     else
       render :action => 'edit'
@@ -38,8 +45,13 @@ class Members::RequestsController < Members::MembersController
 
   def destroy
     @request = Request.find(params[:id])
-    @request.destroy
-    flash[:notice] = "Successfully destroyed request."
-    redirect_to members_requests_url
+    if !@request.household_id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to access this page."
+      redirect_to members_request_path(@request)
+    else
+      @request.destroy
+      flash[:success] = "Successfully destroyed request."
+      redirect_to members_household_path(current_user.household)
+    end
   end
 end

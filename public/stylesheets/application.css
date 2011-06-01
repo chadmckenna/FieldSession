@@ -38,6 +38,9 @@ a {
     padding: 0 !important;
     margin: 0.4em;
     font-size: 4em; }
+  #masthead #login {
+    float: right;
+    margin: 10px 10px 0px 0px; }
   #masthead #userbar {
     float: right;
     /*width: 60% */
@@ -69,6 +72,9 @@ a {
     color: #375d38; }
   #container #content {
     padding: 20px 40px; }
+    #container #content #video {
+      margin: 20px auto 0px auto;
+      width: 600px; }
     #container #content #left-column {
       width: 20%;
       float: left; }
