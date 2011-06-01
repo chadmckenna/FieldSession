@@ -4,6 +4,6 @@ class ChangeColumnInRequests < ActiveRecord::Migration
   end
 
   def self.down
-    rename_column :requests, :household_id, :user_id
+    rename_column :requests, :household_id, :user_id  
   end
 end

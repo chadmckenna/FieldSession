@@ -6,7 +6,7 @@
   #masthead .menubar ul {
     list-style-type: none;
     height: 35px;
-    margin-left: 80px; }
+    margin-left: 40px; }
   #masthead .menubar li {
     float: left; }
   #masthead .menubar a {
@@ -15,6 +15,7 @@
     padding: 0px;
     border: 1px solid black;
     -moz-box-shadow: 2px 2px 4px #333333;
+    -webkit-box-shadow: 2px 2px 4px #333333;
     height: 25px;
     line-height: 1.7em;
     background: #464f3f;

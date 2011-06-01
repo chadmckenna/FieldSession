@@ -9,9 +9,9 @@ $(function() {
 											$('#request_to_date').datepicker("option", "minDate", min);
 										}});
 										
-	var min = $('#request_from_date').datepicker("getDate")	;			
-	$('#request_to_date').datepicker({minDate: min, maxDate: '+1y', selectOtherMonths: true, showOtherMonths: true})
-																		
+	var min = $('#request_from_date').datepicker("getDate")	;		
+	$('#request_to_date').datepicker({minDate: min, maxDate: '+1y', selectOtherMonths: true, showOtherMonths: true});
+																				
 });
 
 

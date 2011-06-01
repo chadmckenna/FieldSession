@@ -1,6 +1,6 @@
 class Members::ProfileController < Members::MembersController
   def index
-    @my_requests = Request.find_all_by_user_id(current_user.id)
+    @my_requests = Request.find_all_by_household_id(current_user.household.id)
     @household = current_user.household
   end
 end

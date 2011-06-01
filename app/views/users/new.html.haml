@@ -1,4 +1,5 @@
-- title "Sign up"
+- content_for :title do
+  Villages: Sign Up
 
 %p= "Already have an account? #{link_to 'Log in', login_path}."
 
@@ -12,6 +13,11 @@
     = f.label :email, "Email Address"
     %br
     = f.text_field :email
+  %p
+    - fields_for :household do |h|
+      = h.label :household_name
+      %br
+      = h.text_field :name
   %p
     = f.label :password
     %br

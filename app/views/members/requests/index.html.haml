@@ -1,10 +1,10 @@
 - title "Requests"
-- for request in @requests.each
-  -unless request.user == current_user
+- for request in @requests
+  -unless request.household == current_user.household
     .request
       %img
       -#%h2=h request.household.name
-      %h2="#{request.user.household}'s Household"
+      %h2="#{request.household} Household"
       .date
         =h request.start_time.to_s(:nicetime)
         to
