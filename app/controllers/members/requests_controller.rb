@@ -13,7 +13,7 @@ class Members::RequestsController < Members::MembersController
 
   def create
     @request = Request.new(params[:request])
-    @request.household = current_user.household
+    @request.user = current_user
     if @request.save
       flash[:notice] = "Successfully created request."
       redirect_to members_request_path(@request)
