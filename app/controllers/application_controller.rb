@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   filter_parameter_logging :password
+  before_filter :require_household
   helper_method :current_user_session, :current_user, :home_url_for
 
   # A simple route for the application home page or root_url.
@@ -44,6 +45,10 @@ class ApplicationController < ActionController::Base
          redirect_to home_url_for(current_user)
          return false
        end
+     end
+     
+     def require_household
+       redirect_to new_members_household_path unless current_user.has_household?
      end
 
 end

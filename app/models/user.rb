@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
 
   before_create :assign_default_role
   
-  def is?(role_symbol)
-    role_symbols.include? role_symbol
-  end
-  
   before_validation_on_create :assign_default_role
   
   def is?(role_symbol)
@@ -22,6 +18,11 @@ class User < ActiveRecord::Base
   
   def is_admin?
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
+  end
+  
+  def has_household?
+    return false if self.household_id.eql? nil
+    return true
   end
   
   def is_member?
