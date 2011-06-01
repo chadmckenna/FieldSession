@@ -5,10 +5,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @user }
-    end
   end
 
   def create

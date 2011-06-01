@@ -14,11 +14,6 @@
     %br
     = f.text_field :email
   %p
-    - fields_for :household do |h|
-      = h.label :household_name
-      %br
-      = h.text_field :name
-  %p
     = f.label :password
     %br
     = f.password_field :password
