@@ -32,7 +32,7 @@
 #right-column
   #top
     #household-info
-      %h1= "The #{@household.name.capitalize} Household"
+      %h1= "The #{@household} Household"
       %br
       = "Credit Balance: #{@household.credits} | #{link_to "Edit my household", edit_members_household_path(@household)}"
     #buttons
@@ -44,7 +44,7 @@
         .request
           %img
           -#%h2=h request.household.name
-          %h2="#{request.household}'s Household"
+          %h2="The #{request.household} Household"
           .date
             =h request.start_time.to_s(:nicetime)
             to

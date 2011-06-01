@@ -34,7 +34,7 @@ class Members::HouseholdsController < Members::MembersController
     @household = Household.find(params[:id])
     if @household.update_attributes(params[:household])
       flash[:success] = "Successfully updated #{@household.name} household."
-      redirect_to @household
+      redirect_to members_household_path(@household)
     else
       flash[:error] = "Error updating household"
       render :action => 'edit'
