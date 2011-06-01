@@ -1,4 +1,6 @@
 class Members::HouseholdsController < Members::MembersController
+  skip_before_filter :require_household
+  
   def index
     @households = Household.all
   end

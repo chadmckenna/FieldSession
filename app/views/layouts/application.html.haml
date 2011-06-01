@@ -19,7 +19,10 @@
         - if current_user.is_admin?
           %h1= link_to "Villages", root_path, :title => 'Home'
         - else
-          %h1= link_to "Villages", members_household_path(@current_user.household.id), :title => 'View Profile'
+          - if current_user.has_household?
+            %h1= link_to "Villages", members_household_path(@current_user.household_id), :title => 'View Profile'
+          - else
+            %h1= link_to "Villages", root_path, :title => 'View Profile'
       - else
         %h1= link_to "Villages", root_path, :title => 'Home'
       = menubar(current_user)
