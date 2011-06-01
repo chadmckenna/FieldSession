@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   before_filter :require_household
   helper_method :current_user_session, :current_user, :home_url_for
+  before_filter :prepare_new_session
+
+  def prepare_new_session
+    @user_session = UserSession.new if current_user.blank?
+  end
 
   # A simple route for the application home page or root_url.
   def show

@@ -8,7 +8,7 @@ class Household < ActiveRecord::Base
   before_create :assign_default_credits
 
   def to_s
-    self.name
+    self.name.capitalize
   end
 
   protected

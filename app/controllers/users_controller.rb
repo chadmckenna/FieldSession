@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_filter :require_household
-  
   before_filter :require_no_user, :only => [:new, :create]
 
   def new
