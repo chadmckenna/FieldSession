@@ -2,11 +2,7 @@
   = f.error_messages
   %p
     = f.label :username
-    %br
-    = f.text_field :username
-  %p
+    = f.text_field :username, :size => 10
     = f.label :password
-    %br
-    = f.password_field :password
-  %p
+    = f.password_field :password, :size => 10
     = f.submit "Log in"
