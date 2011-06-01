@@ -19,7 +19,7 @@ class Request < ActiveRecord::Base
     else
       @days_to_hours = ((self.to_date - self.from_date)/1.hour)
     end
-    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours)#*4
+    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil#*4
   end
 
   protected
