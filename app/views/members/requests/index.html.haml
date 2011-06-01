@@ -12,9 +12,8 @@
         on
         =h request.from_date.to_s(:short)
       .cost
-        Cost:
+        Credits:
         =h request.cost
-        credits
       .tools
         %span= link_to "Show", members_request_path(request)
         %span= link_to "Edit", edit_members_request_path(request)

@@ -10,6 +10,10 @@
   at
   =h @request.end_time.to_s(:justTime)
 %p
+  %strong Phone:
+  - current_user.phone = current_user.phone.gsub (/\D/, "")
+  =h number_to_phone(current_user.phone, :area_code => true)
+%p
   %strong Cost:
   = h @request.cost
 %p

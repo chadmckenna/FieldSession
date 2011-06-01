@@ -26,10 +26,12 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :children
     members.resources :households
     members.resources :requests
+    members.profile 'profile/', :controller => 'profile'
     members.root :controller => 'requests', :action => 'index'
   end
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
 end
 

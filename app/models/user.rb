@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   acts_as_authentic
+  
+  validates_format_of :phone,
+      :message => "must be a valid telephone number.",
+      :with => /^[\(\)0-9\- \+\.]{10,20}$/
 
   belongs_to :household
   belongs_to :role

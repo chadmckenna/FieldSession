@@ -20,7 +20,7 @@
           %h1= link_to "Villages", root_path, :title => 'Home'
         - else
           - if current_user.has_household?
-            %h1= link_to "Villages", members_household_path(@current_user.household_id), :title => 'View Profile'
+            %h1= link_to "Villages", members_profile_path, :title => 'View Profile'
           - else
             %h1= link_to "Villages", members_root_path, :title => 'View Profile'
       - else

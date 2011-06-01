@@ -1,40 +1,65 @@
+- content_for :title do
+  Villages: Household Profile
 #left-column
   #photo
-    photo
+    =image_tag "/images/household_image.png"
   #info
-    %font.title Primary Caregivers
-    %br
-    Caregivers here
-    %br
-    %br
-    %font.title Secondary Caregivers
-    %br
-    Caregivers
-    %br
-    %br
-    %font.title Children
-    %br
-    Children
-    %br
-    %br
-    %font.title Address
-    %br
-    Address
-    %br
-    %br
-    %font.title Phone
-    %br
+    %div.title Caregivers
+    %div
+      -for user in @household.users
+        -unless @household.users.eql? nil
+          =h user.first_name
+          =h user.last_name
+        -else
+          You have no caregivers
+      %p
+    %div.title Children
+    %div
+      -for child in @household.children
+        -unless @household.children.eql? nil
+          .child
+            =h child.first_name
+            =h child.last_name
+        -else
+          You have no children.
+      %p
+    %div.title Address
+    %div
+      Address
+      %p
+    %div.title Phone
     Phone
 
 #right-column
   #top
     #household-info
-      %h1= "The #{@household.name.capitalize} Household"
+      %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits} | #{link_to 'edit household', '#'}"
+      = "Credit Balance: #{@household.credits}"
     #buttons
+      = link_to 'Edit my Household', edit_members_household_path(@household)
       = link_to '+ Create a New Request', new_members_request_path
   #content
     My Open Requests
     #requests
-      requests here
+      - for request in @household.requests
+        .request
+          %img
+          -#%h2=h request.household.name
+          %h2="The #{request.household} Household"
+          .date
+            =h request.start_time.to_s(:nicetime)
+            to
+            =h request.end_time.to_s(:nicetime)
+            on
+            =h request.from_date.to_s(:short)
+          .cost
+            Cost:
+            =h request.cost
+            credits
+          .tools
+            %span= link_to "Show", members_request_path(request)
+            %span= link_to "Edit", edit_members_request_path(request)
+            %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+          .clear .
+
