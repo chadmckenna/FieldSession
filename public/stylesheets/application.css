@@ -89,23 +89,22 @@ a {
       #container #content #right-column #top {
         width: 97%;
         height: 100px;
-        padding: 10px; }
+        padding: 10px 0 10px 0; }
         #container #content #right-column #top #household-info {
           width: 70%;
           float: left; }
           #container #content #right-column #top #household-info h1 {
             margin: 0px; }
         #container #content #right-column #top #buttons {
+          text-align: right;
           float: right;
-          margin: 10px 10px 0px 0px;
-          width: 28%; }
+          margin: 10px 0 0 0; }
       #container #content #right-column #content {
         width: 98%;
         font-weight: bold;
         padding: 0px; }
         #container #content #right-column #content #requests {
           width: 100%;
-          border: 1px solid;
           height: 500px;
           overflow: auto;
           margin-top: 10px; }

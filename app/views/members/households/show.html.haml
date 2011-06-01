@@ -6,7 +6,7 @@
     %div.title Caregivers
     %div
       -for user in @household.users
-        -unless @household.users == nil
+        -unless @household.users.eql? nil
           =h user.first_name
           =h user.last_name
         -else
@@ -15,7 +15,7 @@
     %div.title Children
     %div
       -for child in @household.children
-        -unless @household.children == nil
+        -unless @household.children.eql? nil
           .child
             =h child.first_name
             =h child.last_name
@@ -34,8 +34,9 @@
     #household-info
       %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits} | #{link_to "Edit my household", edit_members_household_path(@household)}"
+      = "Credit Balance: #{@household.credits}"
     #buttons
+      = link_to 'Edit my Household', edit_members_household_path(@household)
       = link_to '+ Create a New Request', new_members_request_path
   #content
     My Open Requests
