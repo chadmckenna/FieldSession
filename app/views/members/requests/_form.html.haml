@@ -13,9 +13,9 @@
     at
     = f.text_field :end_time, :value => (@request.end_time.blank? ? '' : @request.end_time.to_s(:justTime))
     %span#hint for example, 8 pm
-  %p
-    = f.label :cost
-    %br/
-    = f.text_field :cost
+  -#%p
+    -#= f.label :cost
+    -#%br/
+    -#= f.text_field :cost
   %p= f.submit
 

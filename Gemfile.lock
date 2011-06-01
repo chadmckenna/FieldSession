@@ -83,12 +83,14 @@ GEM
       linecache (>= 0.3)
     sass (3.1.1)
     sqlite3 (1.3.3)
+    sqlite3 (1.3.3-x86-mingw32)
     term-ansicolor (1.0.5)
     will_paginate (2.3.15)
     xml-simple (1.0.15)
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   annotate
