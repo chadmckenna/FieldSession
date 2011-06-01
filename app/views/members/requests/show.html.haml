@@ -26,8 +26,7 @@
     =h @request.from_date.to_s(:short)
   .cost
     Cost:
-    =h @request.cost
-    credits
+    =h pluralize(@request.cost.to_i, "credit")
   .tools
     - if @request.household_id.eql? current_user.household_id
       %span= link_to "Edit", edit_members_request_path(@request)

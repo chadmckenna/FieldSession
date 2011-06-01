@@ -11,6 +11,7 @@ class Request < ActiveRecord::Base
   validates_presence_of :from_date
   validates_presence_of :to_date
 
+  before_update :calculate_cost
   before_create :calculate_cost 
 
   def calculate_cost
@@ -19,7 +20,7 @@ class Request < ActiveRecord::Base
     else
       @days_to_hours = ((self.to_date - self.from_date)/1.hour)
     end
-    self.cost = (((self.end_time - self.start_time)/1.hour) + @days_to_hours)#*4
+    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil#*4
   end
 
   protected
