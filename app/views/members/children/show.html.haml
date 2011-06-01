@@ -23,8 +23,6 @@
   =h @child.notes
 
 %p
-  = link_to "Edit", edit_members_child_path(@child)
-  |
-  = link_to "Destroy", members_child_path(@child), :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", members_children_path
+  = link_to "Edit this Child", edit_members_child_path(@child)
+  = link_to "Remove this Child", members_child_path(@child), :confirm => 'Are you sure?', :method => :delete
+  = link_to "View All Your Children", members_children_path

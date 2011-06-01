@@ -18,8 +18,8 @@
       %td= h child.allergies
       %td= h child.medications
       %td= h child.notes
-      %td= link_to 'Show', members_child_path(child)
-      %td= link_to 'Edit', edit_members_child_path(child)
-      %td= link_to 'Destroy', members_child_path(child), :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'View Child', members_child_path(child)
+      %td= link_to 'Edit Child', edit_members_child_path(child)
+      %td= link_to 'Remove Child', members_child_path(child), :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Child", new_members_child_path
+%p= link_to "+ Add Child", new_members_child_path
