@@ -1,4 +1,5 @@
 - title "Requests"
+%p= link_to "+ Create a New Care Request", new_members_request_path
 - for request in @requests
   -unless request.household == current_user.household
     .request
@@ -19,6 +20,5 @@
         %span= link_to "Show", members_request_path(request)
         %span= link_to "Edit", edit_members_request_path(request)
         %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
-      .clear .
-%p= link_to "New Request", new_members_request_path
+      .clear
 

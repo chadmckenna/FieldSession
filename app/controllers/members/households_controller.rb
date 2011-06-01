@@ -1,9 +1,5 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household
-  
-  def index
-    @households = Household.all
-  end
 
   def show
     @household = Household.find(params[:id])
@@ -34,17 +30,10 @@ class Members::HouseholdsController < Members::MembersController
     @household = Household.find(params[:id])
     if @household.update_attributes(params[:household])
       flash[:success] = "Successfully updated #{@household.name} household."
-      redirect_to @household
+      redirect_to members_household_path(@household)
     else
       flash[:error] = "Error updating household"
       render :action => 'edit'
     end
-  end
-
-  def destroy
-    @household = Household.find(params[:id])
-    @household.destroy
-    flash[:success] = "Successfully deleted #{@household.name} household."
-    redirect_to households_url
   end
 end
