@@ -14,9 +14,13 @@ class Request < ActiveRecord::Base
   before_create :calculate_cost 
 
   def calculate_cost
-    self.cost = ((self.end_time - self.start_time)/1.hour)
+    if self.from_date.eql?(self.to_date)
+      @day_to_hours = 0
+    else
+      @days_to_hours = ((self.to_date - self.from_date)/1.hour)
+    end
+    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours)#*4
   end
-
 
   protected
     def validate
