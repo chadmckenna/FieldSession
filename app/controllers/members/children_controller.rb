@@ -1,7 +1,7 @@
 class Members::ChildrenController < Members::MembersController
     
   def index
-    @children = Child.all
+    @children = Child.find_by_household(current_user.household)
   end
 
   def show
@@ -17,8 +17,8 @@ class Members::ChildrenController < Members::MembersController
     @child.household = current_user.household
     
     if @child.save
-      flash[:notice] = "Successfully created child."
-      redirect_to members_children_path
+      flash[:success] = "Successfully added #{@child.first_name} to the #{@child.household} household."
+      redirect_to members_household_path(@child.household)
     else
       render :action => 'new'
     end
