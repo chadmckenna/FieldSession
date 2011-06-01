@@ -41,7 +41,4 @@ class Admin::RequestsController < Admin::AdminController
     flash[:notice] = "Successfully destroyed request."
     redirect_to requests_url
   end
-
-  def calculate_cost
-
 end
