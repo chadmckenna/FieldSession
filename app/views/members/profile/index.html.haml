@@ -26,7 +26,13 @@
       Address
       %p
     %div.title Phone
-    Phone
+    %div
+      -for phone_number in @household.users
+        -unless @household.users.eql? nil
+          .child
+            =h link_to "#{phone_number.phone}", edit_members_user_path(phone_number)
+        -else
+          No known phone numbers
 
 #right-column
   #top

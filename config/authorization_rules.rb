@@ -2,7 +2,8 @@ authorization do
   role :member do
     has_permission_on :members_members, :to => :read
     has_permission_on :members_requests, :to => :manage
-    has_permission_on :members_users, :to => :update
+    #This will need to be changed back to something besides manage, maybe?
+    has_permission_on :members_users, :to => :manage
     has_permission_on :members_children, :to => :manage
     has_permission_on :members_profile, :to => :manage
     has_permission_on :members_households, :to => [:create, :show, :update]
