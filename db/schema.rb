@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20110602160622) do
   end
 
   create_table "neighbors", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "user_id_neighbor"
+    t.integer  "household_id"
+    t.integer  "household_id_neighbor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
