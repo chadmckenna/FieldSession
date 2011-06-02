@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
 
   belongs_to :household
   belongs_to :role
-  
+  has_many :neighbors
+  has_many :users, :through => :neighbors
   has_many :requests
 
   default_scope :include => :role

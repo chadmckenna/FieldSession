@@ -38,7 +38,8 @@
       = link_to 'Edit my Household', edit_members_household_path(@household)
       = link_to '+ Create a New Request', new_members_request_path
   #content
-    My Open Requests
+    - if @household.requests.length > 0
+      %font.small-title My Open Requests
     - if @household.requests.length == 0
       #no-requests 
         You have no open requests.
