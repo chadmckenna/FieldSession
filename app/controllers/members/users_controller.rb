@@ -13,8 +13,24 @@ class Members::UsersController < Members::MembersController
     end
   end
   
+  def update
+    @user = User.find(params[:id])
+    if !@user.household_id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to update this user."
+      redirect_to members_profile_path
+    elsif @user.update_attributes(params[:user])
+      flash[:success] = "Successfully updated user profile."
+      redirect_to edit_members_user_path(@user)
+    else
+      render :action => 'edit'
+    end
+  end
+  
   def edit
-    flash[:success] = "This is where you'd edit your info."
-    redirect_to members_root_url
+    @user = User.find(params[:id])
+    unless @user.household_id.eql? current_user.household_id
+      flash[:error] = "You do not have permission to edit that page."
+      redirect_to members_user_path(current_user)
+    end
   end
 end
