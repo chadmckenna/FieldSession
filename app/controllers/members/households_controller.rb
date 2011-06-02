@@ -4,10 +4,10 @@ class Members::HouseholdsController < Members::MembersController
   def show
     @household = Household.find(params[:id])
     @num_requests = Request.find_all_by_household_id(@household.id).count
-    unless @household.id.eql? current_user.household_id
-      flash[:error] = "You do not have permission to view that page."
-      redirect_to members_household_path(current_user.household)
-    end
+    #unless @household.id.eql? current_user.household_id
+     # flash[:error] = "You do not have permission to view that page."
+     # redirect_to members_household_path(current_user.household)
+    #end
   end
 
   def new

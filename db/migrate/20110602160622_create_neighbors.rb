@@ -1,8 +1,8 @@
 class CreateNeighbors < ActiveRecord::Migration
   def self.up
-    create_table :neighbors do |t|
+    create_table :neighbors, :id => false do |t|
       t.integer :household_id
-      t.integer :household_id_neighbor
+      t.integer :neighbor_id
       t.timestamps
     end
   end
