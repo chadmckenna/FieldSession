@@ -24,6 +24,7 @@ class Members::RequestsController < Members::MembersController
 
   def edit
     @request = Request.find(params[:id])
+    @household = Request.find_by_household_id(@request.household_id)
     unless @request.household_id.eql? current_user.household_id
       flash[:error] = "You do not have permission to access this page."
       redirect_to members_request_path(@request)
