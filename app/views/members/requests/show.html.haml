@@ -1,36 +1,24 @@
 - title "Request"
--#
--#%p
--#  %strong From:
--#  =h @request.from_date.to_s(:short)
--#  at
--#  =h @request.start_time.to_s(:justTime)
--#%p
--#  %strong To:
--#  =h @request.to_date.to_s(:short) 
--#  at
--#  =h @request.end_time.to_s(:justTime)
--#%p
--#  %strong Cost:
--#  = h @request.cost
 
 .request
   %img
-  -#%h2=h request.household.name
-  %h2="#{@request.household} Household"
-  .date
-    =h @request.start_time.to_s(:nicetime)
-    to
-    =h @request.end_time.to_s(:nicetime)
-    on
-    =h @request.from_date.to_s(:short)
-  .cost
-    Cost:
-    =h pluralize(@request.cost.to_i, "credit")
+  .left
+    %h2#name=link_to "#{@request.household}", members_request_path(@request)
+    %h2#household household
+  .right
+    .date
+      =h @request.start_time.to_s(:nicetime)
+      to
+      =h @request.end_time.to_s(:nicetime)
+      on
+      =h @request.from_date.to_s(:short)
+    .cost
+      Cost:
+      =h pluralize(@request.cost.to_i, "credit")
   .tools
     - if @request.household_id.eql? current_user.household_id
       %span= link_to "Edit", edit_members_request_path(@request)
       %span= link_to "Destroy", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
     %span= link_to "View All Requests", members_requests_path
-    %span= link_to "View All My Requests", members_household_path(@request.household)
+    %span= link_to "View All My Requests", members_profile_path
   .clear
