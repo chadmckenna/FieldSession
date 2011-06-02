@@ -1,5 +1,5 @@
 %ul.menubar
-  %li= link_to 'home', home_url_for(current_user), :title => 'Home'
+  %li= link_to 'home', members_profile_path, :title => 'View Profile'
   = admin_menu_items(current_user)
   %li= link_to 'requests', members_requests_path, :title => 'Requests'
   %li= link_to 'settings', edit_members_user_path(current_user)

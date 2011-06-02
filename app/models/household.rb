@@ -14,7 +14,7 @@ class Household < ActiveRecord::Base
   protected
 
     def assign_default_credits
-      self.credits = 0 if self.credits.nil?
+      self.credits = 2 if self.credits.nil?
     end
 
 end

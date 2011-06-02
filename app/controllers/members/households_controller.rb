@@ -23,15 +23,15 @@ class Members::HouseholdsController < Members::MembersController
       current_user.household = @household
       current_user.save!
       if @household.save
-        flash[:success] = "Successfully created #{@household.name} household."
-        redirect_to members_root_url
+        flash[:success] = "Successfully created #{@household.name} household.  You're almost done!  Now add your children to your household."
+        redirect_to new_members_child_path
       else
         flash[:error] = "Error creating household"
         render :action => 'new'
       end
     else
       flash[:error] = "You do not have permission to create that page."
-      redirect_to members_household_path(current_user.household)
+      redirect_to members_children_path
     end
   end
 

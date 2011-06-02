@@ -1,5 +1,7 @@
 - title "Children"
 
+%p= link_to "+ Add a new child", new_child_path
+
 %table
   %tr
     %th First name
@@ -22,4 +24,3 @@
       %td= link_to 'Edit', edit_child_path(child)
       %td= link_to 'Destroy', child, :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Child", new_child_path

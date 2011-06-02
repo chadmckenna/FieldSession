@@ -1,9 +1,8 @@
-%h1 New Household Name
 - form_for [:members, @household] do |f|
   = f.error_messages
   %p
     = f.label :name
     %br
-    = f.text_field :name
+    = f.text_field :name, :value => current_user.last_name
   %p
-    = f.submit
+    = f.submit "Create my household"

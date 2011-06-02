@@ -3,7 +3,7 @@ class Child < ActiveRecord::Base
 
   belongs_to :household
 
-  validates_presence_of :first_name, :last_name, :date_of_birth, :dietary_restrictions, :allergies, :medications, :notes
+  validates_presence_of :first_name, :last_name, :date_of_birth
 
   protected
 

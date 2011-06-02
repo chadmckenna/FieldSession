@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
+  validates_presence_of :role, :message => "cannot be blank."
 
   belongs_to :household
   belongs_to :role
@@ -46,10 +47,6 @@ class User < ActiveRecord::Base
   end
   
   protected
-
-    def validate
-      errors.add_to_base "User must have a role." if self.role.nil?
-    end
 
     def assign_default_role
       self.role = Role.find_by_name('member') if role.nil?

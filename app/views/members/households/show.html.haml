@@ -39,25 +39,29 @@
       = link_to '+ Create a New Request', new_members_request_path
   #content
     My Open Requests
-    #requests
-      - for request in @household.requests
-        .request
-          %img
-          -#%h2=h request.household.name
-          %h2="The #{request.household} Household"
-          .date
-            =h request.start_time.to_s(:nicetime)
-            to
-            =h request.end_time.to_s(:nicetime)
-            on
-            =h request.from_date.to_s(:short)
-          .cost
-            Cost:
-            =h request.cost
-            credits
-          .tools
-            %span= link_to "Show", members_request_path(request)
-            %span= link_to "Edit", edit_members_request_path(request)
-            %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
-          .clear .
+    - if @household.requests.length == 0
+      #no-requests 
+      You have no open requests.
+    - else
+      #requests
+        - for request in @household.requests
+          .request
+            %img
+            -#%h2=h request.household.name
+            %h2="The #{request.household} Household"
+            .date
+              =h request.start_time.to_s(:nicetime)
+              to
+              =h request.end_time.to_s(:nicetime)
+              on
+              =h request.from_date.to_s(:short)
+            .cost
+              Cost:
+              =h request.cost
+              credits
+            .tools
+              %span= link_to "Show", members_request_path(request)
+              %span= link_to "Edit", edit_members_request_path(request)
+              %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+            .clear .
 
