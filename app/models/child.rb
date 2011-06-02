@@ -5,6 +5,14 @@ class Child < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :date_of_birth
 
+  def full_name
+    "#{self.first_name} #{self.last_name}\n"
+  end
+  
+  def to_s
+    self.full_name
+  end
+  
   protected
 
     def validate

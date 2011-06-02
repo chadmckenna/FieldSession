@@ -1,8 +1,14 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household
 
-    def show
-    redirect_to members_profile_path
+  def show
+    @household = Household.find(params[:id])
+    @num_requests = Request.find_all_by_household_id(@household.id).count
+    #unless @household.id.eql? current_user.household_id
+     # flash[:error] = "You do not have permission to view that page."
+     # redirect_to members_household_path(current_user.household)
+    #end
+    #redirect_to members_profile_path
   end
 
   def new
