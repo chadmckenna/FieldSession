@@ -8,6 +8,7 @@ class Members::HouseholdsController < Members::MembersController
      # flash[:error] = "You do not have permission to view that page."
      # redirect_to members_household_path(current_user.household)
     #end
+    #redirect_to members_profile_path
   end
 
   def new

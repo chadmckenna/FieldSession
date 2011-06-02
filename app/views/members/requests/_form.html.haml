@@ -12,9 +12,9 @@
     = f.text_field :to_date, :value => (@request.to_date.blank? ? '' : @request.to_date.to_s(:numDate))
     at
     = f.time_select :end_time, :minute_step => 15
-  -#%p
-    -#= f.label :cost
-    -#%br/
-    -#= f.text_field :cost
+  %p
+    - for child in current_user.household.children
+      = f.label "#{child}"
+      %input{:type=>"checkbox", :name=>"#{child}", :value=>"#{child.id}"}
   %p= f.submit
 
