@@ -1,7 +1,7 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household
 
-  def show
+    def show
     redirect_to members_profile_path
   end
 
