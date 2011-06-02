@@ -3,11 +3,6 @@ class Members::HouseholdsController < Members::MembersController
 
   def show
     redirect_to members_profile_path
-    #@household = Household.find(params[:id])
-    #unless @household.id.eql? current_user.household_id
-    #  flash[:error] = "You do not have permission to view that page."
-    #  redirect_to members_household_path(current_user.household)
-    #end
   end
 
   def new
