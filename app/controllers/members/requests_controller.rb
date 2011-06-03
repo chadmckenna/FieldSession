@@ -1,6 +1,12 @@
 class Members::RequestsController < Members::MembersController
+
   def index
-    @requests = Request.find(:all, :order => 'created_at').reverse
+    @requests = Request.find(:all, :order => 'from_date')
+    
+    @pending_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :pending => "true"})
+    @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
+    
+    @confirmed_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :confirmed => "true"})
   end
 
   def show
