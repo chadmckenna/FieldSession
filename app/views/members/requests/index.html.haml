@@ -6,7 +6,7 @@
     %p= link_to "You have #{pluralize(@num_volunteer_requests, 'request')} to watch your kids", members_my_volunteers_path
 #request-container
   - for request in @requests
-    -unless request.household == current_user.household || pending(request)
+    -unless request.household == current_user.household || pending(request) || commit(request)
       .request
         = image_tag '/images/icon_small_user.png'
         .left
