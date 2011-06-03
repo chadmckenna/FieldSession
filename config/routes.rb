@@ -27,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :households
     members.resources :requests
     members.resources :neighbors
+    members.resources :pending_requests
     members.profile 'profile/', :controller => 'profile'
     members.root :controller => 'requests', :action => 'index'
   end

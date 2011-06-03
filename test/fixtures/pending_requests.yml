@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  request_id: 1
+  household_requestor_id: 1
+  pending: MyString
+  household_commit_id: 1
+
+two:
+  request_id: 1
+  household_requestor_id: 1
+  pending: MyString
+  household_commit_id: 1

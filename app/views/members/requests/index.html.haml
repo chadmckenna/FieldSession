@@ -1,23 +1,52 @@
 - title "Requests"
 %p= link_to "+ Create a New Care Request", new_members_request_path
-- for request in @requests
-  -unless request.household == current_user.household
-    .request
-      %img
-      .left
-        %h2#name=link_to "#{request.household}", members_request_path(request)
-        %h2#household household
-      .right
-        .date
-          =h request.start_time.to_s(:nicetime)
-          to
-          =h request.end_time.to_s(:nicetime)
-          on
-          =h request.from_date.to_s(:short)
-        .cost
-          Credits:
-          =h request.cost
-      .tools
-        %span= link_to "Volunteer", '#'
-      .clear
+#request-container
+  - for request in @requests
+    -unless request.household == current_user.household || pending(request)
+      .request
+        = image_tag '/images/icon_small_user.png'
+        .left
+          %h2.name=link_to "#{request.household}", members_request_path(request)
+          %h2.household Household
+        .right
+          .date
+            =h request.from_date.to_s(:short)
+            at
+            =h request.start_time.to_s(:nicetime)
+            to
+            - if !request.same_date
+              =h request.to_date.to_s(:short)
+              at
+            =h request.end_time.to_s(:nicetime)
+          .cost
+            Credits:
+            %font=h request.cost.to_i
+        .tools
+          %span= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id}, :method => :post
+        .clear
+
+#commit-container
+  #commitments
+    %h2 My Commitments
+    - if @confirmed_requests.count == 0
+      #no-commitment
+        You have no commitments
+  #pending
+    %h2 My Pending Requests
+    -if @pending_requests.count == 0
+      #no-pending
+        You have no pending requests
+    - for pending_request in @pending_requests
+      .pending-request
+        .delete-link
+          = link_to 'x', members_pending_request_path(pending_request), :confirm => 'Are you sure you want to remove this pending request?', :method => :delete
+        = "Request to watch the #{pending_request.request.household}'s kids"
+        %br
+        =h pending_request.request.from_date.to_s(:short)
+        - if !pending_request.request.same_date
+          \-
+          =h pending_request.request.to_date.to_s(:short)
+        
+        .link
+          = link_to 'View More Details', members_request_path(pending_request.request)
 

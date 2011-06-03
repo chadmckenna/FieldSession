@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(:version => 20110603142518) do
     t.datetime "updated_at"
   end
 
+  create_table "pending_requests", :force => true do |t|
+    t.integer  "request_id"
+    t.integer  "household_requestor_id"
+    t.string   "pending"
+    t.integer  "household_commit_id"
+    t.string   "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "requests", :force => true do |t|
     t.datetime "from_date"
     t.datetime "start_time"

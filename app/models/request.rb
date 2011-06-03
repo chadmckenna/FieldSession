@@ -3,6 +3,7 @@ class Request < ActiveRecord::Base
 
   has_many :children
   belongs_to :household
+  has_many :pending_requests
 
   #validates_presence_of :cost
   #validates_numericality_of :cost
@@ -20,6 +21,14 @@ class Request < ActiveRecord::Base
       @days_to_hours = ((self.to_date - self.from_date)/1.hour)
     end
     self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil#*4
+  end
+  
+  def same_date
+    if self.from_date.eql?(self.to_date)
+      return true
+    else
+      return false
+    end
   end
 
   protected

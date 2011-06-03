@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
-  acts_as_authentic do |config|
-    config.validate_password_field = false
-    config.validate_login_field = false
-  end
-  attr_accessible :first_name, :last_name, :phone, :email
+  acts_as_authentic
+  #attr_accessible :username, :first_name, :last_name, :phone, :email
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/

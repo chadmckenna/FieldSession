@@ -17,6 +17,9 @@ class Household < ActiveRecord::Base
   #has_many :requestors, :foreign_key => 'household_id', :class_name => 'Neighbor', :dependent => :destroy
   #has_many :households, :through => :requestors
   
+  has_many :pending_requests
+  #has_many :requests, :through => :pending_requests
+  
   has_many :households
   
   before_create :assign_default_credits
