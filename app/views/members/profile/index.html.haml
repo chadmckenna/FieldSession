@@ -30,7 +30,7 @@
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           .child
-            =h link_to "#{phone_number.phone}", edit_members_user_path(phone_number)
+            =h "#{phone_number.phone}"
         -else
           No known phone numbers
 

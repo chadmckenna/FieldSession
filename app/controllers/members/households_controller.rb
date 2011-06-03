@@ -22,6 +22,7 @@ class Members::HouseholdsController < Members::MembersController
   def create
     if current_user.household_id.eql? nil
       @household = Household.new(params[:household])
+      @household.credits = params[:child_count].to_i * 2
       current_user.household = @household
       current_user.save!
       if @household.save
@@ -39,6 +40,7 @@ class Members::HouseholdsController < Members::MembersController
 
   def edit
     @household = Household.find(params[:id])
+    @edit = true
     unless @household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to edit that page."
       redirect_to members_household_path(current_user.household)
@@ -47,7 +49,7 @@ class Members::HouseholdsController < Members::MembersController
 
   def update
     @household = Household.find(params[:id])
-    if @household.id.eql? current_user.household_id
+    if !@household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to update that page."
       redirect_to members_household_path(current_user.household)
     elsif @household.update_attributes(params[:household])
