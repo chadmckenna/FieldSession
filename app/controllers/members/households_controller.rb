@@ -47,7 +47,7 @@ class Members::HouseholdsController < Members::MembersController
 
   def update
     @household = Household.find(params[:id])
-    if @household.id.eql? current_user.household_id
+    if !@household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to update that page."
       redirect_to members_household_path(current_user.household)
     elsif @household.update_attributes(params[:household])
