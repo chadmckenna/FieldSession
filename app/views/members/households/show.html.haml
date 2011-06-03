@@ -35,9 +35,11 @@
       %br
       = "Credit Balance: #{@household.credits}"
     #buttons
-      = link_to 'Edit my Household', edit_members_household_path(@household)
-      = link_to '+ Create a New Request', new_members_request_path
-      = link_to '+ Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => @household.id}, :method => :post
+      - if current_user.household.eql? @household
+        = link_to 'Edit my Household', edit_members_household_path(@household)
+        = link_to '+ Create a New Request', new_members_request_path
+      - else
+        = link_to '+ Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => @household.id}, :method => :post
   #content
     - if @household.requests.length > 0
       %font.small-title My Open Requests
