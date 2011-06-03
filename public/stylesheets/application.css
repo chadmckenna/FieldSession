@@ -234,8 +234,12 @@ a {
     height: 48px;
     margin: 0.5em;
     float: left; }
+  .request .no-volunteer {
+    color: #aaaaaa;
+    margin-left: 10px;
+    font-size: 1.1em; }
   .request .name {
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin-bottom: 10px; }
     .request .name a {
       background: none !important;

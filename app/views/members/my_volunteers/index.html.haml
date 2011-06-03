@@ -3,8 +3,8 @@
     - unless confirmed(my_request)
       .request
         .name= link_to "Request for #{my_request.from_date.to_s(:short)}", members_request_path(my_request) 
-        - if @volunteer_requests.count == 0
-          You have no volunteers for this request yet
+        - if check_volunteer_count(my_request) == 0
+          .no-volunteer You have no volunteers for this request yet
         - else 
           - for volunteer in @volunteer_requests
             - if my_request.id == volunteer.request_id

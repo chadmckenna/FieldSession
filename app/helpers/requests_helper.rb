@@ -32,4 +32,14 @@ module RequestsHelper
   def get_household_volunteer(id)
     return Household.find_by_id(id)
   end
+  
+  def check_volunteer_count(request)
+    @count = 0
+    for volunteer in @volunteer_requests
+      if volunteer.request_id == request.id
+        @count = @count + 1
+      end
+    end
+    return @count
+  end
 end
