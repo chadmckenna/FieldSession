@@ -12,7 +12,7 @@ class Household < ActiveRecord::Base
   #has_many :households, :through => :requestors
   
   has_many :pending_requests
-  has_many :requests, :through => :pending_requests
+  #has_many :requests, :through => :pending_requests
   
   has_many :households
   
