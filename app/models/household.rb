@@ -8,10 +8,12 @@ class Household < ActiveRecord::Base
   has_many :neighbors, :foreign_key => 'neighbor_id', :class_name => 'Neighbor', :dependent => :destroy
   has_many :households, :through => :neighbors
   
-  has_attached_file :photo, :url => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
-  :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension"
+  has_attached_file :photo, :url => "/assets/:class/:attachment/:id/:basename.:extension",
+  :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
+  :default_url => "#{RAILS_ROOT}/public/images/default_household.jpg"
   
-  validates_attachment_presence :photo
+  # Once we get S3 or something working we can use this
+  #validates_attachment_presence :photo
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
   #has_many :requestors, :foreign_key => 'household_id', :class_name => 'Neighbor', :dependent => :destroy

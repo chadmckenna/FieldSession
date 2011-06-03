@@ -1,7 +1,7 @@
 - title "Household"
 #left-column
   #photo
-    =image_tag "/images/household_image.png"
+    =image_tag @household.photo.url
   #info
     %div.title Caregivers
     %div
@@ -30,7 +30,7 @@
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           .child
-            =h link_to "#{phone_number.phone}", edit_members_user_path(phone_number)
+            =h "#{phone_number.phone}"
         -else
           No known phone numbers
 
