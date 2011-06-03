@@ -9,7 +9,8 @@ class Household < ActiveRecord::Base
   has_many :households, :through => :neighbors
   
   has_attached_file :photo, :url => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
-  :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension"
+  :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
+  :default_url => "#{RAILS_ROOT}/public/images/default_household.jpg"
   
   validates_attachment_presence :photo
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
