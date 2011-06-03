@@ -205,45 +205,92 @@ a {
       list-style: disc; }
 
 /* Requests styles */
-.request {
-  border-bottom: 3px double #eeeeee;
-  margin-bottom: 1em;
+#request-container {
+  width: 70%;
   padding: 0.5em;
-  width: 100%; }
-  .request img {
-    width: 48px;
-    height: 48px;
-    margin: 0.5em;
-    float: left; }
-  .request .left {
-    float: left; }
-    .request .left h2 {
-      font-size: 1.8em;
-      margin: 0 !important;
-      padding: 0 !important; }
-    .request .left #name {
+  float: left; }
+  #request-container .request {
+    border-bottom: 3px double #eeeeee;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 100%; }
+    #request-container .request img {
+      width: 48px;
+      height: 48px;
+      margin: 0.5em;
       float: left; }
-      .request .left #name a {
-        padding: inherit;
-        margin: inherit;
-        background: none !important;
-        border: none !important; }
-        .request .left #name a:hover {
-          text-decoration: underline; }
-    .request .left h2#household {
+    #request-container .request .left {
+      float: left; }
+      #request-container .request .left h2 {
+        font-size: 1.8em;
+        margin: 0 !important;
+        padding: 0 !important; }
+      #request-container .request .left .name {
+        float: left; }
+        #request-container .request .left .name a {
+          padding: inherit;
+          margin: inherit;
+          background: none !important;
+          border: 0 !important; }
+          #request-container .request .left .name a:hover {
+            text-decoration: underline; }
+      #request-container .request .left .household {
+        clear: both;
+        font-size: 1.3em; }
+    #request-container .request .right {
+      margin: 5px 0;
+      float: left;
+      margin-left: 1em;
+      color: #555555; }
+      #request-container .request .right .cost {
+        font-style: oblique; }
+        #request-container .request .right .cost font {
+          font-weight: bold; }
+    #request-container .request .tools {
+      float: right;
+      margin: 0.5em; }
+    #request-container .request .clear {
       clear: both; }
-  .request .right {
-    margin: 5px 0;
-    float: left;
-    margin-left: 1em;
-    color: #555555; }
-    .request .right .cost {
-      font-style: oblique; }
-  .request .tools {
-    float: right;
-    margin: 0.5em; }
-  .request .clear {
-    clear: both; }
+
+#commit-container {
+  width: 25%;
+  padding: 0.5em;
+  float: right;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2em; }
+  #commit-container h2 {
+    font-size: 1.2em; }
+  #commit-container #commitments #no-commitment {
+    font-size: 0.8em;
+    color: #aaaaaa;
+    padding: 0.5em; }
+  #commit-container #pending #no-pending {
+    font-size: 0.8em;
+    color: #aaaaaa;
+    padding: 0.5em; }
+  #commit-container #pending .pending-request {
+    font-weight: none;
+    font-size: 0.7em;
+    border-bottom: 3px double #eeeeee;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    text-align: left; }
+    #commit-container #pending .pending-request .link {
+      text-align: right;
+      margin-top: 5px; }
+      #commit-container #pending .pending-request .link a {
+        border: none;
+        background: none; }
+        #commit-container #pending .pending-request .link a:hover {
+          text-decoration: underline; }
+    #commit-container #pending .pending-request .delete-link {
+      float: right; }
+      #commit-container #pending .pending-request .delete-link a {
+        background: none;
+        border: none; }
+        #commit-container #pending .pending-request .delete-link a:hover {
+          text-decoration: underline; }
 
 input[type="text"], input[type="password"] {
   border: 1px solid #464f3f;

@@ -7,6 +7,7 @@ authorization do
     has_permission_on :members_children, :to => :manage
     has_permission_on :members_profile, :to => :manage
     has_permission_on :members_neighbors, :to => :manage
+    has_permission_on :members_pending_requests, :to => :manage
     has_permission_on :members_households, :to => [:create, :show, :update]
   end
   role :administrator do

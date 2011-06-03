@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   acts_as_authentic
-  attr_accessible :first_name, :last_name, :phone, :email
+  #attr_accessible :username, :first_name, :last_name, :phone, :email
   validates_format_of :phone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
   validates_presence_of :role, :message => "cannot be blank."
+  validates_confirmation_of :password
 
   belongs_to :household
   belongs_to :role

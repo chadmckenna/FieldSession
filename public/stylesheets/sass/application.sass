@@ -216,48 +216,97 @@ a
       list-style: disc
 
 /* Requests styles */
-.request
-  border-bottom: 3px double $lightGrey
-  margin-bottom: 1em
+#request-container
+  width: 70%
   padding: .5em
-  width: 100%
-  img
-    width: 48px
-    height: 48px
-    margin: .5em
-    float: left
-  .left
-    float: left
-    h2
-      font-size: 1.8em
-      margin: 0 !important
-      padding: 0 !important
-    #name
+  float: left
+  .request
+    border-bottom: 3px double $lightGrey
+    margin-bottom: 1em
+    padding: .5em
+    width: 100%
+    img
+      width: 48px
+      height: 48px
+      margin: .5em
       float: left
-      a
-        padding: inherit
-        margin: inherit
-        background: none !important
-        border: none !important
-        &:hover
-          text-decoration: underline
-    h2#household
+    .left
+      float: left
+      h2
+        font-size: 1.8em
+        margin: 0 !important
+        padding: 0 !important
+      .name
+        float: left
+        a
+          padding: inherit
+          margin: inherit
+          background: none !important
+          border: 0 !important
+          &:hover
+            text-decoration: underline
+      .household
+        clear: both
+        font-size: 1.3em
+    .right
+      margin: 5px 0
+      float: left
+      margin-left: 1em
+      color: #555
+      .cost
+        font-style: oblique
+        font
+          font-weight: bold
+    .tools
+      float: right
+      margin: .5em
+      //position: relative
+      //bottom: -30px
+      //right: 0px
+    .clear
       clear: both
-  .right
-    margin: 5px 0
-    float: left
-    margin-left: 1em
-    color: #555
-    .cost
-      font-style: oblique
-  .tools
-    float: right
-    margin: .5em
-    //position: relative
-    //bottom: -30px
-    //right: 0px
-  .clear
-    clear: both
+
+#commit-container
+  width: 25%
+  padding: .5em
+  float: right
+  text-align: right
+  font-weight: bold
+  font-size: 1.2em
+  h2
+    font-size: 1.2em
+  #commitments
+    #no-commitment
+      font-size: .8em
+      color: #AAA
+      padding: .5em
+  #pending
+    #no-pending
+      font-size: .8em
+      color: #AAA
+      padding: .5em
+    .pending-request
+      font-weight: none
+      font-size: .7em
+      border-bottom: 3px double $lightGrey
+      margin-bottom: 1em
+      padding: .5em
+      text-align: left
+      .link
+        text-align: right
+        margin-top: 5px
+        a
+          border: none
+          background: none
+          &:hover
+            text-decoration: underline
+      .delete-link
+        float: right
+        a
+          background: none
+          border: none
+          &:hover
+            text-decoration: underline
 
 input[type="text"], input[type="password"]
   border: 1px solid $mastheadBG
