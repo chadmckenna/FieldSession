@@ -63,6 +63,21 @@ a {
   #masthead #clear {
     clear: both; }
 
+#top {
+  width: 100%; }
+  #top #button {
+    float: left;
+    width: 40%; }
+  #top #your-requests {
+    float: right;
+    width: 40%;
+    text-align: right; }
+    #top #your-requests a {
+      background: none;
+      border: none; }
+      #top #your-requests a:hover {
+        text-decoration: underline; }
+
 #container {
   width: 98%;
   margin: 100px auto 0 auto;

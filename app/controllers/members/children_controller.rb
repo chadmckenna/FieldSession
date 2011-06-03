@@ -22,7 +22,7 @@ class Members::ChildrenController < Members::MembersController
     
     if @child.save
       flash[:success] = "Successfully added #{@child.first_name} to the #{@child.household} household."
-      redirect_to members_household_path(@child.household)
+      redirect_to members_profile_path
     else
       render :action => 'new'
     end

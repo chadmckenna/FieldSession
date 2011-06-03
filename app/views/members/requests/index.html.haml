@@ -1,5 +1,9 @@
 - title "Requests"
-%p= link_to "+ Create a New Care Request", new_members_request_path
+#top
+  #button
+    %p= link_to "+ Create a New Care Request", new_members_request_path
+  #your-requests
+    %p= link_to "You have #{@volunteer_requests.count} requests to watch your kids", '#'
 #request-container
   - for request in @requests
     -unless request.household == current_user.household || pending(request)
@@ -22,7 +26,7 @@
             Credits:
             %font=h request.cost.to_i
         .tools
-          %span= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id}, :method => :post
+          %span= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post
         .clear
 
 #commit-container
