@@ -8,7 +8,7 @@ class Household < ActiveRecord::Base
   has_many :neighbors, :foreign_key => 'neighbor_id', :class_name => 'Neighbor', :dependent => :destroy
   has_many :households, :through => :neighbors
   
-  has_attached_file :photo, :url => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
+  has_attached_file :photo, :url => "/assets/:class/:attachment/:id/:basename.:extension",
   :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension"
   
   validates_attachment_presence :photo
