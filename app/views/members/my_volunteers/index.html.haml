@@ -1,11 +1,15 @@
 #request-container
   -for my_request in @my_requests
-    .request
-      .name= link_to "Request for #{my_request.from_date.to_s(:short)}", members_request_path(my_request)  
-      - for volunteer in @volunteer_requests
-        - if my_request.id == volunteer.request_id
-          .household
-            .name
-              = get_household_volunteer(volunteer.household_requestor_id)
-            .buttons
-              = link_to 'Use Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :household_commit_id => volunteer.household_requestor_id}, :method => :post
+    - unless confirmed(my_request)
+      .request
+        .name= link_to "Request for #{my_request.from_date.to_s(:short)}", members_request_path(my_request) 
+        - if @volunteer_requests.count == 0
+          You have no volunteers for this request yet
+        - else 
+          - for volunteer in @volunteer_requests
+            - if my_request.id == volunteer.request_id
+              .household
+                .name
+                  = get_household_volunteer(volunteer.household_requestor_id)
+                .buttons
+                  = link_to 'Use Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :household_commit_id => volunteer.household_requestor_id, :request_id => volunteer.request_id}, :method => :post

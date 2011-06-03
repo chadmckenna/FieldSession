@@ -20,6 +20,15 @@ module RequestsHelper
     return @same
   end
   
+  def confirmed(request)
+    for confirmed in @confirmed_requests
+      if request.id == confirmed.request_id && confirmed.confirmed == "true"
+        return true
+      end
+    end
+    return false
+  end
+  
   def get_household_volunteer(id)
     return Household.find_by_id(id)
   end

@@ -7,7 +7,7 @@ class Members::RequestsController < Members::MembersController
     @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
     
     @confirmed_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :confirmed => "true"})
-    
+
     @num_volunteer_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true"}).count
   end
 
