@@ -1,5 +1,5 @@
 class Members::RequestsController < Members::MembersController
-
+  filter_access_to :all
   def index
     @requests = Request.find(:all, :order => 'from_date')
     

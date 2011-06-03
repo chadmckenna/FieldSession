@@ -35,6 +35,18 @@
     - if @confirmed_requests.count == 0
       #no-commitment
         You have no commitments
+    - for confirmed_request in @confirmed_requests
+      .confirmed-request
+        .delete-link
+          = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
+        = "Request to watch the #{confirmed_request.request.household}'s kids"
+        %br
+        =h confirmed_request.request.from_date.to_s(:short)
+        - if !confirmed_request.request.same_date
+          \-
+          =h confirmed_request.request.to_date.to_s(:short)
+        .link
+          = link_to 'View More Details', members_request_path(confirmed_request.request)
   #pending
     %h2 My Pending Requests
     -if @pending_requests.count == 0

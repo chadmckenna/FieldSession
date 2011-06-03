@@ -235,6 +235,22 @@ a {
     height: 48px;
     margin: 0.5em;
     float: left; }
+  .request .name {
+    font-size: 1.4em;
+    margin-bottom: 10px; }
+    .request .name a {
+      background: none !important;
+      border: none !important; }
+      .request .name a:hover {
+        text-decoration: underline; }
+  .request .household {
+    height: 30px;
+    padding: 0.5em;
+    width: 40%; }
+    .request .household .name {
+      float: left; }
+    .request .household .buttons {
+      float: right; }
   .request .left {
     float: left; }
     .request .left h2 {
@@ -281,6 +297,28 @@ a {
     font-size: 0.8em;
     color: #aaaaaa;
     padding: 0.5em; }
+  #commit-container #commitments .confirmed-request {
+    font-weight: none;
+    font-size: 0.7em;
+    border-bottom: 3px double #eeeeee;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    text-align: left; }
+    #commit-container #commitments .confirmed-request .link {
+      text-align: right;
+      margin-top: 5px; }
+      #commit-container #commitments .confirmed-request .link a {
+        border: none;
+        background: none; }
+        #commit-container #commitments .confirmed-request .link a:hover {
+          text-decoration: underline; }
+    #commit-container #commitments .confirmed-request .delete-link {
+      float: right; }
+      #commit-container #commitments .confirmed-request .delete-link a {
+        background: none;
+        border: none; }
+        #commit-container #commitments .confirmed-request .delete-link a:hover {
+          text-decoration: underline; }
   #commit-container #pending #no-pending {
     font-size: 0.8em;
     color: #aaaaaa;

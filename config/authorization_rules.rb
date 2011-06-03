@@ -8,7 +8,7 @@ authorization do
     has_permission_on :members_profile, :to => :manage
     has_permission_on :members_neighbors, :to => :manage
     has_permission_on :members_pending_requests, :to => :manage
-    has_permission_on :members_my_volunteers, :to => :manage
+    has_permission_on :members_my_volunteers, :to => [:manage, :add_caregiver]
     has_permission_on :members_households, :to => [:create, :show, :update]
   end
   role :administrator do
@@ -29,5 +29,7 @@ privileges do
   privilege :create, :includes => :new
   privilege :update, :includes => [:edit]
   privilege :delete, :includes => :destroy
+  privilege :add_caregiver, :includes => :add_caregiver
 end
+
 

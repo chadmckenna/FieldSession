@@ -245,6 +245,23 @@ a
     height: 48px
     margin: .5em
     float: left
+  .name
+    font-size: 1.4em
+    margin-bottom: 10px
+    a
+      background: none !important
+      border: none !important
+      &:hover
+        text-decoration: underline
+  .household
+    height: 30px
+    padding: .5em
+    width: 40%
+    .name
+      float: left
+    .buttons
+      float: right
+      
   .left
     float: left
     h2
@@ -295,6 +312,28 @@ a
       font-size: .8em
       color: #AAA
       padding: .5em
+    .confirmed-request
+      font-weight: none
+      font-size: .7em
+      border-bottom: 3px double $lightGrey
+      margin-bottom: 1em
+      padding: .5em
+      text-align: left
+      .link
+        text-align: right
+        margin-top: 5px
+        a
+          border: none
+          background: none
+          &:hover
+            text-decoration: underline
+      .delete-link
+        float: right
+        a
+          background: none
+          border: none
+          &:hover
+            text-decoration: underline
   #pending
     #no-pending
       font-size: .8em

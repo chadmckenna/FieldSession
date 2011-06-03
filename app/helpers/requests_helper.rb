@@ -9,4 +9,8 @@ module RequestsHelper
     end
     return @same
   end
+  
+  def get_household_volunteer(id)
+    return Household.find_by_id(id)
+  end
 end
