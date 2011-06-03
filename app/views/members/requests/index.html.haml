@@ -3,7 +3,7 @@
   #button
     %p= link_to "+ Create a New Care Request", new_members_request_path
   #your-requests
-    %p= link_to "You have #{@volunteer_requests.count} requests to watch your kids", '#'
+    %p= link_to "You have #{pluralize(@volunteer_requests.count, 'request')} to watch your kids", '#'
 #request-container
   - for request in @requests
     -unless request.household == current_user.household || pending(request)
