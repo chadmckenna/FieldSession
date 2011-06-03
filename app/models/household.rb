@@ -1,5 +1,5 @@
 class Household < ActiveRecord::Base
-  attr_accessible :name, :credits
+  attr_accessible :name, :credits, :photo
 
   has_many :children
   has_many :users
