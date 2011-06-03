@@ -1,5 +1,7 @@
 All Neighbors
 %br
-- for neighbor in @neighbors
-  = neighbor.neighbor
+  %ul
+    - for neighbor in @neighbors
+      %li
+        = link_to neighbor.neighbor, members_household_url(neighbor.neighbor)
   %br
