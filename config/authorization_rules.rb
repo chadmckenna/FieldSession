@@ -1,7 +1,7 @@
 authorization do
   role :member do
     has_permission_on :members_members, :to => :read
-    has_permission_on :members_requests, :to => :manage
+    has_permission_on :members_requests, :to => [:manage, :hide]
     #This will need to be changed back to something besides manage, maybe?
     has_permission_on :members_users, :to => :manage
     has_permission_on :members_children, :to => :manage
@@ -30,6 +30,7 @@ privileges do
   privilege :update, :includes => [:edit]
   privilege :delete, :includes => :destroy
   privilege :add_caregiver, :includes => :add_caregiver
+  privilege :hide, :includes => [:hide_request, :hide_all_by_household]
 end
 
 

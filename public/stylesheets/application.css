@@ -28,7 +28,7 @@ a {
   top: 0 !important;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   border-bottom: 1px solid black;
   -webkit-box-shadow: 0 0 12px #888888;
   -moz-box-shadow: 0 0 12px #888888; }
@@ -228,6 +228,7 @@ a {
   border-bottom: 3px double #eeeeee;
   margin-bottom: 1em;
   padding: 0.5em;
+  padding-right: 0 !important;
   width: 100%; }
   .request img {
     width: 48px;
@@ -285,7 +286,43 @@ a {
         font-weight: bold; }
   .request .tools {
     float: right;
-    margin: 0.5em; }
+    z-index: 2; }
+    .request .tools .volunteer-button {
+      float: right;
+      margin-top: 10px; }
+    .request .tools .delete {
+      text-align: center;
+      float: right;
+      width: 20px;
+      height: 20px;
+      font-size: 1.1em;
+      z-index: 5; }
+      .request .tools .delete span {
+        display: none; }
+      .request .tools .delete a {
+        background: none !important;
+        border: none !important; }
+        .request .tools .delete a:hover {
+          background: #cccccc !important; }
+    .request .tools .subnav ul {
+      list-style-type: none;
+      margin-top: 20px;
+      display: none;
+      position: absolute;
+      z-index: 4;
+      background: #eeeeee;
+      border: 1px solid;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-box-shadow: 2px 2px 4px #555555; }
+      .request .tools .subnav ul a {
+        background: none !important;
+        border: none !important; }
+      .request .tools .subnav ul li {
+        margin-right: 30px;
+        padding: 0.2em; }
+        .request .tools .subnav ul li a:hover {
+          background: #dddddd !important; }
   .request .clear {
     clear: both; }
 

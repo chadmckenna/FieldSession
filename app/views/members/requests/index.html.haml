@@ -6,7 +6,7 @@
     %p= link_to "You have #{pluralize(@num_volunteer_requests, 'request')} to watch your kids", members_my_volunteers_path
 #request-container
   - for request in @requests
-    -unless request.household == current_user.household || pending(request) || commit(request)
+    -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request)
       .request
         = image_tag '/images/icon_small_user.png'
         .left
@@ -26,7 +26,13 @@
             Credits:
             %font=h request.cost.to_i
         .tools
-          %span= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post
+          .delete 
+            %span= link_to 'x', '#'
+          .subnav
+            %ul
+              %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id}, :method => :post
+              %li= link_to "Hide all by #{request.household}", {:controller => "requests", :action => "hide_all_by_household", :household_hidden_id => request.household.id}, :method => :post
+          .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post
         .clear
 
 #commit-container

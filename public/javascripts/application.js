@@ -14,6 +14,23 @@ $(function() {
 																				
 });
 
+$(document).ready(function() {
+	$(".request").hover(function() {
+		$(this).find(".delete span").fadeIn("fast").show();
+	}, function() {
+		$(this).find(".delete span").fadeOut("slow").hide();
+	});
+	
+	$(".delete").hover(function() {
+		$(this).parent().find(".subnav ul").fadeIn("slow").show();
+		
+		$(this).parent().hover(function() {
+		}, function() {
+			$(this).parent().find(".subnav ul").hide();
+		});
+	});
+});
+
 
 
 
