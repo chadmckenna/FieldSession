@@ -14,7 +14,8 @@
     = f.time_select :end_time, :minute_step => 15
   %p
     - for child in current_user.household.children
-      = f.label "#{child}"
-      %input{:type=>"checkbox", :name=>"#{child}", :value=>"#{child.id}"}
+      = check_box_tag "request[child_ids][]", child.id, @request.children.include?(child)
+      -#= child.first_name + child.last_name
+      = "#{child}"
   %p= f.submit
 

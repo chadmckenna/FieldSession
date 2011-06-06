@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  request_id: 1
+  child_id: 1
+
+two:
+  request_id: 1
+  child_id: 1
