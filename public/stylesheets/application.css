@@ -34,17 +34,17 @@ a {
   -moz-box-shadow: 0 0 12px #888888; }
   #masthead #search {
     float: right;
-    margin: -30px 15px 5px 0px;
-    padding-bottom: -10px; }
-    #masthead #search #text-field {
+    margin-right: 10px; }
+    #masthead #search input[type="text"] {
       float: left;
-      margin-top: 30px; }
-      #masthead #search #text-field input {
-        -moz-border-radius: 1em;
-        -webkit-border-radius: 1em;
-        border-radius: 1em; }
-    #masthead #search #submit {
-      float: right; }
+      padding: 0.2em 0.5em;
+      -moz-border-radius: 1em;
+      -webkit-border-radius: 1em;
+      border-radius: 1em; }
+      #masthead #search input[type="text"]:focus {
+        outline: none !important; }
+    #masthead #search input[type="submit"] {
+      display: none; }
   #masthead h1 {
     float: left;
     width: 30%;

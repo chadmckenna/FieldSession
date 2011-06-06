@@ -27,14 +27,12 @@
         %h1= link_to "Villages", root_path, :title => 'Home'     
       = menubar(current_user)
       = userbar(current_user)
-      #clear
       - if current_user
         #search
           - form_tag members_search_path, :method => 'get' do
-            #text-field
-              = text_field_tag :search, params[:search]
-            #submit
-              = submit_tag "Search", :name => nil
+            = text_field_tag :search, params[:search], default_text("search...")
+            = submit_tag "Search", :name => nil
+      #clear
     #container
       #content
         - unless flash.empty?
