@@ -460,22 +460,27 @@ input[type="text"], input[type="password"] {
   margin-left: 40px; }
 
 #hidden-requests-container {
-  width: 70%; }
+  width: 50%; }
   #hidden-requests-container .hidden-title {
-    font-size: 1.2em;
-    margin-bottom: 1.2em;
-    margin-left: 20px; }
+    font-size: 1.1em;
+    margin: 20px 0px 20px 20px; }
   #hidden-requests-container .title {
     text-align: center; }
   #hidden-requests-container .hidden-household {
-    width: 40%;
+    width: 80%;
     margin-bottom: 20px;
     margin-left: 40px;
     border-bottom: 3px double #eeeeee;
     padding: 1em; }
-    #hidden-requests-container .hidden-household .household {
+    #hidden-requests-container .hidden-household .photo {
       float: left; }
+      #hidden-requests-container .hidden-household .photo img {
+        width: 40px;
+        height: 40px; }
+    #hidden-requests-container .hidden-household .household {
+      float: left;
+      margin-left: 15px; }
     #hidden-requests-container .hidden-household .button {
       float: right; }
-    #hidden-requests-container .hidden-household #clear {
+    #hidden-requests-container .hidden-household .clear {
       clear: both; }

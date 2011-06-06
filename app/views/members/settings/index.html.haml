@@ -1,3 +1,6 @@
+- content_for :title do
+  Settings
+
 #hidden-requests-container
   %h2.title Hidden Requests
   - if @hidden_requests.count == 0 && @hidden_household_requests.count == 0
@@ -7,19 +10,28 @@
 
   - for hidden_request in @hidden_requests
     .hidden-household
+      .photo
+        = image_tag hidden_request.request.household.photo.url
       .household
         = hidden_request.request.household
+        %br
+        = hidden_request.request.from_date.to_s(:short)
+        - if !hidden_request.request.same_date
+          \-
+          = hidden_request.request.to_date.to_s(:short)
       .button
         = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure?', :method => :delete
-      #clear
+      .clear
 
   - if @hidden_household_requests.count > 0
     .hidden-title You have chosen to hide requests from these households
 
   -for hidden_household_request in @hidden_household_requests
     .hidden-household
+      .photo
+        = image_tag find_hidden_household(hidden_household_request).photo.url
       .household
-      = find_hidden_household(hidden_household_request)
+        = find_hidden_household(hidden_household_request)
       .button
         = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => 'Are you sure?', :method => :delete
-      #clear
+      .clear

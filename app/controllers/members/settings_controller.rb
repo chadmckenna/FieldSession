@@ -13,7 +13,7 @@ class Members::SettingsController < Members::MembersController
   def destroy
     @hidden_request = HiddenRequest.find(params[:id])
     @hidden_request.destroy
-    flash[:success] = "Deleted"
+    flash[:success] = "You have successfully removed this household from your hidden households"
     redirect_to members_settings_path
     
   end
