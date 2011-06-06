@@ -42,17 +42,17 @@ a
   -moz-box-shadow: 0 0 12px #888
   #search
     float: right
-    margin: -30px 15px 5px 0px
-    padding-bottom: -10px
-    #text-field
+    margin-right: 10px
+    input[type="text"]
       float: left
-      margin-top: 30px
-      input
-        -moz-border-radius: 1em
-        -webkit-border-radius: 1em
-        border-radius: 1em
-    #submit
-      float: right
+      padding: .2em .5em
+      -moz-border-radius: 1em
+      -webkit-border-radius: 1em
+      border-radius: 1em
+      &:focus
+        outline: none !important
+    input[type="submit"]
+      display: none
   h1
     float: left
     width: 30%
