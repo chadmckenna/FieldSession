@@ -7,7 +7,7 @@ class Members::ChildrenController < Members::MembersController
   def show
     @child = Child.find(params[:id])
     unless @child.household_id.eql? current_user.household_id
-      flash[:error] = "You do not have permission to view the details of this child."
+      flash[:error] = "You do not have permission to view the details about this child."
       redirect_to members_children_path
     end
   end

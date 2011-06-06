@@ -1,5 +1,6 @@
 class Members::RequestsController < Members::MembersController
   filter_access_to :all
+  before_filter :load_my_requests
   def index
     @requests = Request.find(:all, :order => 'from_date')
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
@@ -103,5 +104,9 @@ class Members::RequestsController < Members::MembersController
       flash[:error] = "There was an error hiding requests from this household"
       redirect_to members_requests_path
     end
+  end
+  def load_my_requests
+    @my_requests = Request.find_all_by_household_id(current_user.household.id)
+    Request.my_requests = @my_requests
   end
 end

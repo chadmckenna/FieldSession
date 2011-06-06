@@ -33,4 +33,8 @@ class Members::UsersController < Members::MembersController
       redirect_to members_user_path(current_user)
     end
   end
+  
+  def show
+    @user = User.find(params[:id])
+  end
 end

@@ -39,6 +39,10 @@ a {
     #masthead #search #text-field {
       float: left;
       margin-top: 30px; }
+      #masthead #search #text-field input {
+        -moz-border-radius: 1em;
+        -webkit-border-radius: 1em;
+        border-radius: 1em; }
     #masthead #search #submit {
       float: right; }
   #masthead h1 {
@@ -415,7 +419,7 @@ input[type="text"], input[type="password"] {
 
 .result {
   border-bottom: 3px double #eeeeee;
-  width: 50%;
+  width: 100%;
   margin-bottom: 1em;
   padding: 0.5em;
   clear: both;

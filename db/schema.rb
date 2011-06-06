@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(:version => 20110605093349) do
   end
 
   create_table "children_requests", :id => false, :force => true do |t|
+    t.integer  "child_id"
+    t.integer  "request_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "child_id"
     t.integer "request_id"
   end
