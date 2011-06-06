@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   
   before_validation_on_create :assign_default_role
   
+  def send_welcome_email
+    #UserMailer.welcome_email(self)
+  end
+  
   def is?(role_symbol)
     role_symbols.include? role_symbol
   end

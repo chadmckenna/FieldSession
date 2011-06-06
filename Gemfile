@@ -14,6 +14,7 @@ gem 'nifty-generators'
 gem 'formtastic'
 
 group :development, :test do
+  gem 'aws-s3'
   gem 'heroku'
   gem 'sqlite3'
   gem 'heroku_san'
