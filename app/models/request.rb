@@ -14,7 +14,7 @@ class Request < ActiveRecord::Base
   validates_presence_of :to_date
 
   before_save :calculate_cost
-  before_create :check_time
+  #before_create :check_time
 
   def calculate_cost
     if self.from_date.eql?(self.to_date)
