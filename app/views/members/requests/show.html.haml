@@ -15,6 +15,9 @@
     .cost
       Cost:
       =h pluralize(@request.cost.to_i, "credit")
+    .children
+      Children:
+      =h @request.children
   .tools
     - if @request.household_id.eql? current_user.household_id
       %span= link_to "Edit", edit_members_request_path(@request)

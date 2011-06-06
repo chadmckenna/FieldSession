@@ -10,6 +10,7 @@ authorization do
     has_permission_on :members_pending_requests, :to => :manage
     has_permission_on :members_new_multiple, :to => [:new_multiple]
     has_permission_on :members_search, :to => :index
+    has_permission_on :members_settings, :to => :manage
     has_permission_on :members_my_volunteers, :to => [:manage, :add_caregiver]
     has_permission_on :members_households, :to => [:create, :show, :update, :search]
   end

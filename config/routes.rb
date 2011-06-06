@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
     members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
     members.resources :neighbors
+    map.settings 'settings', :controller => 'settings'
     members.resources :pending_requests
     members.profile 'profile/', :controller => 'profile'
     members.root :controller => 'requests', :action => 'index'
