@@ -32,6 +32,15 @@ a {
   border-bottom: 1px solid black;
   -webkit-box-shadow: 0 0 12px #888888;
   -moz-box-shadow: 0 0 12px #888888; }
+  #masthead #search {
+    float: right;
+    margin: -30px 15px 5px 0px;
+    padding-bottom: -10px; }
+    #masthead #search #text-field {
+      float: left;
+      margin-top: 30px; }
+    #masthead #search #submit {
+      float: right; }
   #masthead h1 {
     float: left;
     width: 30%;
@@ -229,6 +238,7 @@ a {
   margin-bottom: 1em;
   padding: 0.5em;
   padding-right: 0 !important;
+  padding-bottom: 1.5em !important;
   width: 100%; }
   .request img {
     width: 48px;
@@ -402,3 +412,45 @@ input[type="text"], input[type="password"] {
 
 .center {
   text-align: center; }
+
+.result {
+  border-bottom: 3px double #eeeeee;
+  width: 50%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  clear: both;
+  height: 100px; }
+  .result img {
+    width: 48px;
+    height: 48px;
+    margin: 0.5em;
+    float: left; }
+  .result .info {
+    width: 60%;
+    float: left;
+    padding: inherit;
+    margin: inherit; }
+    .result .info .name {
+      font-size: 1.2em;
+      font-weight: bold; }
+    .result .info .attributes {
+      margin-bottom: 20px; }
+      .result .info .attributes .small-title {
+        font-size: 1.2em;
+        font-weight: bold; }
+  .result .button {
+    float: right;
+    margin-top: 20px; }
+
+.neighbor a {
+  border: 0px !important;
+  background: none !important; }
+
+#no-results {
+  color: #aaaaaa;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 40px; }
+
+#num-results {
+  margin-left: 40px; }

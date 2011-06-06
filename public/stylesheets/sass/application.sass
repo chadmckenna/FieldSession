@@ -40,6 +40,15 @@ a
   border-bottom: 1px solid black
   -webkit-box-shadow: 0 0 12px #888
   -moz-box-shadow: 0 0 12px #888
+  #search
+    float: right
+    margin: -30px 15px 5px 0px
+    padding-bottom: -10px
+    #text-field
+      float: left
+      margin-top: 30px
+    #submit
+      float: right
   h1
     float: left
     width: 30%
@@ -239,6 +248,7 @@ a
   margin-bottom: 1em
   padding: .5em
   padding-right: 0 !important
+  padding-bottom: 1.5em !important
   width: 100%
   img
     width: 48px
@@ -428,4 +438,48 @@ input[type="text"], input[type="password"]
 
 .center
   text-align: center
+
+.result
+  border-bottom: 3px double $lightGrey
+  width: 50%
+  margin-bottom: 1em
+  padding: .5em
+  clear: both
+  height: 100px
+  img
+    width: 48px
+    height: 48px
+    margin: .5em
+    float: left
+  .info
+    width: 60%
+    float: left
+    padding: inherit
+    margin: inherit
+    .name
+      font-size: 1.2em
+      font-weight: bold
+    .attributes
+      margin-bottom: 20px
+      .small-title
+        font-size: 1.2em
+        font-weight: bold
+  .button
+    float: right
+    margin-top: 20px
+
+.neighbor
+  a
+    border: 0px !important
+    background: none !important
+
+#no-results
+  color: #AAA
+  font-size: 1.2em
+  font-weight: bold
+  margin-left: 40px
+
+#num-results
+  margin-left: 40px
+    
 

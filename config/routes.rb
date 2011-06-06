@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :children
     members.resources :households
     members.resources :requests
+    members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
     members.resources :neighbors
     members.resources :pending_requests

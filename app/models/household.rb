@@ -30,6 +30,14 @@ class Household < ActiveRecord::Base
   def to_s
     self.name.capitalize
   end
+  
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      return false
+    end
+  end
 
   protected
 

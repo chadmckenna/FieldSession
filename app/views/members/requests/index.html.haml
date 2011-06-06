@@ -27,7 +27,7 @@
             %font=h request.cost.to_i
         .tools
           .delete 
-            %span= link_to 'x', '#'
+            %span= link_to 'x', "#"
           .subnav
             %ul
               %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id}, :method => :post

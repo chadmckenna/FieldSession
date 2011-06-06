@@ -19,10 +19,16 @@ $(document).ready(function() {
 		$(this).find(".delete span").fadeIn("fast").show();
 	}, function() {
 		$(this).find(".delete span").fadeOut("slow").hide();
+		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
-	$(".delete").hover(function() {
-		$(this).parent().find(".subnav ul").fadeIn("slow").show();
+	
+	$(".delete").click(function(e) {
+		e.preventDefault();
+	});
+	
+	$(".delete").click(function() {
+		$(this).parent().find(".subnav ul").fadeIn("medium").show();
 		
 		$(this).parent().hover(function() {
 		}, function() {
