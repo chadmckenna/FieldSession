@@ -1,10 +1,11 @@
-%h1= "Search Results for: #{params[:search]}"
+-title "Search Results for: '#{params[:search]}'"
+%h1= "Search Results for: '#{params[:search]}'"
 
 -if !@households.nil?
   -if @households.count == 0
     #no-results There were no results found
   - else
-    %h3#num-results= "There were #{@households.count} results found"
+    %h3#num-results= "Returned #{pluralize(@households.count-1, 'result')}."
 -if !@phones.nil?
   -if @phones.count == 0
     #no-results There were no results found
@@ -18,20 +19,21 @@
 
 - if !@households.nil?
   - for household in @households
-    .result
-      = image_tag '/images/icon_small_user.png'
-      .info
-        .name= household
-        %br
-        -for user in household.users
-          .attributes
-            %font.small-title Phone:
-            = user.phone
-            %br
-            %font.small-title Email:
-            = user.email
-      .button
-        = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
+    - unless household == current_user.household
+      .result
+        = image_tag '/images/icon_small_user.png'
+        .info
+          .name= household
+          %br
+          -for user in household.users
+            .attributes
+              %font.small-title Phone:
+              = user.phone
+              %br
+              %font.small-title Email:
+              = user.email
+        .button
+          = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
 
 - if !@phones.nil?
   - for phone in @phones
