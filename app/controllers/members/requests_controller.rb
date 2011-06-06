@@ -43,6 +43,7 @@ class Members::RequestsController < Members::MembersController
 
   def update
     @request = Request.find(params[:id])
+    params[:request][:child_ids] ||= []
     if !@request.household_id.eql? current_user.household_id
       flash[:error] = "You do not have permission to access this page."
       redirect_to members_request_path(@request)

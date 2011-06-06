@@ -1,7 +1,7 @@
 class Request < ActiveRecord::Base
-  attr_accessible :from_date, :start_time, :end_time, :cost, :to_date
+  #attr_accessible :from_date, :start_time, :end_time, :cost, :to_date
 
-  has_many :children
+  has_and_belongs_to_many :children
   belongs_to :household
   has_many :pending_requests
   has_many :hidden_requests
