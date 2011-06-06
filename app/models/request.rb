@@ -1,6 +1,7 @@
 class Request < ActiveRecord::Base
   #attr_accessible :from_date, :start_time, :end_time, :cost, :to_date
-
+  cattr_accessor :my_requests
+  
   has_and_belongs_to_many :children
   belongs_to :household
   has_many :pending_requests
@@ -14,7 +15,7 @@ class Request < ActiveRecord::Base
   validates_presence_of :to_date
 
   before_save :calculate_cost
-  before_create :check_time
+  before_save :check_time
 
   def calculate_cost
     if self.from_date.eql?(self.to_date)
@@ -34,26 +35,29 @@ class Request < ActiveRecord::Base
   end
   
   def check_time
-    for request in @my_requests
-      if self.from_date >= request.from_date && self.to_date <= request.to_date
-        if request.from_date == request.to_date
-          if (self.start_time >= request.start_time && self.start_time <= request.end_time) || (self.end_time >= request.start_time && self.end_time <= request.end_time)
-            errors.add_to_base "Invalid time selection: Same date error."
-          end
-        else
-          errors.add_to_base "Invalid time selection: Cannot create request within a request."
+    if my_requests.length > 0
+    for request in my_requests
+    if self.from_date >= request.from_date && self.to_date <= request.to_date
+      if request.from_date == request.to_date
+        if (self.start_time >= request.start_time && self.start_time <= request.end_time) || (self.end_time >= request.start_time && self.end_time <= request.end_time)
+          errors.add_to_base "Invalid time selection: Same date error."
         end
-      elsif self.from_date <= request.to_date && self.to_date >= request.end_date
-        errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the beginning"
-      elsif self.from_date <= requeest.to_date && self.end_date >= request.end_date
-        errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the end"
+      else
+        errors.add_to_base "Invalid time selection: Cannot create request within a request."
       end
-      
+    elsif self.from_date <= request.from_date && self.to_date >= request.from_date
+      errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the beginning"
+    elsif self.from_date <= request.to_date && self.to_date >= request.to_date
+      errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the end"
     end
+    end
+    end
+  end
           
 
   protected
     def validate
+      check_time
       if !self.from_date.nil? && !self.to_date.nil?
         if self.from_date == self.to_date
           errors.add_to_base "End time must be after start time" if self.start_time >= self.end_time
