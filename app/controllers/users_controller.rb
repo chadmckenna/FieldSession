@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
+        @user.send_welcome_email
         flash[:success] = "You've successfully created your user profile! Now let's make your household."
         format.html { redirect_to new_members_household_path }
         format.xml { render :xml => @user, :status => :created, :location => @user }

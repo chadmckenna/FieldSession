@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  request_id: 1
+  household_id: 1
+  hidden: MyString
+
+two:
+  request_id: 1
+  household_id: 1
+  hidden: MyString

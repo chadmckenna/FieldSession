@@ -1,12 +1,13 @@
 class Child < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :date_of_birth, :dietary_restrictions, :allergies, :medications, :notes, :household_id
 
+  has_and_belongs_to_many :requests
   belongs_to :household
 
   validates_presence_of :first_name, :last_name, :date_of_birth
 
   def full_name
-    "#{self.first_name} #{self.last_name}\n"
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}\n"
   end
   
   def to_s

@@ -1,5 +1,5 @@
 class Members::RequestsController < Members::MembersController
-
+  filter_access_to :all
   def index
     @requests = Request.find(:all, :order => 'from_date')
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
@@ -7,8 +7,10 @@ class Members::RequestsController < Members::MembersController
     @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
     
     @confirmed_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :confirmed => "true"})
-    
+
     @num_volunteer_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true"}).count
+    
+    @hidden_requests = HiddenRequest.find_all_by_household_id(current_user.household.id)
   end
 
   def show
@@ -41,6 +43,7 @@ class Members::RequestsController < Members::MembersController
 
   def update
     @request = Request.find(params[:id])
+    params[:request][:child_ids] ||= []
     if !@request.household_id.eql? current_user.household_id
       flash[:error] = "You do not have permission to access this page."
       redirect_to members_request_path(@request)
@@ -61,6 +64,33 @@ class Members::RequestsController < Members::MembersController
       @request.destroy
       flash[:success] = "Successfully destroyed request."
       redirect_to members_household_path(current_user.household)
+    end
+  end
+  
+  def hide_request
+    @hidden_request = HiddenRequest.new
+    @hidden_request.request_id = params[:request_id]
+    @hidden_request.household = current_user.household
+    if @hidden_request.save
+      flash[:success] = "You have hidden this request"
+      redirect_to members_requests_path
+    else
+      flash[:error] = "There was an error hiding this post"
+      redirect_to members_requests_path
+    end
+  end
+  
+  def hide_all_by_household
+    @household = Household.find(params[:household_hidden_id])
+    @hidden_request = HiddenRequest.new
+    @hidden_request.household_hidden_id = params[:household_hidden_id]
+    @hidden_request.household = current_user.household
+    if @hidden_request.save
+      flash[:success] = "You have hidden all by #{@household}"
+      redirect_to members_requests_path
+    else
+      flash[:error] = "There was an error hiding requests from this household"
+      redirect_to members_requests_path
     end
   end
 end

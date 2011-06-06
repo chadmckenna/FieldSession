@@ -15,9 +15,13 @@ class User < ActiveRecord::Base
 
   default_scope :include => :role
 
-  before_create :assign_default_role
+  before_create :assign_default_role, :remove_non_digits_in_phone
   
   before_validation_on_create :assign_default_role
+  
+  def send_welcome_email
+    UserMailer.to_s
+  end
   
   def is?(role_symbol)
     role_symbols.include? role_symbol
@@ -47,10 +51,15 @@ class User < ActiveRecord::Base
   def to_s
     self.full_name
   end
-  
+    
   protected
 
     def assign_default_role
       self.role = Role.find_by_name('member') if role.nil?
     end
+    
+    def remove_non_digits_in_phone
+      self.phone = self.phone.gsub(/\D/, "")
+    end
+    
 end

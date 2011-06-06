@@ -14,6 +14,29 @@ $(function() {
 																				
 });
 
+$(document).ready(function() {
+	$(".request").hover(function() {
+		$(this).find(".delete span").fadeIn("fast").show();
+	}, function() {
+		$(this).find(".delete span").fadeOut("slow").hide();
+		$(this).find(".subnav ul").fadeOut("fast").hide();
+	});
+	
+	
+	$(".delete").click(function(e) {
+		e.preventDefault();
+	});
+	
+	$(".delete").click(function() {
+		$(this).parent().find(".subnav ul").fadeIn("medium").show();
+		
+		$(this).parent().hover(function() {
+		}, function() {
+			$(this).parent().find(".subnav ul").hide();
+		});
+	});
+});
+
 
 
 
