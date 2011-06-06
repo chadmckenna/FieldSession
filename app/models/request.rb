@@ -12,7 +12,8 @@ class Request < ActiveRecord::Base
   validates_presence_of :end_time
   validates_presence_of :from_date
   validates_presence_of :to_date
-
+  validates_presence_of :children, :message => "At least one child must be selected"
+  
   before_save :calculate_cost
   #before_create :check_time
 
@@ -28,7 +29,8 @@ class Request < ActiveRecord::Base
     end
     self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil*number_children
   end
-  
+
+  end
   def same_date
     if self.from_date.eql?(self.to_date)
       return true
