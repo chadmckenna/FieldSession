@@ -1,5 +1,6 @@
 - form_for [:members, @request] do |f|
   = f.error_messages
+  %h3 Date and time of care request:
   %p
     = f.label :from
     %br/
@@ -12,10 +13,12 @@
     = f.text_field :to_date, :value => (@request.to_date.blank? ? '' : @request.to_date.to_s(:numDate))
     at
     = f.time_select :end_time, :minute_step => 15
+  %h3 Children that require care:
   %p
     - for child in current_user.household.children
       = check_box_tag "request[child_ids][]", child.id, @request.children.include?(child)
       -#= child.first_name + child.last_name
       = "#{child}"
+      %br
   %p= f.submit
 
