@@ -23,6 +23,9 @@ class Members::HouseholdsController < Members::MembersController
     if current_user.household_id.eql? nil
       @household = Household.new(params[:household])
       @household.credits = params[:child_count].to_i * 2
+      if @household.credits > 6
+        @household.credits = 6
+      end
       current_user.household = @household
       current_user.save!
       if @household.save

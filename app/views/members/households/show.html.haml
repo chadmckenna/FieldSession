@@ -65,6 +65,9 @@
                 Cost:
                 =h request.cost
                 credits
+              .children
+                Children:
+                =h request.children
             .tools
               %span= link_to "Show", members_request_path(request)
               %span= link_to "Edit", edit_members_request_path(request)

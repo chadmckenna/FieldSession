@@ -12,17 +12,22 @@ class Request < ActiveRecord::Base
   validates_presence_of :end_time
   validates_presence_of :from_date
   validates_presence_of :to_date
-
+  validates_presence_of :children, :message => "At least one child must be selected"
+  
   before_save :calculate_cost
-  before_create :check_time
+  #before_create :check_time
 
   def calculate_cost
+    number_children = 0
+    for child in self.children
+      number_children += 1
+    end
     if self.from_date.eql?(self.to_date)
       @day_to_hours = 0
     else
       @days_to_hours = ((self.to_date - self.from_date)/1.hour)
     end
-    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil#*4
+    self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil*number_children
   end
   
   def same_date
