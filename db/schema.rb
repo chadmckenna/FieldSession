@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20110605093349) do
     t.datetime "photo_updated_at"
   end
 
-  create_table "neighbors", :force => true do |t|
+  create_table "neighbors", :id => false, :force => true do |t|
     t.integer  "household_id"
     t.integer  "neighbor_id"
     t.datetime "created_at"
