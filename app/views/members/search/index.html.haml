@@ -1,21 +1,10 @@
 -title "Search Results for: '#{params[:search]}'"
 %h1= "Search Results for: '#{params[:search]}'"
 
--if !@households.nil?
-  -if @households.count == 0
-    #no-results There were no results found
-  - else
-    %h3#num-results= "Returned #{pluralize(@households.count-1, 'result')}."
--if !@phones.nil?
-  -if @phones.count == 0
-    #no-results There were no results found
-  - else
-    %h3#num-results= "There were #{@phones.count} results found"
--if !@emails.nil?
-  -if @emails.count == 0
-    #no-results There were no results found
-  - else
-    %h3#num-results= "There were #{@email.count} results found"
+-if @households.count == 0 and @users.count == 0
+  #no-results There were no results found
+-else
+  %h3#num-results= "There were #{@households.count + @users.count} results found"
 
 - if !@households.nil?
   - for household in @households
@@ -35,34 +24,18 @@
         .button
           = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
 
-- if !@phones.nil?
-  - for phone in @phones
+- if !@users.nil?
+  - for user in @users
     .result
       = image_tag '/images/icon_small_user.png'
       .info
-        .name= phone.first_name
+        .name= user.household
         %br
         .attributes
           %font.small-title Phone:
-          = number_to_phone(phone.phone, :area_code => true)
+          = number_to_phone(user.phone, :area_code => true)
           %br
           %font.small-title Email:
-          = phone.email
+          = user.email
       .button
-        = # 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
-
-- if !@emails.nil?
-  - for email in @emails
-    .result
-      = image_tag '/images/icon_small_user.png'
-      .info
-        .name= email.first_name
-        %br
-        .attributes
-          %font.small-title Phone:
-          = number_to_phone(email.phone, :area_code => true)
-          %br
-          %font.small-title Email:
-          = email.email
-      .button
-      = # 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
+        = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
