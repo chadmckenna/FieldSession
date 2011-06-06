@@ -13,6 +13,8 @@
           %h2.name=link_to "#{request.household}", members_request_path(request)
           %h2.household Household
         .right
+          .title
+            =h request.title
           .date
             =h request.from_date.to_s(:short)
             at

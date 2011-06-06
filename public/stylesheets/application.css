@@ -298,6 +298,10 @@ a {
       font-style: oblique; }
       .request .right .cost font {
         font-weight: bold; }
+    .request .right .title {
+      font-style: oblique;
+      font-weight: bold;
+      font-size: 1.2em; }
   .request .tools {
     float: right;
     z-index: 2; }
