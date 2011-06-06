@@ -48,8 +48,14 @@ class Request < ActiveRecord::Base
             if (self.start_time >= request.start_time && self.start_time <= request.end_time) || (self.end_time >= request.start_time && self.end_time <= request.end_time)
               errors.add_to_base "Invalid time selection: Same date error."
             end
-          else
-            errors.add_to_base "Invalid time selection: Cannot create request within a request."
+          elsif (self.from_date == self.to_date) && (self.from_date == request.from_date)
+            if self.start_time >= request.start_time   
+              errors.add_to_base "Invalid time selection: New request start time cannot occur after a previous request's start time"
+            end
+          elsif (self.from_date == self.to_date) && (self.to_date == request.to_date)
+            if self.start_time <= request.end_time
+              errors.add_to_base "Invalid time selection: New request start time cannot occur before a previous request's end time"
+            end
           end
         elsif self.from_date <= request.from_date && self.to_date >= request.from_date
           errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the beginning"
