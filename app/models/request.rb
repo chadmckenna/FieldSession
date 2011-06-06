@@ -4,6 +4,7 @@ class Request < ActiveRecord::Base
   has_many :children
   belongs_to :household
   has_many :pending_requests
+  has_many :hidden_requests
 
   #validates_presence_of :cost
   #validates_numericality_of :cost

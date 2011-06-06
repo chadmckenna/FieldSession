@@ -1,6 +1,6 @@
 class CreateNeighbors < ActiveRecord::Migration
   def self.up
-    create_table :neighbors, :id => false do |t|
+    create_table :neighbors do |t|
       t.integer :household_id
       t.integer :neighbor_id
       t.timestamps

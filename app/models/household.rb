@@ -4,6 +4,7 @@ class Household < ActiveRecord::Base
   has_many :children
   has_many :users
   has_many :requests
+  has_many :hidden_requests
   
   has_many :neighbors, :foreign_key => 'neighbor_id', :class_name => 'Neighbor', :dependent => :destroy
   has_many :households, :through => :neighbors
@@ -30,6 +31,14 @@ class Household < ActiveRecord::Base
 
   def to_s
     self.name.capitalize
+  end
+  
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      return false
+    end
   end
 
   protected

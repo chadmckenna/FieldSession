@@ -33,6 +33,17 @@ module RequestsHelper
     return Household.find_by_id(id)
   end
   
+  def hidden_request(request)
+    for hidden_request in @hidden_requests
+      if hidden_request.household_hidden_id == request.household.id
+        return true
+      elsif hidden_request.request_id == request.id
+        return true
+      end
+    end
+    return false
+  end
+  
   def check_volunteer_count(request)
     @count = 0
     for volunteer in @volunteer_requests

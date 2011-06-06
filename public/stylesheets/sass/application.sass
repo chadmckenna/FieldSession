@@ -36,10 +36,19 @@ a
   top: 0 !important
   width: 100%
   top: 0
-  z-index: 1
+  z-index: 10
   border-bottom: 1px solid black
   -webkit-box-shadow: 0 0 12px #888
   -moz-box-shadow: 0 0 12px #888
+  #search
+    float: right
+    margin: -30px 15px 5px 0px
+    padding-bottom: -10px
+    #text-field
+      float: left
+      margin-top: 30px
+    #submit
+      float: right
   h1
     float: left
     width: 30%
@@ -238,6 +247,8 @@ a
   border-bottom: 3px double $lightGrey
   margin-bottom: 1em
   padding: .5em
+  padding-right: 0 !important
+  padding-bottom: 1.5em !important
   width: 100%
   img
     width: 48px
@@ -296,7 +307,53 @@ a
         font-weight: bold
   .tools
     float: right
-    margin: .5em
+    z-index: 2
+    .volunteer-button
+      float: right
+      margin-top: 10px
+    .delete
+      text-align: center
+      float: right
+      width: 20px
+      height: 20px
+      font-size: 1.1em
+      z-index: 5
+      span
+        display: none
+      a
+        background: none !important
+        border: none !important
+        &:hover
+          //text-decoration: underline
+          background: #CCC !important
+    .subnav
+      ul
+        list-style-type: none
+        margin-top: 20px
+        display: none
+        position: absolute
+        z-index: 4
+        background: $lightGrey
+        border: 1px solid
+        -moz-border-radius: 10px
+        -webkit-border-radius: 10px
+        -moz-box-shadow: 2px 2px 4px #555
+        a
+          background: none !important
+          border: none !important
+          &:hover
+            //text-decoration: underline
+            //background: #DDD !important
+        li
+          margin-right: 30px
+          padding: .2em
+          a
+            &:hover
+              background: #DDD !important
+        // width: 200px
+        // border: 1px solid
+        // z-index: 3
+        //position: absolute
     //position: relative
     //bottom: -30px
     //right: 0px
@@ -381,4 +438,48 @@ input[type="text"], input[type="password"]
 
 .center
   text-align: center
+
+.result
+  border-bottom: 3px double $lightGrey
+  width: 50%
+  margin-bottom: 1em
+  padding: .5em
+  clear: both
+  height: 100px
+  img
+    width: 48px
+    height: 48px
+    margin: .5em
+    float: left
+  .info
+    width: 60%
+    float: left
+    padding: inherit
+    margin: inherit
+    .name
+      font-size: 1.2em
+      font-weight: bold
+    .attributes
+      margin-bottom: 20px
+      .small-title
+        font-size: 1.2em
+        font-weight: bold
+  .button
+    float: right
+    margin-top: 20px
+
+.neighbor
+  a
+    border: 0px !important
+    background: none !important
+
+#no-results
+  color: #AAA
+  font-size: 1.2em
+  font-weight: bold
+  margin-left: 40px
+
+#num-results
+  margin-left: 40px
+    
 
