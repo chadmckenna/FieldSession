@@ -72,6 +72,7 @@ class Members::RequestsController < Members::MembersController
     @hidden_request = HiddenRequest.new
     @hidden_request.request_id = params[:request_id]
     @hidden_request.household = current_user.household
+    @hidden_request.belongs_to_household_id = params[:belongs_to]
     if @hidden_request.save
       flash[:success] = "You have hidden this request"
       redirect_to members_requests_path
@@ -87,13 +88,9 @@ class Members::RequestsController < Members::MembersController
     @hidden_request.household_hidden_id = params[:household_hidden_id]
     @hidden_request.household = current_user.household
     
-    for request in Request.all
-      if request.household.id = @hidden_request.household_hidden_id
-        for hidden_request in HiddenRequest.all
-          if request.id = hidden_request.request_id && hidden_request.household == current_user.household
-            hidden_request.destroy
-          end
-        end
+    for hidden_request in HiddenRequest.all
+      if hidden_request.belongs_to_household_id == params[:household_hidden_id] && hidden_request.household == current_user.household
+        hidden_request.destroy
       end
     end
     
