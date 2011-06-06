@@ -89,7 +89,7 @@ class Members::RequestsController < Members::MembersController
     @hidden_request.household = current_user.household
     
     for hidden_request in HiddenRequest.all
-      if hidden_request.belongs_to_household_id == params[:household_hidden_id] && hidden_request.household == current_user.household
+      if hidden_request.belongs_to_household_id == @hidden_request.household_hidden_id && hidden_request.household == current_user.household
         hidden_request.destroy
       end
     end
