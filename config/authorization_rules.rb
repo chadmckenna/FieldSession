@@ -9,6 +9,7 @@ authorization do
     has_permission_on :members_neighbors, :to => :manage
     has_permission_on :members_pending_requests, :to => :manage
     has_permission_on :members_my_volunteers, :to => :manage
+    has_permission_on :members_new_multiple, :to => [:new_multiple]
     has_permission_on :members_households, :to => [:create, :show, :update]
   end
   role :administrator do

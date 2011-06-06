@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :children
     members.resources :households
     members.resources :requests
+    members.new_multiple 'new_multiple', :controller => 'children', :action => "new_multiple"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
     members.resources :neighbors
     members.resources :pending_requests
