@@ -40,9 +40,11 @@ a {
       padding: 0.2em 0.5em;
       -moz-border-radius: 1em;
       -webkit-border-radius: 1em;
-      border-radius: 1em; }
+      border-radius: 1em;
+      color: grey; }
       #masthead #search input[type="text"]:focus {
-        outline: none !important; }
+        outline: none !important;
+        color: black; }
     #masthead #search input[type="submit"] {
       display: none; }
   #masthead h1 {
