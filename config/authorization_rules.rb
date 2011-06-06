@@ -8,6 +8,7 @@ authorization do
     has_permission_on :members_profile, :to => :manage
     has_permission_on :members_neighbors, :to => :manage
     has_permission_on :members_pending_requests, :to => :manage
+    has_permission_on :members_new_multiple, :to => [:new_multiple]
     has_permission_on :members_search, :to => :index
     has_permission_on :members_settings, :to => :manage
     has_permission_on :members_my_volunteers, :to => [:manage, :add_caregiver]
@@ -35,5 +36,4 @@ privileges do
   privilege :hide, :includes => [:hide_request, :hide_all_by_household]
   privilege :search, :includes => :search
 end
-
 

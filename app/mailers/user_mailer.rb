@@ -7,4 +7,8 @@ class UserMailer < ActionMailer::Base
     sent_on     Time.now
     body        (:username => user.username, :email => user.email) 
   end
+  
+  def to_s
+    self.welcome_email(current_user)
+  end
 end
