@@ -25,6 +25,9 @@
           .cost
             Credits:
             %font=h request.cost.to_i
+          .children
+            Children:
+            =h request.children
         .tools
           .delete 
             %span= link_to 'x', "#"

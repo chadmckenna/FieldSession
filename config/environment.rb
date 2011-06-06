@@ -39,6 +39,8 @@ Rails::Initializer.run do |config|
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.autoload_paths += %W( #{RAILS_ROOT}/app/mailers )
+  
+  config.action_mailer.delivery_method = :smtp
 
 
   config.time_zone = 'UTC'
