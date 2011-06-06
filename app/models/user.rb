@@ -51,6 +51,29 @@ class User < ActiveRecord::Base
   def to_s
     self.full_name
   end
+
+  def self.search(search)
+    if search
+      search.downcase
+      if /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i.match(search)
+        find(:all, :conditions => ['email LIKE ?', "%#{search}%"])
+      else#if /^[01]?[- .]?\(?[2-9]\d{2}\)?[- .]?\d{3}[- .]?\d{4}$/.match(search)
+        find(:all, :conditions => ['phone LIKE ?', "%#{search}%"])  
+      end
+    else
+      return false
+    end
+  end
+# def self.search(search)
+#  if /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i.match(search)
+#      search.downcase
+#      find(:all, :conditions => ['email LIKE ?', "%#{search}%"])
+#    elsif /^[01]?[- .]?\(?[2-9]\d{2}\)?[- .]?\d{3}[- .]?\d{4}$/.match(search)
+#      find(:all, :conditions => ['phone LIKE ?', "%#{search}%"])
+#    else
+#      return false
+#    end
+#  end
     
   protected
 

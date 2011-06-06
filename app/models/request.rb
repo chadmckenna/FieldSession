@@ -56,6 +56,8 @@ class Request < ActiveRecord::Base
             if self.start_time <= request.end_time
               errors.add_to_base "Invalid time selection: New request start time cannot occur before a previous request's end time"
             end
+          else
+            errors.add_to_base "Invalid time selection: Request cannot occur within another request"
           end
         elsif self.from_date <= request.from_date && self.to_date >= request.from_date
           errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the beginning"
