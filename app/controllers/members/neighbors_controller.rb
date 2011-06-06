@@ -33,7 +33,7 @@ class Members::NeighborsController < Members::MembersController
   
   def destroy
     @neighbor = Neighbor.find(params[:id])
-    @neighbor2 = Neighbor.find(:last, :conditions => {:household_id => @neighbor.neighbor_id, :neighbor_id => @neighbor.household_id})
+    @neighbor2 = Neighbor.find(:first, :conditions => {:household_id => @neighbor.neighbor_id, :neighbor_id => @neighbor.household_id})
     if @neighbor.destroy && @neighbor2.destroy
       flash[:success] = "You have deleted your neighbor"
       redirect_to members_neighbors_path
