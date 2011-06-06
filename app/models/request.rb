@@ -29,8 +29,7 @@ class Request < ActiveRecord::Base
     end
     self.cost = (((self.end_time - self.start_time)/1.hour)+ @days_to_hours.to_f).ceil*number_children
   end
-
-  end
+  
   def same_date
     if self.from_date.eql?(self.to_date)
       return true
