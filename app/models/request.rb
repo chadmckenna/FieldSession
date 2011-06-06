@@ -16,11 +16,8 @@ class Request < ActiveRecord::Base
   validates_presence_of :children, :message => "At least one child must be selected"
   
   before_save :calculate_cost
-<<<<<<< HEAD
   before_save :check_time
-=======
   #before_create :check_time
->>>>>>> bfc52d3943e410377ce8f99170408e2deef2ed93
 
   def calculate_cost
     number_children = 0
