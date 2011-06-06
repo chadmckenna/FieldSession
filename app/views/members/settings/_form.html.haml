@@ -1,0 +1,28 @@
+-form_for edit_members_user_path(current_user) do |f|
+  = f.error_messages
+  %p
+    = f.label :first_name
+    %br
+    = f.text_field :first_name
+  %p
+    = f.label :last_name
+    %br
+    = f.text_field :last_name
+  %p
+    = f.label :phone_number
+    %br
+    = f.text_field :phone
+  %p
+    = f.label :email, "Email Address"
+    %br
+    = f.text_field :email
+  -#%p
+    -#= f.label :password
+    -#%br
+    -#= f.password_field :password
+  -#%p
+    -#= f.label :password_confirmation, "Confirm Password"
+    -#%br
+    -#= f.password_field :password_confirmation
+  %p
+    = f.submit
