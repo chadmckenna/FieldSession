@@ -1,7 +1,7 @@
 - title "Request"
 
 .request
-  = image_tag @request.household.photo.url
+  -#= image_tag @request.household.photo.url
   .left
     %h2.name=link_to "#{@request.household}", members_request_path(@request)
     %h2.household Household
@@ -17,8 +17,7 @@
       =h pluralize(@request.cost.to_i, "credit")
     .children
       Children:
-      -# for child in current_user.household.children 
-      -#=h "#{child}"
+      =h @request.children
   .tools
     - if @request.household_id.eql? current_user.household_id
       %span= link_to "Edit", edit_members_request_path(@request)
