@@ -13,6 +13,7 @@ class Request < ActiveRecord::Base
   validates_presence_of :to_date
 
   before_save :calculate_cost
+  before_create :check_time
 
   def calculate_cost
     if self.from_date.eql?(self.to_date)
@@ -30,6 +31,25 @@ class Request < ActiveRecord::Base
       return false
     end
   end
+  
+  def check_time
+    for request in @my_requests
+      if self.from_date >= request.from_date && self.to_date <= request.to_date
+        if request.from_date == request.to_date
+          if (self.start_time >= request.start_time && self.start_time <= request.end_time) || (self.end_time >= request.start_time && self.end_time <= request.end_time)
+            errors.add_to_base "Invalid time selection: Same date error."
+          end
+        else
+          errors.add_to_base "Invalid time selection: Cannot create request within a request."
+        end
+      elsif self.from_date <= request.to_date && self.to_date >= request.end_date
+        errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the beginning"
+      elsif self.from_date <= requeest.to_date && self.end_date >= request.end_date
+        errors.add_to_base "Invalid date selection: Cannot have requests overlap one another in the end"
+      end
+      
+    end
+          
 
   protected
     def validate

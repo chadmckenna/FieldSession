@@ -2,7 +2,7 @@ class Members::RequestsController < Members::MembersController
 
   def index
     @requests = Request.find(:all, :order => 'from_date')
-    
+    @my_requests = Request.find_all_by_household_id(current_user.household.id)
     @pending_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :pending => "true"})
     @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
     
