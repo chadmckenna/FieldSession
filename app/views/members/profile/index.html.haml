@@ -64,6 +64,9 @@
                 =h request.end_time.to_s(:nicetime)
                 on
                 =h request.from_date.to_s(:short)
+                -if request.from_date != request.to_date
+                  to
+                  =h request.to_date.to_s(:short)
               .cost
                 Cost:
                 =h request.cost
