@@ -415,7 +415,7 @@ input[type="text"], input[type="password"] {
 
 .result {
   border-bottom: 3px double #eeeeee;
-  width: 50%;
+  width: 100%;
   margin-bottom: 1em;
   padding: 0.5em;
   clear: both;

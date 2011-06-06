@@ -8,7 +8,7 @@
       -for user in @household.users
         -unless @household.users.eql? nil
           .child
-            =h link_to "#{user.first_name} #{user.last_name}", edit_members_user_path(user)
+            =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
         -else
           You have no caregivers
       %p
@@ -17,7 +17,7 @@
       -for child in @household.children
         -unless @household.children.eql? nil
           .child
-            =h link_to "#{child.first_name} #{child.last_name}", edit_members_child_path(child)
+            =h link_to "#{child.first_name} #{child.last_name}", members_child_path(child)
         -else
           You have no children.
       %p= link_to "+ Add Child", new_members_child_path

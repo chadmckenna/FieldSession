@@ -1,0 +1,20 @@
+- title "View caregiver: #{@user.first_name}"
+
+%p
+  = link_to "<< Back to household", members_profile_path
+
+%p
+  %strong First Name:
+  =h @user.first_name
+%p
+  %strong Last Name:
+  =h @user.last_name
+%p
+  %strong Phone Number:
+  =h @user.phone
+%p
+  %strong Email Address:
+  =h @user.email
+
+%p
+  = link_to "Edit this user", edit_members_user_path(@user)
