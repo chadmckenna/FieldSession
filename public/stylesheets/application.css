@@ -460,7 +460,22 @@ input[type="text"], input[type="password"] {
   margin-left: 40px; }
 
 #hidden-requests-container {
-  width: 70%;
-  border: 1px solid; }
+  width: 70%; }
+  #hidden-requests-container .hidden-title {
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+    margin-left: 20px; }
   #hidden-requests-container .title {
     text-align: center; }
+  #hidden-requests-container .hidden-household {
+    width: 40%;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    border-bottom: 3px double #eeeeee;
+    padding: 1em; }
+    #hidden-requests-container .hidden-household .household {
+      float: left; }
+    #hidden-requests-container .hidden-household .button {
+      float: right; }
+    #hidden-requests-container .hidden-household #clear {
+      clear: both; }

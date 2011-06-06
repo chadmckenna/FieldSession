@@ -1,17 +1,25 @@
 #hidden-requests-container
   %h2.title Hidden Requests
+  - if @hidden_requests.count == 0 && @hidden_household_requests.count == 0
+    .hidden-title You have no hidden requests
   - if @hidden_requests.count > 0
-    %h4 You have chosen to hide these requests
+    .hidden-title You have chosen to hide these requests
 
   - for hidden_request in @hidden_requests
-    = hidden_request.request.household
-    = link_to 'x', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure?', :method => :delete
-    %br
+    .hidden-household
+      .household
+        = hidden_request.request.household
+      .button
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure?', :method => :delete
+      #clear
 
   - if @hidden_household_requests.count > 0
-    %h2 You have chosen to hide requests from these households
+    .hidden-title You have chosen to hide requests from these households
 
   -for hidden_household_request in @hidden_household_requests
-    = find_hidden_household(hidden_household_request)
-    = link_to 'x', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => 'Are you sure?', :method => :delete
-    %br
+    .hidden-household
+      .household
+      = find_hidden_household(hidden_household_request)
+      .button
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => 'Are you sure?', :method => :delete
+      #clear
