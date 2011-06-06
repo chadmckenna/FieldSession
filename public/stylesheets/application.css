@@ -446,9 +446,17 @@ input[type="text"], input[type="password"] {
     float: right;
     margin-top: 20px; }
 
-.neighbor a {
-  border: 0px !important;
-  background: none !important; }
+.neighbor {
+  border-bottom: 3px double #cccccc; }
+  .neighbor img {
+    float: left; }
+  .neighbor h2 {
+    float: left; }
+  .neighbor a {
+    border: 0px !important;
+    background: none !important; }
+    .neighbor a #remove {
+      float: right; }
 
 #no-results {
   color: #aaaaaa;

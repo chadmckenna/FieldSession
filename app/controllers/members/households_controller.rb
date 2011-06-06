@@ -63,4 +63,9 @@ class Members::HouseholdsController < Members::MembersController
       render :action => 'edit'
     end
   end
+  
+  def to_s
+    @household = Household.find(params[:id])
+    @household.name
+  end
 end
