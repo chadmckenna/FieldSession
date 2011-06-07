@@ -57,7 +57,7 @@
           \-
           =h confirmed_request.request.to_date.to_s(:short)
         .link
-          = link_to 'View More Details', members_request_path(confirmed_request.request)
+          = link_to 'View More Details', detail_members_request_path(confirmed_request.request)
   #pending
     %h2 My Pending Commitments
     -if @pending_requests.count == 0

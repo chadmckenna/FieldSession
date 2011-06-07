@@ -23,10 +23,9 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :members do |members|
     members.resources :roles
     members.resources :users, :only => [:show, :edit, :update]
-    members.resources :children
+    members.resources :children, :collection => {:new_multiple => :get}
     members.resources :households
-    members.resources :requests
-    members.new_multiple 'new_multiple', :controller => 'children', :action => "new_multiple"
+    members.resources :requests, :member => {:detail => :get}
     members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
     members.resources :neighbors
