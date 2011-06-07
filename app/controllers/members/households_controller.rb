@@ -22,7 +22,8 @@ class Members::HouseholdsController < Members::MembersController
   def create
     if current_user.household_id.eql? nil
       @household = Household.new(params[:household])
-      @household.credits = params[:child_count].to_i * 2
+      @household.num_children = params[:child_count].to_i
+      @household.credits = @household.num_children
       if @household.credits > 6
         @household.credits = 6
       end
@@ -30,9 +31,7 @@ class Members::HouseholdsController < Members::MembersController
       current_user.save!
       if @household.save
         flash[:success] = "Successfully created #{@household.name} household.  You're almost done!  Now add your children to your household."
-        for j in 1..params[:child_count].to_i
-          redirect_to new_members_child_path and return
-        end
+        redirect_to new_members_child_path and return
       else
         flash[:error] = "Error creating household"
         render :action => 'new'

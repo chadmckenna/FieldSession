@@ -1,8 +1,8 @@
 - title "New Children"
 
 %h2 Add new children to your household
-- for children in (current_user.household.credits / 2)
-  = render :partial => 'form'
+- 1.upto(current_user.household.num_children) do |n|
+  = n
 
 %p= link_to "Back to Your Children", members_children_path
 
