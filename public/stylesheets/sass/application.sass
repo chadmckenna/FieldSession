@@ -42,13 +42,14 @@ a
   -moz-box-shadow: 0 0 12px #888
   #search
     float: right
-    margin-right: 10px
+    margin: -1px 10px 0 -10px
+    font-size: .8em
     input[type="text"]
       float: left
       padding: .2em .5em
-      -moz-border-radius: 1em
-      -webkit-border-radius: 1em
-      border-radius: 1em
+      -moz-border-radius: .9em
+      -webkit-border-radius: .9em
+      border-radius: .9em
       color: grey
       &:focus
         outline: none !important
@@ -57,17 +58,21 @@ a
       display: none
   h1
     float: left
-    width: 30%
+    width: 20%
     padding: 0 !important
     margin: .4em
     font-size: 4em
   #login
     float: right
     margin: 10px 10px 0px 0px
+  #logout
+    position: absolute
+    top: 10px
+    right: 20px
   #userbar
     float: right
     /*width: 60%*/
-    font-size: 1.5em
+    font-size: 1.4em
     margin: 1em 0 1em 0
     p
       float: right
@@ -76,7 +81,7 @@ a
   .menubar
     margin: 1.9em 0 0 0
     list-style-type: none
-    font-size: 1.5em
+    font-size: 1.4em
     float: right
     display: inline !important
     li
@@ -100,7 +105,6 @@ a
       border: none
       &:hover
         text-decoration: underline
-
 #container
   width: 98%
   margin: 100px auto 0 auto
@@ -243,13 +247,12 @@ a
     li
       font-size: 12px
       list-style: disc
-
 /* Requests styles */
 #request-container
   width: 70%
   padding: .5em
   float: left
-.request
+.request, .neighbor
   border-bottom: 3px double $lightGrey
   margin-bottom: 1em
   padding: .5em 0 1.5em 0
@@ -279,6 +282,14 @@ a
       float: left
     .buttons
       float: right
+
+  .exit
+    float: right
+    a
+      background: none
+      border: none
+      &:hover
+        text-decoration: underline
       
   .left
     float: left
@@ -304,7 +315,8 @@ a
     .household
       clear: both
       font-size: 1.3em
-
+  .exit
+    float: right
   .right
     max-width: 80%
     min-width: 40%
@@ -474,9 +486,8 @@ input[type="text"], input[type="password"]
   clear: both
   height: 100px
   img
-    width: 48px
-    height: 48px
-    margin: .5em
+    max-width: 8%
+    margin: .5em 0 .5em 0
     float: left
   .info
     width: 60%
@@ -489,7 +500,7 @@ input[type="text"], input[type="password"]
     .attributes
       margin-bottom: 20px
       .small-title
-        font-size: 1.2em
+        font-size: 1em
         font-weight: bold
   .button
     float: right
