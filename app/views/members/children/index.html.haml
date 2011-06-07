@@ -2,24 +2,28 @@
 
 %p= link_to "+ Add a new child", new_members_child_path
 
-%table
-  %tr
-    %th First name
-    %th Last name
-    %th Date of birth
-    %th Dietary restrictions
-    %th Allergies
-    %th Medications
-    %th Notes
-  - for child in @children
-    %tr
-      %td= h child.first_name
-      %td= h child.last_name
-      %td= h child.date_of_birth
-      %td= h child.dietary_restrictions
-      %td= h child.allergies
-      %td= h child.medications
-      %td= h child.notes
-      %td= link_to 'View Child', members_child_path(child)
-      %td= link_to 'Edit Child', edit_members_child_path(child)
-      %td= link_to 'Remove Child', members_child_path(child), :confirm => 'Are you sure?', :method => :delete
+#child-container
+  -for child in @children
+    .child_view
+      .top
+        .title
+          %h2.name=link_to "#{child}", members_child_path(child)
+      .left
+        .info
+          Birthdate:
+          =h child.date_of_birth.to_s(:long)
+        .info
+          Diet Restrictions:
+          =h child.dietary_restrictions
+        .info
+          Allergies:
+          =h child.allergies
+        .info
+          Medications:
+          =h child.medications
+        .info
+          Other Notes:
+          =h child.notes
+        %p
+          = link_to 'Edit Child', edit_members_child_path(child)
+          = link_to 'Remove Child', members_child_path(child), :confirm => 'Are you sure?', :method => :delete

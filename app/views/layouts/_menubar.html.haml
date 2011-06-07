@@ -5,3 +5,9 @@
   %li= link_to 'requests', members_requests_path, :title => 'Requests'
   %li= link_to 'settings', edit_members_user_path(current_user)
   %li= link_to 'log out', logout_path
+  %li
+    - if current_user
+      #search
+        - form_tag members_search_path, :method => 'get' do
+          = text_field_tag :search, params[:search], default_text("search...")
+          = submit_tag "Search", :name => nil
