@@ -295,11 +295,12 @@ a {
       font-size: 1.3em; }
   .request .right {
     max-width: 80%;
-    min-width: 70%;
+    min-width: 40%;
     margin: 5px 0;
     float: left;
     margin-left: 1em;
-    color: #555555; }
+    color: #555555;
+    z-index: -5; }
     .request .right .cost {
       font-style: oblique; }
       .request .right .cost font {
