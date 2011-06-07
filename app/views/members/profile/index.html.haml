@@ -13,7 +13,7 @@
         -else
           You have no caregivers
       %p
-    %div.title Children
+    %div.title= link_to "Children", members_children_path
     %div
       -for child in @household.children
         -unless @household.children.eql? nil
