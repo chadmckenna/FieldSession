@@ -1,16 +1,12 @@
--title "Search Results for: '#{params[:search]}'"
+- content_for :title do
+  = "Search Results for: #{params[:search]}"
+
 %h1= "Search Results for: '#{params[:search]}'"
 
--if !@households.nil?
-  -if @households.count == 0
-    -@found = false#no-results There were no results found
-  -else
-    %h3#num-results= "There were #{@households.count} results found"
--if !@users.nil?
-  -if @users.count == 0 and !@found
-    #no-results There were no results found
-  -else
-    %h3#num-results= "There were #{@users.count} results found"
+-if @households.count == 0 and @users.count == 0
+  #no-results There were no results found
+-else
+  %h3#num-results= "There were #{pluralize(@households.count + @users.count, 'result')} found"
 
 - if !@households.nil?
   - for household in @households

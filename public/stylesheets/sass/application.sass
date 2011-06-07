@@ -49,8 +49,10 @@ a
       -moz-border-radius: 1em
       -webkit-border-radius: 1em
       border-radius: 1em
+      color: grey
       &:focus
         outline: none !important
+        color: black
     input[type="submit"]
       display: none
   h1
@@ -309,6 +311,10 @@ a
       font-style: oblique
       font
         font-weight: bold
+    .title
+      font-style: oblique
+      font-weight: bold
+      font-size: 1.2em
   .tools
     float: right
     z-index: 2
@@ -473,9 +479,16 @@ input[type="text"], input[type="password"]
     margin-top: 20px
 
 .neighbor
+  border-bottom: 3px double $darkGrey
+  img
+    float: left
+  h2
+    float: left
   a
     border: 0px !important
     background: none !important
+    #remove
+      float: right
 
 #no-results
   color: #AAA
@@ -487,8 +500,28 @@ input[type="text"], input[type="password"]
   margin-left: 40px
     
 #hidden-requests-container
-  width: 70%
-  border: 1px solid
+  width: 50%
+  .hidden-title
+    font-size: 1.1em
+    margin: 20px 0px 20px 20px
   .title
     text-align: center
+  .hidden-household
+    width: 80%
+    margin-bottom: 20px
+    margin-left: 40px
+    border-bottom: 3px double $lightGrey
+    padding: 1em
+    .photo
+      float: left
+      img
+        width: 40px
+        height: 40px
+    .household
+      float: left
+      margin-left: 15px
+    .button
+      float: right
+    .clear
+      clear: both
 

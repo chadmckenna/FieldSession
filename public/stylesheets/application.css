@@ -40,9 +40,11 @@ a {
       padding: 0.2em 0.5em;
       -moz-border-radius: 1em;
       -webkit-border-radius: 1em;
-      border-radius: 1em; }
+      border-radius: 1em;
+      color: grey; }
       #masthead #search input[type="text"]:focus {
-        outline: none !important; }
+        outline: none !important;
+        color: black; }
     #masthead #search input[type="submit"] {
       display: none; }
   #masthead h1 {
@@ -298,6 +300,10 @@ a {
       font-style: oblique; }
       .request .right .cost font {
         font-weight: bold; }
+    .request .right .title {
+      font-style: oblique;
+      font-weight: bold;
+      font-size: 1.2em; }
   .request .tools {
     float: right;
     z-index: 2; }
@@ -446,9 +452,17 @@ input[type="text"], input[type="password"] {
     float: right;
     margin-top: 20px; }
 
-.neighbor a {
-  border: 0px !important;
-  background: none !important; }
+.neighbor {
+  border-bottom: 3px double #cccccc; }
+  .neighbor img {
+    float: left; }
+  .neighbor h2 {
+    float: left; }
+  .neighbor a {
+    border: 0px !important;
+    background: none !important; }
+    .neighbor a #remove {
+      float: right; }
 
 #no-results {
   color: #aaaaaa;
@@ -460,7 +474,27 @@ input[type="text"], input[type="password"] {
   margin-left: 40px; }
 
 #hidden-requests-container {
-  width: 70%;
-  border: 1px solid; }
+  width: 50%; }
+  #hidden-requests-container .hidden-title {
+    font-size: 1.1em;
+    margin: 20px 0px 20px 20px; }
   #hidden-requests-container .title {
     text-align: center; }
+  #hidden-requests-container .hidden-household {
+    width: 80%;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    border-bottom: 3px double #eeeeee;
+    padding: 1em; }
+    #hidden-requests-container .hidden-household .photo {
+      float: left; }
+      #hidden-requests-container .hidden-household .photo img {
+        width: 40px;
+        height: 40px; }
+    #hidden-requests-container .hidden-household .household {
+      float: left;
+      margin-left: 15px; }
+    #hidden-requests-container .hidden-household .button {
+      float: right; }
+    #hidden-requests-container .hidden-household .clear {
+      clear: both; }
