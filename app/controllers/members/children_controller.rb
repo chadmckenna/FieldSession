@@ -15,14 +15,29 @@ class Members::ChildrenController < Members::MembersController
   def new
     @child = Child.new
   end
+  
+  def new_multiple
+    
+  end
 
   def create
     @child = Child.new(params[:child])
-    @child.household = current_user.household
+    @household = current_user.household
+    @child.household = @household
     
-    if @child.save
-      flash[:success] = "Successfully added #{@child.first_name} to the #{@child.household} household."
-      redirect_to members_profile_path
+    if @household.num_children < @household.children.count
+      @household.num_children = @household.children.count
+    end
+    
+    if @child.save and @household.save!
+      case params[:commit]
+      when 'Add another child' 
+        flash[:success] = "Sucessfully added #{@child.first_name} to your household.  Add another child."
+        redirect_to new_members_child_path
+      else
+        flash[:success] = "Successfully added #{@child.first_name} to the #{@child.household} household."
+        redirect_to members_profile_path
+      end
     else
       render :action => 'new'
     end

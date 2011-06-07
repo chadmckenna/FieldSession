@@ -42,13 +42,14 @@ a
   -moz-box-shadow: 0 0 12px #888
   #search
     float: right
-    margin-right: 10px
+    margin: -1px 10px 0 -10px
+    font-size: .8em
     input[type="text"]
       float: left
       padding: .2em .5em
-      -moz-border-radius: 1em
-      -webkit-border-radius: 1em
-      border-radius: 1em
+      -moz-border-radius: .9em
+      -webkit-border-radius: .9em
+      border-radius: .9em
       color: grey
       &:focus
         outline: none !important
@@ -57,7 +58,7 @@ a
       display: none
   h1
     float: left
-    width: 30%
+    width: 20%
     padding: 0 !important
     margin: .4em
     font-size: 4em
@@ -479,9 +480,8 @@ input[type="text"], input[type="password"]
   clear: both
   height: 100px
   img
-    width: 48px
-    height: 48px
-    margin: .5em
+    max-width: 8%
+    margin: .5em 0 .5em 0
     float: left
   .info
     width: 60%
@@ -494,7 +494,7 @@ input[type="text"], input[type="password"]
     .attributes
       margin-bottom: 20px
       .small-title
-        font-size: 1.2em
+        font-size: 1em
         font-weight: bold
   .button
     float: right

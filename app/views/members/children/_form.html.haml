@@ -7,11 +7,11 @@
   %p
     = f.label :last_name
     %br
-    = f.text_field :last_name
+    = f.text_field :last_name, :value => current_user.household.name
   %p
     = f.label :date_of_birth
     %br
-    = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year)
+    = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year, :order => [:month, :day, :year], :default => 5.years.ago)
   %p
     = f.label :dietary_restrictions
     %br
@@ -30,4 +30,5 @@
     = f.text_area :notes, :size => "30x8"
   %p
     = f.submit "Done"
+    = f.submit "Add another child"
 
