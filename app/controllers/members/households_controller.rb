@@ -30,7 +30,9 @@ class Members::HouseholdsController < Members::MembersController
       current_user.save!
       if @household.save
         flash[:success] = "Successfully created #{@household.name} household.  You're almost done!  Now add your children to your household."
-        redirect_to new_members_child_path
+        for j in 1..params[:child_count].to_i
+          redirect_to new_members_child_path and return
+        end
       else
         flash[:error] = "Error creating household"
         render :action => 'new'
