@@ -122,6 +122,9 @@ a {
         #container #content #left-column #info .title {
           font-size: 1.1em;
           text-decoration: underline; }
+          #container #content #left-column #info .title a {
+            background: none;
+            border: none; }
         #container #content #left-column #info .child a {
           background: none;
           border: none; }
@@ -456,9 +459,7 @@ input[type="text"], input[type="password"] {
   border-bottom: 3px double #eeeeee;
   width: 100%;
   margin-bottom: 1em;
-  padding: 0.5em;
-  clear: both;
-  height: 100px; }
+  padding: 0.5em; }
   .result img {
     max-width: 8%;
     margin: 0.5em 0 0.5em 0;
@@ -526,44 +527,3 @@ input[type="text"], input[type="password"] {
       float: right; }
     #hidden-requests-container .hidden-household .clear {
       clear: both; }
-/*Child styles*/
-#child-container {
-  width: 70%;
-  padding: 0.5em;
-  float: left; }
-
-.child_view {
-  border-bottom: 3px double #eeeeee;
-  margin-bottom: 1em;
-  padding: 0.5em;
-  padding-right: 0 !important;
-  padding-bottom: 1.5em !important;
-  width: 100%; }
-  .child_view .name {
-    font-size: 1.5em;
-    margin-bottom: 10px; }
-    .child_view .name a {
-      background: none !important;
-      border: none !important; }
-      .child_view .name a:hover {
-        text-decoration: underline; }
-  .child_view .top{
-    float: top; }
-    .child_view .top h2{
-      font-size: 1.8em;
-      margin: 0 !important;
-      padding: 0 !important; }
-      .child_view .top h2 a {
-        padding: inherit;
-        margin: inherit;
-        padding: 0;
-        margin: 0 0 0 -0.2em;
-        background: none !important;
-        border: 0 !important; }
-        .child_view .top h2 a:hover {
-          text-decoration: underline; }
-    }
-  .child_view .left {
-    float: left; }
-    .child .left h2{
-      font-size: 3.5em;}
