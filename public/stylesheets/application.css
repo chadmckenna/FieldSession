@@ -234,9 +234,6 @@ a {
       font-size: 12px;
       list-style: disc; }
 
-.exit {
-  float: right; }
-
 /* Requests styles */
 #request-container {
   width: 70%;
@@ -248,13 +245,7 @@ a {
   margin-bottom: 1em;
   padding: 0.5em 0 1.5em 0;
   width: 100%; }
-
   .request img, .neighbor img {
-    width: 48px;
-    height: 48px;
-    margin: 0.5em;
-
-  .request img {
     max-width: 8%;
     margin: 0.5em 0.5em 0.5em 0;
     float: left; }
@@ -273,24 +264,17 @@ a {
   .request .household, .neighbor .household {
     height: 30px;
     padding: 0.5em;
-
-    width: 40%; }
-    .request .household .name, .neighbor .household .name {
-
     width: 40%;
     float: left; }
-    .request .household .name {
+    .request .household .name, .neighbor .household .name {
       float: left; }
     .request .household .buttons, .neighbor .household .buttons {
       float: right; }
   .request .left, .neighbor .left {
-    float: left; }
-    .request .left h2, .neighbor .left h2 {
-  .request .left {
     float: left;
     min-width: 10%;
     max-width: 20%; }
-    .request .left h2 {
+    .request .left h2, .neighbor .left h2 {
       font-size: 1.8em;
       margin: 0 !important;
       padding: 0 !important; }
@@ -303,26 +287,16 @@ a {
         border: 0 !important; }
         .request .left h2 a:hover, .neighbor .left h2 a:hover {
           text-decoration: underline; }
-
-    .request .left .name, .neighbor .left .name {
-
-    .request .left .image {
+    .request .left .image, .neighbor .left .image {
       float: left; }
-    .request .left .name {
-
+    .request .left .name, .neighbor .left .name {
       float: left; }
     .request .left .household, .neighbor .left .household {
       clear: both;
       font-size: 1.3em; }
-
+  .request .exit, .neighbor .exit {
+    float: right; }
   .request .right, .neighbor .right {
-    margin: 5px 0;
-    float: left;
-    margin-left: 1em;
-    color: #555555; }
-    .request .right .cost, .neighbor .right .cost {
-
-  .request .right {
     max-width: 80%;
     min-width: 40%;
     margin: 5px 0;
@@ -330,8 +304,7 @@ a {
     margin-left: 1em;
     color: #555555;
     z-index: -5; }
-    .request .right .cost {
-
+    .request .right .cost, .neighbor .right .cost {
       font-style: oblique; }
       .request .right .cost font, .neighbor .right .cost font {
         font-weight: bold; }
@@ -339,21 +312,17 @@ a {
       font-style: oblique;
       font-weight: bold;
       font-size: 1.2em; }
-
-  .request .tools, .neighbor .tools {
-
-    .request .right .children .child {
+    .request .right .children .child, .neighbor .right .children .child {
       margin: 5px 0 5px 0;
       padding: 5px;
       width: 100%;
       border: solid thin #cccccc; }
-      .request .right .children .child h3 {
+      .request .right .children .child h3, .neighbor .right .children .child h3 {
         padding: 3px 0 0 0;
         margin: 0; }
-      .request .right .children .child .value {
+      .request .right .children .child .value, .neighbor .right .children .child .value {
         padding: 0; }
-  .request .tools {
-
+  .request .tools, .neighbor .tools {
     float: right;
     z-index: 2; }
     .request .tools .volunteer-button, .neighbor .tools .volunteer-button {
