@@ -13,3 +13,4 @@
                   = get_household_volunteer(volunteer.household_requestor_id)
                 .buttons
                   = link_to 'Use Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :household_commit_id => volunteer.household_requestor_id, :request_id => volunteer.request_id}, :method => :post
+              .clear
