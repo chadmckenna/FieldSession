@@ -19,7 +19,7 @@
               =h user.last_name
             .phone
               %strong Phone:
-              =h number_to_phone(user.phone)
+              =h number_to_phone(user.phone, :area_code => true)
             .email
               %strong Email:
               =h user.email
