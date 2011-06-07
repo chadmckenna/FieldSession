@@ -23,15 +23,18 @@
               %font.small-title Email:
               = user.email
         .button
-          = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
+          - if neighbor(household)
+            = link_to 'Show', members_household_path(household)
+          - else
+            = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
+        .clear
 
 - if !@users.nil?
   - for user in @users
     .result
-      = image_tag '/images/icon_small_user.png'
+      = image_tag user.household.photo.url
       .info
         .name= user.household
-        %br
         .attributes
           %font.small-title Phone:
           = number_to_phone(user.phone, :area_code => true)
@@ -40,3 +43,4 @@
           = user.email
       .button
         = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
+      .clear
