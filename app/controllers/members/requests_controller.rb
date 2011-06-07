@@ -17,6 +17,12 @@ class Members::RequestsController < Members::MembersController
   def show
     @request = Request.find(params[:id])
   end
+  
+  def detail
+    @request = Request.find(params[:id])
+    @pending_request = PendingRequest.find(:all, :conditions => {:request_id => params[:id], :pending => "false", :household_commit_id => current_user.household_id})
+    @children = @request.children
+  end
 
   def new
     @request = Request.new

@@ -1,0 +1,42 @@
+- content_for :title do
+  Request
+
+.request
+  %img= image_tag @request.household.photo.url
+  .left
+    .household_info
+      %h2.name=link_to "#{@request.household}", detail_members_request_path(@request)
+      %h2.household Household
+  .right
+    .title
+      =h @request.title
+    .date
+      =h @request.start_time.to_s(:nicetime)
+      to
+      =h @request.end_time.to_s(:nicetime)
+      on
+      =h @request.from_date.to_s(:short)
+      -if @request.from_date != @request.to_date
+        =h @request.to_date.to_s(:short)
+    .cost
+      Cost:
+      =h pluralize(@request.cost.to_i, "credit")
+    .children
+      Children:
+      - for child in @children
+        .child
+          %h3 Name:
+          .value=h "#{child.first_name} #{child.last_name}"
+          %h3 Date of Birth:
+          .value=h child.date_of_birth
+          %h3 Dietary Restrictions:
+          .value=h child.dietary_restrictions
+          %h3 Allergies:
+          .value=h child.allergies
+          %h3 Medications:
+          .value=h child.medications
+          %h3 Other Notes:
+          .value=h child.notes
+  .tools
+    %span= link_to "Back to My Commitments", members_requests_path
+  .clear

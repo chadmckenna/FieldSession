@@ -1,7 +1,7 @@
 authorization do
   role :member do
     has_permission_on :members_members, :to => :read
-    has_permission_on :members_requests, :to => [:manage, :hide]
+    has_permission_on :members_requests, :to => [:manage, :hide, :detail]
     #This will need to be changed back to something besides manage, maybe?
     has_permission_on :members_users, :to => :manage
     has_permission_on :members_children, :to => :manage

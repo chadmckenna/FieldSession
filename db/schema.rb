@@ -25,10 +25,8 @@ ActiveRecord::Schema.define(:version => 20110606213604) do
   end
 
   create_table "children_requests", :id => false, :force => true do |t|
-    t.integer  "child_id"
-    t.integer  "request_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "child_id"
+    t.integer "request_id"
   end
 
   create_table "hidden_requests", :force => true do |t|
@@ -51,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20110606213604) do
     t.datetime "photo_updated_at"
   end
 
-  create_table "neighbors", :force => true do |t|
+  create_table "neighbors", :id => false, :force => true do |t|
     t.integer  "household_id"
     t.integer  "neighbor_id"
     t.datetime "created_at"
