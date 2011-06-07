@@ -272,6 +272,11 @@ a {
       float: right; }
   .request .exit, .neighbor .exit {
     float: right; }
+    .request .exit a, .neighbor .exit a {
+      background: none;
+      border: none; }
+      .request .exit a:hover, .neighbor .exit a:hover {
+        text-decoration: underline; }
   .request .left, .neighbor .left {
     float: left;
     min-width: 10%;
