@@ -3,9 +3,9 @@
 %br
   - for neighbor in @neighbors
     .neighbor
-      = link_to image_tag(neighbor.neighbor.photo.url, :alt => "#{current_user.household.to_s}", :width => 60, :height => 60), members_household_url(neighbor.neighbor)
+      .image= image_tag(neighbor.neighbor.photo.url, :alt => "#{current_user.household.to_s}")
       .left
-        %h2.name=link_to neighbor.neighbor, members_household_url(neighbor.neighbor)
+        %h2.name=neighbor.neighbor
         %h2.household Household
       .right
 
