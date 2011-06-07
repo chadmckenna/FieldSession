@@ -40,6 +40,8 @@
       %h1= "The #{@household} Household"
       %br
       = "Credit Balance: #{@household.credits}"
+      %br
+      -#= "Pending Credits: #{@household.requests.cost}"
     #buttons
       = link_to 'Edit my Household', edit_members_household_path(@household)
       = link_to '+ Create a New Request', new_members_request_path

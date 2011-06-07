@@ -14,9 +14,11 @@ class Request < ActiveRecord::Base
   validates_presence_of :from_date
   validates_presence_of :to_date
   validates_presence_of :children, :message => "At least one child must be selected"
-  
+  validate :validate_credits
+
   before_save :calculate_cost
   before_save :check_time
+  before_save :validate_credits
   #before_create :check_time
 
   def calculate_cost
@@ -40,10 +42,28 @@ class Request < ActiveRecord::Base
     end
   end
   
+  def validate_credits
+    pending_credits = 0
+    for request in my_requests
+      if(self == request)
+        pending_credits += 0
+      else
+        pending_credits += request.cost
+      end
+    end
+    puts pending_credits.to_s + " Pendding credits"
+    puts household.credits.to_s + " household credits"
+    if(calculate_cost.to_i > (household.credits.to_i - pending_credits.to_i))
+      errors.add_to_base "You do not have enough credits to make this request"
+    end
+  end
+
   def check_time
     if my_requests.length > 0
       for request in my_requests
-        if self.from_date >= request.from_date && self.to_date <= request.to_date
+        if self == request
+          break
+        elsif self.from_date >= request.from_date && self.to_date <= request.to_date
           if request.from_date == request.to_date
             if (self.start_time >= request.start_time && self.start_time <= request.end_time) || (self.end_time >= request.start_time && self.end_time <= request.end_time)
               errors.add_to_base "Invalid time selection: Same date error."
