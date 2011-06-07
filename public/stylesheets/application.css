@@ -57,10 +57,14 @@ a {
   #masthead #login {
     float: right;
     margin: 10px 10px 0px 0px; }
+  #masthead #logout {
+    position: absolute;
+    top: 10px;
+    right: 20px; }
   #masthead #userbar {
     float: right;
     /*width: 60% */
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin: 1em 0 1em 0; }
     #masthead #userbar p {
       float: right;
@@ -69,7 +73,7 @@ a {
   #masthead .menubar {
     margin: 1.9em 0 0 0;
     list-style-type: none;
-    font-size: 1.5em;
+    font-size: 1.4em;
     float: right;
     display: inline !important; }
     #masthead .menubar li {
