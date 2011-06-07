@@ -17,7 +17,7 @@ class Household < ActiveRecord::Base
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
   
   validates_attachment_presence :photo
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
+  #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
   #has_many :requestors, :foreign_key => 'household_id', :class_name => 'Neighbor', :dependent => :destroy
   #has_many :households, :through => :requestors
