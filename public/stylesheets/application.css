@@ -459,9 +459,7 @@ input[type="text"], input[type="password"] {
   border-bottom: 3px double #eeeeee;
   width: 100%;
   margin-bottom: 1em;
-  padding: 0.5em;
-  clear: both;
-  height: 100px; }
+  padding: 0.5em; }
   .result img {
     max-width: 8%;
     margin: 0.5em 0 0.5em 0;
