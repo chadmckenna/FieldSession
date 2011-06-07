@@ -270,6 +270,8 @@ a {
       float: left; }
     .request .household .buttons, .neighbor .household .buttons {
       float: right; }
+  .request .exit, .neighbor .exit {
+    float: right; }
   .request .left, .neighbor .left {
     float: left;
     min-width: 10%;
