@@ -4,4 +4,4 @@
   - for neighbor in @neighbors
     .neighbor
       = link_to neighbor.neighbor, members_household_url(neighbor.neighbor)
-      = link_to 'x', members_neighbor_path(neighbor), :title => 'remove from my neighbors', :confirm => "Are you sure?", :method => :delete
+      = link_to "x", members_neighbor_path(neighbor), :confirm => "Are you sure?", :action => 'delete', :method => :delete
