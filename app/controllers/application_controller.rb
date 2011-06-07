@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
         
      def require_user
        unless current_user
-         flash[:notice] = "You must log in if you want to access that."
+         flash[:error] = "You must log in if you want to access that."
          redirect_to root_url
          return false
        end
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
      
      def require_no_user
        if current_user
-         flash[:notice] = "You must be logged out to access #{request.path}. <a href=\"/logout\">log out</a>?"
+         flash[:error] = "You must be logged out to access #{request.path}. <a href=\"/logout\">log out</a>?"
          redirect_to home_url_for(current_user)
          return false
        end
