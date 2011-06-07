@@ -75,7 +75,13 @@
                 credits
               .children
                 Children:
-                =h request.children
+                -@count = 0
+                -for child in request.children
+                  =h "#{child}"
+                  -@count +=1
+                  -if @count != request.children.length
+                    ,
+                  
             .tools
               %span= link_to "Show", members_request_path(request)
               %span= link_to "Edit", edit_members_request_path(request)
