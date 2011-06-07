@@ -2,6 +2,30 @@
 
 %p= link_to "+ Add a new child", new_members_child_path
 
+#child-container
+  -for child in @children
+    .child_view
+      .top
+        .title
+          %h2.name=link_to "#{child}", members_child_path(child)
+      .left
+        .info
+          Birthdate:
+          =h child.date_of_birth.to_s(:long)
+        .info
+          Diet Restrictions:
+          =h child.dietary_restrictions
+        .info
+          Allergies:
+          =h child.allergies
+        .info
+          Medications:
+          =h child.medications
+        .info
+          Other Notes:
+          =h child.notes
+        %p= link_to 'Edit Child', edit_members_child_path(child)
+            
 %table
   %tr
     %th First name

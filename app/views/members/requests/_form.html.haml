@@ -4,7 +4,7 @@
   %p
     = f.label :title
     %br
-    = f.text_field :title, :value => (@request.title.blank? ? '' : @request.title)
+    -#= f.text_field :title, :value => (@request.title.blank? ? '' : @request.title)
   %h3 Date and time of care request:
   %p
     = f.label :from
