@@ -24,7 +24,7 @@
               = user.email
         .button
           = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
-      .clear
+        .clear
 
 - if !@users.nil?
   - for user in @users
@@ -40,4 +40,4 @@
           = user.email
       .button
         = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
-    .clear
+      .clear
