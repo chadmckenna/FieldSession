@@ -18,7 +18,7 @@
           -for user in household.users
             .attributes
               %font.small-title Phone:
-              = user.phone
+              = number_to_phone(user.phone)
               %br
               %font.small-title Email:
               = user.email
