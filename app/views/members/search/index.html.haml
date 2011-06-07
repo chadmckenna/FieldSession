@@ -12,10 +12,9 @@
   - for household in @households
     - unless household == current_user.household
       .result
-        = image_tag '/images/icon_small_user.png'
+        .image= image_tag household.photo.url
         .info
           .name= household
-          %br
           -for user in household.users
             .attributes
               %font.small-title Phone:

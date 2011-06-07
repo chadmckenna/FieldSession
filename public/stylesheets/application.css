@@ -34,13 +34,14 @@ a {
   -moz-box-shadow: 0 0 12px #888888; }
   #masthead #search {
     float: right;
-    margin-right: 10px; }
+    margin: -1px 10px 0 -10px;
+    font-size: 0.8em; }
     #masthead #search input[type="text"] {
       float: left;
       padding: 0.2em 0.5em;
-      -moz-border-radius: 1em;
-      -webkit-border-radius: 1em;
-      border-radius: 1em;
+      -moz-border-radius: 0.9em;
+      -webkit-border-radius: 0.9em;
+      border-radius: 0.9em;
       color: grey; }
       #masthead #search input[type="text"]:focus {
         outline: none !important;
@@ -446,9 +447,8 @@ input[type="text"], input[type="password"] {
   clear: both;
   height: 100px; }
   .result img {
-    width: 48px;
-    height: 48px;
-    margin: 0.5em;
+    max-width: 8%;
+    margin: 0.5em 0 0.5em 0;
     float: left; }
   .result .info {
     width: 60%;
@@ -461,7 +461,7 @@ input[type="text"], input[type="password"] {
     .result .info .attributes {
       margin-bottom: 20px; }
       .result .info .attributes .small-title {
-        font-size: 1.2em;
+        font-size: 1em;
         font-weight: bold; }
   .result .button {
     float: right;
@@ -513,46 +513,3 @@ input[type="text"], input[type="password"] {
       float: right; }
     #hidden-requests-container .hidden-household .clear {
       clear: both; }
-
-/*Child styles*/
-#child-container {
-  width: 70%;
-  padding: 0.5em;
-  float: left; }
-
-.child_view {
-  border-bottom: 3px double #eeeeee;
-  margin-bottom: 1em;
-  padding: 0.5em;
-  padding-right: 0 !important;
-  padding-bottom: 1.5em !important;
-  width: 100%; }
-  .child_view .name {
-    font-size: 1.5em;
-    margin-bottom: 10px; }
-    .child_view .name a {
-      background: none !important;
-      border: none !important; }
-      .child_view .name a:hover {
-        text-decoration: underline; }
-  .child_view .top{
-    float: top; }
-    .child_view .top h2{
-      font-size: 1.8em;
-      margin: 0 !important;
-      padding: 0 !important; }
-      .child_view .top h2 a {
-        padding: inherit;
-        margin: inherit;
-        padding: 0;
-        margin: 0 0 0 -0.2em;
-        background: none !important;
-        border: 0 !important; }
-        .child_view .top h2 a:hover {
-          text-decoration: underline; }
-    }
-  .child_view .left {
-    float: left; }
-    .child .left h2{
-      font-size: 3.5em;}
-  
