@@ -122,6 +122,9 @@ a {
         #container #content #left-column #info .title {
           font-size: 1.1em;
           text-decoration: underline; }
+          #container #content #left-column #info .title a {
+            background: none;
+            border: none; }
         #container #content #left-column #info .child a {
           background: none;
           border: none; }
