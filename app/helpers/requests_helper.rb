@@ -53,4 +53,14 @@ module RequestsHelper
     end
     return @count
   end
+  
+  def neighbor(request)
+    @neighbors = Neighbor.find_all_by_household_id(current_user.household.id)
+    for neighbor in @neighbors
+      if neighbor.neighbor_id == request.household_id
+        return true
+      end
+    end
+    return false
+  end
 end
