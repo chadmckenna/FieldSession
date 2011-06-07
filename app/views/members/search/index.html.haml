@@ -28,10 +28,9 @@
 - if !@users.nil?
   - for user in @users
     .result
-      = image_tag '/images/icon_small_user.png'
+      = image_tag user.household.photo.url
       .info
         .name= user.household
-        %br
         .attributes
           %font.small-title Phone:
           = number_to_phone(user.phone, :area_code => true)
