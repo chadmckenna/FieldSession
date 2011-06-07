@@ -234,42 +234,58 @@ a {
       font-size: 12px;
       list-style: disc; }
 
+.exit {
+  float: right; }
+
 /* Requests styles */
 #request-container {
   width: 70%;
   padding: 0.5em;
   float: left; }
 
-.request {
+.request, .neighbor {
   border-bottom: 3px double #eeeeee;
   margin-bottom: 1em;
   padding: 0.5em 0 1.5em 0;
   width: 100%; }
+
+  .request img, .neighbor img {
+    width: 48px;
+    height: 48px;
+    margin: 0.5em;
+
   .request img {
     max-width: 8%;
     margin: 0.5em 0.5em 0.5em 0;
     float: left; }
-  .request .no-volunteer {
+  .request .no-volunteer, .neighbor .no-volunteer {
     color: #aaaaaa;
     margin-left: 10px;
     font-size: 1.1em; }
-  .request .name {
+  .request .name, .neighbor .name {
     font-size: 1.5em;
     margin-bottom: 10px; }
-    .request .name a {
+    .request .name a, .neighbor .name a {
       background: none !important;
       border: none !important; }
-      .request .name a:hover {
+      .request .name a:hover, .neighbor .name a:hover {
         text-decoration: underline; }
-  .request .household {
+  .request .household, .neighbor .household {
     height: 30px;
     padding: 0.5em;
+
+    width: 40%; }
+    .request .household .name, .neighbor .household .name {
+
     width: 40%;
     float: left; }
     .request .household .name {
       float: left; }
-    .request .household .buttons {
+    .request .household .buttons, .neighbor .household .buttons {
       float: right; }
+  .request .left, .neighbor .left {
+    float: left; }
+    .request .left h2, .neighbor .left h2 {
   .request .left {
     float: left;
     min-width: 10%;
@@ -278,22 +294,34 @@ a {
       font-size: 1.8em;
       margin: 0 !important;
       padding: 0 !important; }
-      .request .left h2 a {
+      .request .left h2 a, .neighbor .left h2 a {
         padding: inherit;
         margin: inherit;
         padding: 0;
         margin: 0 0 0 -0.2em;
         background: none !important;
         border: 0 !important; }
-        .request .left h2 a:hover {
+        .request .left h2 a:hover, .neighbor .left h2 a:hover {
           text-decoration: underline; }
+
+    .request .left .name, .neighbor .left .name {
+
     .request .left .image {
       float: left; }
     .request .left .name {
+
       float: left; }
-    .request .left .household {
+    .request .left .household, .neighbor .left .household {
       clear: both;
       font-size: 1.3em; }
+
+  .request .right, .neighbor .right {
+    margin: 5px 0;
+    float: left;
+    margin-left: 1em;
+    color: #555555; }
+    .request .right .cost, .neighbor .right .cost {
+
   .request .right {
     max-width: 80%;
     min-width: 40%;
@@ -303,13 +331,17 @@ a {
     color: #555555;
     z-index: -5; }
     .request .right .cost {
+
       font-style: oblique; }
-      .request .right .cost font {
+      .request .right .cost font, .neighbor .right .cost font {
         font-weight: bold; }
-    .request .right .title {
+    .request .right .title, .neighbor .right .title {
       font-style: oblique;
       font-weight: bold;
       font-size: 1.2em; }
+
+  .request .tools, .neighbor .tools {
+
     .request .right .children .child {
       margin: 5px 0 5px 0;
       padding: 5px;
@@ -321,26 +353,27 @@ a {
       .request .right .children .child .value {
         padding: 0; }
   .request .tools {
+
     float: right;
     z-index: 2; }
-    .request .tools .volunteer-button {
+    .request .tools .volunteer-button, .neighbor .tools .volunteer-button {
       float: right;
       margin-top: 10px; }
-    .request .tools .delete {
+    .request .tools .delete, .neighbor .tools .delete {
       text-align: center;
       float: right;
       width: 20px;
       height: 20px;
       font-size: 1.1em;
       z-index: 5; }
-      .request .tools .delete span {
+      .request .tools .delete span, .neighbor .tools .delete span {
         display: none; }
-      .request .tools .delete a {
+      .request .tools .delete a, .neighbor .tools .delete a {
         background: none !important;
         border: none !important; }
-        .request .tools .delete a:hover {
+        .request .tools .delete a:hover, .neighbor .tools .delete a:hover {
           background: #cccccc !important; }
-    .request .tools .subnav ul {
+    .request .tools .subnav ul, .neighbor .tools .subnav ul {
       list-style-type: none;
       margin-top: 20px;
       display: none;
@@ -351,15 +384,15 @@ a {
       -moz-border-radius: 10px;
       -webkit-border-radius: 10px;
       -moz-box-shadow: 2px 2px 4px #555555; }
-      .request .tools .subnav ul a {
+      .request .tools .subnav ul a, .neighbor .tools .subnav ul a {
         background: none !important;
         border: none !important; }
-      .request .tools .subnav ul li {
+      .request .tools .subnav ul li, .neighbor .tools .subnav ul li {
         margin-right: 30px;
         padding: 0.2em; }
-        .request .tools .subnav ul li a:hover {
+        .request .tools .subnav ul li a:hover, .neighbor .tools .subnav ul li a:hover {
           background: #dddddd !important; }
-  .request .clear {
+  .request .clear, .neighbor .clear {
     clear: both; }
 
 #commit-container {
