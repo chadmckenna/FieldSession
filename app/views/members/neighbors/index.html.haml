@@ -8,17 +8,21 @@
         %h2.name=neighbor.neighbor
         %h2.household Household
       .right
-
-        .phone
-          - for user in neighbor.neighbor.users
-            .user
-              Caregiver: 
-              .user_name 
-                =h user.first_name 
-                =h user.last_name
-              .phone
-                Phone:
-                =h number_to_phone(user.phone)
+        = pluralize neighbor.neighbor.children.count, "Child"
+        %br
+        = pluralize neighbor.neighbor.users.count, "Caregiver"
+        - for user in neighbor.neighbor.users
+          .user
+            .user_name
+              %strong Caregiver:  
+              =h user.first_name 
+              =h user.last_name
+            .phone
+              %strong Phone:
+              =h number_to_phone(user.phone)
+            .email
+              %strong Email:
+              =h user.email
       .exit
         =link_to 'x', members_neighbor_path(neighbor.neighbor), :title => 'remove from my neighbors', :confirm => "Are you sure?", :method => :delete
       .clear
