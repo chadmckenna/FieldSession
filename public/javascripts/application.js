@@ -68,6 +68,16 @@ $(document).ready(function() {
 							"<label>Password Confirmation</label>" + "<br/>" +
 							"<input type='password' name='user[password_confirmation]' />")
 	});
+	
+	$("#household-name a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='household[name]' value='" + $(this).text() + "'/>");
+	});
+	
+	$("#change-photo a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith('<input id="household_photo" name="household[photo]" size="30" type="file" />')
+	});
 });
 
 

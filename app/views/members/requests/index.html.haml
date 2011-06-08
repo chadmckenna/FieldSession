@@ -58,6 +58,14 @@
             =h confirmed_request.request.to_date.to_s(:short)
             .link
               = link_to 'View More Details', detail_members_request_path(confirmed_request.request)
+        ="Confirmed to watch the #{confirmed_request.request.household}'s kids"
+        %br
+        =h confirmed_request.request.from_date.to_s(:short)
+        - if !confirmed_request.request.same_date
+          \-
+          =h confirmed_request.request.to_date.to_s(:short)
+        .link
+          = link_to 'View More Details', detail_members_request_path(confirmed_request.request)
   #pending
     %h2 My Pending Commitments
     -if @pending_requests.count == 0

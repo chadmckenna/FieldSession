@@ -14,5 +14,6 @@ class Members::SettingsController < Members::MembersController
   
     def load_current_user
       @user = User.find(current_user)
+      @users = User.find_all_by_household_id(current_user.household.id)
     end
 end

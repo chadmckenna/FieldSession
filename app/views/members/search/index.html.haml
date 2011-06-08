@@ -42,5 +42,8 @@
           %font.small-title Email:
           = user.email
       .button
-        = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
+        - if neighbor(user.household)
+          = link_to 'Show', members_household_path(user.household)
+        - else
+          = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
       .clear

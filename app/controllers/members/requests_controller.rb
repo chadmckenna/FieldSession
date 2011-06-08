@@ -64,11 +64,15 @@ class Members::RequestsController < Members::MembersController
 
   def destroy
     @request = Request.find(params[:id])
+    @pending_requests = PendingRequest.find_all_by_request_id(@request.id)
     if !@request.household_id.eql? current_user.household_id
       flash[:error] = "You do not have permission to access this page."
       redirect_to members_request_path(@request)
     else
       @request.destroy
+      for pending_request in @pending_requests
+        pending_request.destroy
+      end
       flash[:success] = "Successfully destroyed request."
       redirect_to members_household_path(current_user.household)
     end
