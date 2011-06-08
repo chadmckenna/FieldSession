@@ -78,6 +78,13 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(this).replaceWith('<input id="household_photo" name="household[photo]" size="30" type="file" />')
 	});
+	
+	$(".flash.success").show('highlight', 'slow');
+	$(".flash.error").show('highlight', 'slow');
+	
+	setTimeout(function() { 
+		$(".flash.success").hide('blind', 'slow');
+	}, 2000);
 });
 
 
