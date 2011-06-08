@@ -5,7 +5,8 @@
     .neighbor
       .image= image_tag(neighbor.neighbor.photo.url, :alt => "#{current_user.household.to_s}")
       .left
-        %h2.name=link_to "#{neighbor.neighbor}", members_household_path(neighbor.neighbor)
+        %h2.name= neighbor.neighbor
+        -#%h2.name=link_to "#{neighbor.neighbor}", members_household_path(neighbor.neighbor)
         %h2.household Household
       .right
         = pluralize neighbor.neighbor.children.count, "Child"
