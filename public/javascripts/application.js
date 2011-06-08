@@ -84,7 +84,7 @@ $(document).ready(function() {
 	
 	setTimeout(function() { 
 		$(".flash.success").hide('blind', 'slow');
-	}, 2000);
+	}, 3000);
 });
 
 
