@@ -20,7 +20,7 @@ class Members::UsersController < Members::MembersController
       redirect_to members_profile_path
     elsif @user.update_attributes(params[:user])
       flash[:success] = "Successfully updated user profile."
-      redirect_to edit_members_user_path(@user)
+      redirect_to members_settings_path
     else
       render :action => 'edit'
     end

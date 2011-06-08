@@ -1,6 +1,6 @@
 #logout
   = "Logged in as #{link_to current_user.username, members_user_path(current_user)} into the #{link_to current_user.household.name, members_profile_path} household. " unless current_user.household.nil?
-  = link_to 'settings', edit_members_user_path(current_user)
+  = link_to 'settings', members_settings_path
   = " | "
   = link_to 'log out', logout_path
 %ul.menubar

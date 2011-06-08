@@ -503,7 +503,8 @@ input[type="text"], input[type="password"] {
   margin-left: 40px; }
 
 #hidden-requests-container {
-  width: 50%; }
+  width: 50%;
+  float: left; }
   #hidden-requests-container .hidden-title {
     font-size: 1.1em;
     margin: 20px 0px 20px 20px; }
@@ -527,3 +528,38 @@ input[type="text"], input[type="password"] {
       float: right; }
     #hidden-requests-container .hidden-household .clear {
       clear: both; }
+
+#user-household-info {
+  float: right;
+  width: 48%; }
+  #user-household-info input[type="submit"] {
+    display: none; }
+  #user-household-info font {
+    font-weight: bold; }
+  #user-household-info a {
+    background: none !important;
+    border: none !important; }
+    #user-household-info a:hover {
+      text-decoration: underline; }
+  #user-household-info .title {
+    text-align: center; }
+  #user-household-info #household {
+    margin-left: 15%;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 20px; }
+  #user-household-info #change-password {
+    margin-top: 10px; }
+    #user-household-info #change-password a {
+      border: 1px solid #aaaaaa !important;
+      background: #eeeeee !important;
+      color: #464f3f;
+      padding: 0.2em;
+      -moz-border-radius: 0.3em;
+      -webkit-border-radius: 0.3em; }
+      #user-household-info #change-password a:hover {
+        border: 1px solid #777777;
+        text-decoration: none; }
+
+.clear {
+  clear: both; }
