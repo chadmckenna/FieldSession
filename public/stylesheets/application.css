@@ -578,23 +578,42 @@ input[type="text"], input[type="password"] {
       text-decoration: underline; }
   #user-household-info .title {
     text-align: center; }
+  #user-household-info #user {
+    width: 100%;
+    margin-bottom: 30px; }
+    #user-household-info #user #change-password {
+      margin-top: 10px; }
+      #user-household-info #user #change-password a {
+        border: 1px solid #aaaaaa !important;
+        background: #eeeeee !important;
+        color: #464f3f;
+        padding: 0.2em;
+        -moz-border-radius: 0.3em;
+        -webkit-border-radius: 0.3em; }
+        #user-household-info #user #change-password a:hover {
+          border: 1px solid #777777;
+          text-decoration: none; }
   #user-household-info #household {
-    margin-left: 15%;
-    font-style: italic;
-    font-weight: bold;
-    margin-bottom: 20px; }
-  #user-household-info #change-password {
-    margin-top: 10px; }
-    #user-household-info #change-password a {
-      border: 1px solid #aaaaaa !important;
-      background: #eeeeee !important;
-      color: #464f3f;
-      padding: 0.2em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em; }
-      #user-household-info #change-password a:hover {
-        border: 1px solid #777777;
-        text-decoration: none; }
+    width: 100%; }
+    #user-household-info #household .indent {
+      margin-left: 20px; }
+    #user-household-info #household #household-title {
+      margin-left: 15%;
+      font-style: italic;
+      font-weight: bold;
+      margin-bottom: 20px; }
+    #user-household-info #household #change-photo {
+      margin-top: 10px; }
+      #user-household-info #household #change-photo a {
+        border: 1px solid #aaaaaa !important;
+        background: #eeeeee !important;
+        color: #464f3f;
+        padding: 0.2em;
+        -moz-border-radius: 0.3em;
+        -webkit-border-radius: 0.3em; }
+        #user-household-info #household #change-photo a:hover {
+          border: 1px solid #777777;
+          text-decoration: none; }
 
 .clear {
   clear: both; }
