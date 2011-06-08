@@ -4,6 +4,10 @@ class PendingRequest < ActiveRecord::Base
   
   before_create :assign_default_status
   
+  def send_request_volunteered_email
+    PendingRequestMailer.deliver_request_volunteered_email(self)
+  end
+
   protected
     def assign_default_status
       self.pending = "true"
