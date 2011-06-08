@@ -2,7 +2,7 @@
   Request
 
 .request
-  = image_tag @request.household.photo.url
+  = image_tag @request.household.photo.url(:thumb)
   .left
     %h2.name=link_to "#{@request.household}", members_request_path(@request)
     %h2.household Household

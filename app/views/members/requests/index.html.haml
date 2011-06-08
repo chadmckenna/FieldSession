@@ -8,7 +8,7 @@
   - for request in @requests
     -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !neighbor(request)
       .request
-        = image_tag request.household.photo.url
+        = image_tag request.household.photo.url(:thumb)
         .left
           %h2.name=link_to "#{request.household}", members_request_path(request)
           %h2.household Household

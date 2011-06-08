@@ -12,7 +12,7 @@
   - for household in @households
     - unless household == current_user.household
       .result
-        .image= image_tag household.photo.url
+        .image= image_tag household.photo.url(:thumb)
         .info
           .name= household
           -for user in household.users
@@ -32,7 +32,7 @@
 - if !@users.nil?
   - for user in @users
     .result
-      = image_tag user.household.photo.url
+      = image_tag user.household.photo.url(:thumb)
       .info
         .name= user.household
         .attributes

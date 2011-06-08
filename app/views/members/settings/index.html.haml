@@ -11,7 +11,7 @@
   - for hidden_request in @hidden_requests
     .hidden-household
       .photo
-        = image_tag hidden_request.request.household.photo.url
+        = image_tag hidden_request.request.household.photo.url(:thumb)
       .household
         = hidden_request.request.household
         %br
@@ -29,7 +29,7 @@
   -for hidden_household_request in @hidden_household_requests
     .hidden-household
       .photo
-        = image_tag find_hidden_household(hidden_household_request).photo.url
+        = image_tag find_hidden_household(hidden_household_request).photo.url(:thumb)
       .household
         = find_hidden_household(hidden_household_request)
       .button
