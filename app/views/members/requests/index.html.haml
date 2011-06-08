@@ -50,7 +50,7 @@
       .confirmed-request
         .delete-link
           = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
-        ="Request to watch the #{confirmed_request.request.household}'s kids"
+        ="Confirmed to watch the #{confirmed_request.request.household}'s kids"
         %br
         =h confirmed_request.request.from_date.to_s(:short)
         - if !confirmed_request.request.same_date
