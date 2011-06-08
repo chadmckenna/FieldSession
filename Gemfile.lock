@@ -76,6 +76,7 @@ GEM
     rcov (0.9.9)
     rest-client (1.6.1)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -111,6 +112,7 @@ DEPENDENCIES
   paperclip (~> 2.3)
   rails (= 2.3.11)
   rcov
+  rmagick
   ruby-debug
   sqlite3
   will_paginate (~> 2.3.11)

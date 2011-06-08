@@ -1,13 +1,8 @@
 class Members::SettingsController < Members::MembersController
-  
+  before_filter :load_current_user
   def index
     @hidden_requests = HiddenRequest.find(:all, :conditions => {:household_hidden_id => nil, :household_id => current_user.household.id})
     @hidden_household_requests = HiddenRequest.find(:all, :conditions => {:request_id => nil, :household_id => current_user.household.id})
-  end
-  
-  
-  def edit
-    @user = User.find(params[current_user])
   end
   
   def destroy
@@ -15,6 +10,9 @@ class Members::SettingsController < Members::MembersController
     @hidden_request.destroy
     flash[:success] = "You have successfully removed this household from your hidden households"
     redirect_to members_settings_path
-    
   end
+  
+    def load_current_user
+      @user = User.find(current_user)
+    end
 end

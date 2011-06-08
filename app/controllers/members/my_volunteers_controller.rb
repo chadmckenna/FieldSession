@@ -16,6 +16,7 @@ class Members::MyVolunteersController < Members::MembersController
      for pending_request in @pending_requests
        pending_request.destroy
      end
+     @pending_request.send_volunteer_confirmed_email
      flash[:success] = "You have successfully added that caregiver for this request"
      redirect_to members_my_volunteers_path
    end

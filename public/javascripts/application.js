@@ -35,6 +35,39 @@ $(document).ready(function() {
 			$(this).parent().find(".subnav ul").hide();
 		});
 	});
+	
+	$("#first-name a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='user[first_name]' value='" + $(this).text() + "'/>");
+	});
+	
+	$("#last-name a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='user[last_name]' value='" + $(this).text() + "'/>");
+	});
+	
+	$("#username a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='user[username]' value='" + $(this).text() + "'/>");
+	});
+	
+	$("#email a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='user[email]' value='" + $(this).text() + "'/>");
+	});
+	
+	$("#phone a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='user[phone]' value='" + $(this).text() + "'/>");
+	});
+	
+	$("#change-password a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<label>Password</label>" + "<br/>" + 
+							"<input type='password' name='user[password]' />" + "<br/>" + "<br/>" + 
+							"<label>Password Confirmation</label>" + "<br/>" +
+							"<input type='password' name='user[password_confirmation]' />")
+	});
 });
 
 

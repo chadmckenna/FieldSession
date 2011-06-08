@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
   validates_presence_of :role, :message => "cannot be blank."
   validates_confirmation_of :password
+  validates_presence_of :username
 
   belongs_to :household
   belongs_to :role
