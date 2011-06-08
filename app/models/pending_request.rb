@@ -8,6 +8,10 @@ class PendingRequest < ActiveRecord::Base
     PendingRequestMailer.deliver_request_volunteered_email(self)
   end
 
+  def send_volunteer_confirmed_email
+    PendingRequestMailer.deliver_volunteer_confirmed_email(self)
+  end
+
   protected
     def assign_default_status
       self.pending = "true"

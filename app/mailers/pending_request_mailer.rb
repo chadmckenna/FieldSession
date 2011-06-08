@@ -10,4 +10,13 @@ class PendingRequestMailer < ActionMailer::Base
 			body		("testing")	
 		end
 	end
+
+	def volunteer_confirmed_email(pending_request)
+		@users = User.find(:all, :conditions => {:household_id => pending_request.household_commit_id})
+		from       	"Villages <do-not-reply@fieldsession.heroku.com>"
+		subject		"Your request to volunteer to watch //so and so's kids has been confirmed"
+		recipients	@users.email
+		sent_on		Time.now
+		body		("testing")	
+	end
 end
