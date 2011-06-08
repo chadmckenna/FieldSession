@@ -98,6 +98,43 @@ a {
       #top #your-requests a:hover {
         text-decoration: underline; }
 
+/* Splash Screen
+ */
+#container #video {
+  margin: 20px auto 0px auto;
+  width: 600px; }
+#container #learn_more {
+  width: 600px;
+  margin: 10px auto 0px auto; }
+  #container #learn_more div {
+    float: left;
+    width: 200px; }
+    #container #learn_more div a {
+      width: 180px;
+      height: 135px;
+      display: block;
+      font-size: 24pt;
+      overflow: hidden;
+      background-position: top;
+      border: 0;
+      padding: 0;
+      -webkit-transition: background 300ms ease-in 200ms;
+      -moz-transition: background 300ms ease-in 200ms;
+      -o-transition: background 300ms ease-in 200ms;
+      transition: background 300ms ease-in 200ms; }
+  #container #learn_more #vision a {
+    background: url("../images/vision.jpg") no-repeat; }
+    #container #learn_more #vision a:hover {
+      background-position: bottom; }
+  #container #learn_more #security a {
+    background: url("../images/security.jpg") no-repeat; }
+    #container #learn_more #security a:hover {
+      background-position: bottom; }
+  #container #learn_more #sign_up a {
+    background: url("../images/sign_up.jpg") no-repeat; }
+    #container #learn_more #sign_up a:hover {
+      background-position: bottom; }
+
 #container {
   width: 98%;
   margin: 100px auto 0 auto;
@@ -107,9 +144,6 @@ a {
     color: #375d38; }
   #container #content {
     padding: 20px 40px; }
-    #container #content #video {
-      margin: 20px auto 0px auto;
-      width: 600px; }
     #container #content #left-column {
       width: 20%;
       float: left; }
