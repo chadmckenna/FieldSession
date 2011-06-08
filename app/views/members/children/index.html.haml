@@ -6,8 +6,7 @@
   -for child in @children
     .child_view
       .top
-        .title
-          %h2.name=link_to "#{child}", members_child_path(child)
+        %h2=link_to "#{child}", members_child_path(child)
       .left
         .info
           Birthdate:

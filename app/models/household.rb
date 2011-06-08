@@ -10,6 +10,10 @@ class Household < ActiveRecord::Base
   has_many :households, :through => :neighbors
   
   has_attached_file :photo, 
+                    :styles => {
+                      :thumb => "200x200>",
+                      :medium => "600x600>"
+                    },
                     :url => "/assets/:class/:attachment/:id/:basename.:extension",
                     :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
                     :default_url => "/images/default_household.jpg",

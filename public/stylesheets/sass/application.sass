@@ -105,6 +105,46 @@ a
       border: none
       &:hover
         text-decoration: underline
+        
+/*
+ * Splash Screen
+ */
+#container
+  #video
+    margin: 20px auto 0px auto
+    width: 600px
+  #learn_more
+    width: 600px
+    margin: 10px auto 0px auto
+    div
+      float: left
+      width: 200px
+      a
+        width: 180px
+        height: 135px
+        display: block
+        font-size: 24pt
+        overflow: hidden
+        background-position: top
+        border: 0
+        padding: 0
+        -webkit-transition: background 300ms ease-in 200ms /* property duration timing-function delay */
+        -moz-transition: background 300ms ease-in 200ms
+        -o-transition: background 300ms ease-in 200ms
+        transition: background 300ms ease-in 200ms
+    #vision a
+      background: url("../images/vision.jpg") no-repeat
+      &:hover
+        background-position: bottom
+    #security a
+      background: url("../images/security.jpg") no-repeat
+      &:hover
+        background-position: bottom
+    #sign_up a
+      background: url("../images/sign_up.jpg") no-repeat
+      &:hover
+        background-position: bottom
+        
 #container
   width: 98%
   margin: 100px auto 0 auto
@@ -114,9 +154,6 @@ a
     color: #375D38
   #content
     padding: 20px 40px
-    #video
-      margin: 20px auto 0px auto
-      width: 600px
     #left-column
       width: 20%
       float: left
@@ -591,3 +628,37 @@ input[type="text"], input[type="password"]
 .clear
   clear: both
 
+#child-container
+  float: left
+  width: 70%
+  padding: 0.5em
+
+  .child_view
+    border-bottom: 3px double #eeeeee
+    margin-bottom: 1em
+    padding: 0.5em
+    padding-right: 0 !important
+    padding-bottom: 1.5em !important
+    width: 100% 
+    
+    .top 
+      float: top
+      h2
+        font-size: 1.8em
+        margin: 0 !important
+        padding: 0 !important
+        a
+          padding: inherit
+          margin: inherit
+          padding: 0
+          margin: 0 0 0 -.2em 
+          background: none !important
+          border: 0 !important
+          &:hover
+            text-decoration: underline
+     
+    .child_view .left 
+      float: left
+      .child .left h2
+        font-size: 3.5em
+  
