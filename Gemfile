@@ -12,6 +12,7 @@ gem 'delayed_job', '~> 2.0.4'
 gem 'aws-s3'
 gem 'nifty-generators'
 gem 'formtastic'
+gem 'rmagick'
 
 group :development, :test do
   gem 'aws-s3'
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'haml_scaffold'
   gem 'nifty-generators'
   gem 'formtastic'
+  gem 'rmagick'
 end
 
 group :production do

@@ -35,8 +35,8 @@ class Household < ActiveRecord::Base
   
   def self.search(search)
     if search
-      search.downcase
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      search.upcase
+      find(:all, :conditions => ['name LIKE UPPER(?)', "%#{search}%"])
     else
       return false
     end
