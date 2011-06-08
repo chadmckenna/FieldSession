@@ -16,6 +16,7 @@ class Members::PendingRequestsController < Members::MembersController
     @pending_request.belongs_to_household_id = params[:belongs_to_household_id]
     
     if @pending_request.save
+      @pending_request.send_request_volunteered_email
       flash[:success] = "You have successfully volunteered for this request"
       redirect_to members_requests_path
     else

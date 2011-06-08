@@ -35,3 +35,28 @@
       .button
         = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => 'Are you sure?', :method => :delete
       .clear
+
+#user-household-info
+  %h2.title Your User Info (Click attribute to edit info)
+  - form_for [:members, @user] do |f|
+    = f.error_messages
+    #household
+      = "Part of #{link_to @user.household, members_profile_path} Household"
+    #username
+      Username: 
+      %font= "#{link_to @user.username, '#'}"
+    #first-name
+      First Name: 
+      %font= "#{link_to @user.first_name, '#'}"
+    #last-name
+      Last Name: 
+      %font= "#{link_to @user.last_name, '#'}"
+    #email
+      Email: 
+      %font= "#{link_to @user.email, '#'}"
+    #phone
+      Phone: 
+      %font= "#{link_to number_to_phone(@user.phone, :area_code => true), '#'}"
+    #change-password
+      = link_to 'Change Password', '#'
+    = f.submit

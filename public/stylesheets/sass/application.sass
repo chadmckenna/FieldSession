@@ -531,6 +531,7 @@ input[type="text"], input[type="password"]
     
 #hidden-requests-container
   width: 50%
+  float: left
   .hidden-title
     font-size: 1.1em
     margin: 20px 0px 20px 20px
@@ -554,4 +555,39 @@ input[type="text"], input[type="password"]
       float: right
     .clear
       clear: both
+
+#user-household-info
+  float: right
+  width: 48%
+  input[type="submit"]
+    display: none
+  font
+    font-weight: bold
+  a
+    background: none !important
+    border: none !important
+    &:hover
+      text-decoration: underline
+  .title
+    text-align: center
+  #household
+    margin-left: 15%
+    font-style: italic
+    font-weight: bold
+    margin-bottom: 20px
+  #change-password
+    margin-top: 10px
+    a
+      border: 1px solid #aaa !important
+      background: $lightGrey !important
+      color: $mastheadBG
+      padding: .2em
+      -moz-border-radius: .3em
+      -webkit-border-radius: .3em
+      &:hover
+        border: 1px solid #777
+        text-decoration: none
+
+.clear
+  clear: both
 
