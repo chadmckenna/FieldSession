@@ -31,7 +31,7 @@
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           .child
-            =h "#{phone_number.phone}"
+            =h "#{number_to_phone(phone_number.phone)}"
         -else
           No known phone numbers
 
