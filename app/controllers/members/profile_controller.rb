@@ -1,9 +1,12 @@
 class Members::ProfileController < Members::MembersController
+  helper :requests
   def index
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
     @household = current_user.household
     @num_requests = Request.find_all_by_household_id(@household.id).count
-    @confirmed_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.household.id, :confirmed => "true"})
+    @commitments = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "true"})
+    @confirmed_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :confirmed => "true"})
+    @pending_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :pending => "true"})
   end
   
   def edit
