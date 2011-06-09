@@ -7,7 +7,7 @@
     %p=link_to "Add another child >>", new_members_child_path
 #left-column
   #photo
-    =image_tag @household.photo.url(:medium)
+    =link_to image_tag(@household.photo.url(:medium)) , edit_members_household_path(@household)
   #info
     %div.title Caregivers
     %div
@@ -70,6 +70,8 @@
               %h2#name=link_to "#{request.household}", members_request_path(request)
               %h2#household Household
             .right
+              .title
+                =h request.title
               .date
                 =h request.start_time.to_s(:nicetime)
                 to
@@ -91,10 +93,48 @@
                   -@count +=1
                   -if @count != request.children.length
                     ,
-                  
             .tools
-              %span= link_to "Show", members_request_path(request)
               %span= link_to "Edit", edit_members_request_path(request)
               %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+            .clear
+
+    - if @confirmed_requests.length > 0
+      %font.small-title My Confirmed Requests
+    - if @confirmed_requests.length == 0
+      #no-requests
+        You have no confirmed requests.
+    - else
+      #requests
+        - for confirmed in @confirmed_requests
+          .request
+            .img 
+              =image_tag(confirmed.request.household.photo.url(:thumb), :alt => "#{confirmed.household.to_s}")
+            .left
+              %h2#name=confirmed.request.household
+              %h2#household Household
+            .right
+              .date
+                =h confirmed.request.start_time.to_s(:nicetime)
+                to
+                =h confirmed.request.end_time.to_s(:nicetime)
+                on
+                =h confirmed.request.from_date.to_s(:short)
+                - if confirmed.request.from_date != confirmed.request.to_date
+                  to
+                  =h confirmed.request.to_date.to_s(:short)
+                .cost
+                  Cost:
+                  =h confirmed.request.cost
+                  credits
+                .children
+                  Children
+                  -@count = 0
+                  -for child in confirmed.request.children
+                    =h "#{child}"
+                    -@count += 1
+                    -if @count != confirmed.request.children.length
+                      ,
+            .tools
+              %span= link_to "Show", detail_members_request_path(confirmed.request)
             .clear
 

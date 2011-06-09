@@ -11,11 +11,12 @@
       .request
         = image_tag request.household.photo.url(:thumb)
         .left
-          %h2.name=link_to "#{request.household}", members_request_path(request)
+          %h2.name= request.household
+          -#%h2.name=link_to "#{request.household}", members_request_path(request)
           %h2.household Household
         .right
           .title
-            -#=h request.title
+            =h request.title
           .date
             =h request.from_date.to_s(:short)
             at
@@ -51,6 +52,14 @@
       .confirmed-request
         .delete-link
           = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
+          ="Request to watch the #{confirmed_request.request.household}'s kids"
+          %br
+          =h confirmed_request.request.from_date.to_s(:short)
+          - if !confirmed_request.request.same_date
+            \-
+            =h confirmed_request.request.to_date.to_s(:short)
+            .link
+              = link_to 'View More Details', detail_members_request_path(confirmed_request.request)
         ="Confirmed to watch the #{confirmed_request.request.household}'s kids"
         %br
         =h confirmed_request.request.from_date.to_s(:short)
