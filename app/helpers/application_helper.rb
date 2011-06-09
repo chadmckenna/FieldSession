@@ -22,7 +22,32 @@ module ApplicationHelper
      onFocusFunction = "field = event.target || event.srcElement; if (field.value=='#{text}') {field.value = '';}else {return false}"  
      onBlurFunction = "field = event.target || event.srcElement; if (field.value=='') {field.value = '#{text}';}else {return false}"  
      {:value => text, :onfocus => onFocusFunction, :onblur => onBlurFunction}   
-  end 
+  end
+  
+  def has_requests(user)
+    @num = PendingRequest.find_all_by_belongs_to_household_id(user.household.id).count
+    if @num > 0
+      return true
+    end
+    return false
+  end
+  
+  def has_neighbors(user)
+    @num = Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "f"}).count
+    if @num > 0
+      return true
+    else
+      return false
+    end
+  end
+  
+  def get_neighbor_request_count(user)
+    return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "f"}).count
+  end
+  
+  def get_pending_requests_count(user)
+    return PendingRequest.find(:all, :conditions => {:belongs_to_household_id => user.household.id, :pending => "true"}).count
+  end
   
   module ActionView
     module Helpers
