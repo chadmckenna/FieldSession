@@ -294,6 +294,8 @@ a {
     max-width: 8%;
     margin: 0.5em 0.5em 0.5em 0;
     float: left; }
+  .request #red, .neighbor #red {
+    color: #990000; }
   .request .no-volunteer, .neighbor .no-volunteer {
     color: #aaaaaa;
     margin-left: 10px;
