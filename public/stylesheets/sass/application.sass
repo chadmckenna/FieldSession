@@ -92,11 +92,11 @@ a
       background: red
       margin-left: -1.4em
       position: relative
-      padding: 1px 3px 1px 2px
+      padding: 1px 3px 1px 3px
       -moz-border-radius: .4em
       -webkit-border-radius: .4em
       font-size: .75em
-      top: -6px
+      top: -10px
   #clear
     clear: both
 
@@ -328,6 +328,10 @@ a
   width: 70%
   padding: .5em
   float: left
+  #no-requests
+    font-size: 1.4em
+    font-style: italic
+    color: #AAA
 .request, .neighbor
   border-bottom: 3px double $lightGrey
   margin-bottom: 1em
@@ -570,6 +574,18 @@ input[type="text"], input[type="password"]
     .name
       font-size: 1.2em
       font-weight: bold
+      margin: 0 !important
+      padding: 0 !important
+      a
+        padding: inherit
+        margin: inherit
+        padding: 0
+        margin: 0 0 0 -.2em 
+        background: none !important
+        border: 0 !important
+        &:hover
+          text-decoration: underline  
+          
     .attributes
       margin-bottom: 20px
       .small-title

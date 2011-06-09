@@ -1,13 +1,18 @@
-- title "Requests"
+- content_for :title do
+  Requests
+
+- @num_requests = 0
 #top
   #button
     %p= link_to "+ Create a New Care Request", new_members_request_path
   #your-requests
-    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'request')} to watch your kids", members_my_volunteers_path
+    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteers')} to watch your kids", members_my_volunteers_path
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
+
 #request-container
   - for request in @requests
     -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
+      - @num_requests += 1
       .request
         = image_tag request.household.photo.url(:thumb)
         .left
@@ -41,6 +46,12 @@
               %li= link_to "Hide all by #{request.household}", {:controller => "requests", :action => "hide_all_by_household", :household_hidden_id => request.household.id}, :method => :post
           .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post
         .clear
+
+  - if @num_requests == 0
+    - if @num_neighbors == 0
+      #no-requests You have no neighbors. Add neighbors to see their requests.
+    - else
+      #no-requests Your neighbors do not have any requests at this time.
 
 #commit-container
   #commitments

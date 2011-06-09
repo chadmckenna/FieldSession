@@ -19,7 +19,7 @@
             -for user in household.users
               .attributes
                 %font.small-title Phone:
-                = number_to_phone(user.phone)
+                = number_to_phone(user.phone, :area_code => true)
                 %br
                 %font.small-title Email:
                 = user.email
@@ -35,7 +35,7 @@
       .result
         = image_tag user.household.photo.url(:thumb)
         .info
-          .name= user.household
+          .name= link_to user.household, members_household_path(user.household)
           .attributes
             %font.small-title Phone:
             = number_to_phone(user.phone, :area_code => true)
