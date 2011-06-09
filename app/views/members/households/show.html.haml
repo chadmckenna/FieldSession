@@ -1,4 +1,5 @@
-- title "Household"
+- content_for :title do
+  View household: #{@household.name}
 #left-column
   #photo
     =image_tag @household.photo.url(:medium)
@@ -8,7 +9,7 @@
       -for user in @household.users
         -unless @household.users.eql? nil
           .child
-            =h link_to "#{user.first_name} #{user.last_name}", edit_members_user_path(user)
+            =h "#{user.first_name} #{user.last_name}"
         -else
           You have no caregivers
       %p
@@ -17,35 +18,34 @@
       -for child in @household.children
         -unless @household.children.eql? nil
           .child
-            =h link_to "#{child.first_name} #{child.last_name}", edit_members_child_path(child)
+            ="#{child.first_name} #{child.last_name}"
         -else
           You have no children.
-      %p= link_to "Add Child", new_members_child_path
+      %p
     %div.title Address
     %div
       Address
       %p
     %div.title Phone
-    Phone
+    %div
+      -for phone_number in @household.users
+        -unless @household.users.eql? nil
+          .child
+            =h "#{number_to_phone(phone_number.phone)}"
+        -else
+          No phone number.
 
 #right-column
   #top
     #household-info
       %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits}"
-    #buttons
-      - if current_user.household.eql? @household
-        = link_to 'Edit my Household', edit_members_household_path(@household)
-        = link_to '+ Create a New Request', new_members_request_path
-      - else
-        = link_to '+ Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => @household.id}, :method => :post
   #content
     - if @household.requests.length > 0
       %font.small-title My Open Requests
     - if @household.requests.length == 0
       #no-requests 
-        You have no open requests.
+        The #{@household.name} household has no open requests.
     - else
       #requests
         - for request in @household.requests
@@ -61,16 +61,20 @@
                 =h request.end_time.to_s(:nicetime)
                 on
                 =h request.from_date.to_s(:short)
+                -if request.from_date != request.to_date
+                  to
+                  =h request.to_date.to_s(:short)
               .cost
                 Cost:
                 =h request.cost
                 credits
               .children
                 Children:
-                =h request.children
-            .tools
-              %span= link_to "Show", members_request_path(request)
-              %span= link_to "Edit", edit_members_request_path(request)
-              %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                -@count = 0
+                -for child in request.children
+                  =h "#{child}"
+                  -@count +=1
+                  -if @count != request.children.length
+                    ,
             .clear
 

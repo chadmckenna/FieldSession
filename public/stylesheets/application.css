@@ -113,15 +113,15 @@ a {
       width: 180px;
       height: 135px;
       display: block;
-      font-size: 24pt;
+      font-size: 22pt;
       overflow: hidden;
       background-position: top;
       border: 0;
       padding: 0;
-      -webkit-transition: background 300ms ease-in 200ms;
-      -moz-transition: background 300ms ease-in 200ms;
-      -o-transition: background 300ms ease-in 200ms;
-      transition: background 300ms ease-in 200ms; }
+      /* for IE */
+      filter: alpha(opacity=80);
+      /* CSS3 standard */
+      opacity: 0.8; }
   #container #learn_more #vision a {
     background: url("../images/vision.jpg") no-repeat; }
     #container #learn_more #vision a:hover {
@@ -346,8 +346,6 @@ a {
     .request .left .household, .neighbor .left .household {
       clear: both;
       font-size: 1.3em; }
-  .request .exit, .neighbor .exit {
-    float: right; }
   .request .right, .neighbor .right {
     max-width: 80%;
     min-width: 40%;
