@@ -59,8 +59,31 @@ class Members::NeighborsController < Members::MembersController
   end
   
   def destroy
+    #current user
     @neighbor = Neighbor.find(params[:id])
+    #find the current user's neighbor
     @neighbor2 = Neighbor.find(:first, :conditions => {:household_id => @neighbor.neighbor_id, :neighbor_id => @neighbor.household_id})
+    
+    @neighbor_users = User.find(:all, :conditions => {:household_id => @neighbor.household_id})
+    @neighbor2_users = User.find(:all, :conditions => {:household_id => @neighbor2.household_id})
+    
+    #delete all pending requests that the neighbor has for your household
+    for user in @neighbor_users
+      puts user
+      @pending_requests_neighbor_1 = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => @neighbor2.household_id, :caregiver_requestor_id => user.id})
+      for pending_request in @pending_requests_neighbor_1
+        puts pending_request
+        pending_request.destroy
+      end
+    end
+    
+    #delete all pending requests that you have requests for your neighbor
+    for user in @neighbor2_users
+      @pending_requests_neighbor_2 = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => @neighbor.household_id, :caregiver_requestor_id => user.id})
+      for pending_request in @pending_requests_neighbor_2
+        pending_request.destroy
+      end
+    end
     
     if @neighbor.destroy && @neighbor2.destroy
       flash[:success] = "You have deleted your neighbor"
