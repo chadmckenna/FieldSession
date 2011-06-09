@@ -12,44 +12,44 @@
 ActiveRecord::Schema.define(:version => 20110609154934) do
 
   create_table "children", :force => true do |t|
-    t.string    "first_name"
-    t.string    "last_name"
-    t.date      "date_of_birth"
-    t.string    "dietary_restrictions"
-    t.string    "allergies"
-    t.string    "medications"
-    t.string    "notes"
-    t.integer   "household_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "date_of_birth"
+    t.string   "dietary_restrictions"
+    t.string   "allergies"
+    t.string   "medications"
+    t.string   "notes"
+    t.integer  "household_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "children_requests", :id => false, :force => true do |t|
-    t.integer   "child_id"
-    t.integer   "request_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "child_id"
+    t.integer  "request_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "hidden_requests", :force => true do |t|
-    t.integer   "request_id"
-    t.integer   "household_hidden_id"
-    t.integer   "household_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "belongs_to_household_id"
+    t.integer  "request_id"
+    t.integer  "household_hidden_id"
+    t.integer  "household_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "belongs_to_household_id"
   end
 
   create_table "households", :force => true do |t|
-    t.string    "name"
-    t.integer   "credits"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "photo_file_name"
-    t.string    "photo_content_type"
-    t.integer   "photo_file_size"
-    t.timestamp "photo_updated_at"
-    t.integer   "num_children",       :default => 0, :null => false
+    t.string   "name"
+    t.integer  "credits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "num_children",       :default => 0, :null => false
   end
 
   create_table "neighbors", :force => true do |t|
@@ -62,51 +62,51 @@ ActiveRecord::Schema.define(:version => 20110609154934) do
   end
 
   create_table "pending_requests", :force => true do |t|
-    t.integer   "request_id"
-    t.integer   "household_requestor_id"
-    t.string    "pending"
-    t.integer   "household_commit_id"
-    t.string    "confirmed"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "belongs_to_household_id"
+    t.integer  "request_id"
+    t.integer  "caregiver_requestor_id"
+    t.string   "pending"
+    t.integer  "caregiver_commit_id"
+    t.string   "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "belongs_to_household_id"
   end
 
   create_table "requests", :force => true do |t|
-    t.timestamp "from_date"
-    t.timestamp "start_time"
-    t.timestamp "end_time"
-    t.decimal   "cost"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "household_id"
-    t.timestamp "to_date"
-    t.string    "title"
+    t.datetime "from_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.decimal  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "household_id"
+    t.datetime "to_date"
+    t.string   "title"
   end
 
   create_table "roles", :force => true do |t|
-    t.string    "name",                       :null => false
-    t.string    "description"
-    t.integer   "users_count", :default => 0
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name",                       :null => false
+    t.string   "description"
+    t.integer  "users_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string    "username"
-    t.string    "email"
-    t.string    "persistence_token"
-    t.string    "crypted_password"
-    t.string    "password_salt"
-    t.string    "phone"
-    t.integer   "role_id"
-    t.string    "first_name"
-    t.string    "last_name"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "household_id"
+    t.string   "username"
+    t.string   "email"
+    t.string   "persistence_token"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "phone"
+    t.integer  "role_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "household_id"
   end
 
 end
