@@ -3,7 +3,7 @@
   #button
     %p= link_to "+ Create a New Care Request", new_members_request_path
   #your-requests
-    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'request')} to watch your kids", members_my_volunteers_path
+    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteers')} to watch your kids", members_my_volunteers_path
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 #request-container
   - for request in @requests
