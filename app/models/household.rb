@@ -30,18 +30,7 @@ class Household < ActiveRecord::Base
   #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
   
   before_create :assign_default_credits
-  after_create :save_address
   before_save :capitalize_name
-
-  def new_address_attributes=(address_attributes)
-    address_attributes.each do |attributes|
-      address.build(attributes)
-    end
-  end
-  
-  def save_address
-    address.save(false)
-  end
 
   def to_s
     self.name.capitalize

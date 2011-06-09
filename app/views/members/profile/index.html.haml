@@ -44,7 +44,7 @@
         = @household.address.state
         = @household.address.zip
         %p
-        = link_to "Edit your address", members_edit_address_path
+        = link_to "Edit your address", edit_members_address_path(@household.address)
       - else
         You haven't entered an address for your household.
         %p

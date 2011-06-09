@@ -13,7 +13,6 @@ class Members::HouseholdsController < Members::MembersController
 
   def new
     @household = Household.new
-    @household.address.build
     unless @household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to create that page."
       redirect_to members_household_path(current_user.household)
@@ -31,15 +30,15 @@ class Members::HouseholdsController < Members::MembersController
       current_user.household = @household
       current_user.save!
       if @household.save
-        flash[:success] = "Successfully created #{@household.name} household.  You're almost done!  Now add your children to your household."
-        redirect_to new_members_child_path and return
+        flash[:success] = "Successfully created #{@household.name} household.  You're almost done!  Now add your address to your household."
+        redirect_to new_members_address_path and return
       else
         flash[:error] = "Error creating household"
         render :action => 'new'
       end
     else
       flash[:error] = "You do not have permission to create that page."
-      redirect_to members_children_path
+      redirect_to members_profile_path
     end
   end
 

@@ -17,26 +17,4 @@
     %br
     = f.file_field :photo
   %p
-    = fields_for "household[address_attributes][]", :address do |a_f|
-      %p
-        =a_f.label :street1
-        %br
-        =a_f.text_field :street1
-      %p
-        =a_f.label :street2
-        %br
-        =a_f.text_field :street2
-      %p
-        =a_f.label :city
-        %br
-        =a_f.text_field :city
-      %p
-        =a_f.label :state
-        %br
-        =a_f.select :state, options_for_select( [[ "Select a State", "" ]] + State::NAMES )
-      %p
-        =a_f.label :zip
-        %br
-        =a_f.text_field :zip
-  %p
     = f.submit "Create household"
