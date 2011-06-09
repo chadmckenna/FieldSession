@@ -32,6 +32,7 @@ class Household < ActiveRecord::Base
   has_many :households
   
   before_create :assign_default_credits
+  before_save :capitalize_name
 
   def to_s
     self.name.capitalize
@@ -47,6 +48,10 @@ class Household < ActiveRecord::Base
   end
 
   protected
+  
+    def capitalize_name
+      self.name = self.name.slice(0,1).capitalize + self.name.slice(1..-1)
+    end
 
     def assign_default_credits
       self.credits = 2 if self.credits.nil?

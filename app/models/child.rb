@@ -5,6 +5,8 @@ class Child < ActiveRecord::Base
   belongs_to :household
 
   validates_presence_of :first_name, :last_name, :date_of_birth
+  
+  before_save :capitalize_names
 
   def full_name
     "#{self.first_name.capitalize} #{self.last_name.capitalize}\n"
@@ -15,6 +17,10 @@ class Child < ActiveRecord::Base
   end
   
   protected
+    def capitalize_names
+      self.first_name = self.first_name.slice(0,1).capitalize + self.first_name.slice(1..-1)
+      self.last_name = self.last_name.slice(0,1).capitalize + self.last_name.slice(1..-1)
+    end
 
     def validate
       errors.add_to_base "Child must be under 18 years of age." if (Date.today.year - date_of_birth.year > 18)
