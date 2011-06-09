@@ -1,8 +1,20 @@
 - content_for :title do
   Profile
+-if @household.num_children > @household.children.count
+  #profile_notice
+    %h3 Your household is incomplete!
+    You have indicated that you have #{@household.num_children} children, but you have only created #{pluralize(@household.children.count, "child")} for your household.
+    %p=link_to "Add another child >>", new_members_child_path
 #left-column
   #photo
+
     =link_to image_tag(@household.photo.url(:medium)) , edit_members_profile_path(@household)
+
+
+    -#= link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path(@household)
+
+    =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
+
   #info
     %div.title Caregivers
     %div
@@ -24,7 +36,11 @@
       %p= link_to "+ Add Child", new_members_child_path
     %div.title Address
     %div
-      Address
+      %p= @household.address.street1
+      %p= @household.address.street2
+      %p= @household.address.city
+      %p= @household.address.state
+      %p= @household.address.zip
       %p
     %div.title Phone
     %div
@@ -61,6 +77,8 @@
               %h2#name=link_to "#{request.household}", members_request_path(request)
               %h2#household Household
             .right
+              .title
+                =h request.title
               .date
                 =h request.start_time.to_s(:nicetime)
                 to

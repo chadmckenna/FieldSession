@@ -2,7 +2,7 @@
   -for my_request in @my_requests
     - unless confirmed(my_request)
       .request
-        .name= link_to "Request for #{my_request.from_date.to_s(:short)}", members_request_path(my_request) 
+        .name= link_to "Request for #{my_request.from_date.to_s(:short)} - #{my_request.title}", members_request_path(my_request) 
         - if check_volunteer_count(my_request) == 0
           .no-volunteer You have no volunteers for this request yet
         - else 
