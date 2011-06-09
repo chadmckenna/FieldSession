@@ -123,15 +123,15 @@ a
         width: 180px
         height: 135px
         display: block
-        font-size: 24pt
+        font-size: 22pt
         overflow: hidden
         background-position: top
         border: 0
         padding: 0
-        -webkit-transition: background 300ms ease-in 200ms /* property duration timing-function delay */
-        -moz-transition: background 300ms ease-in 200ms
-        -o-transition: background 300ms ease-in 200ms
-        transition: background 300ms ease-in 200ms
+        /* for IE */
+        filter: alpha(opacity=80)
+        /* CSS3 standard */
+        opacity: 0.8
     #vision a
       background: url("../images/vision.jpg") no-repeat
       &:hover
@@ -317,6 +317,8 @@ a
     max-width: 8%
     margin: .5em .5em .5em 0
     float: left
+  #red
+    color: #900
   .no-volunteer
     color: #AAA
     margin-left: 10px
@@ -338,7 +340,6 @@ a
       float: left
     .buttons
       float: right
-
   .exit
     float: right
     a
@@ -371,8 +372,6 @@ a
     .household
       clear: both
       font-size: 1.3em
-  .exit
-    float: right
   .right
     max-width: 80%
     min-width: 40%
@@ -622,6 +621,18 @@ input[type="text"], input[type="password"]
       text-decoration: underline
   .title
     text-align: center
+  #delete-account
+    text-align: right
+    a
+      border: 1px solid #aaa !important
+      background: $lightGrey !important
+      color: $mastheadBG
+      padding: .2em
+      -moz-border-radius: .3em
+      -webkit-border-radius: .3em
+      &:hover
+        border: 1px solid #777
+        text-decoration: none
   #user
     width: 100%
     margin-bottom: 30px

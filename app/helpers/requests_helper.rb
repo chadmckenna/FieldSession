@@ -29,8 +29,8 @@ module RequestsHelper
     return false
   end
   
-  def get_household_volunteer(id)
-    return Household.find_by_id(id)
+  def get_caregiver_volunteer(id)
+    return User.find_by_id(id)
   end
   
   def hidden_request(request)
@@ -56,7 +56,7 @@ module RequestsHelper
   
   def check_neighbor(request)
     @flag = false
-    @neighbors = Neighbor.find_all_by_household_id(current_user.household.id)
+    @neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true, :neighbor_confirmed => true})
     for neighbor in @neighbors
       if neighbor.neighbor == request.household
         return true

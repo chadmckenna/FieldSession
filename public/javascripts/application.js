@@ -63,9 +63,9 @@ $(document).ready(function() {
 	
 	$("#change-password a").click(function(e) {
 		e.preventDefault();
-		$(this).replaceWith("<label>Password</label>" + "<br/>" + 
+		$(this).replaceWith("<label>New Password</label>" + "<br/>" + 
 							"<input type='password' name='user[password]' />" + "<br/>" + "<br/>" + 
-							"<label>Password Confirmation</label>" + "<br/>" +
+							"<label>New Password Confirmation</label>" + "<br/>" +
 							"<input type='password' name='user[password_confirmation]' />")
 	});
 	

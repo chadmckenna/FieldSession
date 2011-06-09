@@ -37,23 +37,28 @@
       .clear
 
 #user-household-info
+  #delete-account
+    - unless current_user.household.users.count > 1
+      = link_to 'Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related'
+    - else
+      = link_to 'Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account'
   #user
     %h2.title Your User Info (Click attribute to edit info)
     - form_for [:members, @user] do |f|
       #username
-        Username: 
+        = f.label :username 
         %font= link_to @user.username, '#'
       #first-name
-        First Name: 
+        = f.label :first_name 
         %font= link_to @user.first_name, '#'
       #last-name
-        Last Name: 
+        = f.label :last_name 
         %font= link_to @user.last_name, '#'
       #email
-        Email: 
+        = f.label :email 
         %font= link_to @user.email, '#'
       #phone
-        Phone: 
+        = f.label :phone 
         %font= link_to number_to_phone(@user.phone, :area_code => true), '#'
       #change-password
         = link_to 'Change Password', '#'
@@ -64,15 +69,15 @@
       #household-name
         Household Name:
         %font= link_to @user.household, '#'
-      #users
-        Users: 
-        %br
-        - for user in @users
-          .indent 
-            Username:
-            %font= user.username
-            Name:
-            %font= user.first_name
-            %br
       = f.submit
+    #users
+      Users: 
+      %br
+      - for user in @users
+        .indent 
+          Username:
+          %font= user.username
+          Name:
+          %font= user.first_name + " " + user.last_name
+          %br
     

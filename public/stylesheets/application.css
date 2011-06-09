@@ -113,15 +113,15 @@ a {
       width: 180px;
       height: 135px;
       display: block;
-      font-size: 24pt;
+      font-size: 22pt;
       overflow: hidden;
       background-position: top;
       border: 0;
       padding: 0;
-      -webkit-transition: background 300ms ease-in 200ms;
-      -moz-transition: background 300ms ease-in 200ms;
-      -o-transition: background 300ms ease-in 200ms;
-      transition: background 300ms ease-in 200ms; }
+      /* for IE */
+      filter: alpha(opacity=80);
+      /* CSS3 standard */
+      opacity: 0.8; }
   #container #learn_more #vision a {
     background: url("../images/vision.jpg") no-repeat; }
     #container #learn_more #vision a:hover {
@@ -304,6 +304,8 @@ a {
     max-width: 8%;
     margin: 0.5em 0.5em 0.5em 0;
     float: left; }
+  .request #red, .neighbor #red {
+    color: #990000; }
   .request .no-volunteer, .neighbor .no-volunteer {
     color: #aaaaaa;
     margin-left: 10px;
@@ -356,8 +358,6 @@ a {
     .request .left .household, .neighbor .left .household {
       clear: both;
       font-size: 1.3em; }
-  .request .exit, .neighbor .exit {
-    float: right; }
   .request .right, .neighbor .right {
     max-width: 80%;
     min-width: 40%;
@@ -591,6 +591,18 @@ input[type="text"], input[type="password"] {
       text-decoration: underline; }
   #user-household-info .title {
     text-align: center; }
+  #user-household-info #delete-account {
+    text-align: right; }
+    #user-household-info #delete-account a {
+      border: 1px solid #aaaaaa !important;
+      background: #eeeeee !important;
+      color: #464f3f;
+      padding: 0.2em;
+      -moz-border-radius: 0.3em;
+      -webkit-border-radius: 0.3em; }
+      #user-household-info #delete-account a:hover {
+        border: 1px solid #777777;
+        text-decoration: none; }
   #user-household-info #user {
     width: 100%;
     margin-bottom: 30px; }

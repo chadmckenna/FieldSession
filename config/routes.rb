@@ -24,13 +24,14 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :roles
     members.resources :users, :only => [:show, :edit, :update]
     members.resources :children, :collection => {:new_multiple => :get}
-    members.resources :households
+    members.resources :households, :only => [:show, :new, :create]
     members.resources :requests, :member => {:detail => :get}
     members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
-    members.resources :neighbors
+    members.resources :neighbors, :member => {:confirm => :get}
     members.settings 'settings', :controller => 'settings'
     members.resources :pending_requests
+    members.profile_edit 'profile/edit', :controller => 'profile', :action => 'edit'
     members.profile 'profile/', :controller => 'profile'
     members.root :controller => 'requests', :action => 'index'
   end
