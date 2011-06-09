@@ -40,10 +40,12 @@
         = "#{@household.address.city}, "
         = @household.address.state
         = @household.address.zip
+        %p
+        = link_to "Edit your address", members_edit_address_path
       - else
         You haven't entered an address for your household.
         %p
-        = link_to "Add an address", new_members_address_path
+        = link_to "+ Add an address", new_members_address_path
       %p
     %div.title Phone
     %div
