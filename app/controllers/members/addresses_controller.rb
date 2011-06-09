@@ -15,8 +15,8 @@ class Members::AddressesController < Members::MembersController
     @address = Address.new(params[:address])
     @address.household = current_user.household
     if @address.save
-      flash[:success] = "Successfully created address."
-      redirect_to members_profile_path
+      flash[:success] = "Successfully created address.  Now let's add your children to your household."
+      redirect_to new_members_child_path
     else
       render :action => 'new'
     end

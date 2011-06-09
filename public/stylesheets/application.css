@@ -82,14 +82,13 @@ a {
       margin-right: 1em; }
     #masthead .menubar li.notification {
       background: red;
-      margin-left: -1.2em;
+      margin-left: -1.4em;
       position: relative;
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+      padding: 1px 3px 1px 3px;
       -moz-border-radius: 0.4em;
       -webkit-border-radius: 0.4em;
-      font-size: 0.8em;
-      top: 8px; }
+      font-size: 0.75em;
+      top: -10px; }
   #masthead #clear {
     clear: both; }
 
