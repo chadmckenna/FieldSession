@@ -140,6 +140,17 @@ a {
   margin: 100px auto 0 auto;
   background: white;
   position: relative; }
+  #container #profile_notice {
+    width: 100%;
+    background: #ffeeaa;
+    color: #333333;
+    padding: 0.5em;
+    border: 1px solid #ffdd00; }
+    #container #profile_notice h3 {
+      margin: 0.2em 0;
+      font-style: oblique; }
+    #container #profile_notice p {
+      margin: 0.5em 1em; }
   #container a {
     color: #375d38; }
   #container #content {

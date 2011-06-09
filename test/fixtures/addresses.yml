@@ -1,0 +1,15 @@
+one:
+  street1: MyString
+  street2: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  household_id: 1
+
+two:
+  street1: MyString
+  street2: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  household_id: 1
