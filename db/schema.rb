@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110609154934) do
     t.string   "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "belongs_to_household_id"
   end
 
   create_table "requests", :force => true do |t|
