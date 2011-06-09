@@ -21,7 +21,7 @@ class Members::SettingsController < Members::MembersController
     #@num_users_in_household = User.find_all_by_household_id(@user.household.id)
     @household = Household.find(current_user.household)
     @pending_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id})
-    @ask_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id})
+    @ask_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id})
     
     unless current_user.household.users.count > 1
       @user.destroy
