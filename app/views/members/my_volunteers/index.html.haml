@@ -1,16 +1,24 @@
 #request-container
-  -for my_request in @my_requests
-    - unless confirmed(my_request)
-      .request
-        .name= link_to "Request for #{my_request.from_date.to_s(:short)} - #{my_request.title}", members_request_path(my_request) 
-        - if check_volunteer_count(my_request) == 0
-          .no-volunteer You have no volunteers for this request yet
-        - else 
-          - for volunteer in @volunteer_requests
-            - if my_request.id == volunteer.request_id
-              .household
-                .name
-                  = get_caregiver_volunteer(volunteer.caregiver_requestor_id)
-                .buttons
-                  = link_to 'Use Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :caregiver_commit_id => volunteer.caregiver_requestor_id, :request_id => volunteer.request_id}, :method => :post
-              .clear
+  -if @my_requests.count > 0
+    -for my_request in @my_requests
+      - unless confirmed(my_request)
+        .request
+          .name= link_to "Request for #{my_request.from_date.to_s(:short)} - #{my_request.title}", members_request_path(my_request) 
+          - if check_volunteer_count(my_request) == 0
+            .no-volunteer You have no volunteers for this request yet
+          - else 
+            - for volunteer in @volunteer_requests
+              - if my_request.id == volunteer.request_id
+                .household
+                  .name
+                    = get_caregiver_volunteer(volunteer.caregiver_requestor_id)
+                  .buttons
+                    = link_to 'Use Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :caregiver_commit_id => volunteer.caregiver_requestor_id, :request_id => volunteer.request_id}, :method => :post
+                .clear
+  -else
+    .request
+      %h2
+        %span#red Currently, you do not have any requests. 
+      %h3 You can create a new care request by clicking here:
+      = link_to "+ Create a New Care Request", new_members_request_path
+      %h3 Also, you can volunteer for your neighbors request by clicking the 'requests' link in the header.
