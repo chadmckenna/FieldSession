@@ -29,8 +29,8 @@ module RequestsHelper
     return false
   end
   
-  def get_household_volunteer(id)
-    return Household.find_by_id(id)
+  def get_caregiver_volunteer(id)
+    return User.find_by_id(id)
   end
   
   def hidden_request(request)
