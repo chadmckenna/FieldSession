@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :requests, :member => {:detail => :get}
     members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
-    members.resources :neighbors
+    members.resources :neighbors, :member => {:confirm => :get}
     members.settings 'settings', :controller => 'settings'
     members.resources :pending_requests
     members.profile 'profile/', :controller => 'profile'

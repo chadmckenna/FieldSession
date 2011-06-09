@@ -346,8 +346,6 @@ a {
     .request .left .household, .neighbor .left .household {
       clear: both;
       font-size: 1.3em; }
-  .request .exit, .neighbor .exit {
-    float: right; }
   .request .right, .neighbor .right {
     max-width: 80%;
     min-width: 40%;
