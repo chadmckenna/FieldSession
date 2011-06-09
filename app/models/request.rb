@@ -9,12 +9,14 @@ class Request < ActiveRecord::Base
 
   #validates_presence_of :cost
   #validates_numericality_of :cost
+  validates_presence_of :title
   validates_presence_of :start_time
   validates_presence_of :end_time
   validates_presence_of :from_date
   validates_presence_of :to_date
   validates_presence_of :children, :message => "At least one child must be selected"
   validate :validate_credits
+  validates_length_of :title, :maximum => 100
 
   before_save :calculate_cost
   before_save :check_time
