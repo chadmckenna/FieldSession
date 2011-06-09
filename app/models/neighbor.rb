@@ -5,4 +5,8 @@ class Neighbor < ActiveRecord::Base
   def send_neighbor_request_email
   	UserMailer.deliver_neighbor_request_email(self)
   end
+
+  def send_neighbor_confirmation_email
+  	UserMailer.deliver_neighbor_confirmation_email(self)
+  end
 end

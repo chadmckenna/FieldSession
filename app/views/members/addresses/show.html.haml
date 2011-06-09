@@ -1,0 +1,27 @@
+- title "Address"
+
+%p
+  %strong Street1:
+  =h @address.street1
+%p
+  %strong Street2:
+  =h @address.street2
+%p
+  %strong City:
+  =h @address.city
+%p
+  %strong State:
+  =h @address.state
+%p
+  %strong Zip:
+  =h @address.zip
+%p
+  %strong Household:
+  =h @address.household_id
+
+%p
+  = link_to "Edit", edit_address_path(@address)
+  |
+  = link_to "Destroy", @address, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", addresses_path

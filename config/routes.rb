@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-
   map.resources :households
   map.resources :roles
   map.resources :requests
@@ -26,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :children, :collection => {:new_multiple => :get}
     members.resources :households, :only => [:show, :new, :create]
     members.resources :requests, :member => {:detail => :get}
+    members.resources :addresses
     members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"
     members.resources :neighbors, :member => {:confirm => :get}

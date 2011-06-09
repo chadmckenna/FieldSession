@@ -159,6 +159,17 @@ a
   margin: 100px auto 0 auto
   background: white
   position: relative
+  #profile_notice
+    h3
+      margin: .2em 0
+      font-style: oblique
+    width: 100%
+    background: #fea
+    color: #333
+    padding: .5em
+    border: 1px solid #fd0
+    p
+      margin: .5em 1em
   a
     color: #375D38
   #content
@@ -166,10 +177,17 @@ a
     #left-column
       width: 20%
       float: left
-      #photo img
+      img
+        max-width: 100%
+      #photo
+        padding: inherit
         width: 100%
         border: 1px solid
         margin: 10px auto 0px auto
+        a
+          padding: 0 !important
+          border: none !important
+          background: none !important
       #info
         margin: 10px 10px 0px 10px
         .title
@@ -224,10 +242,13 @@ a
           font-size: 1.3em
         #requests
           width: 100%
-          height: 500px
-          overflow: none
+          //overflow: auto
           margin-top: 10px
           padding: 2px
+          #img
+            max-width: 8%
+            margin: .5em .5em .5em 0
+            float: left
         #no-requests
           font-size: 1.2em
     #form
@@ -300,7 +321,9 @@ a
     li
       font-size: 12px
       list-style: disc
-/* Requests styles */
+/*
+ * Requests styles
+ */
 #request-container
   width: 70%
   padding: .5em
@@ -314,6 +337,8 @@ a
     max-width: 8%
     margin: .5em .5em .5em 0
     float: left
+  #red
+    color: #900
   .no-volunteer
     color: #AAA
     margin-left: 10px

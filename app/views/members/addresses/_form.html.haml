@@ -1,0 +1,24 @@
+- form_for [:members, @address] do |f|
+  = f.error_messages
+  %p
+    = f.label :street1
+    %br
+    = f.text_field :street1
+  %p
+    = f.label :street2
+    %br
+    = f.text_field :street2
+  %p
+    = f.label :city
+    %br
+    = f.text_field :city
+  %p
+    = f.label :state
+    %br
+    = f.select :state, options_for_select([[ "Select a state", "" ]] + State::NAMES)
+  %p
+    = f.label :zip
+    %br
+    = f.text_field :zip
+  %p
+    = f.submit
