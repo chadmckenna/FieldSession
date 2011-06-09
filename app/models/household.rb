@@ -14,9 +14,9 @@ class Household < ActiveRecord::Base
                       :thumb => "200x200>",
                       :medium => "600x600>"
                     },
-                    :url => "/assets/:class/:attachment/:id/:basename.:extension",
-                    :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:basename.:extension",
-                    :default_url => "/images/default_household.jpg",
+                    :url => "/assets/:class/:attachment/:id/:style.:extension",
+                    :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:style.:extension",
+                    :default_url => "/images/default_household_:style.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
   
