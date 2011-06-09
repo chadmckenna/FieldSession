@@ -11,11 +11,12 @@ class UserMailer < ActionMailer::Base
   def neighbor_request_email(neighbor)
   	@users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
 	for user in @users
-	  	subject		"so and so has requested to be part of your village"
+	  	subject		"You have a neighbor request"
 	  	from 		"Village <do-no-reply@fieldsession.heroku.com>"
 	  	recipients	user.email
 	  	sent_on 	Time.now
-	  	body		"testing"
+	  	household_name = Household.find(:all, :conditions => {:id => neighbor.household_id})
+	  	body		(:username => user.username, :neighbor => household_name)
 	end
   end
 end

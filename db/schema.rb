@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(:version => 20110607161915) do
 
   create_table "pending_requests", :force => true do |t|
     t.integer  "request_id"
-    t.integer  "household_requestor_id"
+    t.integer  "caregiver_requestor_id"
     t.string   "pending"
-    t.integer  "household_commit_id"
+    t.integer  "caregiver_commit_id"
     t.string   "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
