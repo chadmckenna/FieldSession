@@ -314,6 +314,10 @@ a {
   width: 70%;
   padding: 0.5em;
   float: left; }
+  #request-container #no-requests {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #aaaaaa; }
 
 .request, .neighbor {
   border-bottom: 3px double #eeeeee;

@@ -13,6 +13,8 @@ class Members::RequestsController < Members::MembersController
     @num_neighbor_requests = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => false, :neighbor_confirmed => true}).count
     
     @hidden_requests = HiddenRequest.find_all_by_household_id(current_user.household.id)
+    
+    @num_neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household.id, :household_confirmed => 't'}).count
   end
 
   def show
