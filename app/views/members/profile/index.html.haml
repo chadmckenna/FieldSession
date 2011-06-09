@@ -29,7 +29,11 @@
       %p= link_to "+ Add Child", new_members_child_path
     %div.title Address
     %div
-      Address
+      %p= household.address.street1
+      %p= household.address.street2
+      %p= household.address.city
+      %p= household.address.state
+      %p= household.address.zip
       %p
     %div.title Phone
     %div

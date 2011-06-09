@@ -1,0 +1,23 @@
+- title "Addresses"
+
+%table
+  %tr
+    %th Street1
+    %th Street2
+    %th City
+    %th State
+    %th Zip
+    %th Household
+  - for address in @addresses
+    %tr
+      %td= h address.street1
+      %td= h address.street2
+      %td= h address.city
+      %td= h address.state
+      %td= h address.zip
+      %td= h address.household_id
+      %td= link_to 'Show', address
+      %td= link_to 'Edit', edit_address_path(address)
+      %td= link_to 'Destroy', address, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Address", new_address_path
