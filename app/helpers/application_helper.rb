@@ -25,11 +25,12 @@ module ApplicationHelper
   end
   
   def has_requests(user)
-    @num = PendingRequest.find_all_by_belongs_to_household_id(user.household.id).count
+    @num = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => user.household.id, :pending => "true"}).count
     if @num > 0
       return true
+    else
+      return false
     end
-    return false
   end
   
   def has_neighbors(user)
