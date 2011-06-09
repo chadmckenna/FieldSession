@@ -4,10 +4,10 @@ class Members::RequestsController < Members::MembersController
   def index
     @requests = Request.find(:all, :order => 'from_date')
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
-    @pending_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :pending => "true"})
+    @pending_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :pending => "true"})
     @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
     
-    @confirmed_requests = PendingRequest.find(:all, :conditions => {:household_requestor_id => current_user.household.id, :confirmed => "true"})
+    @confirmed_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "true"})
 
     @num_volunteer_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true"}).count
     
@@ -20,7 +20,7 @@ class Members::RequestsController < Members::MembersController
   
   def detail
     @request = Request.find(params[:id])
-    @pending_request = PendingRequest.find(:all, :conditions => {:request_id => params[:id], :pending => "false", :household_commit_id => current_user.household_id})
+    @pending_request = PendingRequest.find(:all, :conditions => {:request_id => params[:id], :pending => "false", :caregiver_commit_id => current_user.id})
     @children = @request.children
   end
 
