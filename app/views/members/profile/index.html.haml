@@ -1,5 +1,10 @@
 - content_for :title do
   Profile
+-if @household.num_children > @household.children.count
+  #profile_notice
+    %h3 Your household is incomplete!
+    You have indicated that you have #{@household.num_children} children, but you have only created #{pluralize(@household.children.count, "child")} for your household.
+    %p=link_to "Add another child >>", new_members_child_path
 #left-column
   #photo
     =image_tag @household.photo.url(:medium)
