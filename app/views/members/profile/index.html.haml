@@ -44,7 +44,7 @@
       %br
       -#= "Pending Credits: #{@household.requests.cost}"
     #buttons
-      = link_to 'Edit my Household', edit_members_household_path(@household)
+      = link_to 'Edit my Household', members_profile_edit_path
       = link_to '+ Create a New Request', new_members_request_path
   #content
     - if @household.requests.length > 0
@@ -86,6 +86,6 @@
             .tools
               %span= link_to "Show", members_request_path(request)
               %span= link_to "Edit", edit_members_request_path(request)
-              %span= link_to "Destroy", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+              %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
             .clear
 

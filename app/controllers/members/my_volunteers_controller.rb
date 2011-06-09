@@ -10,7 +10,7 @@ class Members::MyVolunteersController < Members::MembersController
      @pending_request = PendingRequest.find(params[:pending_request_id])
      @pending_request.pending = "false"
      @pending_request.confirmed = "true"
-     @pending_request.household_commit_id = params[:household_commit_id]
+     @pending_request.caregiver_commit_id = params[:caregiver_commit_id]
      @pending_request.save!
      @pending_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true", :request_id => params[:request_id]})
      for pending_request in @pending_requests

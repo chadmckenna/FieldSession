@@ -23,7 +23,7 @@ class Members::NeighborsController < Members::MembersController
       @neighbor2.household_id = params[:household_id]
       @neighbor2.neighbor_confirmed = true
       @household = Household.find(params[:household_id])
-
+      
       if @neighbor.save && @neighbor2.save
         flash[:success] = "You have successfully added #{@household} as a neighbor"
         redirect_to members_neighbors_path

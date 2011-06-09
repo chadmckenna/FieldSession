@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(:version => 20110609154934) do
   end
 
   create_table "pending_requests", :force => true do |t|
-    t.integer   "request_id"
-    t.integer   "household_requestor_id"
-    t.string    "pending"
-    t.integer   "household_commit_id"
-    t.string    "confirmed"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "belongs_to_household_id"
+    t.integer  "request_id"
+    t.integer  "caregiver_requestor_id"
+    t.string   "pending"
+    t.integer  "caregiver_commit_id"
+    t.string   "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "belongs_to_household_id"
   end
 
   create_table "requests", :force => true do |t|

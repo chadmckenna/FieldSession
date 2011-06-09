@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   default_scope :include => :role
 
   before_create :assign_default_role, :remove_non_digits_in_phone
+  before_save :capitalize_names
   
   before_validation_on_create :assign_default_role
   
@@ -77,6 +78,11 @@ class User < ActiveRecord::Base
 #  end
     
   protected
+  
+    def capitalize_names
+      self.first_name = self.first_name.slice(0,1).capitalize + self.first_name.slice(1..-1)
+      self.last_name = self.last_name.slice(0,1).capitalize + self.last_name.slice(1..-1)
+    end
 
     def assign_default_role
       self.role = Role.find_by_name('member') if role.nil?
