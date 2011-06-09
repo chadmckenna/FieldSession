@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :neighbors
     members.settings 'settings', :controller => 'settings'
     members.resources :pending_requests
-    members.profile 'profile/edit', :controller => 'profile', :action => 'edit'
+    members.profile_edit 'profile/edit', :controller => 'profile', :action => 'edit'
     members.profile 'profile/', :controller => 'profile'
     members.root :controller => 'requests', :action => 'index'
   end
