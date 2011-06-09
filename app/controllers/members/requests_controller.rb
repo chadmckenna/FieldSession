@@ -75,7 +75,7 @@ class Members::RequestsController < Members::MembersController
         pending_request.destroy
       end
       flash[:success] = "Successfully destroyed request."
-      redirect_to members_household_path(current_user.household)
+      redirect_to members_profile_path
     end
   end
   
