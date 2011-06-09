@@ -13,6 +13,7 @@ class Members::HouseholdsController < Members::MembersController
 
   def new
     @household = Household.new
+    @household.address.build
     unless @household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to create that page."
       redirect_to members_household_path(current_user.household)
@@ -24,7 +25,7 @@ class Members::HouseholdsController < Members::MembersController
       @household = Household.new(params[:household])
       @household.num_children = params[:child_count].to_i
       @household.credits = @household.num_children
-      if @household.credits > 6
+      if @household.credits > 6 # maximum number of credits per user
         @household.credits = 6
       end
       current_user.household = @household
@@ -62,6 +63,12 @@ class Members::HouseholdsController < Members::MembersController
     else
       flash[:error] = "Error updating household"
       render :action => 'edit'
+    end
+  end
+  
+  def address_attributes=(address_attributes)
+    address_attributes.each do |attributes|
+      addresses.build(attributes)
     end
   end
   

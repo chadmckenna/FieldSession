@@ -33,12 +33,17 @@
       %p= link_to "+ Add Child", new_members_child_path
     %div.title Address
     %div
-      = @household.address.street1
-      = @household.address.street2
-      %br
-      = "#{@household.address.city}, "
-      = @household.address.state
-      = @household.address.zip
+      - unless @household.address.nil?
+        = @household.address.street1
+        = @household.address.street2
+        %br
+        = "#{@household.address.city}, "
+        = @household.address.state
+        = @household.address.zip
+      - else
+        You haven't entered an address for your household.
+        %p
+        = link_to "Add an address", new_members_address_path
       %p
     %div.title Phone
     %div

@@ -5,8 +5,12 @@ class Household < ActiveRecord::Base
   has_many :users
   has_many :requests
   has_many :hidden_requests
-  has_one  :address
-  
+  has_one  :address, :dependent => :destroy
+  #has_many :requestors, :foreign_key => 'household_id', :class_name => 'Neighbor', :dependent => :destroy
+  #has_many :households, :through => :requestors
+  has_many :pending_requests
+  #has_many :requests, :through => :pending_requests
+  has_many :households
   has_many :neighbors, :foreign_key => 'neighbor_id', :class_name => 'Neighbor', :dependent => :destroy
   has_many :households, :through => :neighbors
   
@@ -21,19 +25,23 @@ class Household < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
   
+  validates_associated :address
   validates_attachment_presence :photo
   #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
-
-  #has_many :requestors, :foreign_key => 'household_id', :class_name => 'Neighbor', :dependent => :destroy
-  #has_many :households, :through => :requestors
-  
-  has_many :pending_requests
-  #has_many :requests, :through => :pending_requests
-  
-  has_many :households
   
   before_create :assign_default_credits
+  after_create :save_address
   before_save :capitalize_name
+
+  def new_address_attributes=(address_attributes)
+    address_attributes.each do |attributes|
+      address.build(attributes)
+    end
+  end
+  
+  def save_address
+    address.save(false)
+  end
 
   def to_s
     self.name.capitalize
