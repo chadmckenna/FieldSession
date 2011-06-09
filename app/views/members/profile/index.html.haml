@@ -8,6 +8,9 @@
 #left-column
   #photo
 
+    -#=link_to image_tag(@household.photo.url(:medium)) , edit_members_profile_path(@household)
+
+
     -#= link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path(@household)
 
     =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
