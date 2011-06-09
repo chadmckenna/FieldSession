@@ -1,6 +1,7 @@
 class UserSessionsController < ApplicationController
   skip_before_filter :require_user
   skip_before_filter :require_household
+ # before_filter :set_previous_page, :only => :new
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
 
@@ -12,7 +13,9 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:success] = "Login successful."
-      redirect_to home_url_for(UserSession.find.user)
+      uri = session[:original_uri]
+      session[:original_uri] = nil
+      redirect_to (uri || home_url_for(UserSession.find.user))
     else
       render :action => :new
     end
@@ -23,5 +26,10 @@ class UserSessionsController < ApplicationController
     flash[:success] = "You have successfully logged out."
     redirect_to root_url
   end
+
+  protected
+    def set_previous_page
+      @session[:old_uri] = request.request_uri
+    end
 
 end
