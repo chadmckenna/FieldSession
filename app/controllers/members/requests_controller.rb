@@ -10,6 +10,7 @@ class Members::RequestsController < Members::MembersController
     @confirmed_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "true"})
 
     @num_volunteer_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true"}).count
+    @num_neighbor_requests = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => false, :neighbor_confirmed => true}).count
     
     @hidden_requests = HiddenRequest.find_all_by_household_id(current_user.household.id)
   end

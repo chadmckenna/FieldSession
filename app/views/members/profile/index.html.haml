@@ -44,7 +44,7 @@
       %br
       -#= "Pending Credits: #{@household.requests.cost}"
     #buttons
-      = link_to 'Edit my Household', edit_members_household_path(@household)
+      = link_to 'Edit my Household', members_profile_edit_path
       = link_to '+ Create a New Request', new_members_request_path
   #content
     - if @household.requests.length > 0

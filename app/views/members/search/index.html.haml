@@ -15,7 +15,7 @@
         .result
           .image= image_tag household.photo.url(:thumb)
           .info
-            .name= household
+            .name= link_to household, members_household_path(household)
             -for user in household.users
               .attributes
                 %font.small-title Phone:

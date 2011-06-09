@@ -1,9 +1,61 @@
 -title "Neighbors"
+%h1 Pending Neighbor Requests
+%br
+  -for pending_neighbor in @pending_neighbors
+    .request
+      = image_tag(pending_neighbor.neighbor.photo.url(:thumb), :alt => "#{pending_neighbor.neighbor.to_s}")
+      .left
+        %h2.name= pending_neighbor.neighbor
+        %h2.household Household
+      .right
+        - for user in pending_neighbor.neighbor.users
+          .user
+            .user_name
+              %strong Caregiver:  
+              =h user.first_name 
+              =h user.last_name
+            .phone
+              %strong Phone:
+              =h number_to_phone(user.phone, :area_code => true)
+            .email
+              %strong Email:
+              =h user.email
+      .tools
+        .volunteer-button
+          =link_to "Remove Request", members_neighbor_path(pending_neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
+      .clear
+%h1 Neighbor Requests
+%br
+  -for neighbor_request in @neighbor_requests
+    .request
+      = image_tag(neighbor_request.neighbor.photo.url(:thumb), :alt => "#{neighbor_request.neighbor.to_s}")
+      .left
+        %h2.name= neighbor_request.neighbor
+        %h2.household Household
+      .right
+        - for user in neighbor_request.neighbor.users
+          .user
+            .user_name
+              %strong Caregiver:  
+              =h user.first_name 
+              =h user.last_name
+            .phone
+              %strong Phone:
+              =h number_to_phone(user.phone, :area_code => true)
+            .email
+              %strong Email:
+              =h user.email
+      .tools
+        .volunteer-button
+          =link_to "Confirm Neighbor", confirm_members_neighbor_path(neighbor_request)
+          =link_to "Remove Neighbor", members_neighbor_path(neighbor_request), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
+      .clear
+
 %h1 All of My Neighbors
 %br
   - for neighbor in @neighbors
-    .neighbor
-      .image= image_tag(neighbor.neighbor.photo.url(:thumb), :alt => "#{current_user.household.to_s}")
+    .request
+      = image_tag(neighbor.neighbor.photo.url(:thumb), :alt => "#{neighbor.neighbor.to_s}")
       .left
         %h2.name= neighbor.neighbor
         -#%h2.name=link_to "#{neighbor.neighbor}", members_household_path(neighbor.neighbor)
@@ -24,6 +76,7 @@
             .email
               %strong Email:
               =h user.email
-      .exit
-        =link_to 'x', members_neighbor_path(neighbor), :title => 'remove from my neighbors', :confirm => "Are you sure?", :method => :delete
+      .tools
+        .volunteer-button
+          =link_to "Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
       .clear

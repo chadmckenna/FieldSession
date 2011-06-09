@@ -1,0 +1,20 @@
+- form_for([:members, @household], :html => { :multipart => true }) do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name, :value => current_user.last_name
+  -if !@edit
+    %p
+      Number of kids in you household
+      %br
+      
+      %select{:name => 'child_count'}
+        -for i in 1..15
+          %option{:value => "#{i}"} #{i}
+  %p
+    = f.label :photo
+    %br
+    = f.file_field :photo
+  %p
+    = f.submit "Save changes"
