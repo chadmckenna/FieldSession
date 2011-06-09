@@ -157,8 +157,11 @@ a {
           font-size: 1.1em;
           text-decoration: underline; }
           #container #content #left-column #info .title a {
+            color: black;
             background: none;
             border: none; }
+            #container #content #left-column #info .title a:hover {
+              color: #999999; }
         #container #content #left-column #info .child a {
           background: none;
           border: none; }
