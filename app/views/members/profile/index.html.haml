@@ -75,7 +75,7 @@
     - openRequests = false
     - if @household.requests.length > 0
       - for r in @household.requests
-        - if commit(r)
+        - if !commit(r)
           - openRequests = true
           - break
       - if !openRequests
@@ -119,7 +119,10 @@
                   %span= link_to "Edit", edit_members_request_path(request)
                   %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
                 .clear
-      
+    - else
+      #no-requests
+        You have no open requests.
+
     - if @confirmed_requests.length > 0
       %font.small-title My Confirmed Requests
     - if @confirmed_requests.length == 0
