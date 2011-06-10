@@ -13,6 +13,8 @@ class Members::RequestsController < Members::MembersController
     @num_neighbor_requests = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => false, :neighbor_confirmed => true}).count
     
     @hidden_requests = HiddenRequest.find_all_by_household_id(current_user.household.id)
+    
+    @num_neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household.id, :household_confirmed => 't'}).count
   end
 
   def show
@@ -75,7 +77,7 @@ class Members::RequestsController < Members::MembersController
         pending_request.destroy
       end
       flash[:success] = "Successfully destroyed request."
-      redirect_to members_household_path(current_user.household)
+      redirect_to members_profile_path
     end
   end
   

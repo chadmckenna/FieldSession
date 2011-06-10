@@ -45,6 +45,7 @@
         = @household.address.zip
         %p
         = link_to "Edit your address", edit_members_address_path(@household.address)
+
       - else
         You haven't entered an address for your household.
         %p
@@ -66,7 +67,7 @@
       %br
       = "Credit Balance: #{@household.credits}"
       %br
-      -#= "Pending Credits: #{@household.requests.cost}"
+      -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
       = link_to 'Edit my Household', members_profile_edit_path
       = link_to '+ Create a New Request', new_members_request_path
@@ -79,39 +80,40 @@
     - else
       #requests
         - for request in @household.requests
-          .request
-            %img
-            .left
-              %h2#name=link_to "#{request.household}", members_request_path(request)
-              %h2#household Household
-            .right
-              .title
-                =h request.title
-              .date
-                =h request.start_time.to_s(:nicetime)
-                to
-                =h request.end_time.to_s(:nicetime)
-                on
-                =h request.from_date.to_s(:short)
-                -if request.from_date != request.to_date
+          -unless commit(request)
+            .request
+              %img
+              .left
+                %h2#name=link_to "#{request.household}", members_request_path(request)
+                %h2#household Household
+              .right
+                .title
+                  =h request.title
+                .date
+                  =h request.start_time.to_s(:nicetime)
                   to
-                  =h request.to_date.to_s(:short)
-              .cost
-                Cost:
-                =h request.cost
-                credits
-              .children
-                Children:
-                -@count = 0
-                -for child in request.children
-                  =h "#{child}"
-                  -@count +=1
-                  -if @count != request.children.length
-                    ,
-            .tools
-              %span= link_to "Edit", edit_members_request_path(request)
-              %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
-            .clear
+                  =h request.end_time.to_s(:nicetime)
+                  on
+                  =h request.from_date.to_s(:short)
+                  -if request.from_date != request.to_date
+                    to
+                    =h request.to_date.to_s(:short)
+                .cost
+                  Cost:
+                  =h request.cost
+                  credits
+                .children
+                  Children:
+                  -@count = 0
+                  -for child in request.children
+                    =h "#{child}"
+                    -@count +=1
+                    -if @count != request.children.length
+                      ,
+              .tools
+                %span= link_to "Edit", edit_members_request_path(request)
+                %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+              .clear
 
     - if @confirmed_requests.length > 0
       %font.small-title My Confirmed Requests
@@ -150,6 +152,47 @@
                     -if @count != confirmed.request.children.length
                       ,
             .tools
-              %span= link_to "Show", detail_members_request_path(confirmed.request)
+              %span= link_to "Edit", edit_members_request_path(confirmed.request)
+              %span= link_to "Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+            .clear
+
+    - if @commitments.length > 0
+      %font.small-title My Commitments
+    - if @commitments.length == 0
+      #no-requests
+        You have no commitments.
+    - else
+      #requests
+        - for commitment in @commitments
+          .request
+            .img 
+              =image_tag(commitment.request.household.photo.url(:thumb), :alt => "#{commitment.household.to_s}")
+            .left
+              %h2#name=commitment.request.household
+              %h2#household Household
+            .right
+              .date
+                =h commitment.request.start_time.to_s(:nicetime)
+                to
+                =h commitment.request.end_time.to_s(:nicetime)
+                on
+                =h commitment.request.from_date.to_s(:short)
+                - if commitment.request.from_date != commitment.request.to_date
+                  to
+                  =h commitment.request.to_date.to_s(:short)
+                .cost
+                  Cost:
+                  =h commitment.request.cost
+                  credits
+                .children
+                  Children
+                  -@count = 0
+                  -for child in commitment.request.children
+                    =h "#{child}"
+                    -@count += 1
+                    -if @count != commitment.request.children.length
+                      ,
+            .tools
+              %span= link_to "Show", detail_members_request_path(commitment.request)
             .clear
 
