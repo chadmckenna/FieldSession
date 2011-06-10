@@ -7,7 +7,15 @@ class Members::SearchController < Members::MembersController
       @users = User.search(params[:search])
       @users.delete_if { |user| user.id.eql? current_user.id} unless @users.eql? nil
     else
-      flash[:error] = "You have entered a blank search. Please try again"
+      if !current_user.has_household?
+        flash[:error] = "Please search for a household"
+        unless params[:search].blank?
+          @households = Household.search(params[:search])
+          @users = User.search(params[:search])
+        end
+      else
+        flash[:error] = "You have entered a blank search. Please try again"  
+      end
     end
   end
 end

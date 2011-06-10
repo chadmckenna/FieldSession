@@ -1,0 +1,9 @@
+- form_tag members_search_path, :method => 'get' do
+          = text_field_tag :search, params[:search], default_text("search...")
+          = submit_tag "Search by name", :name => nil
+- form_tag members_search_path, :method => 'get' do
+          = text_field_tag :search, params[:search], default_text("search...")
+          = submit_tag "Search by phone", :name => nil
+- form_tag members_search_path, :method => 'get' do
+          = text_field_tag :search, params[:search], default_text("search...")
+          = submit_tag "Search by email", :name => nil
