@@ -263,6 +263,21 @@ a {
     #container a:hover, #container input[type="submit"]:hover, #container select:hover {
       border: 1px solid #777777; }
 
+label {
+  display: inline;
+  float: left;
+  margin-right: 0.5em; }
+
+.hint {
+  float: left;
+  display: inline;
+  color: grey;
+  font-style: oblique; }
+  .hint:before {
+    content: "("; }
+  .hint:after {
+    content: ")"; }
+
 .flash.success {
   margin: 0.5em 0 0.5em 0;
   background: #f0fff0;

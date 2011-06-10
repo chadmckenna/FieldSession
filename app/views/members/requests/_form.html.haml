@@ -3,6 +3,7 @@
   %h3 Title your request
   %p
     = f.label :title
+    .hint business meeting, vacation, etc.
     %br
     = f.text_field :title, :value => (@request.title.blank? ? '' : @request.title)
   %h3 Date and time of care request:
