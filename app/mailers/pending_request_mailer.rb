@@ -19,10 +19,10 @@ class PendingRequestMailer < ActionMailer::Base
 		request = Request.find(pending_request.request_id)
 		household = Household.find(pending_request.belongs_to_household_id)
 		from       	"Villages <do-not-reply@fieldsession.heroku.com>"
-		subject		"Your request to volunteer to watch //so and so's kids has been confirmed"
+		subject		"Your volunteer request to watch #{household.name}'s kids has been confirmed"
 		recipients	user.email
 		sent_on		Time.now
-		body		(:household_name => household.name, :request_title => request.title, :request_date => request.from_date, :request_time => request.start_time)
+		body		(:household_name => household.name, :request_title => request.title, :request_date => request.from_date, :request_start_time => request.start_time, :request_end_time => request.end_time)
 		
 	end
 end

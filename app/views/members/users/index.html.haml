@@ -1,0 +1,22 @@
+- title "Caregivers"
+
+#caregiver-container
+  %h1 Caregivers
+  -for caregiver in @caregivers
+    .caregiver
+      .top
+        %h2=link_to "#{caregiver}", members_user_path(caregiver)
+        %p
+          = link_to 'Remove Caregiver', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :confirm => 'Are you sure?', :method => :post
+
+  -if @pending_caregivers.count > 0
+    %h1 Pending Caregivers
+    %br
+      -for caregiver in @pending_caregivers
+        .caregiver
+          .top
+            %h2=link_to "#{caregiver}", members_user_path(caregiver)
+            %p
+              = link_to 'Confirm Caregiver Request', {:controller => "households", :action => "confirm", :user => caregiver.id}, :method => :post
+              = link_to 'Deny caregiver request', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :confirm => 'Are you sure?', :method => :post
+   
