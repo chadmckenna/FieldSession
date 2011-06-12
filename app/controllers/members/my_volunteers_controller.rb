@@ -12,11 +12,17 @@ class Members::MyVolunteersController < Members::MembersController
      @pending_request.confirmed = "true"
      @pending_request.caregiver_commit_id = params[:caregiver_commit_id]
      @pending_request.save!
+     @pending_request.send_volunteer_confirmed_email
+     @caregiver_household = Household.find(@pending_request.caregiver_commit_id)
+     @caregiver_household.credits += @pending_request.request.cost
+     @household = @pending_request.request.household
+     @household.credits -= @pending_request.request.cost
+     @caregiver_household.save
+     @household.save
      @pending_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true", :request_id => params[:request_id]})
      for pending_request in @pending_requests
        pending_request.destroy
      end
-     @pending_request.send_volunteer_confirmed_email
      flash[:success] = "You have successfully added that caregiver for this request"
      redirect_to members_requests_path
    end

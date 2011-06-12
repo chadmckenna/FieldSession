@@ -72,48 +72,56 @@
       = link_to 'Edit my Household', members_profile_edit_path
       = link_to '+ Create a New Request', new_members_request_path
   #content
+    - openRequests = false
     - if @household.requests.length > 0
-      %font.small-title My Open Requests
-    - if @household.requests.length == 0
-      #no-requests 
-        You have no open requests.
-    - else
-      #requests
-        - for request in @household.requests
-          -unless commit(request)
-            .request
-              %img
-              .left
-                %h2#name=link_to "#{request.household}", members_request_path(request)
-                %h2#household Household
-              .right
-                .title
-                  =h request.title
-                .date
-                  =h request.start_time.to_s(:nicetime)
-                  to
-                  =h request.end_time.to_s(:nicetime)
-                  on
-                  =h request.from_date.to_s(:short)
-                  -if request.from_date != request.to_date
+      - for r in @household.requests
+        - if !commit(r)
+          - openRequests = true
+          - break
+      - if !openRequests
+        #no-requests 
+          You have no open requests.
+      - else
+        %font.small-title My Open Requests
+        #requests
+          - for request in @household.requests
+            -unless commit(request)
+              .request
+
+                .left
+                  %h2#name= request.household
+                  %h2#household Household
+                .right
+                  .title
+                    =h request.title
+                  .date
+                    =h request.start_time.to_s(:nicetime)
                     to
-                    =h request.to_date.to_s(:short)
-                .cost
-                  Cost:
-                  =h request.cost
-                  credits
-                .children
-                  Children:
-                  -@count = 0
-                  -for child in request.children
-                    =h "#{child}"
-                    -@count +=1
-                    -if @count != request.children.length
-                      ,
-              .tools
-                %span= link_to "Edit", edit_members_request_path(request)
-                %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
-              .clear
+                    =h request.end_time.to_s(:nicetime)
+                    on
+                    =h request.from_date.to_s(:short)
+                    -if request.from_date != request.to_date
+                      to
+                      =h request.to_date.to_s(:short)
+                  .cost
+                    Cost:
+                    =h request.cost
+                    credits
+                  .children
+                    Children:
+                    -@count = 0
+                    -for child in request.children
+                      =h "#{child}"
+                      -@count +=1
+                      -if @count != request.children.length
+                        ,
+                .tools
+                  %span= link_to "Edit", edit_members_request_path(request)
+                  %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                .clear
+    - else
+      #no-requests
+        You have no open requests.
 
     - if @confirmed_requests.length > 0
       %font.small-title My Confirmed Requests
@@ -124,8 +132,7 @@
       #requests
         - for confirmed in @confirmed_requests
           .request
-            .img 
-              =image_tag(confirmed.request.household.photo.url(:thumb), :alt => "#{confirmed.household.to_s}")
+            
             .left
               %h2#name=confirmed.request.household
               %h2#household Household
@@ -193,6 +200,6 @@
                     -if @count != commitment.request.children.length
                       ,
             .tools
-              %span= link_to "Show", detail_members_request_path(commitment.request)
+              %span= link_to "Show Details", detail_members_request_path(commitment.request)
             .clear
 

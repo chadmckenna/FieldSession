@@ -26,7 +26,7 @@
   .tools
     - if @request.household_id.eql? current_user.household_id
       %span= link_to "Edit", edit_members_request_path(@request)
-      %span= link_to "Destroy", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
+      %span= link_to "Cancel", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
     %span= link_to "View All Requests", members_requests_path
     %span= link_to "View All My Requests", members_profile_path
   .clear
