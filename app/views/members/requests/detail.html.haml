@@ -21,13 +21,11 @@
     .cost
       Cost:
       =h pluralize(@request.cost.to_i, "credit")
-    .children
-      %h2 Children:
+    %h2 Children:
+    .children{:style => "margin: 0 0 0 20px"}
       - for child in @children
+        %h3= "#{child.first_name} #{child.last_name}"
         .child
-          %h3 Name:
-          .value=h "#{child.first_name} #{child.last_name}"
-          .clear
           %h3 Date of Birth:
           .value=h child.date_of_birth
           .clear
