@@ -24,6 +24,17 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.deliver_welcome_email(self)
   end
+
+  def send_household_join_confirmation_email
+    UserMailer.deliver_household_join_confirmation_email(self)
+  end
+
+  def send_household_join_request_email(household)
+    @household_users = User.find(:all, :conditions => {:household_id => household.id, :household_confirmed => true})
+    for household_user in @household_users
+      UserMailer.deliver_household_join_request_email(self, household_user)
+    end
+  end
   
   def is?(role_symbol)
     role_symbols.include? role_symbol

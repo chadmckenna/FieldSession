@@ -62,10 +62,11 @@ class Members::HouseholdsController < Members::MembersController
   end
 
   def join_request
+    @household = Household.find(params[:household_id])
     @caregiver = current_user
     @caregiver.household_id = params[:household_id]
     if @caregiver.save
-      @caregiver.send_welcome_email
+      @caregiver.send_household_join_request_email(@household)
       flash[:success] = "You've sent a request to be added to the household"
       redirect_to root_url
     else
@@ -78,6 +79,7 @@ class Members::HouseholdsController < Members::MembersController
     @caregiver = User.find(params[:user])
     @caregiver.household_confirmed = true
     if @caregiver.save
+      @caregiver.send_household_join_confirmation_email
       flash[:success] = "#{@caregiver} has successfully been added to your household"
       redirect_to members_profile_path
     else

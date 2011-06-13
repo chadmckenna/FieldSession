@@ -46,6 +46,10 @@ class Household < ActiveRecord::Base
     end
   end
 
+  def send_household_join_request_email
+     UserMailer.deliver_household_join_request_email(self)
+  end
+
   protected
   
     def capitalize_name
