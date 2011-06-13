@@ -16,7 +16,7 @@
     =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
 
   #info
-    %div.title Caregivers
+    %div.title Caregiver(s)
     %div
       -for user in @household.users
         -unless @household.users.eql? nil
@@ -25,7 +25,9 @@
         -else
           You have no caregivers
       %p
-    %div.title= link_to "Children", members_children_path
+    %div.title
+      Children
+      %span#small_link= link_to "(view all)", members_children_path
     %div
       -for child in @household.children
         -unless @household.children.eql? nil
@@ -34,7 +36,9 @@
         -else
           You have no children.
       %p= link_to "+ Add Child", new_members_child_path
-    %div.title Address
+    %div.title
+      = "Address"
+      %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
     %div
       - unless @household.address.nil?
         = @household.address.street1
@@ -43,15 +47,15 @@
         = "#{@household.address.city}, "
         = @household.address.state
         = @household.address.zip
-        %p
-        = link_to "Edit your address", edit_members_address_path(@household.address)
 
       - else
         You haven't entered an address for your household.
         %p
         = link_to "+ Add an address", new_members_address_path
       %p
-    %div.title Phone
+    %div.title 
+      Phone
+      %span#small_link= link_to "(edit)", members_settings_path
     %div
       -for phone_number in @household.users
         -unless @household.users.eql? nil
@@ -72,48 +76,59 @@
       = link_to 'Edit my Household', members_profile_edit_path
       = link_to '+ Create a New Request', new_members_request_path
   #content
+    - openRequests = false
     - if @household.requests.length > 0
-      %font.small-title My Open Requests
-    - if @household.requests.length == 0
-      #no-requests 
-        You have no open requests.
-    - else
-      #requests
-        - for request in @household.requests
-          -unless commit(request)
-            .request
-              %img
-              .left
-                %h2#name=link_to "#{request.household}", members_request_path(request)
-                %h2#household Household
-              .right
-                .title
-                  =h request.title
-                .date
-                  =h request.start_time.to_s(:nicetime)
-                  to
-                  =h request.end_time.to_s(:nicetime)
-                  on
-                  =h request.from_date.to_s(:short)
-                  -if request.from_date != request.to_date
+      - for r in @household.requests
+        - if !commit(r)
+          - openRequests = true
+          - break
+      - if !openRequests
+        #no-requests 
+          You have no open requests.
+      - else
+        %font.small-title My Open Requests
+        #requests
+          - for request in @household.requests
+            -unless commit(request)
+              .request
+
+                .left
+                  %h2#name= request.household
+                  %h2#household Household
+                .right
+                  .title
+                    =h request.title
+                  .date
+                    =h request.start_time.to_s(:nicetime)
                     to
-                    =h request.to_date.to_s(:short)
-                .cost
-                  Cost:
-                  =h request.cost
-                  credits
-                .children
-                  Children:
-                  -@count = 0
-                  -for child in request.children
-                    =h "#{child}"
-                    -@count +=1
-                    -if @count != request.children.length
-                      ,
-              .tools
-                %span= link_to "Edit", edit_members_request_path(request)
-                %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
-              .clear
+                    =h request.end_time.to_s(:nicetime)
+                    on
+                    =h request.from_date.to_s(:short)
+                    -if request.from_date != request.to_date
+                      to
+                      =h request.to_date.to_s(:short)
+                  .cost
+                    Cost:
+                    =h request.cost
+                    credits
+                  .children
+                    Children:
+                    -@count = 0
+                    -for child in request.children
+                      -if request.children.count == 1
+                        =h "#{child}"
+                      -else
+                        =h "#{child}, "
+                      -@count +=1
+                      -if @count != request.children.length
+                        ,
+                .tools
+                  %span= link_to "Edit", edit_members_request_path(request)
+                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                .clear
+    - else
+      #no-requests
+        You have no open requests.
 
     - if @confirmed_requests.length > 0
       %font.small-title My Confirmed Requests
@@ -124,8 +139,7 @@
       #requests
         - for confirmed in @confirmed_requests
           .request
-            .img 
-              =image_tag(confirmed.request.household.photo.url(:thumb), :alt => "#{confirmed.household.to_s}")
+            
             .left
               %h2#name=confirmed.request.household
               %h2#household Household
@@ -147,13 +161,16 @@
                   Children
                   -@count = 0
                   -for child in confirmed.request.children
-                    =h "#{child}"
+                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child}"
+                    -else
+                      =h "#{child}, "
                     -@count += 1
                     -if @count != confirmed.request.children.length
                       ,
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
-              %span= link_to "Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+              %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
             .clear
 
     - if @commitments.length > 0
@@ -187,12 +204,12 @@
                 .children
                   Children
                   -@count = 0
-                  -for child in commitment.request.children
+                  -for child in commitment.request.children or child.eql? commitment.request.children.last
                     =h "#{child}"
                     -@count += 1
                     -if @count != commitment.request.children.length
                       ,
             .tools
-              %span= link_to "Show", detail_members_request_path(commitment.request)
+              %span= link_to "Show Details", detail_members_request_path(commitment.request)
             .clear
 

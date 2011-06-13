@@ -1,1 +1,6 @@
-Mark your calander! You have been confirmed as a volunteer for <%= @household_name %>'s request <%= @request_title %> on <%= @request_date.to_s(:short) %> at <%= @request_time.to_s(:nicetime) %>
+Mark your calender! 
+
+You have been confirmed as a volunteer for:
+	<%= @household_name %>'s request <%= @request_title %> on
+	<%= @request_date.to_s(:short) %> from
+	<%= @request_start_time.to_s(:nicetime) %> - <%= @request_end_time.to_s(:nicetime) %>

@@ -24,10 +24,11 @@
           - else
             %h1= link_to "Villages", members_root_path, :title => 'View Profile'
       - else
-        %h1= link_to "Villages", root_path, :title => 'Home'     
+        %h1= link_to "Villages", root_path, :title => 'Home'  
       = userbar(current_user)
       = menubar(current_user)
       #clear
+      %h2= "It takes a village to raise a child."
     #container
       #content
         - unless flash.empty?
