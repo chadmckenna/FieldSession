@@ -25,7 +25,7 @@ $(document).ready(function() {
 	
 	$(document).click(function() {		
 		if($(event.target).is('#notifications a')) {
-			$(".notification-list").fadeIn("fast");
+			$(".notification-list").fadeToggle('fast');
 		} else {
 			$(".notification-list").fadeOut('fast');
 		}
