@@ -1,3 +1,4 @@
+-title "Search for Neighbors"
 -if current_user.has_household? or !params[:search].blank?
   - unless params[:search].blank?
     - content_for :title do
@@ -5,12 +6,13 @@
     
     %h1= "Search Results for: '#{params[:search]}'"
     
-    #profile_notice
-      %h3 Be careful
-      When you add someone as a neighbor, they will be able to view information about your household.  Make sure to only add neighbors that you know and trust.
+    - unless @households.count + @users.count == 0
+      #profile_notice
+        %h3 Be careful
+        When you add someone as a neighbor, they will be able to view information about your household.  Make sure to only add neighbors that you know and trust.
     
     -if @households.count == 0 and @users.count == 0
-      #no-results There were no results found
+      #no-results There were no results found for '#{params[:search]}'.
     -else
       %h3#num-results= "There were #{pluralize(@households.count + @users.count, 'result')} found"
     
@@ -57,5 +59,6 @@
             - else
               = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
           .clear
--else
-  = render :partial => 'form'
+          
+%h2 Search for Neighbors
+= render :partial => 'form'
