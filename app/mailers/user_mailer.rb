@@ -8,26 +8,29 @@ class UserMailer < ActionMailer::Base
     body        (:username => user.username, :email => user.email) 
   end
 
-  def neighbor_request_email(neighbor, household_user)
+  def neighbor_request_email(neighbor, user)
+  	#@users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
+  	#for user in @users
   	subject		   "You have a neighbor request"
   	from   		   "Village <do-no-reply@fieldsession.heroku.com>"
-  	recipients	 household_user.email
+  	recipients	 user.email
   	sent_on 	   Time.now
   	household_name = Household.find(:all, :conditions => {:id => neighbor.household_id})
-  	body		     (:username => household_user.username, :neighbor => household_name)
+  	body		     (:username => user.username, :neighbor => household_name)
+  	#end
   end
 
-  def neighbor_confirmation_email(neighbor)
-    @users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
+  def neighbor_confirmation_email(neighbor, user)
+    #@users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
     @neighbor_household = Household.find(neighbor.neighbor_id)
-    for user in @users
-        subject     "You've been Confirmed as a neighbor"
-        from        "Village <do-no-reply@fieldsession.heroku.com>"
-        recipients  user.email
-        sent_on     Time.now
-        household_name = Household.find(:all, :conditions => {:id => neighbor.household_id})
-        body        (:neighbor_name => @neighbor_household.name)
-    end
+    #for user in @users
+    subject     "You've been Confirmed as a neighbor"
+    from        "Village <do-no-reply@fieldsession.heroku.com>"
+    recipients  user.email
+    sent_on     Time.now
+    household_name = Household.find(:all, :conditions => {:id => neighbor.household_id})
+    body        (:neighbor_name => @neighbor_household.name)
+    #end
   end
 
   def household_join_request_email(user, household_user)
