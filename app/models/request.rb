@@ -55,6 +55,7 @@ class Request < ActiveRecord::Base
     end
     puts pending_credits.to_s + " Pendding credits"
     puts household.credits.to_s + " household credits"
+    #Allows you to go into the hole four credits.
     if(calculate_cost.to_i - 4 > (household.credits.to_i - pending_credits.to_i))
       errors.add_to_base "You do not have enough credits to make this request"
     end

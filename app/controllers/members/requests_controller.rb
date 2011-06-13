@@ -22,9 +22,14 @@ class Members::RequestsController < Members::MembersController
   end
   
   def detail
-    @request = Request.find(params[:id])
-    @pending_request = PendingRequest.find(:all, :conditions => {:request_id => params[:id], :pending => "false", :caregiver_commit_id => current_user.id})
-    @children = @request.children
+    if PendingRequest.find(:all, :conditions => {:request_id => params[:id], :caregiver_commit_id => current_user.id}).count > 0
+      @request = Request.find(params[:id])
+      @pending_request = PendingRequest.find(:all, :conditions => {:request_id => params[:id], :pending => "false", :caregiver_commit_id => current_user.id})
+      @children = @request.children
+    else
+      flash[:error] = "You do not have permission to view this page."
+      redirect_to members_requests_path
+    end
   end
 
   def new

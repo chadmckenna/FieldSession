@@ -24,7 +24,18 @@
       %p
     %div.title Address
     %div
-      Address
+      -@address = @household.address
+      -address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
+      - unless @household.address.nil?
+        %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
+          = @address.street1
+          = @address.street2
+          %br
+          = "#{@address.city}, "
+          = @address.state
+          = @address.zip
+      - else
+        There is no address
       %p
     %div.title Phone
     %div
@@ -42,7 +53,7 @@
       %br
   #content
     - if @household.requests.length > 0
-      %font.small-title My Open Requests
+      %font.small-title The #{@household.name}'s Open Requests
     - if @household.requests.length == 0
       #no-requests 
         The #{@household.name} household has no open requests.
@@ -76,5 +87,7 @@
                   -@count +=1
                   -if @count != request.children.length
                     ,
+            .tools
+              .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post
             .clear
 
