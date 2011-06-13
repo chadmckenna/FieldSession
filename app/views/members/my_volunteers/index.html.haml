@@ -1,3 +1,5 @@
+-title "My volunteers"
+%h1 Volunteers for my care requests
 #request-container
   -if @my_requests.count > 0
     -for my_request in @my_requests
@@ -18,7 +20,8 @@
   -else
     .request
       %h2
-        %span#red Currently, you do not have any unconfirmed requests. 
-      %h3 You can create a new care request by clicking here:
+        %span#red Currently, you do not have any requests. 
+      %h3 You can create a new care request if you need to:
       = link_to "+ Create a New Care Request", new_members_request_path
-      %h3 Also, you can volunteer for your neighbors request by clicking the 'requests' link in the header.
+      %h3 You can also volunteer for your neighbors' requests:
+      = link_to "Requests", members_requests_path
