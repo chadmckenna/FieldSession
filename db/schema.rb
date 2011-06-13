@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20110610185858) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "household_id"
-    t.string   "household_confirmed", :default => "f"
+    t.boolean  "household_confirmed", :limit => 255, :default => false
   end
 
 end

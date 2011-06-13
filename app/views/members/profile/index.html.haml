@@ -20,8 +20,9 @@
     %div
       -for user in @household.users
         -unless @household.users.eql? nil
-          .child
-            =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
+          -if user.household_confirmed.eql? true
+            .child
+              =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
         -else
           You have no caregivers
       %p
@@ -69,7 +70,14 @@
     #household-info
       %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits}"
+      
+      // open requests should look like they deduct immediately
+      - open_requests_sum = 0
+      -for request in @household.requests
+        - unless commit(request)
+          - open_requests_sum += 1
+      
+      = "Credit Balance: #{@household.credits - open_requests_sum}"
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
