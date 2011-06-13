@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     def require_user
       unless current_user
         session[:original_uri] = request.request_uri
-        flash[:error] = "You must log in to access that page."
+        flash[:error] = "You must log in."
         redirect_to login_url
         return false
       end
