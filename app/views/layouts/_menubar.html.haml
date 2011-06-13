@@ -14,6 +14,21 @@
   - unless current_user.household.nil?
     - if has_requests(current_user)
       %li.notification= get_pending_requests_count(current_user)
+  - unless current_user.household.nil?
+    - if has_accepted_neighbor_request(current_user)
+      %li#notifications
+        = link_to '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp', '#', :title => 'Notifications'
+        .notification-list
+          - for neighbor in get_neighbors_confirmed(current_user)
+            .notification
+              = image_tag neighbor.neighbor.photo.url(:tiny)
+              = "The #{neighbor.neighbor} household has accepted your neighbor request"
+    - else
+      %li#notifications-none
+        = link_to '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp', '#', :title => 'Notifications'
+  - else
+    %li#notifications-none
+      = link_to '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp', '#', :title => 'Notifications'
   %li
     - if current_user
       #search

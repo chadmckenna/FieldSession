@@ -15,6 +15,7 @@ $(function() {
 });
 
 $(document).ready(function() {
+	$(".notification-list").css('display', 'none');	
 	$(".request").hover(function() {
 		$(this).find(".delete span").fadeIn("fast").show();
 	}, function() {
@@ -22,12 +23,20 @@ $(document).ready(function() {
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
+	$(document).click(function() {		
+		if($(event.target).is('#notifications a')) {
+			$(".notification-list").fadeIn("fast");
+		} else {
+			$(".notification-list").fadeOut('fast');
+		}
+	});
+	
 	
 	$(".delete").click(function(e) {
 		e.preventDefault();
 	});
 	
-	$(".delete").click(function() {
+	$(".delete").hover(function() {
 		$(this).parent().find(".subnav ul").fadeIn("medium").show();
 		
 		$(this).parent().hover(function() {
@@ -86,7 +95,6 @@ $(document).ready(function() {
 		$(".flash.success").hide('blind', 'slow');
 	}, 3000);
 });
-
 
 
 

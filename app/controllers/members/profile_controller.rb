@@ -14,7 +14,7 @@ class Members::ProfileController < Members::MembersController
     @edit = true
     unless @household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to edit that page."
-      redirect_to members_household_path(current_user.household)
+      redirect_to members_profile_path
     end
   end
 
@@ -22,10 +22,10 @@ class Members::ProfileController < Members::MembersController
     @household = current_user.household
     if !@household.id.eql? current_user.household_id
       flash[:error] = "You do not have permission to update that page."
-      redirect_to members_household_path(current_user.household)
+      redirect_to members_profile_path
     elsif @household.update_attributes(params[:household])
       flash[:success] = "Successfully updated #{@household.name} household."
-      redirect_to members_household_path(@household)
+      redirect_to members_profile_path
     else
       flash[:error] = "Error updating household"
       render :action => 'edit'

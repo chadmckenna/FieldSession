@@ -17,7 +17,8 @@ class Household < ActiveRecord::Base
   has_attached_file :photo, 
                     :styles => {
                       :thumb => "200x200>",
-                      :medium => "600x600>"
+                      :medium => "600x600>",
+                      :tiny => "25x25>"
                     },
                     :url => "/assets/:class/:attachment/:id/:style.:extension",
                     :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:style.:extension",
