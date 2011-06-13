@@ -126,15 +126,15 @@
                     credits
                   .children
                     Children:
-                    -@count = 0
                     -for child in request.children
                       -if request.children.count == 1
                         =h "#{child}"
                       -else
-                        =h "#{child}, "
-                      -@count +=1
-                      -if @count != request.children.length
-                        ,
+                        =h "#{child}, "              
+                  - unless request.notes.nil?
+                    .notes
+                      Additional notes:
+                      =h request.notes
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
                   %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
@@ -173,16 +173,16 @@
                   =h confirmed.request.cost
                   credits
                 .children
-                  Children
-                  -@count = 0
+                  Children:
                   -for child in confirmed.request.children
-                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                    -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
                       =h "#{child}"
                     -else
                       =h "#{child}, "
-                    -@count += 1
-                    -if @count != confirmed.request.children.length
-                      ,
+                - unless confirmed.request.notes.nil?
+                  .notes
+                    Additional notes:
+                    = confirmed.request.notes
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
               %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
@@ -218,12 +218,15 @@
                   credits
                 .children
                   Children
-                  -@count = 0
-                  -for child in commitment.request.children or child.eql? commitment.request.children.last
-                    =h "#{child}"
-                    -@count += 1
-                    -if @count != commitment.request.children.length
-                      ,
+                  -for child in commitment.request.children
+                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child}"
+                    -else
+                      =h "#{child}, "
+                - unless commitment.request.notes.nil?
+                  .notes
+                    Additional notes:
+                    = commitment.request.notes
             .tools
               %span= link_to "Show Details", detail_members_request_path(commitment.request)
             .clear

@@ -580,7 +580,7 @@ label {
         #commit-container #pending .pending-request .delete-link a:hover {
           text-decoration: underline; }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], textarea {
   border: 1px solid #464f3f;
   padding: 0.2em; }
 
