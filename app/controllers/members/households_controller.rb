@@ -1,6 +1,7 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household#, :only => [:join_request, :new, :create]
-  #filter_access_to :all, :except => :join_request
+  filter_access_to :all
+
   def show
     @household = Household.find(params[:id])
     @num_requests = Request.find_all_by_household_id(@household.id).count
@@ -52,7 +53,7 @@ class Members::HouseholdsController < Members::MembersController
     end
   end
 
-  def join_request
+  def join_requset
     @caregiver = current_user
     @caregiver.household_id = params[:household_id]
     if @caregiver.save
