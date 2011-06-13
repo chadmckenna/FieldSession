@@ -13,6 +13,7 @@ authorization do
     has_permission_on :members_my_volunteers, :to => [:manage, :add_caregiver]
     has_permission_on :members_households, :to => [:create, :show, :search]
     has_permission_on :members_addresses, :to => [:manage]
+    has_permission_on :members_emergency_contacts, :to => [:manage]
   end
   role :administrator do
     includes :member

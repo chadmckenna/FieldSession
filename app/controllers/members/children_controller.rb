@@ -36,7 +36,7 @@ class Members::ChildrenController < Members::MembersController
         redirect_to new_members_child_path
       else
         flash[:success] = "Successfully added #{@child.first_name} to the #{@child.household} household."
-        redirect_to members_profile_path
+        redirect_to new_members_emergency_contact_path
       end
     else
       render :action => 'new'
