@@ -4,7 +4,11 @@ class Admin::HouseholdsController < Admin::AdminController
   end
 
   def show
-    @household = Household.find(params[:id])
+    if current_user.household_id.eql? params[:id]
+      @household = Household.find(params[:id])
+    else
+      redirect_to members_profile_path
+    end
   end
 
   def new

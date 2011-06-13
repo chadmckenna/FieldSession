@@ -99,7 +99,7 @@
         #no-requests 
           You have no open requests.
       - else
-        %font.small-title My open requests
+        %font.small-title My Open Requests
         #requests
           - for request in @household.requests
             -unless commit(request)
@@ -144,7 +144,7 @@
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title Confirmed care requests
+      %font.small-title Confirmed Care Requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -176,7 +176,7 @@
                   Children
                   -@count = 0
                   -for child in confirmed.request.children
-                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                    -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
                       =h "#{child}"
                     -else
                       =h "#{child}, "
@@ -189,7 +189,7 @@
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My commitments
+      %font.small-title My Commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
