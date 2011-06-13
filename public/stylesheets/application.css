@@ -37,6 +37,7 @@ a {
     margin: -1px 10px 0 -10px;
     font-size: 0.8em; }
     #masthead #search input[type="text"] {
+      width: 150px;
       float: left;
       padding: 0.2em 0.5em;
       -moz-border-radius: 0.9em;
@@ -84,8 +85,34 @@ a {
     display: inline !important; }
     #masthead .menubar li {
       display: inline;
+      width: 300px;
       /*float: left */
-      margin-right: 1em; }
+      margin-right: 20px; }
+    #masthead .menubar li#notifications-none {
+      background: url(/images/notification_icon_grey.png) no-repeat top;
+      position: relative; }
+    #masthead .menubar li#notifications {
+      background: url(/images/notification_icon.png) no-repeat;
+      z-index: 15;
+      width: 22px; }
+      #masthead .menubar li#notifications .notification-list {
+        width: 330px;
+        padding: 0.5em;
+        background: white;
+        border: 1px solid black;
+        position: absolute;
+        right: 204px;
+        z-index: 10;
+        -moz-box-shadow: 2px 2px 2px black;
+        -webkit-box-shadow: 2px 2px 2px black; }
+        #masthead .menubar li#notifications .notification-list .notification {
+          margin: 1em 0 1em 0;
+          color: black;
+          font-size: 0.8em;
+          border-bottom: double 3px #eeeeee; }
+          #masthead .menubar li#notifications .notification-list .notification img {
+            float: left;
+            margin-right: 10px; }
     #masthead .menubar li.notification {
       background: red;
       margin-left: -1.4em;

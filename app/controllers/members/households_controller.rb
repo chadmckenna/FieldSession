@@ -3,13 +3,13 @@ class Members::HouseholdsController < Members::MembersController
   filter_access_to :all
 
   def show
-    @household = Household.find(params[:id])
-    @num_requests = Request.find_all_by_household_id(@household.id).count
-    #unless @household.id.eql? current_user.household_id
-     # flash[:error] = "You do not have permission to view that page."
-     # redirect_to members_household_path(current_user.household)
-    #end
-    #redirect_to members_profile_path
+    if current_user.is_neighbor?(params[:id])
+      @household = Household.find(params[:id])
+      @num_requests = Request.find_all_by_household_id(@household.id).count
+    else
+      flash[:error] = "You are not neighbors with this person."
+      redirect_to members_profile_path
+    end
   end
 
   def new

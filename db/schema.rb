@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20110613170636) do
     t.datetime "updated_at"
     t.string   "household_confirmed", :default => "f"
     t.string   "neighbor_confirmed",  :default => "f"
+    t.string   "read"
   end
 
   create_table "pending_requests", :force => true do |t|
