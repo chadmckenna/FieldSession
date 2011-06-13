@@ -1,8 +1,12 @@
 - title "New Child"
 
-%h2 Add new child to your household
+%h2 Add children to your household
+
+#profile_notice
+  %h3 Step 4 of 4
+  = "When you created your household, you said that you have #{pluralize(current_user.household.num_children, 'child')}."
 
 = render :partial => 'form'
 
-%p= link_to "Back to Your Children", members_children_path
+%p= link_to "View all your children", members_children_path
 
