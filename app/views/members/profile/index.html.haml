@@ -16,7 +16,9 @@
     =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
 
   #info
-    %div.title Caregiver(s)
+    %div.title 
+      Caregiver(s)
+      %span#small_link= link_to "(view all)", members_users_path
     %div
       -for user in @household.users
         -unless @household.users.eql? nil

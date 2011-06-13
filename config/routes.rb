@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :members do |members|
     members.resources :roles
-    members.resources :users, :only => [:show, :edit, :update]
+    members.resources :users, :only => [:show, :edit, :update, :index]
     members.resources :children
     members.resources :households, :member => {:join_request => :get}, :only => [:show, :new, :create]
     members.resources :requests, :member => {:detail => :get}
