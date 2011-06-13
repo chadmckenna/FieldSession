@@ -1,17 +1,20 @@
 - title "Emergency Contacts"
 
-%table
-  %tr
-    %th Name
-    %th Relationship
-    %th Phone
-  - for contact in @contacts
-    %tr
-      %td= h contact.name
-      %td= h contact.relationship
-      %td= h contact.phone
-      %td= link_to 'Show', contact
-      %td= link_to 'Edit', edit_contact_path(contact)
-      %td= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete
+%p= link_to "+ Add a new emergency contact", new_members_emergency_contact_path
 
-%p= link_to "New contact", new_contact_path
+#child-container
+  -for contact in @emergency_contacts
+    .child_view
+      .top
+        %h2=link_to "#{contact.name}", members_emergency_contact_path(contact)
+      .left
+        .info
+          Relationship:
+          =h contact.relationship
+        .info
+          Phone:
+          =h contact.phone
+        %p
+          = link_to 'Edit Emergency Contact', edit_members_emergency_contact_path(contact)
+          = link_to 'Remove Emergency Contact', members_emergency_contact_path(contact), :confirm => 'Are you sure?', :method => :delete
+

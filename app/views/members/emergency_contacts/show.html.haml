@@ -1,0 +1,19 @@
+- title "View emergency contact: #{@emergency_contact.name}"
+
+%p
+  = link_to "<< Back to household", members_profile_path
+
+%p
+  %strong Name:
+  =h @emergency_contact.name
+%p
+  %strong Relationship:
+  =h @emergency_contact.relationship
+%p
+  %strong Phone:
+  =h number_to_phone(@emergency_contact.phone)
+
+%p
+  = link_to "Edit this Emergency Contact", edit_members_emergency_contact_path(@emergency_contact)
+  = link_to "Remove this Emergency Contact", members_emergency_contact_path(@emergency_contact), :confirm => 'Are you sure?', :method => :delete
+  = link_to "View All of Your Emergency Contacts", members_emergency_contacts_path
