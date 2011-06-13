@@ -428,14 +428,17 @@ label {
       font-size: 1.2em; }
     .request .right .children .child, .neighbor .right .children .child {
       margin: 5px 0 5px 0;
-      padding: 5px;
-      width: 100%;
-      border: solid thin #cccccc; }
+      width: 100%; }
       .request .right .children .child h3, .neighbor .right .children .child h3 {
-        padding: 3px 0 0 0;
-        margin: 0; }
+        padding: 0;
+        margin: 0;
+        float: left; }
       .request .right .children .child .value, .neighbor .right .children .child .value {
-        padding: 0; }
+        padding: 0;
+        font-size: 1.2em;
+        margin-left: 0.4em;
+        float: left;
+        vertical-align: bottom; }
   .request .tools, .neighbor .tools {
     float: right;
     z-index: 2; }

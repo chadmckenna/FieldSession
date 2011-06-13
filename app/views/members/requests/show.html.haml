@@ -1,5 +1,7 @@
 - content_for :title do
-  Request
+  View request: #{@request.title}
+
+%h1= "View request: #{@request.title}" 
 
 .request
   = image_tag @request.household.photo.url(:thumb)
@@ -26,7 +28,7 @@
   .tools
     - if @request.household_id.eql? current_user.household_id
       %span= link_to "Edit", edit_members_request_path(@request)
-      %span= link_to "Cancel", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
+      %span= link_to "Remove", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete
     %span= link_to "View All Requests", members_requests_path
-    %span= link_to "View All My Requests", members_profile_path
+    %span= link_to "My household", members_profile_path
   .clear

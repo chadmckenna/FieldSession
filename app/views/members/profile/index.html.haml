@@ -35,7 +35,7 @@
             =h link_to "#{child.first_name} #{child.last_name}", members_child_path(child)
         -else
           You have no children.
-      %p= link_to "+ Add Child", new_members_child_path
+      %p= link_to "Add Child", new_members_child_path
     %div.title
       = "Address"
       %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
@@ -69,7 +69,14 @@
     #household-info
       %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits}"
+      
+      // open requests should look like they deduct immediately
+      - open_requests_sum = 0
+      -for request in @household.requests
+        - unless commit(request)
+          - open_requests_sum += 1
+      
+      = "Credit Balance: #{@household.credits - open_requests_sum}"
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
@@ -115,13 +122,16 @@
                     Children:
                     -@count = 0
                     -for child in request.children
-                      =h "#{child}"
+                      -if request.children.count == 1
+                        =h "#{child}"
+                      -else
+                        =h "#{child}, "
                       -@count +=1
                       -if @count != request.children.length
                         ,
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
-                  %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
                 .clear
     - else
       #no-requests
@@ -158,13 +168,16 @@
                   Children
                   -@count = 0
                   -for child in confirmed.request.children
-                    =h "#{child}"
+                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child}"
+                    -else
+                      =h "#{child}, "
                     -@count += 1
                     -if @count != confirmed.request.children.length
                       ,
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
-              %span= link_to "Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+              %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
             .clear
 
     - if @commitments.length > 0
@@ -198,7 +211,7 @@
                 .children
                   Children
                   -@count = 0
-                  -for child in commitment.request.children
+                  -for child in commitment.request.children or child.eql? commitment.request.children.last
                     =h "#{child}"
                     -@count += 1
                     -if @count != commitment.request.children.length
