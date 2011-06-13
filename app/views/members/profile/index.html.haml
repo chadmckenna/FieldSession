@@ -43,8 +43,8 @@
       = "Address"
       %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
     %div
-      -@address = @household.address
-      -address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
+      - @address = @household.address
+      - address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
       - unless @household.address.nil?
         %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
           = @address.street1

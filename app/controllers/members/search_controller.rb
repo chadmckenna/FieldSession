@@ -14,8 +14,6 @@ class Members::SearchController < Members::MembersController
           @households = Household.search(params[:search])
           @users = User.search(params[:search])
         end
-      else
-        flash[:error] = "You have entered a blank search. Please try again"  
       end
     end
   end
