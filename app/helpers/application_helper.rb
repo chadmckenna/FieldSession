@@ -63,6 +63,10 @@ module ApplicationHelper
     return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "t", :neighbor_confirmed => "t", :read => "f"})
   end
   
+  def get_neighbors_confirmed_count(user)
+    return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "t", :neighbor_confirmed => "t", :read => "f"}).count
+  end
+  
   module ActionView
     module Helpers
       module DateHelper

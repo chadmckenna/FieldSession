@@ -109,6 +109,7 @@ a {
           margin: 1em 0 1em 0;
           color: black;
           font-size: 0.8em;
+          padding-bottom: 0.5em;
           border-bottom: double 3px #eeeeee; }
           #masthead .menubar li#notifications .notification-list .notification img {
             float: left;
@@ -457,10 +458,14 @@ label {
       font-style: oblique;
       font-weight: bold;
       font-size: 1.2em; }
+    .request .right .children h3, .neighbor .right .children h3 {
+      margin: 0;
+      font-size: 1.3em; }
     .request .right .children .child, .neighbor .right .children .child {
-      margin: 5px 0 5px 0;
+      margin: 5px 0 5px 30px;
       width: 100%; }
       .request .right .children .child h3, .neighbor .right .children .child h3 {
+        font-size: 1.1em;
         padding: 0;
         margin: 0;
         float: left; }

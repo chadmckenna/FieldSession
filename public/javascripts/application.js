@@ -23,7 +23,7 @@ $(document).ready(function() {
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
-	$(document).click(function() {		
+	$(document).click(function(event) {		
 		if($(event.target).is('#notifications a')) {
 			$(".notification-list").fadeToggle('fast');
 		} else {
