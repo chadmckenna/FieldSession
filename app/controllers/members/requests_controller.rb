@@ -36,7 +36,7 @@ class Members::RequestsController < Members::MembersController
     @request.household = current_user.household
     if @request.save
       flash[:success] = "Successfully created request."
-      redirect_to members_request_path(@request)
+      redirect_to members_profile_path
     else
       render :action => 'new'
     end
