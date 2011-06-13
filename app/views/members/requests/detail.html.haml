@@ -1,5 +1,5 @@
 - content_for :title do
-  Request
+  Request details
 
 .request
   %img= image_tag @request.household.photo.url(:thumb)
@@ -22,21 +22,31 @@
       Cost:
       =h pluralize(@request.cost.to_i, "credit")
     .children
-      Children:
+      %h2 Children:
       - for child in @children
         .child
           %h3 Name:
           .value=h "#{child.first_name} #{child.last_name}"
+          .clear
           %h3 Date of Birth:
           .value=h child.date_of_birth
-          %h3 Dietary Restrictions:
-          .value=h child.dietary_restrictions
-          %h3 Allergies:
-          .value=h child.allergies
-          %h3 Medications:
-          .value=h child.medications
-          %h3 Other Notes:
-          .value=h child.notes
+          .clear
+          -unless child.dietary_restrictions.eql? ""
+            %h3 Dietary Restrictions:
+            .value=h child.dietary_restrictions
+          .clear
+          -unless child.allergies.eql? ""
+            %h3 Allergies:
+            .value=h child.allergies
+          .clear
+          -unless child.medications.eql? ""
+            %h3 Medications:
+            .value=h child.medications
+          .clear
+          -unless child.notes.eql? ""
+            %h3 Other Notes:
+            .value=h child.notes
+          .clear
   .tools
     %span= link_to "Back to Requests", members_requests_path
     %span= link_to "Back to Household", members_profile_path

@@ -124,7 +124,7 @@
                         ,
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
-                  %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
                 .clear
     - else
       #no-requests
@@ -161,13 +161,16 @@
                   Children
                   -@count = 0
                   -for child in confirmed.request.children
-                    =h "#{child}"
+                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child}"
+                    -else
+                      =h "#{child}, "
                     -@count += 1
                     -if @count != confirmed.request.children.length
                       ,
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
-              %span= link_to "Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+              %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
             .clear
 
     - if @commitments.length > 0
@@ -201,7 +204,7 @@
                 .children
                   Children
                   -@count = 0
-                  -for child in commitment.request.children
+                  -for child in commitment.request.children or child.eql? commitment.request.children.last
                     =h "#{child}"
                     -@count += 1
                     -if @count != commitment.request.children.length
