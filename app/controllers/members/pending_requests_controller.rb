@@ -14,6 +14,7 @@ class Members::PendingRequestsController < Members::MembersController
     @pending_request.request_id = params[:request_id]
     @pending_request.caregiver_requestor_id = current_user.id
     @pending_request.belongs_to_household_id = params[:belongs_to_household_id]
+    @pending_request.read = false
     
     if @pending_request.save
       @pending_request.send_request_volunteered_email

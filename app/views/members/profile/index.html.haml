@@ -43,8 +43,8 @@
       = "Address"
       %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
     %div
-      -@address = @household.address
-      -address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
+      - @address = @household.address
+      - address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
       - unless @household.address.nil?
         %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
           = @address.street1
@@ -108,7 +108,7 @@
         #no-requests 
           You have no open requests.
       - else
-        %font.small-title My open requests
+        %font.small-title My Open Requests
         #requests
           - for request in @household.requests
             -unless commit(request)
@@ -135,15 +135,15 @@
                     credits
                   .children
                     Children:
-                    -@count = 0
                     -for child in request.children
                       -if request.children.count == 1
                         =h "#{child}"
                       -else
-                        =h "#{child}, "
-                      -@count +=1
-                      -if @count != request.children.length
-                        ,
+                        =h "#{child}, "              
+                  - unless request.notes.nil?
+                    .notes
+                      Additional notes:
+                      =h request.notes
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
                   %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
@@ -153,7 +153,7 @@
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title Confirmed care requests
+      %font.small-title Confirmed Care Requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -166,6 +166,8 @@
               %h2#name=confirmed.request.household
               %h2#household Household
             .right
+              .title
+                =h confirmed.request.title
               .date
                 =h confirmed.request.start_time.to_s(:nicetime)
                 to
@@ -180,23 +182,23 @@
                   =h confirmed.request.cost
                   credits
                 .children
-                  Children
-                  -@count = 0
+                  Children:
                   -for child in confirmed.request.children
-                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                    -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
                       =h "#{child}"
                     -else
                       =h "#{child}, "
-                    -@count += 1
-                    -if @count != confirmed.request.children.length
-                      ,
+                - unless confirmed.request.notes.nil?
+                  .notes
+                    Additional notes:
+                    = confirmed.request.notes
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
               %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My commitments
+      %font.small-title My Commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
@@ -225,12 +227,15 @@
                   credits
                 .children
                   Children
-                  -@count = 0
-                  -for child in commitment.request.children or child.eql? commitment.request.children.last
-                    =h "#{child}"
-                    -@count += 1
-                    -if @count != commitment.request.children.length
-                      ,
+                  -for child in commitment.request.children
+                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child}"
+                    -else
+                      =h "#{child}, "
+                - unless commitment.request.notes.nil?
+                  .notes
+                    Additional notes:
+                    = commitment.request.notes
             .tools
               %span= link_to "Show Details", detail_members_request_path(commitment.request)
             .clear
