@@ -25,11 +25,18 @@
               .name= link_to household, members_household_path(household)
               -for user in household.users
                 .attributes
-                  %font.small-title Phone:
+                  %span.small-title Phone:
                   = number_to_phone(user.phone, :area_code => true)
                   %br
-                  %font.small-title Email:
+                  %span.small-title Email:
                   = user.email
+                  %br
+                  //%span.small-title City:
+                  //= household.address.city
+                  //%br
+                  //%span.small-title State:
+                  //= household.address.state
+                  
             .button
               - if !current_user.has_household?
                 = link_to 'Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post

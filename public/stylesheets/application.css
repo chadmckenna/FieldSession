@@ -118,11 +118,12 @@ a {
       background: red;
       margin-left: -1.4em;
       position: relative;
-      padding: 0 0.3em;
+      padding: 0.1em 0.3em 0;
       -moz-border-radius: 1em;
       -webkit-border-radius: 1em;
       border-radius: 1em;
       font-size: 0.7em;
+      font-weight: bold;
       top: -10px; }
   #masthead #clear {
     clear: both; }
