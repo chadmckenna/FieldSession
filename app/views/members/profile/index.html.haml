@@ -69,7 +69,14 @@
     #household-info
       %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits}"
+      
+      // open requests should look like they deduct immediately
+      - open_requests_sum = 0
+      -for request in @household.requests
+        - unless commit(request)
+          - open_requests_sum += 1
+      
+      = "Credit Balance: #{@household.credits - open_requests_sum}"
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
