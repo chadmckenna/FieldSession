@@ -53,7 +53,7 @@
             =link_to "Deny Neighbor Request", members_neighbor_path(neighbor_request), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
         .clear
 - if @neighbors.count > 0
-  %h1 All of My Neighbors
+  %h1 My Neighbors
   %br
     - for neighbor in @neighbors
       .request

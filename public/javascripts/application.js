@@ -22,12 +22,21 @@ $(document).ready(function() {
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
+	$("#notifications a").click(function(e) {
+		e.preventDefault();
+		$(".notification-list").fadeIn("fast").show();
+	});
+	
+	$("#notifications-list").hover(function() {	
+	}, function() {
+		$(this).fadeOut("fast").hide();
+	});
 	
 	$(".delete").click(function(e) {
 		e.preventDefault();
 	});
 	
-	$(".delete").click(function() {
+	$(".delete").hover(function() {
 		$(this).parent().find(".subnav ul").fadeIn("medium").show();
 		
 		$(this).parent().hover(function() {
@@ -86,7 +95,6 @@ $(document).ready(function() {
 		$(".flash.success").hide('blind', 'slow');
 	}, 3000);
 });
-
 
 
 

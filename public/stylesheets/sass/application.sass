@@ -45,6 +45,7 @@ a
     margin: -1px 10px 0 -10px
     font-size: .8em
     input[type="text"]
+      width: 150px
       float: left
       padding: .2em .5em
       -moz-border-radius: .9em
@@ -86,8 +87,38 @@ a
     display: inline !important
     li
       display: inline
+      width: 300px
       /*float: left*/
-      margin-right: 1em
+      margin-right: 20px
+    li#notifications-none
+      background: url(/images/notification_icon_grey.png) no-repeat top
+      position: relative
+    li#notifications
+      background: url(/images/notification_icon.png) no-repeat
+      z-index: 15
+      //position: absolute
+      width: 22px
+      .notification-list
+        width: 330px
+        padding: .5em
+        background: white
+        border: 1px solid black
+        position: absolute
+        right: 204px
+        z-index: 10
+        display: none
+        -moz-box-shadow: 2px 2px 2px black
+        -webkit-box-shadow: 2px 2px 2px black
+        .notification
+          margin: 1em 0 1em 0
+          color: black
+          font-size: .8em
+          border-bottom: double 3px $lightGrey
+          img
+            float: left
+            margin-right: 10px
+          
+        
     li.notification
       background: red
       margin-left: -1.4em
