@@ -43,6 +43,11 @@ class User < ActiveRecord::Base
     role_symbols.include?(:member)
   end
   
+  def is_neighbor?(neighbor_id)
+    return true if Neighbor.find(:all, :conditions => {:household_id => self.household_id, :neighbor_id => neighbor_id, :household_confirmed => true, :neighbor_confirmed => true}).count > 0
+    return false
+  end
+  
   def role_symbols
     [role.name.downcase.to_sym]
   end
