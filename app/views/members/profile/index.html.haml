@@ -93,7 +93,7 @@
         #no-requests 
           You have no open requests.
       - else
-        %font.small-title My Open Requests
+        %font.small-title My open requests
         #requests
           - for request in @household.requests
             -unless commit(request)
@@ -138,7 +138,7 @@
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title My Confirmed Requests
+      %font.small-title Confirmed care requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -181,7 +181,7 @@
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My Commitments
+      %font.small-title My commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
