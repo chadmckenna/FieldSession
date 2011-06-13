@@ -25,5 +25,8 @@
       -#= child.first_name + child.last_name
       = "#{child}"
       %br
+  %h3 Additional notes:
+  %p
+    =h f.text_area :notes, :size => "30x5"
   %p= f.submit "Create request"
 

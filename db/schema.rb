@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20110613212925) do
     t.integer  "household_id"
     t.datetime "to_date"
     t.string   "title"
+    t.string   "notes"
   end
 
   create_table "roles", :force => true do |t|
@@ -129,7 +130,7 @@ ActiveRecord::Schema.define(:version => 20110613212925) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "household_id"
-    t.boolean  "household_confirmed", :default => false
+    t.boolean  "household_confirmed", :limit => 255, :default => false
   end
 
 end
