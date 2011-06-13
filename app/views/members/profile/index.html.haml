@@ -16,7 +16,7 @@
     =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
 
   #info
-    %div.title Caregivers
+    %div.title Caregiver(s)
     %div
       -for user in @household.users
         -unless @household.users.eql? nil
@@ -25,7 +25,9 @@
         -else
           You have no caregivers
       %p
-    %div.title= link_to "Children", members_children_path
+    %div.title
+      Children
+      %span#small_link= link_to "(view all)", members_children_path
     %div
       -for child in @household.children
         -unless @household.children.eql? nil
@@ -34,7 +36,9 @@
         -else
           You have no children.
       %p= link_to "+ Add Child", new_members_child_path
-    %div.title Address
+    %div.title
+      = "Address"
+      %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
     %div
       - unless @household.address.nil?
         = @household.address.street1
@@ -43,15 +47,15 @@
         = "#{@household.address.city}, "
         = @household.address.state
         = @household.address.zip
-        %p
-        = link_to "Edit your address", edit_members_address_path(@household.address)
 
       - else
         You haven't entered an address for your household.
         %p
         = link_to "+ Add an address", new_members_address_path
       %p
-    %div.title Phone
+    %div.title 
+      Phone
+      %span#small_link= link_to "(edit)", members_settings_path
     %div
       -for phone_number in @household.users
         -unless @household.users.eql? nil

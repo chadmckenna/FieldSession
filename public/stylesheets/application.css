@@ -53,7 +53,13 @@ a {
     width: 20%;
     padding: 0 !important;
     margin: 0.4em;
+    margin-bottom: 0;
     font-size: 4em; }
+  #masthead h2 {
+    padding: 0 !important;
+    margin: 0 2em;
+    font-size: 1.2em;
+    font-weight: normal; }
   #masthead #login {
     float: right;
     margin: 10px 10px 0px 0px; }
@@ -183,13 +189,19 @@ a {
         margin: 10px 10px 0px 10px; }
         #container #content #left-column #info .title {
           font-size: 1.1em;
-          text-decoration: underline; }
+          border-bottom: 1px solid black; }
           #container #content #left-column #info .title a {
-            color: black;
             background: none;
             border: none; }
             #container #content #left-column #info .title a:hover {
               color: #999999; }
+        #container #content #left-column #info #small_link {
+          text-decoration: none;
+          color: #999999 !important;
+          font-size: 0.8em;
+          text-decoration: none !important; }
+          #container #content #left-column #info #small_link:hover {
+            color: #777777; }
         #container #content #left-column #info .child a {
           background: none;
           border: none; }

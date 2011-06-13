@@ -61,7 +61,13 @@ a
     width: 20%
     padding: 0 !important
     margin: .4em
+    margin-bottom: 0
     font-size: 4em
+  h2
+    padding: 0 !important
+    margin: 0 2em
+    font-size: 1.2em
+    font-weight: normal
   #login
     float: right
     margin: 10px 10px 0px 0px
@@ -193,13 +199,19 @@ a
         margin: 10px 10px 0px 10px
         .title
           font-size: 1.1em
-          text-decoration: underline
+          border-bottom: 1px solid black
           a
-            color: #000
             background: none
             border: none
             &:hover
               color: #999
+        #small_link 
+          text-decoration: none
+          color: #999 !important
+          font-size: .8em
+          text-decoration: none !important
+          &:hover
+            color: #777
         .child
           a
             background: none
