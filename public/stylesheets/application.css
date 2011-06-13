@@ -125,6 +125,16 @@ a {
       font-size: 0.7em;
       font-weight: bold;
       top: -10px; }
+    #masthead .menubar li#notification-modified {
+      background: red;
+      margin-left: -1.4em;
+      position: relative;
+      padding: 1px 3px 1px 3px;
+      -moz-border-radius: 0.4em;
+      -webkit-border-radius: 0.4em;
+      font-size: 0.75em;
+      top: -10px;
+      right: 8px; }
   #masthead #clear {
     clear: both; }
 

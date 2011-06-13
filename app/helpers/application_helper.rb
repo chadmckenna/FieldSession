@@ -64,7 +64,28 @@ module ApplicationHelper
   end
   
   def get_neighbors_confirmed_count(user)
-    return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "t", :neighbor_confirmed => "t", :read => "f"}).count
+    return get_neighbors_confirmed(user).count
+  end
+  
+  def get_users_confirmed_requests(user)
+    return PendingRequest.find(:all, :conditions => {:caregiver_commit_id => user.id, :confirmed => "true"})
+  end
+  
+  def get_notifications(user)
+    @notifications = get_neighbors_confirmed(user)
+    @pending_requests = get_users_confirmed_requests(user)
+    for pending_request in @pending_requests
+      @notifications << pending_request
+    end
+    return @notifications
+  end
+  
+  def get_notifications_count(user)
+    return get_notifications(user).count
+  end
+  
+  def get_household(id)
+    return Household.find(id)
   end
   
   module ActionView
