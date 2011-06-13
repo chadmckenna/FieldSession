@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   filter_parameter_logging :password
-  before_filter :require_user
-  before_filter :require_household
+  #before_filter :require_user
   helper_method :current_user_session, :current_user, :home_url_for
   before_filter :prepare_new_session
 
