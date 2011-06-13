@@ -1,5 +1,9 @@
 - title "Add your address"
 
-= render :partial => 'form'
+%h1 Enter your primary address
 
-%p= link_to "Back to profile", members_profile_path
+#profile_notice
+  %h3 Step 3 of 4
+  Enter your address in order to continue.
+
+= render :partial => 'form'

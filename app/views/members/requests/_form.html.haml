@@ -1,6 +1,5 @@
 - form_for [:members, @request] do |f|
   = f.error_messages
-  %h3 Title your request
   %p
     = f.label :title
     .hint business meeting, vacation, etc.
@@ -26,5 +25,5 @@
       -#= child.first_name + child.last_name
       = "#{child}"
       %br
-  %p= f.submit
+  %p= f.submit "Create request"
 

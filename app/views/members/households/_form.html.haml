@@ -6,7 +6,7 @@
     = f.text_field :name, :value => current_user.last_name
   -if !@edit
     %p
-      Number of kids in you household
+      Number of kids in your household
       %br
       
       %select{:name => 'child_count'}
@@ -18,4 +18,6 @@
     = f.file_field :photo
 
   %p
-    = f.submit "Create household"
+    = f.submit "Continue >>"
+    %p
+    = link_to "Join an existing household", members_search_path 

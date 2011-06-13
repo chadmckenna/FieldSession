@@ -1,5 +1,11 @@
 - content_for :title do
   Villages: Sign Up
+  
+%h1 Create a new account
+
+#profile_notice
+  %h3 Step 1 of 4
+  Caregivers manage households. Create a user profile in order to become a caregiver.
 
 %p= "Already have an account? #{link_to 'Log in', login_path}."
 
@@ -34,4 +40,4 @@
     %br
     = f.password_field :password_confirmation
   %p
-    = f.submit "Sign up"
+    = f.submit "Continue >>"

@@ -50,6 +50,23 @@ module ApplicationHelper
     return PendingRequest.find(:all, :conditions => {:belongs_to_household_id => user.household.id, :pending => "true"}).count
   end
   
+  def has_accepted_neighbor_request(user)
+    @neighbors = Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "t", :neighbor_confirmed => "t", :read => "f"})
+    if @neighbors.count > 0
+      return true
+    else
+      return false
+    end
+  end
+  
+  def get_neighbors_confirmed(user)
+    return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "t", :neighbor_confirmed => "t", :read => "f"})
+  end
+  
+  def get_neighbors_confirmed_count(user)
+    return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "t", :neighbor_confirmed => "t", :read => "f"}).count
+  end
+  
   module ActionView
     module Helpers
       module DateHelper

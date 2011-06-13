@@ -1,3 +1,8 @@
-- title "New Request"
+- title "Create request"
+%h2 Create request
+
+#profile_notice
+  %h3 Remember...
+  The cost of this request will be deducted immediately from your credit balance.  If it expires then the credits will be reimbursed.
 = render :partial => 'form'
-%p= link_to "Back to all requests", members_requests_path
+%p= link_to "Cancel", members_requests_path

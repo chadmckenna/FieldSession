@@ -1,11 +1,11 @@
 - form_for [:members, @address] do |f|
   = f.error_messages
   %p
-    = f.label :street1
+    = f.label :street1, "Street 1"
     %br
     = f.text_field :street1
   %p
-    = f.label :street2
+    = f.label :street2, "Street 2 (optional)"
     %br
     = f.text_field :street2
   %p
@@ -21,4 +21,4 @@
     %br
     = f.text_field :zip
   %p
-    = f.submit
+    = f.submit "Continue >>"

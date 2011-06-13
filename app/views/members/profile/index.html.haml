@@ -16,16 +16,21 @@
     =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
 
   #info
-    %div.title Caregivers
+    %div.title 
+      Caregiver(s)
+      %span#small_link= link_to "(view all)", members_users_path
     %div
       -for user in @household.users
         -unless @household.users.eql? nil
-          .child
-            =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
+          -if user.household_confirmed.eql? true
+            .child
+              =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
         -else
           You have no caregivers
       %p
-    %div.title= link_to "Children", members_children_path
+    %div.title
+      Children
+      %span#small_link= link_to "(view all)", members_children_path
     %div
       -for child in @household.children
         -unless @household.children.eql? nil
@@ -34,24 +39,29 @@
         -else
           You have no children.
       %p= link_to "+ Add Child", new_members_child_path
-    %div.title Address
+    %div.title
+      = "Address"
+      %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
     %div
+      -@address = @household.address
+      -address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
       - unless @household.address.nil?
-        = @household.address.street1
-        = @household.address.street2
-        %br
-        = "#{@household.address.city}, "
-        = @household.address.state
-        = @household.address.zip
-        %p
-        = link_to "Edit your address", edit_members_address_path(@household.address)
+        %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
+          = @address.street1
+          = @address.street2
+          %br
+          = "#{@address.city}, "
+          = @address.state
+          = @address.zip
 
       - else
         You haven't entered an address for your household.
         %p
         = link_to "+ Add an address", new_members_address_path
       %p
-    %div.title Phone
+    %div.title 
+      Phone
+      %span#small_link= link_to "(edit)", members_settings_path
     %div
       -for phone_number in @household.users
         -unless @household.users.eql? nil
@@ -72,7 +82,14 @@
     #household-info
       %h1= "The #{@household} Household"
       %br
-      = "Credit Balance: #{@household.credits}"
+      
+      // open requests should look like they deduct immediately
+      - open_requests_sum = 0
+      -for request in @household.requests
+        - unless commit(request)
+          - open_requests_sum += 1
+      
+      = "Credit Balance: #{@household.credits - open_requests_sum}"
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
@@ -89,7 +106,7 @@
         #no-requests 
           You have no open requests.
       - else
-        %font.small-title My Open Requests
+        %font.small-title My open requests
         #requests
           - for request in @household.requests
             -unless commit(request)
@@ -118,20 +135,23 @@
                     Children:
                     -@count = 0
                     -for child in request.children
-                      =h "#{child}"
+                      -if request.children.count == 1
+                        =h "#{child}"
+                      -else
+                        =h "#{child}, "
                       -@count +=1
                       -if @count != request.children.length
                         ,
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
-                  %span= link_to "Delete", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
                 .clear
     - else
       #no-requests
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title My Confirmed Requests
+      %font.small-title Confirmed care requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -161,17 +181,20 @@
                   Children
                   -@count = 0
                   -for child in confirmed.request.children
-                    =h "#{child}"
+                    -if confirmed.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child}"
+                    -else
+                      =h "#{child}, "
                     -@count += 1
                     -if @count != confirmed.request.children.length
                       ,
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
-              %span= link_to "Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+              %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My Commitments
+      %font.small-title My commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
@@ -201,7 +224,7 @@
                 .children
                   Children
                   -@count = 0
-                  -for child in commitment.request.children
+                  -for child in commitment.request.children or child.eql? commitment.request.children.last
                     =h "#{child}"
                     -@count += 1
                     -if @count != commitment.request.children.length

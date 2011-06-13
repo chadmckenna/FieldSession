@@ -37,6 +37,7 @@ a {
     margin: -1px 10px 0 -10px;
     font-size: 0.8em; }
     #masthead #search input[type="text"] {
+      width: 150px;
       float: left;
       padding: 0.2em 0.5em;
       -moz-border-radius: 0.9em;
@@ -53,7 +54,13 @@ a {
     width: 20%;
     padding: 0 !important;
     margin: 0.4em;
+    margin-bottom: 0;
     font-size: 4em; }
+  #masthead h2 {
+    padding: 0 !important;
+    margin: 0 2em;
+    font-size: 1.2em;
+    font-weight: normal; }
   #masthead #login {
     float: right;
     margin: 10px 10px 0px 0px; }
@@ -78,8 +85,35 @@ a {
     display: inline !important; }
     #masthead .menubar li {
       display: inline;
+      width: 300px;
       /*float: left */
-      margin-right: 1em; }
+      margin-right: 20px; }
+    #masthead .menubar li#notifications-none {
+      background: url(/images/notification_icon_grey.png) no-repeat top;
+      position: relative; }
+    #masthead .menubar li#notifications {
+      background: url(/images/notification_icon.png) no-repeat;
+      z-index: 15;
+      width: 22px; }
+      #masthead .menubar li#notifications .notification-list {
+        width: 330px;
+        padding: 0.5em;
+        background: white;
+        border: 1px solid black;
+        position: absolute;
+        right: 204px;
+        z-index: 10;
+        -moz-box-shadow: 2px 2px 2px black;
+        -webkit-box-shadow: 2px 2px 2px black; }
+        #masthead .menubar li#notifications .notification-list .notification {
+          margin: 1em 0 1em 0;
+          color: black;
+          font-size: 0.8em;
+          padding-bottom: 0.5em;
+          border-bottom: double 3px #eeeeee; }
+          #masthead .menubar li#notifications .notification-list .notification img {
+            float: left;
+            margin-right: 10px; }
     #masthead .menubar li.notification {
       background: red;
       margin-left: -1.4em;
@@ -183,13 +217,22 @@ a {
         margin: 10px 10px 0px 10px; }
         #container #content #left-column #info .title {
           font-size: 1.1em;
-          text-decoration: underline; }
+          border-bottom: 1px solid black; }
           #container #content #left-column #info .title a {
-            color: black;
             background: none;
             border: none; }
             #container #content #left-column #info .title a:hover {
               color: #999999; }
+        #container #content #left-column #info .extern_link {
+          background: none;
+          border: none; }
+        #container #content #left-column #info #small_link {
+          text-decoration: none;
+          color: #999999 !important;
+          font-size: 0.8em;
+          text-decoration: none !important; }
+          #container #content #left-column #info #small_link:hover {
+            color: #777777; }
         #container #content #left-column #info .child a {
           background: none;
           border: none; }
@@ -416,14 +459,17 @@ label {
       font-size: 1.2em; }
     .request .right .children .child, .neighbor .right .children .child {
       margin: 5px 0 5px 0;
-      padding: 5px;
-      width: 100%;
-      border: solid thin #cccccc; }
+      width: 100%; }
       .request .right .children .child h3, .neighbor .right .children .child h3 {
-        padding: 3px 0 0 0;
-        margin: 0; }
+        padding: 0;
+        margin: 0;
+        float: left; }
       .request .right .children .child .value, .neighbor .right .children .child .value {
-        padding: 0; }
+        padding: 0;
+        font-size: 1.2em;
+        margin-left: 0.4em;
+        float: left;
+        vertical-align: bottom; }
   .request .tools, .neighbor .tools {
     float: right;
     z-index: 2; }
@@ -724,3 +770,30 @@ input[type="text"], input[type="password"] {
       float: left; }
       #child-container .child_view .child_view .left .child .left h2 {
         font-size: 3.5em; }
+
+#caregiver-container {
+  float: left;
+  width: 70%;
+  padding: 0.5em; }
+  #caregiver-container .caregiver {
+    border-bottom: 3px double #eeeeee;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    padding-right: 0 !important;
+    padding-bottom: 1.5em !important;
+    width: 100%; }
+    #caregiver-container .caregiver .top {
+      float: top; }
+      #caregiver-container .caregiver .top h2 {
+        font-size: 1.8em;
+        margin: 0 !important;
+        padding: 0 !important; }
+        #caregiver-container .caregiver .top h2 a {
+          padding: inherit;
+          margin: inherit;
+          padding: 0;
+          margin: 0 0 0 -0.2em;
+          background: none !important;
+          border: 0 !important; }
+          #caregiver-container .caregiver .top h2 a:hover {
+            text-decoration: underline; }
