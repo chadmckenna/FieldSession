@@ -109,6 +109,7 @@ a {
           margin: 1em 0 1em 0;
           color: black;
           font-size: 0.8em;
+          padding-bottom: 0.5em;
           border-bottom: double 3px #eeeeee; }
           #masthead .menubar li#notifications .notification-list .notification img {
             float: left;
