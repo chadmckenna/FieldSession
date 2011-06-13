@@ -20,8 +20,9 @@
     %div
       -for user in @household.users
         -unless @household.users.eql? nil
-          .child
-            =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
+          -if user.household_confirmed.eql? true
+            .child
+              =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
         -else
           You have no caregivers
       %p
