@@ -1,5 +1,6 @@
 class Members::MembersController < ApplicationController
   before_filter :require_user
+  before_filter :require_household
   
   filter_access_to :all
   

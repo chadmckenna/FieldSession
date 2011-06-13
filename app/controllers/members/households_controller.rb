@@ -15,8 +15,13 @@ class Members::HouseholdsController < Members::MembersController
   def new
     @household = Household.new
     unless @household.id.eql? current_user.household_id
-      flash[:error] = "You do not have permission to create that page."
-      redirect_to members_household_path(current_user.household)
+      if !current_user.household_confirmed.eql? true
+        flash[:error] = "You have not yet been confirmed to a household"
+        redirect_to root_path
+      else
+        flash[:error] = "You do not have permission to create that page."
+        redirect_to members_household_path(current_user.household)
+      end
     end
   end
 
@@ -38,6 +43,9 @@ class Members::HouseholdsController < Members::MembersController
         flash[:error] = "Error creating household"
         render :action => 'new'
       end
+    elsif current_user.household_confirmed != true
+        flash[:error] = "You are not yet confirmed for a household"
+        redirect_to root_path
     else
       flash[:error] = "You do not have permission to create that page."
       redirect_to members_profile_path
@@ -53,7 +61,7 @@ class Members::HouseholdsController < Members::MembersController
     end
   end
 
-  def join_requset
+  def join_request
     @caregiver = current_user
     @caregiver.household_id = params[:household_id]
     if @caregiver.save

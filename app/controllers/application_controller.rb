@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   filter_parameter_logging :password
   #before_filter :require_user
-  before_filter :require_household
   helper_method :current_user_session, :current_user, :home_url_for
   before_filter :prepare_new_session
 
@@ -40,7 +39,7 @@ class ApplicationController < ActionController::Base
     def require_user
       unless current_user
         session[:original_uri] = request.request_uri
-        flash[:error] = "You must log in if you want to access that."
+        flash[:error] = "You must log in."
         redirect_to login_url
         return false
       end

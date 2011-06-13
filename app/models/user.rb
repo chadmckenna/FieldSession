@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
   #attr_accessible :username, :first_name, :last_name, :phone, :email
   validates_format_of :phone,
-      :message => "must be a valid telephone number.",
+      :message => "must be 10 digits long and only contain numbers.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
   validates_presence_of :role, :message => "cannot be blank."
   validates_confirmation_of :password
@@ -34,7 +34,8 @@ class User < ActiveRecord::Base
   end
   
   def has_household?
-    return false if self.household_id.eql? nil
+    return false if self.household_confirmed.eql? false
+    return false if self.household_id.eql?(nil)
     return true
   end
   
