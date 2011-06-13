@@ -15,6 +15,7 @@ $(function() {
 });
 
 $(document).ready(function() {
+	$(".notification-list").css('display', 'none');	
 	$(".request").hover(function() {
 		$(this).find(".delete span").fadeIn("fast").show();
 	}, function() {
@@ -22,15 +23,14 @@ $(document).ready(function() {
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
-	$("#notifications a").click(function(e) {
-		e.preventDefault();
-		$(".notification-list").fadeIn("fast").show();
+	$(document).click(function() {		
+		if($(event.target).is('#notifications a')) {
+			$(".notification-list").fadeIn("fast");
+		} else {
+			$(".notification-list").fadeOut('fast');
+		}
 	});
 	
-	$("#notifications-list").hover(function() {	
-	}, function() {
-		$(this).fadeOut("fast").hide();
-	});
 	
 	$(".delete").click(function(e) {
 		e.preventDefault();
