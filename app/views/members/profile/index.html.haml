@@ -115,7 +115,10 @@
                     Children:
                     -@count = 0
                     -for child in request.children
-                      =h "#{child}"
+                      -if request.children.count == 1
+                        =h "#{child}"
+                      -else
+                        =h "#{child}, "
                       -@count +=1
                       -if @count != request.children.length
                         ,
