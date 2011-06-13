@@ -11,7 +11,7 @@ authorization do
     has_permission_on :members_search, :to => :index
     has_permission_on :members_settings, :to => [:manage, :delete_account]
     has_permission_on :members_my_volunteers, :to => [:manage, :add_caregiver]
-    has_permission_on :members_households, :to => [:create, :show, :search]
+    has_permission_on :members_households, :to => [:create, :show, :search, :join_request, :confirm, :remove_caregiver]
     has_permission_on :members_addresses, :to => [:manage]
   end
   role :administrator do
