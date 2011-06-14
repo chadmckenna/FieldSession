@@ -274,6 +274,8 @@ a {
           #container #content #left-column #info .child a:hover {
             color: #999999;
             text-decoration: underline; }
+        #container #content #left-column #info .child .name {
+          text-decoration: underline; }
     #container #content #right-column {
       width: 75%;
       float: right;

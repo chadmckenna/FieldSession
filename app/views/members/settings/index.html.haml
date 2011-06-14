@@ -60,6 +60,9 @@
       #phone
         = f.label :phone 
         %font= link_to number_to_phone(@user.phone, :area_code => true), '#'
+      #work_phone
+        = f.label :work_phone
+        %font= link_to number_to_phone(@user.work_phone, :area_code => true), '#'
       #change-password
         = link_to 'Change Password', '#'
       = f.submit
@@ -69,7 +72,11 @@
       #household-name
         Household Name:
         %font= link_to @user.household, '#'
+      #home-phone
+        Household Phone:
+        %font= link_to number_to_phone(@user.household.home_phone, :area_code => true), '#'
       = f.submit
+    
     #users
       Users: 
       %br
