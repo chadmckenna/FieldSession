@@ -36,4 +36,5 @@ class Members::ProfileController < Members::MembersController
     @household = current_user.household
     @household.name
   end
+
 end

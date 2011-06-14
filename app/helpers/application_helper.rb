@@ -68,7 +68,7 @@ module ApplicationHelper
   end
   
   def get_users_confirmed_requests(user)
-    return PendingRequest.find(:all, :conditions => {:caregiver_commit_id => user.id, :confirmed => "true"})
+    return PendingRequest.find(:all, :conditions => {:caregiver_commit_id => user.id, :confirmed => "true", :read => 'f'})
   end
   
   def get_notifications(user)

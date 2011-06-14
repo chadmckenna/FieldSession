@@ -17,7 +17,7 @@
   - unless current_user.household.nil?
     - if get_notifications_count(current_user) > 0
       %li#notifications
-        = link_to '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp', '#', :title => 'Notifications'
+        = link_to '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp', '#'
         .notification-list
           - for notification in get_notifications(current_user)
             .notification

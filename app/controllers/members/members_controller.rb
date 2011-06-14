@@ -8,6 +8,10 @@ class Members::MembersController < ApplicationController
     render
   end
   
+  def test_rjs
+    
+  end
+  
   protected
 
     def permission_denied
