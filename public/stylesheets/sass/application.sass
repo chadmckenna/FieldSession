@@ -126,8 +126,6 @@ a
           img
             float: left
             margin-right: 10px
-          
-        
     li.notification
       background: red
       margin-left: -1.4em
@@ -153,6 +151,30 @@ a
   #clear
     clear: both
 
+#footer
+  width: 100%
+  clear: both
+  background: #ccc
+  padding: 2em 1.5em 3em 1.5em
+  -moz-box-shadow: inset 0 0 10px #888
+  -webkit-box-shadow: inset 0 0 5px #888
+  box-shadow: inset 0 0 10px #888
+  ul
+    margin: 10px auto
+    list-style-type: none
+    li
+      float: left
+      margin-right: .5em
+      &:last-child
+        &:after
+          content: none
+      &:after
+        content: " | "
+      a
+        color: #555
+        &:hover
+          text-decoration: underline
+
 #top
   width: 100%
   #button
@@ -167,11 +189,12 @@ a
       border: none
       &:hover
         text-decoration: underline
-        
+
 /*
  * Splash Screen
  */
 #container
+  min-height: 80%
   #video
     margin: 20px auto 0px auto
     width: 600px
@@ -207,9 +230,10 @@ a
       background: url("../images/sign_up.jpg") no-repeat
       &:hover
         background-position: bottom
-        
+
 #container
   width: 98%
+  line-height: 150%
   margin: 100px auto 0 auto
   background: white
   position: relative
@@ -255,7 +279,7 @@ a
         .extern_link
           background: none
           border: none
-        #small_link 
+        #small_link
           text-decoration: none
           color: #999 !important
           font-size: .8em
@@ -269,6 +293,8 @@ a
             &:hover
               color: #999
               text-decoration: underline
+          .name
+            text-decoration: underline
     #right-column
       width: 75%
       float: right
@@ -449,7 +475,7 @@ label
       border: none
       &:hover
         text-decoration: underline
-      
+
   .left
     float: left
     min-width: 10%
@@ -462,7 +488,7 @@ label
         padding: inherit
         margin: inherit
         padding: 0
-        margin: 0 0 0 -.2em 
+        margin: 0 0 0 -.2em
         background: none !important
         border: 0 !important
         &:hover
@@ -479,7 +505,7 @@ label
     min-width: 40%
     margin: 5px 0
     float: left
-    margin-left: 2em
+    margin-left: 3em
     color: #555
     z-index: -5
     .cost
@@ -665,12 +691,12 @@ input[type="text"], input[type="password"], textarea
         padding: inherit
         margin: inherit
         padding: 0
-        margin: 0 0 0 -.2em 
+        margin: 0 0 0 -.2em
         background: none !important
         border: 0 !important
         &:hover
-          text-decoration: underline  
-          
+          text-decoration: underline
+
     .attributes
       margin-bottom: 20px
       .small-title
@@ -700,7 +726,7 @@ input[type="text"], input[type="password"], textarea
 
 #num-results
   margin-left: 40px
-    
+
 #hidden-requests-container
   width: 50%
   float: left
@@ -790,7 +816,7 @@ input[type="text"], input[type="password"], textarea
         &:hover
           border: 1px solid #777
           text-decoration: none
-        
+
 
 .clear
   clear: both
@@ -806,9 +832,9 @@ input[type="text"], input[type="password"], textarea
     padding: 0.5em
     padding-right: 0 !important
     padding-bottom: 1.5em !important
-    width: 100% 
-    
-    .top 
+    width: 100%
+
+    .top
       float: top
       h2
         font-size: 1.8em
@@ -818,17 +844,17 @@ input[type="text"], input[type="password"], textarea
           padding: inherit
           margin: inherit
           padding: 0
-          margin: 0 0 0 -.2em 
+          margin: 0 0 0 -.2em
           background: none !important
           border: 0 !important
           &:hover
             text-decoration: underline
-     
-    .child_view .left 
+
+    .child_view .left
       float: left
       .child .left h2
         font-size: 3.5em
-  
+
 #caregiver-container
   float: left
   width: 70%
@@ -840,9 +866,9 @@ input[type="text"], input[type="password"], textarea
     padding: 0.5em
     padding-right: 0 !important
     padding-bottom: 1.5em !important
-    width: 100% 
-    
-    .top 
+    width: 100%
+
+    .top
       float: top
       h2
         font-size: 1.8em
@@ -852,10 +878,9 @@ input[type="text"], input[type="password"], textarea
           padding: inherit
           margin: inherit
           padding: 0
-          margin: 0 0 0 -.2em 
+          margin: 0 0 0 -.2em
           background: none !important
           border: 0 !important
           &:hover
             text-decoration: underline
-     
 

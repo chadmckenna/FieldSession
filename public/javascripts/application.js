@@ -70,6 +70,11 @@ $(document).ready(function() {
 		$(this).replaceWith("<input type='text' name='user[phone]' value='" + $(this).text() + "'/>");
 	});
 	
+	$("#work_phone a").click(function(e) {
+		e.preventDefault();
+		$(this).replaceWith("<input type='text' name='user[work_phone]' value='" + $(this).text() + "'/>");
+	});
+	
 	$("#change-password a").click(function(e) {
 		e.preventDefault();
 		$(this).replaceWith("<label>New Password</label>" + "<br/>" + 

@@ -5,6 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
+  map.vision 'vision', :controller => 'home', :action => 'vision'
+  map.security 'security', :controller => 'home', :action => 'security'
+  map.tos 'TOS', :controller => 'home', :action => 'TOS'
+  map.contact 'contact', :controller => 'home', :action => 'contact'
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
   map.login 'login', :controller => 'user_sessions', :action => 'new'
   map.resources :user_sessions, :only => [:new, :create, :destroy]

@@ -14,27 +14,31 @@
     = yield(:head)
 
   %body{:class => controller.action_name, :id => controller.controller_name}
-    #masthead
-      -#%h1= link_to image_tag('/images/villages_logo.png.bak'), root_path, :title => 'Home', :alt => 'Home'
-      - if current_user
-        - if current_user.is_admin?
-          %h1= link_to "Villages", root_path, :title => 'Home'
-        - else
-          - if current_user.has_household?
-            %h1= link_to "Villages", members_profile_path, :title => 'View Profile'
+    #full_wrapper
+      #masthead
+        -#%h1= link_to image_tag('/images/villages_logo.png.bak'), root_path, :title => 'Home', :alt => 'Home'
+        - if current_user
+          - if current_user.is_admin?
+            %h1= link_to "Villages", root_path, :title => 'Home'
           - else
-            %h1= link_to "Villages", members_root_path, :title => 'View Profile'
-      - else
-        %h1= link_to "Villages", root_path, :title => 'Home'  
-      = userbar(current_user)
-      = menubar(current_user)
-      #clear
-      %h2= "It takes a village to raise a child."
-    #container
-      #content
-        - unless flash.empty?
-          - flash.each do |key, msg|
-            %div{:class => "flash #{key}"}
-              %p= msg
-        = yield
+            - if current_user.has_household?
+              %h1= link_to "Villages", members_profile_path, :title => 'View Profile'
+            - else
+              %h1= link_to "Villages", members_root_path, :title => 'View Profile'
+        - else
+          %h1= link_to "Villages", root_path, :title => 'Home'
+        = userbar(current_user)
+        = menubar(current_user)
+        #clear
+        %h2= "It takes a village to raise a child."
+      #container
+        #content
+          - unless flash.empty?
+            - flash.each do |key, msg|
+              %div{:class => "flash #{key}"}
+                %p= msg
+          = yield
+      .clear
+      #footer_container
+        = footer
 
