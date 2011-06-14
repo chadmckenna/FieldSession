@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates_format_of :phone,
       :message => "must be 10 digits long and only contain numbers.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
+  validates_format_of :work_phone,
+      :message => "must be 10 digits long and only contain numbers.",
+      :with => /^[\(\)0-9\- \+\.]{10,20}$/
   validates_presence_of :role, :message => "cannot be blank."
   validates_confirmation_of :password
   validates_presence_of :username
