@@ -182,44 +182,41 @@ a {
 
 /* Splash Screen
  */
-#container {
-  margin-bottom: 30px;
-  overflow: scroll; }
-  #container #video {
-    margin: 20px auto 0px auto;
-    width: 600px; }
-  #container #learn_more {
-    width: 600px;
-    margin: 10px auto 0px auto; }
-    #container #learn_more div {
-      float: left;
-      width: 200px; }
-      #container #learn_more div a {
-        width: 180px;
-        height: 135px;
-        display: block;
-        font-size: 20pt;
-        text-shadow: white 0 0 10px;
-        overflow: hidden;
-        background-position: top;
-        border: 0;
-        padding: 0;
-        /* for IE */
-        filter: alpha(opacity=80);
-        /* CSS3 standard */
-        opacity: 0.8; }
-    #container #learn_more #vision a {
-      background: url("../images/vision.jpg") no-repeat; }
-      #container #learn_more #vision a:hover {
-        background-position: bottom; }
-    #container #learn_more #security a {
-      background: url("../images/security.jpg") no-repeat; }
-      #container #learn_more #security a:hover {
-        background-position: bottom; }
-    #container #learn_more #sign_up a {
-      background: url("../images/sign_up.jpg") no-repeat; }
-      #container #learn_more #sign_up a:hover {
-        background-position: bottom; }
+#container #video {
+  margin: 20px auto 0px auto;
+  width: 600px; }
+#container #learn_more {
+  width: 600px;
+  margin: 10px auto 0px auto; }
+  #container #learn_more div {
+    float: left;
+    width: 200px; }
+    #container #learn_more div a {
+      width: 180px;
+      height: 135px;
+      display: block;
+      font-size: 20pt;
+      text-shadow: white 0 0 10px;
+      overflow: hidden;
+      background-position: top;
+      border: 0;
+      padding: 0;
+      /* for IE */
+      filter: alpha(opacity=80);
+      /* CSS3 standard */
+      opacity: 0.8; }
+  #container #learn_more #vision a {
+    background: url("../images/vision.jpg") no-repeat; }
+    #container #learn_more #vision a:hover {
+      background-position: bottom; }
+  #container #learn_more #security a {
+    background: url("../images/security.jpg") no-repeat; }
+    #container #learn_more #security a:hover {
+      background-position: bottom; }
+  #container #learn_more #sign_up a {
+    background: url("../images/sign_up.jpg") no-repeat; }
+    #container #learn_more #sign_up a:hover {
+      background-position: bottom; }
 
 #container {
   width: 98%;
