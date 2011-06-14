@@ -1,17 +1,14 @@
 class PendingRequestMailer < ActionMailer::Base
 
-	def request_volunteered_email(pending_request)
-		@users = User.find(:all, :conditions => {:household_id => pending_request.belongs_to_household_id})
+	def request_volunteered_email(pending_request, user)
 		volunteer = User.find(:all, :conditions => {:id => pending_request.caregiver_requestor_id})
 		request = Request.find(pending_request.request_id)
-			
-		for user in @users
-			subject		"Your request has a volunteer"
-			from       	"Villages <do-not-reply@fieldsession.heroku.com>"
-			recipients	user.email
-			sent_on		Time.now
-			body		(:caregiver => volunteer, :request_title => request.title, :request_date => request.from_date, :request_time => request.start_time)	
-		end
+		
+		subject		"Your request has a volunteer"
+		from       	"Villages <do-not-reply@fieldsession.heroku.com>"
+		recipients	user.email
+		sent_on		Time.now
+		body		(:caregiver => volunteer, :request_title => request.title, :request_date => request.from_date, :request_time => request.start_time)	
 	end
 
 	def volunteer_confirmed_email(pending_request)

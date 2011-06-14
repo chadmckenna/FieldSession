@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# This file is auto-generated from the current state of the database. Instead of editing this file,
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613212925) do
+ActiveRecord::Schema.define(:version => 20110614173703) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street1",      :null => false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110613212925) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "num_children",       :default => 0, :null => false
+    t.string   "home_phone"
   end
 
   create_table "neighbors", :force => true do |t|
@@ -131,6 +132,8 @@ ActiveRecord::Schema.define(:version => 20110613212925) do
     t.datetime "updated_at"
     t.integer  "household_id"
     t.boolean  "household_confirmed", :default => false
+    t.string   "work_phone"
   end
 
 end
+

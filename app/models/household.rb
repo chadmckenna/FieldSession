@@ -1,5 +1,5 @@
 class Household < ActiveRecord::Base
-  attr_accessible :name, :credits, :photo
+  attr_accessible :name, :credits, :photo, :home_phone
 
   has_many :children
   has_many :users
@@ -25,7 +25,9 @@ class Household < ActiveRecord::Base
                     :default_url => "/images/default_household_:style.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
-  
+  validates_format_of :home_phone,
+      :message => "must be 10 digits long and only contain numbers.",
+      :with => /^[\(\)0-9\- \+\.]{10,20}$/
   validates_associated :address
   validates_attachment_presence :photo
   #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
@@ -44,10 +46,6 @@ class Household < ActiveRecord::Base
     else
       return false
     end
-  end
-
-  def send_household_join_request_email
-     UserMailer.deliver_household_join_request_email(self)
   end
 
   protected
