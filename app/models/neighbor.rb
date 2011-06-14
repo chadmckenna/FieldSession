@@ -8,11 +8,17 @@ class Neighbor < ActiveRecord::Base
     #self.read = "f"
   end
 
-  def send_neighbor_request_email
-  	UserMailer.deliver_neighbor_request_email(self)
+  def send_neighbor_request_email(neighbor)
+    @users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id, :household_confirmed => true})
+    for user in @users
+  	 UserMailer.deliver_neighbor_request_email(self, user)
+    end
   end
 
-  def send_neighbor_confirmation_email
-  	UserMailer.deliver_neighbor_confirmation_email(self)
+  def send_neighbor_confirmation_email(neighbor)
+    @users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id, :household_confirmed => true})
+    for user in @users
+  	 UserMailer.deliver_neighbor_confirmation_email(self, user)
+   end
   end
 end

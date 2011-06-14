@@ -17,7 +17,10 @@ class Members::PendingRequestsController < Members::MembersController
     @pending_request.read = false
     
     if @pending_request.save
-      @pending_request.send_request_volunteered_email
+      @household = Household.find(:all, :conditions => {:id => @pending_request.belongs_to_household_id})
+      @users = User.find(:all, :conditions => {:household_id => @pending_request.belongs_to_household_id, :household_confirmed => true})
+      #puts @household#.name + " ASDADA"
+      @pending_request.send_request_volunteered_email(@users)
       flash[:success] = "You have successfully volunteered for this request"
       redirect_to members_requests_path
     else
