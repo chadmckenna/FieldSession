@@ -4,6 +4,10 @@
     = f.label :name
     %br
     = f.text_field :name, :value => current_user.last_name
+  %p
+    = f.label :home_phone_number
+    %br
+    =f.text_field :home_phone
   -if !@edit
     %p
       Number of kids in you household
