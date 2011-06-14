@@ -15,7 +15,7 @@ $(function() {
 });
 
 $(document).ready(function() {
-	$(".notification-list").css('display', 'none');	
+
 	$(".request").hover(function() {
 		$(this).find(".delete span").fadeIn("fast").show();
 	}, function() {
@@ -24,7 +24,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).click(function(event) {		
-		if($(event.target).is('#notifications a')) {
+		if($(event.target).is('#notifications a img')) {
 			$(".notification-list").fadeToggle('fast');
 		} else {
 			$(".notification-list").fadeOut('fast');

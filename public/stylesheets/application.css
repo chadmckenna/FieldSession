@@ -88,14 +88,15 @@ a {
       width: 300px;
       /*float: left */
       margin-right: 20px; }
-    #masthead .menubar li#notifications-none {
-      background: url(/images/notification_icon_grey.png) no-repeat top;
-      position: relative; }
     #masthead .menubar li#notifications {
-      background: url(/images/notification_icon.png) no-repeat;
       z-index: 15;
       width: 22px; }
+      #masthead .menubar li#notifications img {
+        margin-top: -10px !important;
+        position: relative;
+        top: 5px; }
       #masthead .menubar li#notifications .notification-list {
+        display: none;
         width: 330px;
         padding: 0.5em;
         background: white;

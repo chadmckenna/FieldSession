@@ -96,15 +96,17 @@ a
       width: 300px
       /*float: left*/
       margin-right: 20px
-    li#notifications-none
-      background: url(/images/notification_icon_grey.png) no-repeat top
-      position: relative
     li#notifications
-      background: url(/images/notification_icon.png) no-repeat
+      //background: url(/images/notification_icon.png) no-repeat
       z-index: 15
       //position: absolute
       width: 22px
+      img
+        margin-top: -10px !important
+        position: relative
+        top: 5px
       .notification-list
+        display: none
         width: 330px
         padding: .5em
         background: white

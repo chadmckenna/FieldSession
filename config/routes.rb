@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :households, :member => {:join_request => :get}, :only => [:show, :new, :create]
     members.resources :requests, :member => {:detail => :get}
     members.resources :addresses
+    members.resources :notifications, :member => {:update_read => :get}
     members.resources :emergency_contacts
     members.search 'search', :controller => 'search', :action => "index"
     members.my_volunteers 'my_volunteers', :controller => 'my_volunteers', :action => "index"

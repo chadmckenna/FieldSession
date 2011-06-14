@@ -1,0 +1,17 @@
+- if get_notifications_count(current_user) > 0
+  %li#notifications
+    = link_to_remote image_tag('/images/notification_icon.png'), :update => "notifications", :url => {:controller => 'notifications', :action => 'update_read'}
+    .notification-list
+      - for notification in get_notifications(current_user)
+        .notification
+          - if notification.class.name == 'Neighbor'
+            = image_tag notification.neighbor.photo.url(:tiny)
+            %font= "The #{notification.neighbor} household has accepted your neighbor request"
+          - elsif notification.class.name == 'PendingRequest'
+            - @request_household = get_household(notification.belongs_to_household_id)
+            = image_tag @request_household.photo.url(:tiny)
+            %font= "The #{@request_household} household has confirmed you to watch their kids"
+    %li#notification-modified= get_notifications_count(current_user)
+- else
+  %li#notifications
+    = link_to image_tag('/images/notification_icon_grey.png'), '#', :title => 'Notifications'
