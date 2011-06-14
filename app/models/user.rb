@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_authentic
-  #attr_accessible :username, :first_name, :last_name, :phone, :email
+  #attr_accessible :username, :first_name, :last_name, :phone, :email, :work_phone
   validates_format_of :phone,
       :message => "must be 10 digits long and only contain numbers.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
