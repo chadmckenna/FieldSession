@@ -73,6 +73,7 @@
             .name=h "#{phone_number.first_name}:"
             =h "Cell: #{phone_number.phone}"
             - unless phone_number.work_phone.eql? nil
+              %br
               =h "Work: #{phone_number.work_phone}"
               %br
         -else
