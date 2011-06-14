@@ -66,7 +66,7 @@
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           .child
-            =h "#{phone_number.phone}"
+            =h "#{phone_number.first_name}: #{phone_number.phone}"
         -else
           No known phone numbers
       %p
