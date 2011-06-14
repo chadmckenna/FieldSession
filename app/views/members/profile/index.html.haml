@@ -63,10 +63,18 @@
       Phone
       %span#small_link= link_to "(edit)", members_settings_path
     %div
+      .child
+        .name=h "Household:"
+        =h @household.home_phone
+      %br
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           .child
-            =h "#{phone_number.first_name}: #{phone_number.phone}"
+            .name=h "#{phone_number.first_name}:"
+            =h "Cell: #{phone_number.phone}"
+            - unless phone_number.work_phone.eql? nil
+              =h "Work: #{phone_number.work_phone}"
+              %br
         -else
           No known phone numbers
       %p
