@@ -3,7 +3,7 @@
 %h2 Add children to your household
 
 #profile_notice
-  %h3 Step 4 of 4
+  %h3 Step 4 of 5
   = "When you created your household, you said that you have #{pluralize(current_user.household.num_children, 'child')}."
 
 = render :partial => 'form'

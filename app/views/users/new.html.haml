@@ -4,7 +4,7 @@
 %h1 Create a new account
 
 #profile_notice
-  %h3 Step 1 of 4
+  %h3 Step 1 of 5
   Caregivers manage households. Create a user profile in order to become a caregiver.
 
 %p= "Already have an account? #{link_to 'Log in', login_path}."
@@ -24,9 +24,13 @@
     %br
     = f.text_field :last_name
   %p
-    = f.label :phone_number
+    = f.label :cell_phone_number
     %br
     = f.text_field :phone
+  %p
+    = f.label :work_phone_number
+    %br
+    = f.text_field :work_phone
   %p
     = f.label :email_address
     %br

@@ -66,9 +66,18 @@
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           .child
-            =h "#{number_to_phone(phone_number.phone)}"
+            =h "#{phone_number.first_name}: #{phone_number.phone}"
         -else
           No known phone numbers
+      %p
+    %div.title 
+      Emergency Contacts
+      %span#small_link= link_to " (edit)", members_emergency_contacts_path
+    %div
+      -for contact in @household.emergency_contacts
+        -unless @household.users.eql? nil
+          .child
+            =h link_to "#{contact.name} (#{contact.relationship})", members_emergency_contact_path(contact)
 
 #right-column
   #top

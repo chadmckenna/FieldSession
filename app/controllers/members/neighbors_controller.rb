@@ -27,7 +27,7 @@ class Members::NeighborsController < Members::MembersController
       @household = Household.find(params[:household_id])
       
       if @neighbor.save && @neighbor2.save
-        @neighbor.send_neighbor_request_email
+        @neighbor.send_neighbor_request_email(@neighbor)
         flash[:success] = "You have successfully added #{@household} as a neighbor"
         redirect_to members_neighbors_path
       else
@@ -51,7 +51,7 @@ class Members::NeighborsController < Members::MembersController
     @neighbor2.neighbor_confirmed = true
     
     if @neighbor.save && @neighbor2.save
-      @neighbor.send_neighbor_confirmation_email
+      @neighbor.send_neighbor_confirmation_email(@neighbor)
       flash[:success] = "You have successfullly added #{@neighbor2.household.to_s} as a neighbor"
       redirect_to members_neighbors_path
     else
