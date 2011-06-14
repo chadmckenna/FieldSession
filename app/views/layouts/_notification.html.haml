@@ -1,6 +1,7 @@
 - if get_notifications_count(current_user) > 0
+  - puts "should be yellow"
   %li#notifications
-    = link_to_remote image_tag('/images/notification_icon.png'), :update => "notifications", :url => {:controller => 'notifications', :action => 'update_read'}
+    = link_to_remote image_tag('/images/notification_icon.png'), :update => "notifications", :url => {:controller => 'notifications', :action => 'update_read', :method => :post}
     .notification-list
       - for notification in get_notifications(current_user)
         .notification
@@ -13,5 +14,6 @@
             %font= "The #{@request_household} household has confirmed you to watch their kids"
     %li#notification-modified= get_notifications_count(current_user)
 - else
+  - puts "should be grey"
   %li#notifications
     = link_to image_tag('/images/notification_icon_grey.png'), '#', :title => 'Notifications'
