@@ -7,7 +7,7 @@
     %p= link_to "+ Create New Care Request", new_members_request_path
     %p= link_to "Hidden Requests", members_settings_path
   #your-requests
-    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} care request volunteer(s)", members_my_volunteers_path
+    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} for your care requests", members_my_volunteers_path
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
@@ -106,12 +106,16 @@
         .delete-link
           = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
           
-        ="Confirmed to watch the #{confirmed_request.request.household}'s kids"
+        ="#{confirmed_request.request.household} Household"
         %br
         =h confirmed_request.request.from_date.to_s(:short)
         - if !confirmed_request.request.same_date
           \-
           =h confirmed_request.request.to_date.to_s(:short)
+        %br
+        =h confirmed_request.request.start_time.to_s(:nicetime)
+        to
+        =h confirmed_request.request.end_time.to_s(:nicetime)
         .link
           = link_to 'View More Details', detail_members_request_path(confirmed_request.request)
   #pending
@@ -123,13 +127,16 @@
       .pending-request
         .delete-link
           = link_to 'x', members_pending_request_path(pending_request), :confirm => 'Are you sure you want to remove this pending request?', :method => :delete
-        = "Request to watch the #{pending_request.request.household}'s kids"
+        = "#{pending_request.request.household} Household"
         %br
         =h pending_request.request.from_date.to_s(:short)
         - if !pending_request.request.same_date
           \-
           =h pending_request.request.to_date.to_s(:short)
-        
+        %br
+        =h pending_request.request.start_time.to_s(:nicetime)
+        to
+        =h pending_request.request.end_time.to_s(:nicetime)
         .link
           = link_to 'View More Details', members_request_path(pending_request.request)
 

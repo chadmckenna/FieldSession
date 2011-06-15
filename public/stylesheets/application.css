@@ -126,9 +126,15 @@ a {
           font-size: 0.8em;
           padding-bottom: 0.5em;
           border-bottom: double 3px #eeeeee; }
-          #masthead .menubar li#notifications .notification-list .notification img {
+          #masthead .menubar li#notifications .notification-list .notification #left {
             float: left;
-            margin-right: 10px; }
+            width: 8%;
+            padding: 0.5em; }
+          #masthead .menubar li#notifications .notification-list .notification #right {
+            float: right;
+            width: 83%; }
+          #masthead .menubar li#notifications .notification-list .notification #clear {
+            clear: both; }
     #masthead .menubar li.notification {
       background: red;
       margin-left: -1.4em;
@@ -214,6 +220,8 @@ a {
  */
 #container {
   min-height: 80%; }
+  #container a {
+    color: #884411 !important; }
   #container #video {
     margin: 20px auto 0px auto;
     width: 600px; }
@@ -465,6 +473,8 @@ label {
   margin-bottom: 1em;
   padding: 0.5em 0.5em 1.5em 0.5em;
   width: 100%; }
+  .request:hover, .neighbor:hover {
+    background-color: #eeeeee; }
   .request img, .neighbor img {
     max-width: 8%;
     margin: 0 0.5em 0.5em 0;
