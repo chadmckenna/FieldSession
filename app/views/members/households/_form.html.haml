@@ -7,7 +7,7 @@
   %p
     = f.label :home_phone_number
     %br
-    = f.text_field :home_phone
+    = f.text_field :home_phone, :value => number_to_phone(current_user.phone, :area_code => true) unless current_user.phone.nil?
 
   -if !@edit
     %p

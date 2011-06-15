@@ -144,11 +144,12 @@
                     credits
                   .children
                     Children:
+                    -@count = 0
                     -for child in request.children
-                      -if request.children.count == 1
-                        =h "#{child}"
-                      -else
-                        =h "#{child}, "              
+                      =h "#{child}"
+                      -@count += 1
+                      -if @count != request.children.length
+                        ,
                   - unless request.notes.nil?
                     .notes
                       Additional notes:
@@ -192,11 +193,12 @@
                   credits
                 .children
                   Children:
+                  -@count = 0
                   -for child in confirmed.request.children
-                    -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
-                      =h "#{child}"
-                    -else
-                      =h "#{child}, "
+                    =h "#{child}"
+                    -@count += 1
+                    -if @count != confirmed.request.children.length
+                      ,
                 - unless confirmed.request.notes.nil?
                   .notes
                     Additional notes:
@@ -236,11 +238,12 @@
                   credits
                 .children
                   Children
+                  -@count = 0
                   -for child in commitment.request.children
-                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
-                      =h "#{child}"
-                    -else
-                      =h "#{child}, "
+                    =h "#{child}"
+                    -@count += 1
+                    -if @count != commitment.request.children.length
+                      ,
                 - unless commitment.request.notes.nil?
                   .notes
                     Additional notes:
