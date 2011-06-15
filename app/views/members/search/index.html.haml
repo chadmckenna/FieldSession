@@ -1,4 +1,4 @@
--title "Search for Neighbors"
+-title "Find Neighbors "
 -if !current_user.has_household?
   %h3 Please find the Household you would like to join.  Please note, each account can only be associated with one household
 -if current_user.has_household? or !params[:search].blank?
@@ -10,8 +10,8 @@
     
     - unless @households.count + @users.count == 0
       #profile_notice
-        %h3 Be careful
-        When you add someone as a neighbor, they will be able to view information about your household.  Make sure to only add neighbors that you know and trust.
+        %h3 (!) Caution: 
+        Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
     
     -if @households.count == 0 and @users.count == 0
       #no-results There were no results found for '#{params[:search]}'.

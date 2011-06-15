@@ -1,5 +1,5 @@
 -title "My Neighbors"
-= link_to "Search for neighbors", members_search_path
+= link_to "Find neighbors", members_search_path
 - if @pending_neighbors.count > 0
   %h1 Pending Neighbor Requests
   %br
@@ -64,24 +64,27 @@
           -#%h2.name=link_to "#{neighbor.neighbor}", members_household_path(neighbor.neighbor)
           %h2.household Household
         .right
-          = pluralize neighbor.neighbor.children.count, "Child"
+          %strong Children:
           %br
-          = pluralize neighbor.neighbor.users.count, "Caregiver"
+          -@count = 0
+          - for child in neighbor.neighbor.children
+            =h "#{child.first_name}"
+            -@count += 1
+            -if @count != neighbor.neighbor.children.length
+              ,
+          -#= pluralize neighbor.neighbor.users.count, "Caregiver"
+          %br
+          %strong Caregivers:
           - for user in neighbor.neighbor.users
             .user
               .user_name
-                %strong Caregiver:  
                 =h user.first_name 
-                =h user.last_name
-              .phone
-                %strong Phone:
-                =h number_to_phone(user.phone, :area_code => true)
-              .email
-                %strong Email:
+                =h user.last_name + ","
+                =h number_to_phone(user.phone, :area_code => true) + ","
                 =h user.email
         .tools
           .volunteer-button
-            =link_to "Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
+            =link_to "Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete
         .clear
 - else
   .request
@@ -90,4 +93,4 @@
     %h3 You can check above to see if you have any pending requests or new neighbor requests.
     %h3 Also, you can add them by searching for households by their name or you can search for users by either their phone number or email.
     
-= link_to "Search for neighbors", members_search_path
+= link_to "Find neighbors", members_search_path
