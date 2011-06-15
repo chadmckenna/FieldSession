@@ -10,13 +10,13 @@
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
-  = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
-  = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
-
-
-
+  .float{:style => "float: right; margin: 0 -15px 0 0"}
+    = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+    = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
+  %br
+  %br
   - for completed_request in @completed_requests
-    .request{:style => "background-color: #FBEC5D"}
+    .request{:style => "background-color: #fea; border: solid thin #fd0"}
       = image_tag completed_request.household.photo.url(:thumb)
       .left
         %h2.name= completed_request.household

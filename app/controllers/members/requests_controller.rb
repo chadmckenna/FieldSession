@@ -2,25 +2,24 @@ class Members::RequestsController < Members::MembersController
   filter_access_to :all
   before_filter :load_my_requests
   def index
+    @date_direction = params[:date_sort] == 'asc' ? 'desc' : 'asc'
+    @house_direction = params[:house_sort] == 'asc' ? 'desc' : 'asc'
+    if params[:sort]
+      if params[:sort].eql? "name"
+        requests = Request.find(:all, :include => :household, :order => "households.#{params[:sort]} #{@house_direction}")
+      else
+        requests = Request.find(:all, :order => params[:sort] + " #{@date_direction}")
+      end
+    else
+      requests = Request.find(:all, :order => 'from_date')
+    end
+    
     @requests = []
-    requests = Request.find(:all, :order => 'from_date')
     for request in requests
       end_time = Time.local(request.to_date.year, request.to_date.month, request.to_date.day, request.end_time.hour, request.end_time.min)
       if (end_time > Time.now)
         @requests << request
       end
-    end
-    
-    @date_direction = params[:date_sort] == 'asc' ? 'desc' : 'asc'
-    @house_direction = params[:house_sort] == 'asc' ? 'desc' : 'asc'
-    if params[:sort]
-      if params[:sort].eql? "name"
-        @requests = Request.find(:all, :include => :household, :order => "households.#{params[:sort]} #{@house_direction}")
-      else
-        @requests = Request.find(:all, :order => params[:sort] + " #{@date_direction}")
-      end
-    else
-      @requests = Request.find(:all, :order => 'from_date')
     end
 
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
