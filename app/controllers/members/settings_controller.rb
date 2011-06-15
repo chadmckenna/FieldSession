@@ -3,6 +3,7 @@ class Members::SettingsController < Members::MembersController
   def index
     @hidden_requests = HiddenRequest.find(:all, :conditions => {:household_hidden_id => nil, :household_id => current_user.household.id})
     @hidden_household_requests = HiddenRequest.find(:all, :conditions => {:request_id => nil, :household_id => current_user.household.id})
+    @household = current_user.household
   end
   
   def destroy

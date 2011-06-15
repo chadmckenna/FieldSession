@@ -46,13 +46,13 @@
       - @address = @household.address
       - address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
       - unless @household.address.nil?
-        %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
-          = @address.street1
-          = @address.street2
-          %br
-          = "#{@address.city}, "
-          = @address.state
-          = @address.zip
+        -#%a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
+        = @address.street1
+        = @address.street2
+        %br
+        = "#{@address.city}, "
+        = @address.state
+        = @address.zip
 
       - else
         You haven't entered an address for your household.
