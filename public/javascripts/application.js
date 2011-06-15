@@ -45,34 +45,15 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("#first-name a").click(function(e) {
+	$("font.edit a").click(function(e) {
 		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[first_name]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#last-name a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[last_name]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#username a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[username]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#email a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[email]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#phone a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[phone]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#work_phone a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[work_phone]' value='" + $(this).text() + "'/>");
+		$("#user-submit input").show();
+		$("#first-name a").replaceWith("<input type='text' name='user[first_name]' value='" + $("#first-name a").text() + "'/>");
+		$("#last-name a").replaceWith("<input type='text' name='user[last_name]' value='" + $("#last-name a").text() + "'/>");
+		$("#username a").replaceWith("<input type='text' name='user[username]' value='" + $("#username a").text() + "'/>");
+		$("#email a").replaceWith("<input type='text' name='user[email]' value='" + $("#email a").text() + "'/>");
+		$("#phone a").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone a").text() + "'/>");
+		$("#work_phone a").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone a").text() + "'/>");
 	});
 	
 	$("#change-password a").click(function(e) {

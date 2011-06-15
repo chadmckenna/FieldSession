@@ -277,6 +277,8 @@ a {
     color: #375d38; }
   #container #content {
     padding: 20px 40px; }
+    #container #content #title {
+      text-align: center; }
     #container #content #left-column {
       width: 20%;
       float: left; }
@@ -285,7 +287,6 @@ a {
       #container #content #left-column #photo {
         padding: inherit;
         width: 100%;
-        border: 1px solid;
         margin: 10px auto 0px auto; }
         #container #content #left-column #photo a {
           padding: 0 !important;
@@ -769,15 +770,19 @@ input[type="text"], input[type="password"], textarea {
     display: none; }
   #user-household-info font {
     font-weight: bold; }
+  #user-household-info font.edit {
+    font-weight: normal; }
   #user-household-info a {
     background: none !important;
     border: none !important; }
     #user-household-info a:hover {
       text-decoration: underline; }
-  #user-household-info .title {
-    text-align: center; }
+  #user-household-info strong {
+    text-align: center;
+    font-size: 1.5em; }
   #user-household-info #delete-account {
-    text-align: right; }
+    text-align: right;
+    margin-bottom: 20px; }
     #user-household-info #delete-account a {
       border: 1px solid #aaaaaa !important;
       background: #eeeeee !important;

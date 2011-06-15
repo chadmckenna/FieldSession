@@ -290,6 +290,8 @@ a
     color: #375D38
   #content
     padding: 20px 40px
+    #title
+      text-align: center
     #left-column
       width: 20%
       float: left
@@ -298,7 +300,6 @@ a
       #photo
         padding: inherit
         width: 100%
-        border: 1px solid
         margin: 10px auto 0px auto
         a
           padding: 0 !important
@@ -803,15 +804,20 @@ input[type="text"], input[type="password"], textarea
     display: none
   font
     font-weight: bold
+  font.edit
+    font-weight: normal
   a
     background: none !important
     border: none !important
     &:hover
       text-decoration: underline
-  .title
+  strong
     text-align: center
+    font-size: 1.5em
+  
   #delete-account
     text-align: right
+    margin-bottom: 20px
     a
       border: 1px solid #aaa !important
       background: $lightGrey !important

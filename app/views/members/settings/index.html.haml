@@ -1,6 +1,8 @@
 - content_for :title do
   Settings
 
+%h1#title= "#{@user.household} Household Account Settings"
+
 #hidden-requests-container
   %h2.title Hidden Requests
   - if @hidden_requests.count == 0 && @hidden_household_requests.count == 0
@@ -43,7 +45,10 @@
     - else
       = link_to 'Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account'
   #user
-    %h2.title Your User Info (Click attribute to edit info)
+    %strong Your User Information 
+    %font.edit= link_to '(edit)', '#'
+    %br
+    %br
     - form_for [:members, @user] do |f|
       #username
         = f.label :username 
@@ -64,10 +69,13 @@
         = f.label :work_phone
         %font= link_to number_to_phone(@user.work_phone, :area_code => true), '#'
       #change-password
-        = link_to 'Change Password', '#'
-      = f.submit
+      #user-submit
+        = f.submit
   #household
-    %h2.title Your Household info
+    %strong Your Household info
+    %font.edit= link_to '(edit)', '#'
+    %br
+    %br
     - form_for [:members, @user.household] do |f|
       #household-name
         Household Name:
