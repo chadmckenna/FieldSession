@@ -33,10 +33,10 @@
                   %span.small-title Email:
                   = user.email
                   %br
-                  //%span.small-title City:
-                  //= household.address.city
-                  //%br
-                  //%span.small-title State:
+                  %span.small-title City:
+                  = household.address.city
+                  %br
+                  %span.small-title State:
                   //= household.address.state
                   
             .button
@@ -70,4 +70,5 @@
           .clear
           
 %h2 Search for Neighbors
+%h3 You can search by name, phone number, or email
 = render :partial => 'form'
