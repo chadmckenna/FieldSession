@@ -10,8 +10,42 @@
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
-  = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
-  = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
+  .float{:style => "float: right; margin: 0 -15px 0 0"}
+    = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+    = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
+  %br
+  %br
+  - for completed_request in @completed_requests
+    .request{:style => "background-color: #fea; border: solid thin #fd0"}
+      = image_tag completed_request.household.photo.url(:thumb)
+      .left
+        %h2.name= completed_request.household
+        %h2.household Household
+      .right
+        .title
+          =h completed_request.title
+        .date
+          =h completed_request.from_date.to_s(:short)
+          at
+          =h completed_request.start_time.to_s(:nicetime)
+          to
+          - if !completed_request.same_date
+            =h completed_request.to_date.to_s(:short)
+            at
+          =h completed_request.end_time.to_s(:nicetime)
+        .cost
+          Credits:
+          %font=h completed_request.cost.to_i
+        .children
+          Children:
+          =h completed_request.children
+      .tools
+        .volunteer-button Did you provide care for this request?
+        %br
+        .volunteer-button{:style => "padding: 2px"}= link_to "No", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => false}, :method => :post
+        .volunteer-button{:style => "padding: 2px"}= link_to "Yes", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => true}, :method => :post
+      .clear
+
   - for request in @requests
     -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
       - @num_requests += 1

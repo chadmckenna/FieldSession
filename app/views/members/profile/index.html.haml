@@ -99,7 +99,7 @@
       - open_requests_sum = 0
       -for request in @household.requests
         - unless commit(request)
-          - open_requests_sum += 1
+          - open_requests_sum += request.cost.to_i
       
       = "Credit Balance: #{@household.credits - open_requests_sum}"
       %br
