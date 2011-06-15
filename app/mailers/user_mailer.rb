@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
 
   def neighbor_confirmation_email(neighbor, user)
     #@users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
-    @neighbor_household = Household.find(neighbor.neighbor_id)
+    @neighbor_household = Household.find(neighbor.household_id)
     #for user in @users
     subject     "You've been Confirmed as a neighbor"
     from        "Village <do-no-reply@fieldsession.heroku.com>"
@@ -48,5 +48,14 @@ class UserMailer < ActionMailer::Base
     recipients  user.email
     sent_on     Time.now
     body        (:username => user.username, :household_name => @household.name) 
+  end
+  
+  def confirmed_request_change_email(request, pending_request, user)
+    subject     "The #{request.household.name} Household has changed the times of their request"
+    from        "Villages <do-not-reply@fieldsession.heroku.com>"
+    recipients  user.email
+    sent_on     Time.now
+    body        (:recipient_username => user.username, :changing_household => request.household.name, :request_name => request.title,
+                 :request_start_time => request.start_time, :request_end_time => request.end_time, :request_cost => request.cost)
   end
 end

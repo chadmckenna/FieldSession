@@ -155,6 +155,9 @@ a {
 #push {
   height: 70px; }
 
+#footer_container {
+  clear: both; }
+
 #footer {
   width: 100%;
   clear: both;
@@ -211,7 +214,7 @@ a {
         text-decoration: underline; }
 
 /* Splash Screen
- */ */
+ */
 #container {
   min-height: 80%; }
   #container #video {
@@ -442,7 +445,7 @@ label {
       list-style: disc; }
 
 /* Requests styles
- */ */
+ */
 #request-container {
   width: 70%;
   padding: 0.5em;

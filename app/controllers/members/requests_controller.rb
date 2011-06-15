@@ -64,6 +64,7 @@ class Members::RequestsController < Members::MembersController
       redirect_to members_request_path(@request)
     elsif @request.update_attributes(params[:request])
       flash[:success] = "Successfully updated request."
+      @request.send_confirmed_request_change_email
       redirect_to members_request_path(@request)
     else
       render :action => 'edit'

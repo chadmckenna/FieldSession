@@ -1,4 +1,6 @@
 -title "Search for Neighbors"
+-if !current_user.has_household?
+  %h3 Please find the Household you would like to join.  Please note, each account can only be associated with one household
 -if current_user.has_household? or !params[:search].blank?
   - unless params[:search].blank?
     - content_for :title do
@@ -31,10 +33,10 @@
                   %span.small-title Email:
                   = user.email
                   %br
-                  //%span.small-title City:
-                  //= household.address.city
-                  //%br
-                  //%span.small-title State:
+                  %span.small-title City:
+                  = household.address.city
+                  %br
+                  %span.small-title State:
                   //= household.address.state
                   
             .button
@@ -68,4 +70,5 @@
           .clear
           
 %h2 Search for Neighbors
+%h3 You can search by name, phone number, or email
 = render :partial => 'form'
