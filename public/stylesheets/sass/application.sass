@@ -179,11 +179,11 @@ a
   margin-top: 20px
   height: 20px
   box-shadow: inset 0 5px 5px rgba(0,0,0,.2)
-  -webkit-transition: all 1s ease-in-out
-  -moz-transition: all 1s ease-in-out
-  -o-transition: all 1s ease-in-out
-  -ms-transition: all 1s ease-in-out
-  transition: all 1s ease-in-out
+  -webkit-transition: all .5s ease-in-out
+  -moz-transition: all .5s ease-in-out
+  -o-transition: all .5s ease-in-out
+  -ms-transition: all .5s ease-in-out
+  transition: all .5s ease-in-out
   ul
     margin: 10px auto
     list-style-type: none
@@ -199,9 +199,6 @@ a
         color: #aaa
   &:hover
     box-shadow: none
-    padding-top: 10px
-    padding-bottom: 30px
-    margin-top: 10px
     color: black
     a
       color: #555
@@ -523,6 +520,7 @@ label
     float: left
     min-width: 10%
     max-width: 20%
+    vertical-align: bottom
     h2
       font-size: 1.8em
       margin: 0 !important
@@ -539,6 +537,7 @@ label
     .image
       float: left
     .name
+      vertical-align: bottom
       float: left
     .household
       clear: both
@@ -551,6 +550,7 @@ label
     margin-left: 3em
     color: #555
     z-index: -5
+    
     .cost
       font-style: oblique
       font

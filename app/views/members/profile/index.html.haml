@@ -74,8 +74,9 @@
             =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
             - unless phone_number.work_phone.eql? nil
               %br
-              =h "Work: #{number_to_phone(phone_number.work_phone, :area_code => true)}"
-              %br
+              - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
+                =h "Work: #{phone_number.work_phone}"
+                %br
         -else
           No known phone numbers
       %p
@@ -105,7 +106,8 @@
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
-      = link_to '+ Create a New Request', new_members_request_path
+      = link_to 'Edit my Household', members_profile_edit_path
+      = link_to '+ Create New Request', new_members_request_path
   #content
     - openRequests = false
     - if @household.requests.length > 0
@@ -122,37 +124,29 @@
           - for request in @household.requests
             -unless commit(request)
               .request
-
-                .left
-                  %h2#name= request.household
-                  %h2#household Household
                 .right
                   .title
-                    =h request.title
+                    =h "#{request.title} (#{request.cost.to_i} credits)"
                   .date
                     =h request.start_time.to_s(:nicetime)
                     to
                     =h request.end_time.to_s(:nicetime)
                     on
-                    =h request.from_date.to_s(:short)
+                    =h "#{Date::DAYNAMES[request.from_date.wday]}, #{Date::MONTHNAMES[request.from_date.mon]} #{request.from_date.mday}"
                     -if request.from_date != request.to_date
                       to
-                      =h request.to_date.to_s(:short)
-                  .cost
-                    Cost:
-                    =h request.cost
-                    credits
+                      =h "#{Date::DAYNAMES[request.to_date.wday]}, #{Date::MONTHNAMES[request.to_date.mon]} #{request.to_date.mday}"
+                
                   .children
                     Children:
-                    -@count = 0
                     -for child in request.children
-                      =h "#{child}"
-                      -@count += 1
-                      -if @count != request.children.length
-                        ,
-                  - unless request.notes.nil?
+                      -if request.children.count == 1
+                        =h "#{child.first_name}"
+                      -else
+                        =h "#{child.first_name}, "              
+                  - unless request.notes.eql? ""
                     .notes
-                      Additional notes:
+                      Notes:
                       =h request.notes
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
@@ -171,37 +165,31 @@
       #requests
         - for confirmed in @confirmed_requests
           .request
-            
-            .left
-              %h2#name=confirmed.request.household
-              %h2#household Household
+
             .right
               .title
-                =h confirmed.request.title
+                =h "#{confirmed.request.title} (#{confirmed.request.cost.to_i} credits)"
               .date
                 =h confirmed.request.start_time.to_s(:nicetime)
                 to
                 =h confirmed.request.end_time.to_s(:nicetime)
                 on
-                =h confirmed.request.from_date.to_s(:short)
+                =h "#{Date::DAYNAMES[confirmed.request.from_date.wday]}, #{Date::MONTHNAMES[confirmed.request.from_date.mon]} #{confirmed.request.from_date.mday}"
                 - if confirmed.request.from_date != confirmed.request.to_date
                   to
-                  =h confirmed.request.to_date.to_s(:short)
-                .cost
-                  Cost:
-                  =h confirmed.request.cost
-                  credits
+                  =h "#{Date::DAYNAMES[confirmed.request.to_date.wday]}, #{Date::MONTHNAMES[confirmed.request.to_date.mon]} #{confirmed.request.to_date.mday}"
+                
                 .children
                   Children:
                   -@count = 0
                   -for child in confirmed.request.children
-                    =h "#{child}"
-                    -@count += 1
-                    -if @count != confirmed.request.children.length
-                      ,
-                - unless confirmed.request.notes.nil?
+                    -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
+                      =h "#{child.first_name}"
+                    -else
+                      =h "#{child.first_name}, "
+                - unless confirmed.request.notes.eql? ""
                   .notes
-                    Additional notes:
+                    Notes:
                     = confirmed.request.notes
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
@@ -220,33 +208,31 @@
             .img 
               =image_tag(commitment.request.household.photo.url(:thumb), :alt => "#{commitment.household.to_s}")
             .left
-              %h2#name=commitment.request.household
-              %h2#household Household
+              %h2#name="#{commitment.request.household}'s"
+        
             .right
+              .title
+                =h "#{commitment.request.title} (#{commitment.request.cost} credits)"
               .date
                 =h commitment.request.start_time.to_s(:nicetime)
                 to
                 =h commitment.request.end_time.to_s(:nicetime)
                 on
-                =h commitment.request.from_date.to_s(:short)
+                %br
+                =h "#{Date::DAYNAMES[commitment.request.from_date.wday]}, #{Date::MONTHNAMES[commitment.request.from_date.mon]} #{commitment.request.from_date.mday}"
                 - if commitment.request.from_date != commitment.request.to_date
                   to
-                  =h commitment.request.to_date.to_s(:short)
-                .cost
-                  Cost:
-                  =h commitment.request.cost
-                  credits
+                  =h "#{Date::DAYNAMES[confirmed.request.to_date.wday]}, #{Date::MONTHNAMES[confirmed.request.to_date.mon]} #{confirmed.request.to_date.mday}"
                 .children
                   Children
-                  -@count = 0
                   -for child in commitment.request.children
-                    =h "#{child}"
-                    -@count += 1
-                    -if @count != commitment.request.children.length
-                      ,
-                - unless commitment.request.notes.nil?
+                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child.first_name}"
+                    -else
+                      =h "#{child.first_name}, "
+                - unless commitment.request.notes.eql? ""
                   .notes
-                    Additional notes:
+                    Notes:
                     = commitment.request.notes
             .tools
               %span= link_to "Show Details", detail_members_request_path(commitment.request)

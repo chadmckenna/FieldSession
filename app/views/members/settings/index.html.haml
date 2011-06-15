@@ -49,7 +49,7 @@
     %font#edit-user= link_to '(edit)', '#'
     %br
     %br
-    - form_for [:members, @user] do |f|
+    - form_for edit_members_user_path(current_user) do |f|
       #username
         %font.small-title= f.label "Username:"
         %font.text= @user.username
@@ -103,4 +103,3 @@
           Name:
           %font= user.first_name + " " + user.last_name
           %br
-    
