@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
 
   def neighbor_confirmation_email(neighbor, user)
     #@users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
-    @neighbor_household = Household.find(neighbor.neighbor_id)
+    @neighbor_household = Household.find(neighbor.household_id)
     #for user in @users
     subject     "You've been Confirmed as a neighbor"
     from        "Village <do-no-reply@fieldsession.heroku.com>"
