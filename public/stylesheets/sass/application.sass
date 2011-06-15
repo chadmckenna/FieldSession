@@ -71,12 +71,13 @@ a
     float: left
     width: 20%
     padding: 0 !important
-    margin: .4em
-    margin-bottom: -.2em
+    margin: .4em 0 -.1em .4em
+    line-height: 1em
     font-size: 4em
   h2
     padding: 0 !important
-    margin: 0 0 .2em 3.5em
+    width: 20%
+    margin: 0 0 .4em 3.5em
     font-size: 1.2em
     font-weight: normal
     font-style: oblique
@@ -183,14 +184,6 @@ a
   -o-transition: all 1s ease-in-out
   -ms-transition: all 1s ease-in-out
   transition: all 1s ease-in-out
-  &:hover
-    box-shadow: none
-    padding-top: 10px
-    padding-bottom: 30px
-    margin-top: 10px
-    color: black
-    a
-      color: #555
   ul
     margin: 10px auto
     list-style-type: none
@@ -204,8 +197,15 @@ a
         content: " | "
       a
         color: #aaa
-        &:hover
-          text-decoration: underline
+  &:hover
+    box-shadow: none
+    padding-top: 10px
+    padding-bottom: 30px
+    margin-top: 10px
+    color: black
+    a
+      color: #555
+      text-decoration: underline
   span
     float: right
     margin-right: 1em
@@ -290,6 +290,8 @@ a
     color: #375D38
   #content
     padding: 20px 40px
+    #title
+      text-align: center
     #left-column
       width: 20%
       float: left
@@ -298,7 +300,6 @@ a
       #photo
         padding: inherit
         width: 100%
-        border: 1px solid
         margin: 10px auto 0px auto
         a
           padding: 0 !important
@@ -801,17 +802,25 @@ input[type="text"], input[type="password"], textarea
   width: 48%
   input[type="submit"]
     display: none
-  font
+  font.small-title
     font-weight: bold
+  font.edit
+    font-weight: normal
   a
     background: none !important
     border: none !important
     &:hover
       text-decoration: underline
-  .title
+  strong
     text-align: center
+    font-size: 1.5em
+  div
+    margin-bottom: 5px
+
+  
   #delete-account
     text-align: right
+    margin-bottom: 20px
     a
       border: 1px solid #aaa !important
       background: $lightGrey !important
