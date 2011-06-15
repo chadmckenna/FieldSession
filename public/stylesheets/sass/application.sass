@@ -482,11 +482,11 @@ label
 .request, .neighbor
   border-bottom: 3px double $lightGrey
   margin-bottom: 1em
-  padding: .5em 0 1.5em 0
+  padding: .5em .5em 1.5em .5em
   width: 100%
   img
     max-width: 8%
-    margin: .5em .5em .5em 0
+    margin: 0 .5em .5em 0
     float: left
   #red
     color: #900
@@ -774,8 +774,10 @@ input[type="text"], input[type="password"], textarea
   width: 50%
   float: left
   .hidden-title
-    font-size: 1.1em
     margin: 20px 0px 20px 20px
+    font-size: 1.4em
+    font-style: italic
+    color: #AAA
   .title
     text-align: center
   .hidden-household
@@ -816,6 +818,15 @@ input[type="text"], input[type="password"], textarea
     font-size: 1.5em
   div
     margin-bottom: 5px
+  font#subtitle
+    font-size: .7em
+  #change-password
+    display: none
+    margin-bottom: 10px
+  #new-password
+    display: none
+  #password-confirmation
+    display: none
 
   
   #delete-account

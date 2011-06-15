@@ -22,7 +22,7 @@
           \-
           = hidden_request.request.to_date.to_s(:short)
       .button
-        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete
       .clear
 
   - if @hidden_household_requests.count > 0
@@ -35,7 +35,7 @@
       .household
         = find_hidden_household(hidden_household_request)
       .button
-        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete
       .clear
 
 #user-household-info
@@ -46,7 +46,7 @@
       = link_to 'Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account'
   #user
     %strong Your User Information 
-    %font.edit= link_to '(edit)', '#'
+    %font#edit-user= link_to '(edit)', '#'
     %br
     %br
     - form_for [:members, @user] do |f|
@@ -69,21 +69,29 @@
         %font.small-title= f.label "Work Phone:"
         %font.text= number_to_phone(@user.work_phone, :area_code => true)
       #change-password
+        = link_to 'Change My Password', '#'
+      #new-password
+        %font.small-title= f.label "New Password:"
+        = f.password_field :password
+      #password-confirmation
+        %font.small-title= f.label "Password Confirmation"
+        = f.password_field :password_confirmation
       #user-submit
         = f.submit
   #household
-    %strong Your Household info
-    %font.edit= link_to '(edit)', '#'
+    %strong= "#{@user.household} Household Information"
+    %font#edit-household= link_to '(edit)', '#'
     %br
     %br
     - form_for [:members, @user.household] do |f|
       #household-name
-        Household Name:
-        %font= link_to @user.household, '#'
+        %font.small-title= f.label "Household Name:"
+        %font.text= link_to @user.household, '#'
       #home-phone
-        Household Phone:
-        %font= link_to number_to_phone(@user.household.home_phone, :area_code => true), '#'
-      = f.submit
+        %font.small-title= f.label "Household Phone:"
+        %font.text= link_to number_to_phone(@user.household.home_phone, :area_code => true), '#'
+      #household-submit
+        = f.submit
     
     #users
       Users: 

@@ -12,6 +12,7 @@ module RequestsHelper
   
   def commit(request)
     @same = false
+    puts @confirmed_requests.count
     for confirmed_request in @confirmed_requests
       if confirmed_request.request_id == request.id
         @same = true
