@@ -71,10 +71,10 @@
         -unless @household.users.eql? nil
           .child
             .name=h "#{phone_number.first_name}:"
-            =h "Cell: #{phone_number.phone}"
+            =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
             - unless phone_number.work_phone.eql? nil
               %br
-              =h "Work: #{phone_number.work_phone}"
+              =h "Work: #{number_to_phone(phone_number.work_phone, :area_code => true)}"
               %br
         -else
           No known phone numbers
@@ -91,9 +91,10 @@
 #right-column
   #top
     #household-info
-      %h1= "The #{@household} Household"
+      %strong= "The #{@household} Household "
+      %font= "(#{link_to 'edit', members_settings_path})"
       %br
-      
+      %br
       // open requests should look like they deduct immediately
       - open_requests_sum = 0
       -for request in @household.requests
@@ -104,7 +105,6 @@
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
-      = link_to 'Edit my Household', members_profile_edit_path
       = link_to '+ Create a New Request', new_members_request_path
   #content
     - openRequests = false
@@ -144,18 +144,19 @@
                     credits
                   .children
                     Children:
+                    -@count = 0
                     -for child in request.children
-                      -if request.children.count == 1
-                        =h "#{child}"
-                      -else
-                        =h "#{child}, "              
+                      =h "#{child}"
+                      -@count += 1
+                      -if @count != request.children.length
+                        ,
                   - unless request.notes.nil?
                     .notes
                       Additional notes:
                       =h request.notes
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
-                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete
                 .clear
     - else
       #no-requests
@@ -192,11 +193,12 @@
                   credits
                 .children
                   Children:
+                  -@count = 0
                   -for child in confirmed.request.children
-                    -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
-                      =h "#{child}"
-                    -else
-                      =h "#{child}, "
+                    =h "#{child}"
+                    -@count += 1
+                    -if @count != confirmed.request.children.length
+                      ,
                 - unless confirmed.request.notes.nil?
                   .notes
                     Additional notes:
@@ -236,11 +238,12 @@
                   credits
                 .children
                   Children
+                  -@count = 0
                   -for child in commitment.request.children
-                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
-                      =h "#{child}"
-                    -else
-                      =h "#{child}, "
+                    =h "#{child}"
+                    -@count += 1
+                    -if @count != commitment.request.children.length
+                      ,
                 - unless commitment.request.notes.nil?
                   .notes
                     Additional notes:

@@ -265,6 +265,9 @@ a {
     color: #333333;
     padding: 0.5em;
     border: 1px solid #ffdd00; }
+    #container #profile_notice strong {
+      font-size: 1.3em;
+      font-style: oblique; }
     #container #profile_notice h3 {
       margin: 0.2em 0;
       font-style: oblique; }
@@ -327,8 +330,12 @@ a {
         #container #content #right-column #top #household-info {
           width: 70%;
           float: left; }
-          #container #content #right-column #top #household-info h1 {
-            margin: 0px; }
+          #container #content #right-column #top #household-info strong {
+            margin: 0px;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info a {
+            background: none !important;
+            border: none !important; }
         #container #content #right-column #top #buttons {
           text-align: right;
           float: right;
