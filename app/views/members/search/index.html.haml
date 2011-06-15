@@ -1,6 +1,6 @@
 -title "Find Neighbors "
 -if !current_user.has_household?
-  %h3 Please find the Household you would like to join.  Please note, each account can only be associated with one household
+  %h3 Please find the Household you would like to join.  Please note, you can only be associated with one household
 -if current_user.has_household? or !params[:search].blank?
   - unless params[:search].blank?
     - content_for :title do
@@ -26,11 +26,11 @@
             .image= image_tag household.photo.url(:thumb)
             .info
               .name= link_to household, members_household_path(household)
+              .attributes
+                %span.small-title Household Phone:
+                = number_to_phone(household.home_phone, :area_code => true)
               -for user in household.users
                 .attributes
-                  %span.small-title Phone:
-                  = number_to_phone(user.phone, :area_code => true)
-                  %br
                   %span.small-title Email:
                   = user.email
                   %br
@@ -38,7 +38,7 @@
                   = household.address.city
                   %br
                   %span.small-title State:
-                  //= household.address.state
+                  = household.address.state
                   
             .button
               - if !current_user.has_household?
