@@ -14,6 +14,7 @@ class Household < ActiveRecord::Base
   has_many :neighbors, :foreign_key => 'neighbor_id', :class_name => 'Neighbor', :dependent => :destroy
   has_many :households, :through => :neighbors
   has_many :emergency_contacts
+  
   has_attached_file :photo, 
                     :styles => {
                       :thumb => "200x200>",
@@ -25,9 +26,11 @@ class Household < ActiveRecord::Base
                     :default_url => "/images/default_household_:style.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+                    
   validates_format_of :home_phone,
       :message => "must be 10 digits long and only contain numbers.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
+      
   validates_associated :address
   validates_attachment_presence :photo
   #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']

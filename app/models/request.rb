@@ -23,6 +23,14 @@ class Request < ActiveRecord::Base
   before_save :validate_credits
   #before_create :check_time
 
+  def send_confirmed_request_change_email
+    pending_request = PendingRequest.find(:first, :conditions => {:request_id => self.id, :confirmed => "true"})
+    unless pending_request.eql? nil
+      user = User.find_by_id(pending_request.caregiver_requestor_id)
+      UserMailer.deliver_confirmed_request_change_email(self, pending_request, user)
+    end
+  end
+
   def calculate_cost
     number_children = 0
     for child in self.children
