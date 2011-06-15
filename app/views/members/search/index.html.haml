@@ -10,7 +10,8 @@
     
     - unless @households.count + @users.count == 0
       #profile_notice
-        %h3 (!) Caution: 
+        = image_tag ('/images/warning-icon.png')
+        %strong Caution: 
         Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
     
     -if @households.count == 0 and @users.count == 0

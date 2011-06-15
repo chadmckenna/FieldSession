@@ -7,7 +7,7 @@ body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   margin: 0 !important;
-  background: #cccccc; }
+  background: #dddddd; }
 
 a {
   color: #c4d7a4;
@@ -64,13 +64,16 @@ a {
     width: 20%;
     padding: 0 !important;
     margin: 0.4em;
-    margin-bottom: 0;
+    margin-bottom: -0.2em;
     font-size: 4em; }
   #masthead h2 {
     padding: 0 !important;
-    margin: 0 2em;
+    margin: 0 0 0.2em 3.5em;
     font-size: 1.2em;
-    font-weight: normal; }
+    font-weight: normal;
+    font-style: oblique;
+    font-family: Arial;
+    color: #c4d7a4; }
   #masthead #login {
     float: right;
     margin: 10px 10px 0px 0px; }
@@ -152,14 +155,31 @@ a {
 #push {
   height: 70px; }
 
+#footer_container {
+  clear: both; }
+
 #footer {
   width: 100%;
   clear: both;
-  background: #cccccc;
+  color: #aaaaaa;
+  background: #dddddd;
   padding: 10px 0 20px;
   margin-top: 20px;
   height: 20px;
-  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.2); }
+  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; }
+  #footer:hover {
+    box-shadow: none;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    color: black; }
+    #footer:hover a {
+      color: #555555; }
   #footer ul {
     margin: 10px auto;
     list-style-type: none; }
@@ -171,7 +191,7 @@ a {
       #footer ul li:after {
         content: " | "; }
       #footer ul li a {
-        color: #555555; }
+        color: #aaaaaa; }
         #footer ul li a:hover {
           text-decoration: underline; }
   #footer span {
@@ -194,7 +214,7 @@ a {
         text-decoration: underline; }
 
 /* Splash Screen
- */ */
+ */
 #container {
   min-height: 80%; }
   #container #video {
@@ -245,6 +265,9 @@ a {
     color: #333333;
     padding: 0.5em;
     border: 1px solid #ffdd00; }
+    #container #profile_notice strong {
+      font-size: 1.3em;
+      font-style: oblique; }
     #container #profile_notice h3 {
       margin: 0.2em 0;
       font-style: oblique; }
@@ -307,8 +330,12 @@ a {
         #container #content #right-column #top #household-info {
           width: 70%;
           float: left; }
-          #container #content #right-column #top #household-info h1 {
-            margin: 0px; }
+          #container #content #right-column #top #household-info strong {
+            margin: 0px;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info a {
+            background: none !important;
+            border: none !important; }
         #container #content #right-column #top #buttons {
           text-align: right;
           float: right;
@@ -425,7 +452,7 @@ label {
       list-style: disc; }
 
 /* Requests styles
- */ */
+ */
 #request-container {
   width: 70%;
   padding: 0.5em;
