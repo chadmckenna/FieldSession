@@ -103,3 +103,21 @@
           Name:
           %font= user.first_name + " " + user.last_name
           %br
+
+      Children:
+      %br
+      - for child in @household.children
+        - form_for edit_members_child_path(child) do |f|
+          .indent
+            #first-name
+              %font.small-title= f.label "First Name:"
+              %font.text= child.first_name
+            #last-name
+              %font.small-title= f.label "Last Name:"
+              %font.text= child.last_name
+            
+            #user-submit
+              = f.submit
+           
+           
+            
