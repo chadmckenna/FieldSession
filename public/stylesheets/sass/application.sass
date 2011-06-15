@@ -7,11 +7,15 @@ $mastheadBG: #464F3F
 $lightGrey: #eee
 $darkGrey: #ccc
 
+html, body
+  height: 91%
+
 body
   background-color: #fff
   font-family: Verdana, Helvetica, Arial
   font-size: 14px
   margin: 0 !important
+  background: #ddd
 
 a
   color: $linkColor
@@ -25,6 +29,12 @@ a
   clear: both
   height: 0
   overflow: hidden
+
+#wrapper
+  min-height: 100%
+  height: auto !important
+  margin: 0 auto -70px
+  background: white
 
 #masthead
   font-family: 'Rokkitt', serif
@@ -61,14 +71,18 @@ a
     float: left
     width: 20%
     padding: 0 !important
-    margin: .4em
-    margin-bottom: 0
+    margin: .4em 0 -.1em .4em
+    line-height: 1em
     font-size: 4em
   h2
     padding: 0 !important
-    margin: 0 2em
+    width: 20%
+    margin: 0 0 .4em 3.5em
     font-size: 1.2em
     font-weight: normal
+    font-style: oblique
+    font-family: Arial
+    color: $linkColor
   #login
     float: right
     margin: 10px 10px 0px 0px
@@ -151,14 +165,25 @@ a
   #clear
     clear: both
 
+#push
+  height: 70px
+
+#footer_container
+  clear: both
 #footer
   width: 100%
   clear: both
-  background: #ccc
-  padding: 2em 1.5em 3em 1.5em
-  -moz-box-shadow: inset 0 0 10px #888
-  -webkit-box-shadow: inset 0 0 5px #888
-  box-shadow: inset 0 0 10px #888
+  color: #aaa
+  background: #ddd
+  padding: 10px 0 20px
+  margin-top: 20px
+  height: 20px
+  box-shadow: inset 0 5px 5px rgba(0,0,0,.2)
+  -webkit-transition: all 1s ease-in-out
+  -moz-transition: all 1s ease-in-out
+  -o-transition: all 1s ease-in-out
+  -ms-transition: all 1s ease-in-out
+  transition: all 1s ease-in-out
   ul
     margin: 10px auto
     list-style-type: none
@@ -171,9 +196,19 @@ a
       &:after
         content: " | "
       a
-        color: #555
-        &:hover
-          text-decoration: underline
+        color: #aaa
+  &:hover
+    box-shadow: none
+    padding-top: 10px
+    padding-bottom: 30px
+    margin-top: 10px
+    color: black
+    a
+      color: #555
+      text-decoration: underline
+  span
+    float: right
+    margin-right: 1em
 
 #top
   width: 100%
@@ -238,6 +273,9 @@ a
   background: white
   position: relative
   #profile_notice
+    strong
+      font-size: 1.3em
+      font-style: oblique
     h3
       margin: .2em 0
       font-style: oblique
@@ -252,6 +290,8 @@ a
     color: #375D38
   #content
     padding: 20px 40px
+    #title
+      text-align: center
     #left-column
       width: 20%
       float: left
@@ -260,7 +300,6 @@ a
       #photo
         padding: inherit
         width: 100%
-        border: 1px solid
         margin: 10px auto 0px auto
         a
           padding: 0 !important
@@ -306,8 +345,12 @@ a
         #household-info
           width: 70%
           float: left
-          h1
+          strong
             margin: 0px
+            font-size: 2em
+          a
+            background: none !important
+            border: none !important
         #buttons
           text-align: right
           float: right
@@ -762,17 +805,25 @@ input[type="text"], input[type="password"], textarea
   width: 48%
   input[type="submit"]
     display: none
-  font
+  font.small-title
     font-weight: bold
+  font.edit
+    font-weight: normal
   a
     background: none !important
     border: none !important
     &:hover
       text-decoration: underline
-  .title
+  strong
     text-align: center
+    font-size: 1.5em
+  div
+    margin-bottom: 5px
+
+  
   #delete-account
     text-align: right
+    margin-bottom: 20px
     a
       border: 1px solid #aaa !important
       background: $lightGrey !important

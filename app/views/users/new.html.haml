@@ -5,7 +5,7 @@
 
 #profile_notice
   %h3 Step 1 of 5
-  Caregivers manage households. Create a user profile in order to become a caregiver.
+  Thanks for signing up!  First we'll have you create a caregiver profile, with which you can manage your household.  You'll have the option to create a household or join one in the next step.
 
 %p= "Already have an account? #{link_to 'Log in', login_path}."
 
@@ -24,7 +24,7 @@
     %br
     = f.text_field :last_name
   %p
-    = f.label :cell_phone_number
+    = f.label :cell_phone_number, "Cell (or primary) phone number"
     %br
     = f.text_field :phone
   %p

@@ -71,7 +71,7 @@
         -unless @household.users.eql? nil
           .child
             .name=h "#{phone_number.first_name}:"
-            =h "Cell: #{phone_number.phone}"
+            =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
             - unless phone_number.work_phone.eql? nil
               %br
               - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
@@ -92,9 +92,10 @@
 #right-column
   #top
     #household-info
-      %h1= "The #{@household} Household"
+      %strong= "The #{@household} Household "
+      %font= "(#{link_to 'edit', members_settings_path})"
       %br
-      
+      %br
       // open requests should look like they deduct immediately
       - open_requests_sum = 0
       -for request in @household.requests
@@ -149,7 +150,7 @@
                       =h request.notes
                 .tools
                   %span= link_to "Edit", edit_members_request_path(request)
-                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure?', :method => :delete
+                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete
                 .clear
     - else
       #no-requests
@@ -180,6 +181,7 @@
                 
                 .children
                   Children:
+                  -@count = 0
                   -for child in confirmed.request.children
                     -if confirmed.request.children.count == 1 or child.eql? confirmed.request.children.last
                       =h "#{child.first_name}"

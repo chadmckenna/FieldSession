@@ -11,6 +11,8 @@
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
+  = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+  = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
   - for request in @requests
     -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
       - @num_requests += 1

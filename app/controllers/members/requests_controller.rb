@@ -2,7 +2,17 @@ class Members::RequestsController < Members::MembersController
   filter_access_to :all
   before_filter :load_my_requests
   def index
-    @requests = Request.find(:all, :order => 'from_date')
+    @date_direction = params[:date_sort] == 'asc' ? 'desc' : 'asc'
+    @house_direction = params[:house_sort] == 'asc' ? 'desc' : 'asc'
+    if params[:sort]
+      if params[:sort].eql? "name"
+        @requests = Request.find(:all, :include => :household, :order => "households.#{params[:sort]} #{@house_direction}")
+      else
+        @requests = Request.find(:all, :order => params[:sort] + " #{@date_direction}")
+      end
+    else
+      @requests = Request.find(:all, :order => 'from_date')
+    end
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
     @pending_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :pending => "true"})
     @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
@@ -64,6 +74,7 @@ class Members::RequestsController < Members::MembersController
       redirect_to members_request_path(@request)
     elsif @request.update_attributes(params[:request])
       flash[:success] = "Successfully updated request."
+      @request.send_confirmed_request_change_email
       redirect_to members_request_path(@request)
     else
       render :action => 'edit'

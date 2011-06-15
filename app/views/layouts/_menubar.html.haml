@@ -20,5 +20,5 @@
     - if current_user
       #search
         - form_tag members_search_path, :method => 'get' do
-          = text_field_tag :search, params[:search], default_text("search for neighbors...")
+          = text_field_tag :search, params[:search], default_text("Find neighbors...")
           = submit_tag "Search", :name => nil
