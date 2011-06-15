@@ -4,9 +4,12 @@ class User < ActiveRecord::Base
   validates_format_of :phone,
       :message => "must be 10 digits long and only contain numbers.",
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
-  validates_format_of :work_phone,
+  unless :work_phone.nil?
+    validates_format_of :work_phone,
       :message => "must be 10 digits long and only contain numbers.",
-      :with => /^[\(\)0-9\- \+\.]{10,20}$/
+      :with => /^[\(\)0-9\- \+\.]{10,20}$/,
+      :allow_nil => true
+  end
   validates_presence_of :role, :message => "cannot be blank."
   validates_confirmation_of :password
   validates_presence_of :username
@@ -21,9 +24,10 @@ class User < ActiveRecord::Base
 
   before_create :assign_default_role, :remove_non_digits_in_phone
   before_save :capitalize_names
-  
+
   before_validation_on_create :assign_default_role
-  
+  before_validation :clear_empty_attrs
+
   def send_welcome_email
     UserMailer.deliver_welcome_email(self)
   end
@@ -38,38 +42,38 @@ class User < ActiveRecord::Base
       UserMailer.deliver_household_join_request_email(self, household_user)
     end
   end
-  
+
   def is?(role_symbol)
     role_symbols.include? role_symbol
   end
-  
+
   def is_admin?
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
   end
-  
+
   def has_household?
     return false if self.household_confirmed.eql? false
     return false if self.household_id.eql?(nil)
     return true
   end
-  
+
   def is_member?
     role_symbols.include?(:member)
   end
-  
+
   def is_neighbor?(neighbor_id)
     return true if Neighbor.find(:all, :conditions => {:household_id => self.household_id, :neighbor_id => neighbor_id, :household_confirmed => true, :neighbor_confirmed => true}).count > 0
     return false
   end
-  
+
   def role_symbols
     [role.name.downcase.to_sym]
   end
-  
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
-  
+
   def to_s
     self.full_name
   end
@@ -80,7 +84,7 @@ class User < ActiveRecord::Base
       if /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i.match(search)
         find(:all, :conditions => ['email LIKE ?', "%#{search}%"])
       else#if /^[01]?[- .]?\(?[2-9]\d{2}\)?[- .]?\d{3}[- .]?\d{4}$/.match(search)
-        find(:all, :conditions => ['phone LIKE ?', "%#{search}%"])  
+        find(:all, :conditions => ['phone LIKE ?', "%#{search}%"])
       end
     else
       return false
@@ -96,9 +100,9 @@ class User < ActiveRecord::Base
 #      return false
 #    end
 #  end
-    
+
   protected
-  
+
     def capitalize_names
       self.first_name = self.first_name.slice(0,1).capitalize + self.first_name.slice(1..-1)
       self.last_name = self.last_name.slice(0,1).capitalize + self.last_name.slice(1..-1)
@@ -107,9 +111,16 @@ class User < ActiveRecord::Base
     def assign_default_role
       self.role = Role.find_by_name('member') if role.nil?
     end
-    
+
     def remove_non_digits_in_phone
       self.phone = self.phone.gsub(/\D/, "")
     end
-    
+
+    def clear_empty_attrs
+      @attributes.each do |key,value|
+        self[key] = nil if value.blank?
+      end
+    end
+
 end
+
