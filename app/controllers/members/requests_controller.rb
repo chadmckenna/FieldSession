@@ -18,7 +18,15 @@ class Members::RequestsController < Members::MembersController
     for request in requests
       end_time = Time.local(request.to_date.year, request.to_date.month, request.to_date.day, request.end_time.hour, request.end_time.min)
       if (end_time > Time.now)
-        @requests << request
+        @requests << request    
+      elsif (end_time < Time.now)
+        pending_requests = PendingRequest.find(:all, :conditions => {:request_id => request.id, :caregiver_requestor_id => current_user.id, :pending => "true"})
+        for pending_request in pending_requests
+          pending_request.destroy
+        end
+        if PendingRequest.find(:all, :conditions => {:request_id => request.id, :confirmed => "true"}).count.eql? 0
+          request.destroy
+        end
       end
     end
 
