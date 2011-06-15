@@ -22,20 +22,23 @@
         -else
           You have no children.
       %p
-    %div.title Address
+    -@address = @household.address
+    -address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
+    %div.title 
+      Address
+      %span#small_link= link_to "(Map)", address_link
     %div
-      -@address = @household.address
-      -address_link = "http://maps.google.com?q=#{@address.street1}+#{@address.street2}+#{@address.city}+#{@address.state}+#{@address.zip}"
-      - unless @household.address.nil?
-        %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
-          = @address.street1
-          = @address.street2
-          %br
-          = "#{@address.city}, "
-          = @address.state
-          = @address.zip
-      - else
-        There is no address
+      -#"#{@household.address}"
+      -#- unless @household.address.nil?
+      -#  %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
+      = @address.street1
+      = @address.street2
+      %br
+      = "#{@address.city}, "
+      = @address.state
+      = @address.zip
+      -#- else
+      -#  There is no address
       %p
     %div.title Phone
     %div
