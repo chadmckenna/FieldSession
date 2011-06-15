@@ -523,9 +523,9 @@ label {
       .request .name a:hover, .neighbor .name a:hover {
         text-decoration: underline; }
   .request .household, .neighbor .household {
-    height: 30px;
+    both: clear;
     padding: 0.5em;
-    width: 40%;
+    width: 98%;
     float: left; }
     .request .household .name, .neighbor .household .name {
       float: left; }
