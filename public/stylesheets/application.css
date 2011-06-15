@@ -234,6 +234,10 @@ a {
     color: #884411 !important; }
   #container #video {
     margin: 20px auto 0px auto;
+    width: 600px;
+    text-align: center;
+    border: 1px solid;
+    height: 400px;
     width: 600px; }
   #container #learn_more {
     width: 600px;
