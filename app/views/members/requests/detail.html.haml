@@ -9,7 +9,7 @@
       %h2.household Household
   .right
     .title
-      =h @request.title
+      =h "#{@request.title} (#{@request.cost.to_i} credits)"
     .date
       =h @request.start_time.to_s(:nicetime)
       to
@@ -18,10 +18,7 @@
       =h @request.from_date.to_s(:short)
       -if @request.from_date != @request.to_date
         =h @request.to_date.to_s(:short)
-    .cost
-      Cost:
-      =h pluralize(@request.cost.to_i, "credit")
-    %h2 Children:
+    %h3 Children:
     .children{:style => "margin: 0 0 0 20px"}
       - for child in @children
         %h3= "#{child.first_name} #{child.last_name}"
@@ -46,6 +43,6 @@
             .value=h child.notes
           .clear
   .tools
-    %span= link_to "Back to Requests", members_requests_path
-    %span= link_to "Back to Household", members_profile_path
+    -#%span= link_to "Back to Requests", members_requests_path
+    -#%span= link_to "Back to Household", members_profile_path
   .clear
