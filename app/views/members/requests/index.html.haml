@@ -7,7 +7,7 @@
     %p= link_to "+ Create New Care Request", new_members_request_path
     %p= link_to "Hidden Requests", members_settings_path
   #your-requests
-    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} care request volunteer(s)", members_my_volunteers_path
+    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} for your care requests", members_my_volunteers_path
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
