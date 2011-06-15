@@ -14,7 +14,7 @@
     = yield(:head)
 
   %body{:class => controller.action_name, :id => controller.controller_name}
-    #full_wrapper
+    #wrapper
       #masthead
         -#%h1= link_to image_tag('/images/villages_logo.png.bak'), root_path, :title => 'Home', :alt => 'Home'
         - if current_user
@@ -39,6 +39,7 @@
                 %p= msg
           = yield
       .clear
-      #footer_container
-        = footer
+      #push
+    #footer_container
+      = footer
 
