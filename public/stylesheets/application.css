@@ -740,8 +740,10 @@ input[type="text"], input[type="password"], textarea {
   width: 50%;
   float: left; }
   #hidden-requests-container .hidden-title {
-    font-size: 1.1em;
-    margin: 20px 0px 20px 20px; }
+    margin: 20px 0px 20px 20px;
+    font-size: 1.4em;
+    font-style: italic;
+    color: #aaaaaa; }
   #hidden-requests-container .title {
     text-align: center; }
   #hidden-requests-container .hidden-household {
@@ -782,6 +784,15 @@ input[type="text"], input[type="password"], textarea {
     font-size: 1.5em; }
   #user-household-info div {
     margin-bottom: 5px; }
+  #user-household-info font#subtitle {
+    font-size: 0.7em; }
+  #user-household-info #change-password {
+    display: none;
+    margin-bottom: 10px; }
+  #user-household-info #new-password {
+    display: none; }
+  #user-household-info #password-confirmation {
+    display: none; }
   #user-household-info #delete-account {
     text-align: right;
     margin-bottom: 20px; }

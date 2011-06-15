@@ -45,9 +45,10 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("font.edit a").click(function(e) {
+	$("font#edit-user a").click(function(e) {
 		e.preventDefault();
 		$("#user-submit input").show();
+		$("#change-password").show();
 		$("#first-name font.text").replaceWith("<input type='text' name='user[first_name]' value='" + $("#first-name font.text").text() + "'/>");
 		$("#last-name font.text").replaceWith("<input type='text' name='user[last_name]' value='" + $("#last-name font.text").text() + "'/>");
 		$("#username font.text").replaceWith("<input type='text' name='user[username]' value='" + $("#username font.text").text() + "'/>");
@@ -56,17 +57,17 @@ $(document).ready(function() {
 		$("#work_phone font.text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone font.text").text() + "'/>");
 	});
 	
-	$("#change-password a").click(function(e) {
+	$("font#edit-household a").click(function(e) {
 		e.preventDefault();
-		$(this).replaceWith("<label>New Password</label>" + "<br/>" + 
-							"<input type='password' name='user[password]' />" + "<br/>" + "<br/>" + 
-							"<label>New Password Confirmation</label>" + "<br/>" +
-							"<input type='password' name='user[password_confirmation]' />")
+		$("#household-name font.text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name font.text").text() + "'/>");
+		$("#home-phone font.text").replaceWith("<input type='text' name='household[home_phone]' value='" + $("#home-phone font.text").text() + "'/>");
+		$("#household-submit input").show();
 	});
 	
-	$("#household-name a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='household[name]' value='" + $(this).text() + "'/>");
+	$("#change-password a").click(function(e) {
+		$("#new-password").show();
+		$("#password-confirmation").show();
+		$(this).hide();
 	});
 	
 	$("#change-photo a").click(function(e) {
