@@ -1,8 +1,8 @@
-- title "Create request"
+- title "Create New Care Request"
 %h2 Create request
 
 #profile_notice
   %h3 Remember...
-  The cost of this request will be deducted immediately from your credit balance.  If it expires then the credits will be reimbursed.
+  The cost of this request will be deducted immediately from your credit balance.  Credits will be reimbursed if the request is canceled or if you receive no volunteers when the request expires
 = render :partial => 'form'
 %p= link_to "Cancel", members_requests_path

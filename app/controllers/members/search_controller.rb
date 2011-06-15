@@ -9,11 +9,12 @@ class Members::SearchController < Members::MembersController
       @users.delete_if { |user| user.id.eql? current_user.id} unless @users.eql? nil
     else
       if !current_user.has_household?
-        #flash[:error] = "Please search for a household"
+        flash[:error] = "Please search for a household"
         unless params[:search].blank?
           @households = Household.search(params[:search])
           @users = User.search(params[:search])
         end
+      else
       end
     end
   end
