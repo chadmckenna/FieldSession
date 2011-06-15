@@ -201,20 +201,30 @@ a {
     float: right;
     margin-right: 1em; }
 
-#top {
-  width: 100%; }
-  #top #button {
-    float: left;
-    width: 40%; }
-  #top #your-requests {
-    float: right;
-    width: 40%;
-    text-align: right; }
-    #top #your-requests a {
-      background: none;
-      border: none; }
-      #top #your-requests a:hover {
-        text-decoration: underline; }
+#top #notifications {
+  padding: 3px;
+  opacity: 0.9; }
+  #top #notifications:hover {
+    opacity: 1; }
+#top #notifications_bold {
+  opacity: 0.9;
+  padding: 3px;
+  background-color: #ffeeaa;
+  border: solid thin #ffdd00; }
+  #top #notifications_bold:hover {
+    opacity: 1; }
+#top #button {
+  float: left;
+  width: 40%; }
+#top #your-requests {
+  float: right;
+  width: 40%;
+  text-align: right; }
+  #top #your-requests a {
+    background: none;
+    border: none; }
+    #top #your-requests a:hover {
+      text-decoration: underline; }
 
 /* Splash Screen
  */
@@ -469,12 +479,31 @@ label {
     color: #aaaaaa; }
 
 .request, .neighbor {
+  border-top: 1px solid white;
+  border-right: 1px solid white;
   border-bottom: 3px double #eeeeee;
+  border-left: 1px solid white;
   margin-bottom: 1em;
   padding: 0.5em 0.5em 1.5em 0.5em;
-  width: 100%; }
+  width: 100%;
+  opacity: 0.9;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out; }
   .request:hover, .neighbor:hover {
-    background-color: #eeeeee; }
+    background-color: white;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 3px double #cccccc;
+    border-left: 1px solid #cccccc;
+    opacity: 1;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
   .request img, .neighbor img {
     max-width: 8%;
     margin: 0 0.5em 0.5em 0;

@@ -216,7 +216,18 @@ a
     margin-right: 1em
 
 #top
-  width: 100%
+  #notifications
+    padding: 3px
+    opacity: .9
+    &:hover
+      opacity: 1
+  #notifications_bold
+    opacity: .9
+    padding: 3px
+    background-color: #fea
+    border: solid thin #fd0
+    &:hover
+      opacity: 1
   #button
     float: left
     width: 40%
@@ -487,12 +498,31 @@ label
     font-style: italic
     color: #AAA
 .request, .neighbor
+  border-top: 1px solid #fff
+  border-right: 1px solid #fff
   border-bottom: 3px double $lightGrey
+  border-left: 1px solid #fff
   margin-bottom: 1em
   padding: .5em .5em 1.5em .5em
   width: 100%
+  opacity: .9
+  -webkit-transition: all .5s ease-in-out
+  -moz-transition: all .5s ease-in-out
+  -o-transition: all .5s ease-in-out
+  -ms-transition: all .5s ease-in-out
+  transition: background-color .5s ease-in-out
   &:hover
-    background-color: #eee
+    background-color: #fff
+    border-top: 1px solid #ccc
+    border-right: 1px solid #ccc
+    border-bottom: 3px double #ccc
+    border-left: 1px solid #ccc
+    opacity: 1
+    -webkit-transition: all .5s ease-in-out
+    -moz-transition: all .5s ease-in-out
+    -o-transition: all .5s ease-in-out
+    -ms-transition: all .5s ease-in-out
+    transition: all .5s ease-in-out
   img
     max-width: 8%
     margin: 0 .5em .5em 0
