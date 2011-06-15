@@ -48,12 +48,12 @@ $(document).ready(function() {
 	$("font.edit a").click(function(e) {
 		e.preventDefault();
 		$("#user-submit input").show();
-		$("#first-name a").replaceWith("<input type='text' name='user[first_name]' value='" + $("#first-name a").text() + "'/>");
-		$("#last-name a").replaceWith("<input type='text' name='user[last_name]' value='" + $("#last-name a").text() + "'/>");
-		$("#username a").replaceWith("<input type='text' name='user[username]' value='" + $("#username a").text() + "'/>");
-		$("#email a").replaceWith("<input type='text' name='user[email]' value='" + $("#email a").text() + "'/>");
-		$("#phone a").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone a").text() + "'/>");
-		$("#work_phone a").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone a").text() + "'/>");
+		$("#first-name font.text").replaceWith("<input type='text' name='user[first_name]' value='" + $("#first-name font.text").text() + "'/>");
+		$("#last-name font.text").replaceWith("<input type='text' name='user[last_name]' value='" + $("#last-name font.text").text() + "'/>");
+		$("#username font.text").replaceWith("<input type='text' name='user[username]' value='" + $("#username font.text").text() + "'/>");
+		$("#email font.text").replaceWith("<input type='text' name='user[email]' value='" + $("#email font.text").text() + "'/>");
+		$("#phone font.text").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone font.text").text() + "'/>");
+		$("#work_phone font.text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone font.text").text() + "'/>");
 	});
 	
 	$("#change-password a").click(function(e) {

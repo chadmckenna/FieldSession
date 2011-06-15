@@ -214,7 +214,7 @@ a {
         text-decoration: underline; }
 
 /* Splash Screen
- */ */
+ */
 #container {
   min-height: 80%; }
   #container #video {
@@ -453,7 +453,7 @@ label {
       list-style: disc; }
 
 /* Requests styles
- */ */
+ */
 #request-container {
   width: 70%;
   padding: 0.5em;
@@ -768,7 +768,7 @@ input[type="text"], input[type="password"], textarea {
   width: 48%; }
   #user-household-info input[type="submit"] {
     display: none; }
-  #user-household-info font {
+  #user-household-info font.small-title {
     font-weight: bold; }
   #user-household-info font.edit {
     font-weight: normal; }
@@ -780,6 +780,8 @@ input[type="text"], input[type="password"], textarea {
   #user-household-info strong {
     text-align: center;
     font-size: 1.5em; }
+  #user-household-info div {
+    margin-bottom: 5px; }
   #user-household-info #delete-account {
     text-align: right;
     margin-bottom: 20px; }
