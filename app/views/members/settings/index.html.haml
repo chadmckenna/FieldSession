@@ -86,10 +86,10 @@
     - form_for [:members, @user.household] do |f|
       #household-name
         %font.small-title= f.label "Household Name:"
-        %font.text= link_to @user.household, '#'
+        %font.text= @user.household
       #home-phone
         %font.small-title= f.label "Household Phone:"
-        %font.text= link_to number_to_phone(@user.household.home_phone, :area_code => true), '#'
+        %font.text= number_to_phone(@user.household.home_phone, :area_code => true)
       #household-submit
         = f.submit
     
