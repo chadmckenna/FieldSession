@@ -214,6 +214,8 @@ a {
  */
 #container {
   min-height: 80%; }
+  #container a {
+    color: #884411 !important; }
   #container #video {
     margin: 20px auto 0px auto;
     width: 600px; }
