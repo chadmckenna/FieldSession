@@ -67,7 +67,7 @@ class Members::HouseholdsController < Members::MembersController
     @caregiver.household_id = params[:household_id]
     if @caregiver.save
       @caregiver.send_household_join_request_email(@household)
-      flash[:success] = "You've sent a request to be added to the household"
+      flash[:success] = "You've sent a request to join the #{@household.name} household. You will recieve an email if your request is accepted"
       redirect_to root_url
     else
       flash[:error] = "An error has occured in the request to join a household"

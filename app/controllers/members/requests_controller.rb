@@ -11,6 +11,18 @@ class Members::RequestsController < Members::MembersController
       end
     end
     
+    @date_direction = params[:date_sort] == 'asc' ? 'desc' : 'asc'
+    @house_direction = params[:house_sort] == 'asc' ? 'desc' : 'asc'
+    if params[:sort]
+      if params[:sort].eql? "name"
+        @requests = Request.find(:all, :include => :household, :order => "households.#{params[:sort]} #{@house_direction}")
+      else
+        @requests = Request.find(:all, :order => params[:sort] + " #{@date_direction}")
+      end
+    else
+      @requests = Request.find(:all, :order => 'from_date')
+    end
+
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
     
     @completed_requests = []

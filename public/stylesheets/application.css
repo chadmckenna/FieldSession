@@ -63,12 +63,13 @@ a {
     float: left;
     width: 20%;
     padding: 0 !important;
-    margin: 0.4em;
-    margin-bottom: -0.2em;
+    margin: 0.4em 0 -0.1em 0.4em;
+    line-height: 1em;
     font-size: 4em; }
   #masthead h2 {
     padding: 0 !important;
-    margin: 0 0 0.2em 3.5em;
+    width: 20%;
+    margin: 0 0 0.4em 3.5em;
     font-size: 1.2em;
     font-weight: normal;
     font-style: oblique;
@@ -172,14 +173,6 @@ a {
   -o-transition: all 1s ease-in-out;
   -ms-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out; }
-  #footer:hover {
-    box-shadow: none;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    margin-top: 10px;
-    color: black; }
-    #footer:hover a {
-      color: #555555; }
   #footer ul {
     margin: 10px auto;
     list-style-type: none; }
@@ -192,8 +185,15 @@ a {
         content: " | "; }
       #footer ul li a {
         color: #aaaaaa; }
-        #footer ul li a:hover {
-          text-decoration: underline; }
+  #footer:hover {
+    box-shadow: none;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    color: black; }
+    #footer:hover a {
+      color: #555555;
+      text-decoration: underline; }
   #footer span {
     float: right;
     margin-right: 1em; }
@@ -265,6 +265,9 @@ a {
     color: #333333;
     padding: 0.5em;
     border: 1px solid #ffdd00; }
+    #container #profile_notice strong {
+      font-size: 1.3em;
+      font-style: oblique; }
     #container #profile_notice h3 {
       margin: 0.2em 0;
       font-style: oblique; }
@@ -274,6 +277,8 @@ a {
     color: #375d38; }
   #container #content {
     padding: 20px 40px; }
+    #container #content #title {
+      text-align: center; }
     #container #content #left-column {
       width: 20%;
       float: left; }
@@ -282,7 +287,6 @@ a {
       #container #content #left-column #photo {
         padding: inherit;
         width: 100%;
-        border: 1px solid;
         margin: 10px auto 0px auto; }
         #container #content #left-column #photo a {
           padding: 0 !important;
@@ -327,8 +331,12 @@ a {
         #container #content #right-column #top #household-info {
           width: 70%;
           float: left; }
-          #container #content #right-column #top #household-info h1 {
-            margin: 0px; }
+          #container #content #right-column #top #household-info strong {
+            margin: 0px;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info a {
+            background: none !important;
+            border: none !important; }
         #container #content #right-column #top #buttons {
           text-align: right;
           float: right;
@@ -732,8 +740,10 @@ input[type="text"], input[type="password"], textarea {
   width: 50%;
   float: left; }
   #hidden-requests-container .hidden-title {
-    font-size: 1.1em;
-    margin: 20px 0px 20px 20px; }
+    margin: 20px 0px 20px 20px;
+    font-size: 1.4em;
+    font-style: italic;
+    color: #aaaaaa; }
   #hidden-requests-container .title {
     text-align: center; }
   #hidden-requests-container .hidden-household {
@@ -760,17 +770,32 @@ input[type="text"], input[type="password"], textarea {
   width: 48%; }
   #user-household-info input[type="submit"] {
     display: none; }
-  #user-household-info font {
+  #user-household-info font.small-title {
     font-weight: bold; }
+  #user-household-info font.edit {
+    font-weight: normal; }
   #user-household-info a {
     background: none !important;
     border: none !important; }
     #user-household-info a:hover {
       text-decoration: underline; }
-  #user-household-info .title {
-    text-align: center; }
+  #user-household-info strong {
+    text-align: center;
+    font-size: 1.5em; }
+  #user-household-info div {
+    margin-bottom: 5px; }
+  #user-household-info font#subtitle {
+    font-size: 0.7em; }
+  #user-household-info #change-password {
+    display: none;
+    margin-bottom: 10px; }
+  #user-household-info #new-password {
+    display: none; }
+  #user-household-info #password-confirmation {
+    display: none; }
   #user-household-info #delete-account {
-    text-align: right; }
+    text-align: right;
+    margin-bottom: 20px; }
     #user-household-info #delete-account a {
       border: 1px solid #aaaaaa !important;
       background: #eeeeee !important;

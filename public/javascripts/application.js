@@ -45,47 +45,29 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("#first-name a").click(function(e) {
+	$("font#edit-user a").click(function(e) {
 		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[first_name]' value='" + $(this).text() + "'/>");
+		$("#user-submit input").show();
+		$("#change-password").show();
+		$("#first-name font.text").replaceWith("<input type='text' name='user[first_name]' value='" + $("#first-name font.text").text() + "'/>");
+		$("#last-name font.text").replaceWith("<input type='text' name='user[last_name]' value='" + $("#last-name font.text").text() + "'/>");
+		$("#username font.text").replaceWith("<input type='text' name='user[username]' value='" + $("#username font.text").text() + "'/>");
+		$("#email font.text").replaceWith("<input type='text' name='user[email]' value='" + $("#email font.text").text() + "'/>");
+		$("#phone font.text").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone font.text").text() + "'/>");
+		$("#work_phone font.text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone font.text").text() + "'/>");
 	});
 	
-	$("#last-name a").click(function(e) {
+	$("font#edit-household a").click(function(e) {
 		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[last_name]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#username a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[username]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#email a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[email]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#phone a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[phone]' value='" + $(this).text() + "'/>");
-	});
-	
-	$("#work_phone a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='user[work_phone]' value='" + $(this).text() + "'/>");
+		$("#household-name font.text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name font.text").text() + "'/>");
+		$("#home-phone font.text").replaceWith("<input type='text' name='household[home_phone]' value='" + $("#home-phone font.text").text() + "'/>");
+		$("#household-submit input").show();
 	});
 	
 	$("#change-password a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<label>New Password</label>" + "<br/>" + 
-							"<input type='password' name='user[password]' />" + "<br/>" + "<br/>" + 
-							"<label>New Password Confirmation</label>" + "<br/>" +
-							"<input type='password' name='user[password_confirmation]' />")
-	});
-	
-	$("#household-name a").click(function(e) {
-		e.preventDefault();
-		$(this).replaceWith("<input type='text' name='household[name]' value='" + $(this).text() + "'/>");
+		$("#new-password").show();
+		$("#password-confirmation").show();
+		$(this).hide();
 	});
 	
 	$("#change-photo a").click(function(e) {

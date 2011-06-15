@@ -10,6 +10,11 @@
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
+  = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+  = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
+
+
+
   - for completed_request in @completed_requests
     .request{:style => "background-color: #FBEC5D"}
       = image_tag completed_request.household.photo.url(:thumb)
@@ -40,6 +45,7 @@
         .volunteer-button{:style => "padding: 2px"}= link_to "No", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => false}, :method => :post
         .volunteer-button{:style => "padding: 2px"}= link_to "Yes", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => true}, :method => :post
       .clear
+
   - for request in @requests
     -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
       - @num_requests += 1
@@ -66,7 +72,12 @@
             %font=h request.cost.to_i
           .children
             Children:
-            =h request.children
+            -@count = 0
+            -for child in request.children
+              =h "#{child}"
+              -@count += 1
+              -if @count != request.children.length
+                ,
           .notes
             Additional notes:
             =h request.notes

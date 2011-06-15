@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
 
   default_scope :include => :role
 
-  before_create :assign_default_role, :remove_non_digits_in_phone
-  before_save :capitalize_names
+  before_create :assign_default_role
+  before_save :capitalize_names, :remove_non_digits_in_phone
 
   before_validation_on_create :assign_default_role
   before_validation :clear_empty_attrs
@@ -114,6 +114,7 @@ class User < ActiveRecord::Base
 
     def remove_non_digits_in_phone
       self.phone = self.phone.gsub(/\D/, "")
+      self.work_phone = self.work_phone.gsub(/\D/, "")
     end
 
     def clear_empty_attrs
