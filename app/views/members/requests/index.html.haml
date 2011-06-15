@@ -4,9 +4,10 @@
 - @num_requests = 0
 #top
   #button
-    %p= link_to "+ Create a New Care Request", new_members_request_path
+    %p= link_to "+ Create New Care Request", new_members_request_path
+    %p= link_to "Hidden Requests", members_settings_path
   #your-requests
-    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} to watch your kids", members_my_volunteers_path
+    %p= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} care request volunteer(s)", members_my_volunteers_path
     %p= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
 #request-container
@@ -16,30 +17,32 @@
       .request
         = image_tag request.household.photo.url(:thumb)
         .left
-          %h2.name= request.household
+          %h2.name= "#{request.household}'s"
           -#%h2.name=link_to "#{request.household}", members_request_path(request)
-          %h2.household Household
         .right
           .title
-            =h request.title
+            =h "#{request.title} (#{request.cost.to_i} credits)"
           .date
-            =h request.from_date.to_s(:short)
-            at
             =h request.start_time.to_s(:nicetime)
             to
-            - if !request.same_date
-              =h request.to_date.to_s(:short)
-              at
             =h request.end_time.to_s(:nicetime)
-          .cost
-            Credits:
-            %font=h request.cost.to_i
+            on
+            %br
+            =h "#{Date::DAYNAMES[request.from_date.wday]}, #{Date::MONTHNAMES[request.from_date.mon]} #{request.from_date.mday}"
+            -if request.from_date != request.to_date
+              to
+              =h "#{Date::DAYNAMES[request.to_date.wday]}, #{Date::MONTHNAMES[request.to_date.mon]} #{request.to_date.mday}"
           .children
             Children:
-            =h request.children
+            -for child in request.children
+              -if request.children.count == 1
+                =h "#{child.first_name}"
+              -else
+                =h "#{child.first_name}, "
           .notes
-            Additional notes:
-            =h request.notes
+            - if !request.notes.eql? ""
+              Additional notes:
+              =h request.notes
         .tools
           .delete 
             %span= link_to 'x', "#"

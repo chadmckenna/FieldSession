@@ -461,7 +461,8 @@ label {
   .request .left, .neighbor .left {
     float: left;
     min-width: 10%;
-    max-width: 20%; }
+    max-width: 20%;
+    vertical-align: bottom; }
     .request .left h2, .neighbor .left h2 {
       font-size: 1.8em;
       margin: 0 !important;
@@ -478,6 +479,7 @@ label {
     .request .left .image, .neighbor .left .image {
       float: left; }
     .request .left .name, .neighbor .left .name {
+      vertical-align: bottom;
       float: left; }
     .request .left .household, .neighbor .left .household {
       clear: both;
