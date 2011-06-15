@@ -31,6 +31,6 @@ class Members::MyVolunteersController < Members::MembersController
        pending_request.destroy
      end
      flash[:success] = "You have successfully added that caregiver for this request"
-     redirect_to members_requests_path
+     redirect_to members_my_volunteers_path
    end
 end

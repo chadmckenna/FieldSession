@@ -15,7 +15,7 @@
                   .name
                     = get_caregiver_volunteer(volunteer.caregiver_requestor_id)
                   .buttons
-                    = link_to 'Use Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :caregiver_commit_id => volunteer.caregiver_requestor_id, :request_id => volunteer.request_id}, :method => :post
+                    = link_to 'Pick This Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :caregiver_commit_id => volunteer.caregiver_requestor_id, :request_id => volunteer.request_id}, :method => :post
                 .clear
   -else
     .request
