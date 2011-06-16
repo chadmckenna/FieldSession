@@ -91,9 +91,9 @@ $(document).ready(function() {
 	
 	$("#show-more a").click(function(e) {
 		e.preventDefault();
-		$(this).parent().parent().parent().find("#allergies").show();
-		$(this).parent().parent().parent().find("#medications").show();
-		$(this).parent().parent().parent().find("#notes").show();
+		$("#allergies font.text").replaceWith("<input type='text' name='child[allergies]' value='" + ("#allergies font.text").text() + "'/>");
+		("#medications font.text").replaceWith("<input type='text' name='child[medications]' value='" + ("#medications font.text").text() + "'/>");
+		("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + ("#notes font.text").text() + "'/>");
 		$(this).hide();
 	});
 	
