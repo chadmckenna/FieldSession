@@ -46,6 +46,16 @@ module ApplicationHelper
     end
   end
 
+  def has_caregivers(user)
+    @num = get_caregiver_request_count(user)
+    return true if @num > 0
+    return false
+  end
+  
+  def get_caregiver_request_count(user)
+    return User.find(:all, :conditions => {:household_id => user.household_id, :household_confirmed => false}).count
+  end
+
   def get_neighbor_request_count(user)
     return Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "f"}).count
   end
@@ -86,12 +96,21 @@ module ApplicationHelper
     return PendingRequest.find(:all, :conditions => {:caregiver_commit_id => user.id, :confirmed => "true", :read => 'f'})
   end
 
+  def get_caregiver_requests(user)
+    return User.find(:all, :conditions => {:household_id => user.household_id, :household_confirmed => false})
+  end
+
   def get_notifications(user)
     @notifications = get_neighbors_confirmed(user)
     @pending_requests = get_users_confirmed_requests(user)
+    @caregiver_requests = get_caregiver_requests(user)
     for pending_request in @pending_requests
       @notifications << pending_request
     end
+    for caregiver_request in @caregiver_requests
+      @notifications << caregiver_request
+    end
+
     return @notifications
   end
 
@@ -99,6 +118,10 @@ module ApplicationHelper
     return get_notifications(user).count
   end
 
+  def get_user(id)
+    return User.find(id)
+  end
+  
   def get_household(id)
     return Household.find(id)
   end
