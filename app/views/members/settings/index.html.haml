@@ -109,10 +109,10 @@
       - for child in @household.children
         - form_for edit_members_child_path(child) do |f|
           .indent
-            #first-name
+            #child-first-name
               %font.small-title= f.label "First Name:"
               %font.text= child.first_name
-            #last-name
+            #child-last-name
               %font.small-title= f.label "Last Name:"
               %font.text= child.last_name
             
