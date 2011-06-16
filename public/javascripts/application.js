@@ -74,8 +74,9 @@ $(document).ready(function() {
 		$("#city font.text").replaceWith("<input type='text' name='@household.address[city]' value='" + $("#city font.text").text() + "'/>");
 		$("#state font.text").replaceWith("<input type='text' name='@household.address[state]' value='" + $("#state font.text").text() + "'/>");
 		$("#zip font.text").replaceWith("<input type='text' name='@household.address[zip]' value='" + $("#zip font.text").text() + "'/>");
-	})
+	});
 	
+
 	$("font#edit-household a").click(function(e) {
 		e.preventDefault();
 		$("#household-name font.text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name font.text").text() + "'/>");
