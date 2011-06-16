@@ -62,7 +62,8 @@
       .request
         = image_tag request.household.photo.url(:thumb)
         .left
-          %h2.name= "#{request.household}'s"
+          %h2.name= "#{request.household}"
+          %h2.household household
           -#%h2.name=link_to "#{request.household}", members_request_path(request)
         .right
           .title
@@ -90,7 +91,7 @@
               =h request.notes
         .tools
           .delete 
-            %span= link_to image_tag("close.jpg"), "#"
+            %span= link_to 'x', "#"
           .subnav
             %ul
               %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id, :belongs_to => request.household.id}, :method => :post
