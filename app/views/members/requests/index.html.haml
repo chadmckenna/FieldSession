@@ -2,6 +2,8 @@
   Requests
 
 - @num_requests = 0
+- @num_volunteer_requests = get_pending_requests_count(current_user)
+- @num_neighbor_requests = get_neighbor_request_count(current_user)
 #top
   #button
     %p= link_to "<span class='plus icon'></span>Create New Care Request", new_members_request_path, :class => 'pill button'

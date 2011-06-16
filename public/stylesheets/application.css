@@ -215,8 +215,8 @@ a {
 #top #notifications_bold {
   opacity: 0.9;
   padding: 3px;
-  background-color: #ffeeaa;
-  border: solid thin #ffdd00; }
+  background-color: #ffaaaa;
+  border: solid thin red; }
   #top #notifications_bold:hover {
     opacity: 1; }
 #top #button {
@@ -841,6 +841,15 @@ input[type="text"], input[type="password"], textarea {
     display: none; }
   #user-household-info #password-confirmation {
     display: none; }
+  #user-household-info #show-more {
+    display: none;
+    margin-bottom: 10px; }
+  #user-household-info #allergies {
+    display: none; }
+  #user-household-info #medications {
+    display: none; }
+  #user-household-info #notes {
+    display: none; }
   #user-household-info #delete-account {
     text-align: right;
     margin-bottom: 20px; }
@@ -880,6 +889,32 @@ input[type="text"], input[type="password"], textarea {
         #user-household-info #household #change-photo a:hover {
           border: 1px solid #777777;
           text-decoration: none; }
+  #user-household-info #children {
+    width: 100%;
+    margin-bottom: 30px; }
+    #user-household-info #children #show-more {
+      margin-top: 10px; }
+      #user-household-info #children #show-more a {
+        border: 1px solid #aaaaaa !important;
+        background: #eeeeee !important;
+        color: #464f3f;
+        padding: 0.2em;
+        -moz-border-radius: 0.3em;
+        -webkit-border-radius: 0.3em; }
+        #user-household-info #children #show-more a:hover {
+          border: 1px solid #777777;
+          text-decoration: none; }
+  #user-household-info #address {
+    width: 100%;
+    margin-bottom: 30px; }
+    #user-household-info #address a {
+      color: #464f3f;
+      padding: 0.2em;
+      -moz-border-radius: 0.3em;
+      -webkit-border-radius: 0.3em; }
+      #user-household-info #address a:hover {
+        border: 1px solid #777777;
+        text-decoration: none; }
 
 .clear {
   clear: both; }

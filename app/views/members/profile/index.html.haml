@@ -127,7 +127,7 @@
               .request
                 .right
                   .title
-                    =h "#{request.title} (#{request.cost.to_i} credits)"
+                    =h "#{request.title} (#{pluralize(request.cost.to_i, "credit")})"
                   .date
                     =h request.start_time.to_s(:nicetime)
                     to
@@ -169,7 +169,7 @@
 
             .right
               .title
-                = "#{link_to confirmed.request.title, members_request_path(confirmed.request)} (#{confirmed.request.cost.to_i} credits)"
+                = "#{link_to confirmed.request.title, members_request_path(confirmed.request)} (#{pluralize(confirmed.request.cost.to_i, "credit")})"
               .date
                 =h confirmed.request.start_time.to_s(:nicetime)
                 to
@@ -212,7 +212,7 @@
 
             .right
               .title
-                = "#{link_to pending_commitment.request.title, members_request_path(pending_commitment.request)} (#{pending_commitment.request.cost} credits)"
+                = "#{link_to pending_commitment.request.title, members_request_path(pending_commitment.request)} (#{pluralize(pending_commitment.request.cost, "credits")})"
               .date
                 =h pending_commitment.request.start_time.to_s(:nicetime)
                 to
@@ -255,7 +255,7 @@
         
             .right
               .title
-                = "#{link_to commitment.request.title, members_request_path(commitment.request)} (#{commitment.request.cost} credits)"
+                = "#{link_to commitment.request.title, members_request_path(commitment.request)} (#{pluralize(commitment.request.cost, "credit")})"
               .date
                 =h commitment.request.start_time.to_s(:nicetime)
                 to
