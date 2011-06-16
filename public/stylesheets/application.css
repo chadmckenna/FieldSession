@@ -240,7 +240,7 @@ a {
     height: 400px;
     width: 600px; }
   #container #learn_more {
-    width: 600px;
+    width: 900px;
     margin: 10px auto 0px auto; }
     #container #learn_more div {
       float: left;
@@ -270,6 +270,10 @@ a {
     #container #learn_more #sign_up a {
       background: url("../images/sign_up.jpg") no-repeat; }
       #container #learn_more #sign_up a:hover {
+        background-position: bottom; }
+    #container #learn_more #how_it_works a {
+      background: url("") no-repeat; }
+      #container #learn_more #how_it_works a:hover {
         background-position: bottom; }
 
 #container {
@@ -584,6 +588,11 @@ label {
       font-style: oblique;
       font-weight: bold;
       font-size: 1.2em; }
+      .request .right .title a, .neighbor .right .title a {
+        border: none !important;
+        background: none !important; }
+        .request .right .title a:hover, .neighbor .right .title a:hover {
+          text-decoration: underline; }
     .request .right .children h3, .neighbor .right .children h3 {
       margin: 0;
       font-size: 1.3em; }
