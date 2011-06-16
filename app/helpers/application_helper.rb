@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def has_requests(user)
-    @num = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => user.household.id, :pending => "true"}).count
+    @num = get_pending_requests_count(user)
     if @num > 0
       return true
     else
@@ -38,7 +38,7 @@ module ApplicationHelper
   end
 
   def has_neighbors(user)
-    @num = Neighbor.find(:all, :conditions => {:household_id => user.household.id, :household_confirmed => "f"}).count
+    @num = get_neighbor_request_count(user)
     if @num > 0
       return true
     else
