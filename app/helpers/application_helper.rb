@@ -51,7 +51,18 @@ module ApplicationHelper
   end
 
   def get_pending_requests_count(user)
-    return PendingRequest.find(:all, :conditions => {:belongs_to_household_id => user.household.id, :pending => "true"}).count
+    num_volunteer_requests = 0
+    volunteer_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true"})
+    for volunteer_request in volunteer_requests
+      requests = PendingRequest.find(:all, :conditions => {:request_id => volunteer_request.request_id})
+      count = 0
+      for request in requests
+        count += 1 if request.confirmed.eql? "true"
+      end
+      num_volunteer_requests += 1 if count.eql? 0
+    end
+    
+    return num_volunteer_requests
   end
 
   def has_accepted_neighbor_request(user)
