@@ -57,6 +57,25 @@ $(document).ready(function() {
 		$("#work_phone font.text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone font.text").text() + "'/>");
 	});
 	
+	$("font#edit-child a").click(function(e) {
+		e.preventDefault();
+		$(this).parent().find("#user-submit input").show();
+		$(this).parent().find("#show-more").show();
+		$(this).parent().find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $("#first-name font.text").text() + "'/>");
+		$(this).find("#last-name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $("#last-name font.text").text() + "'/>");
+		$("#DOB font.text").replaceWith("<input type='text' name='child[date_of_birth]' value='" + $("#DOB font.text").text() + "'/>");
+	});
+	
+	$("font#edit-address a").click(function(e) {
+		e.preventDefault();
+		$("#user-submit input").show();
+		$("#street1 font.text").replaceWith("<input type='text' name='@household.address[street1]' value='" + $("#street1 font.text").text() + "'/>");
+		$("#street2 font.text").replaceWith("<input type='text' name='@household.address[street2]' value='" + $("#street2 font.text").text() + "'/>");
+		$("#city font.text").replaceWith("<input type='text' name='@household.address[city]' value='" + $("#city font.text").text() + "'/>");
+		$("#state font.text").replaceWith("<input type='text' name='@household.address[state]' value='" + $("#state font.text").text() + "'/>");
+		$("#zip font.text").replaceWith("<input type='text' name='@household.address[zip]' value='" + $("#zip font.text").text() + "'/>");
+	})
+	
 	$("font#edit-household a").click(function(e) {
 		e.preventDefault();
 		$("#household-name font.text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name font.text").text() + "'/>");
@@ -67,6 +86,13 @@ $(document).ready(function() {
 	$("#change-password a").click(function(e) {
 		$("#new-password").show();
 		$("#password-confirmation").show();
+		$(this).hide();
+	});
+	
+	$("#show-more a").click(function(e) {
+		$("#allergies").show();
+		$("#medications").show();
+		$("#notes").show();
 		$(this).hide();
 	});
 	
