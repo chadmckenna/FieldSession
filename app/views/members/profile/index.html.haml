@@ -70,14 +70,15 @@
       %br
       -for phone_number in @household.users
         -unless @household.users.eql? nil
-          .child
-            .name=h "#{phone_number.first_name}:"
-            =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
-            - unless phone_number.work_phone.eql? nil
-              %br
-              - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
-                =h "Work: #{phone_number.work_phone}"
+          -if ! phone_number.household_confirmed.eql? false
+            .child
+              .name=h "#{phone_number.first_name}:"
+              =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
+              - unless phone_number.work_phone.eql? nil
                 %br
+                - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
+                  =h "Work: #{phone_number.work_phone}"
+                  %br
         -else
           No known phone numbers
       %p
@@ -107,7 +108,7 @@
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
-      = link_to '<span class="pen icon"></span>Edit my Household', members_profile_edit_path, :class => 'left pill button'
+      = link_to '<span class="pen icon"></span>Edit my Household', members_settings_path, :class => 'left pill button'
       = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
   #content
     - openRequests = false
