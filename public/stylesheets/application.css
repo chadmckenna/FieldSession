@@ -907,14 +907,6 @@ input[type="text"], input[type="password"], textarea {
   #user-household-info #address {
     width: 100%;
     margin-bottom: 30px; }
-    #user-household-info #address a {
-      color: #464f3f;
-      padding: 0.2em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em; }
-      #user-household-info #address a:hover {
-        border: 1px solid #777777;
-        text-decoration: none; }
 
 .clear {
   clear: both; }
