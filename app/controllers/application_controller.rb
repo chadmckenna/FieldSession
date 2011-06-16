@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   filter_parameter_logging :password
   #before_filter :require_user
+  before_filter :require_household
   helper_method :current_user_session, :current_user, :home_url_for
   before_filter :prepare_new_session
 
@@ -54,7 +55,7 @@ class ApplicationController < ActionController::Base
     end
      
     def require_household
-      unless current_user.has_household?
+      unless current_user.has_household? or current_user.household_confirmed.eql? 0
         flash[:error] = "You must create or join a household"
         redirect_to new_members_household_path
       end

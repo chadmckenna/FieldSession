@@ -43,7 +43,7 @@ class Members::HouseholdsController < Members::MembersController
         flash[:error] = "Error creating household"
         render :action => 'new'
       end
-    elsif current_user.household_confirmed != true
+    elsif current_user.household_confirmed != 1
         flash[:error] = "You are not yet confirmed for a household"
         redirect_to root_path
     else
@@ -65,7 +65,7 @@ class Members::HouseholdsController < Members::MembersController
     @household = Household.find(params[:household_id])
     @caregiver = current_user
     @caregiver.household_id = params[:household_id]
-    @caregiver.household_confirmed = false
+    @caregiver.household_confirmed = 0
     if @caregiver.save
       @caregiver.send_household_join_request_email(@household)
       flash[:success] = "You've sent a request to join the #{@household.name} household. You will recieve an email if your request is accepted"
