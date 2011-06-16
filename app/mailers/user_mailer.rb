@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
   	#@users = User.find(:all, :conditions => {:household_id => neighbor.neighbor_id})
   	#for user in @users
   	subject		   "You have a neighbor request"
-  	from   		   "Village <do-no-reply@fieldsession.heroku.com>"
+  	from   		   "Villages <do-no-reply@fieldsession.heroku.com>"
   	recipients	 user.email
   	sent_on 	   Time.now
   	household_name = Household.find(:all, :conditions => {:id => neighbor.household_id})
@@ -25,7 +25,7 @@ class UserMailer < ActionMailer::Base
     @neighbor_household = Household.find(neighbor.household_id)
     #for user in @users
     subject     "You've been Confirmed as a neighbor"
-    from        "Village <do-no-reply@fieldsession.heroku.com>"
+    from        "Villages <do-no-reply@fieldsession.heroku.com>"
     recipients  user.email
     sent_on     Time.now
     household_name = Household.find(:all, :conditions => {:id => neighbor.household_id})
@@ -35,7 +35,7 @@ class UserMailer < ActionMailer::Base
 
   def household_join_request_email(user, household_user)
     subject    "Your household has a caregiver join request"
-    from       "Village <do-no-reply@fieldsession.heroku.com>"
+    from       "Villages <do-no-reply@fieldsession.heroku.com>"
     recipients household_user.email
     sent_on    Time.now
     body       (:requestor_f_name => user.first_name, :requestor_l_name => user.last_name)
