@@ -9,15 +9,16 @@
     %h1= "Search Results for: '#{params[:search]}'"
     
     - unless @households.count + @users.count == 0
-      #profile_notice
-        = image_tag ('/images/warning-icon.png')
-        %strong Caution: 
-        Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
+      - if !current_user.household.nil?
+        #profile_notice
+          = image_tag ('/images/warning-icon.png')
+          %strong Caution: 
+          Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
     
     -if @households.count == 0 and @users.count == 0
       #no-results There were no results found for '#{params[:search]}'.
     -else
-      %h3#num-results= "There were #{pluralize(@households.count + @users.count, 'result')} found"
+      %h3#num-results= "There #{find_plural(@households.count + @users.count)} #{pluralize(@households.count + @users.count, 'result')} found"
     
     - if !@households.nil?
       - for household in @households
@@ -42,11 +43,11 @@
                   
             .button
               - if !current_user.has_household?
-                = link_to 'Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post
+                = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
               - elsif neighbor(household)
-                = link_to 'Show', members_household_path(household)
+                = link_to '<span class="magnifier icon"></span>Show', members_household_path(household), :class => 'pill button'
               - else
-                = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post
+                = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post, :class => 'pill button'
             .clear
     
     - if !@users.nil?
@@ -63,11 +64,11 @@
               = user.email
           .button
             - if !current_user.has_household?
-              = link_to 'Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post
+              = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
             - elsif neighbor(user.household)
-              = link_to 'Show', members_household_path(user.household)
+              = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'
             - else
-              = link_to 'Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post
+              = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post, :class => 'pill button'
           .clear
           
 %h2 Search for Neighbors

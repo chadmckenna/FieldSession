@@ -1,5 +1,6 @@
 class Members::SearchController < Members::MembersController
   skip_before_filter :require_household
+  helper :search
   
   def index
     unless params[:search ].blank?
@@ -9,7 +10,7 @@ class Members::SearchController < Members::MembersController
       @users.delete_if { |user| user.id.eql? current_user.id} unless @users.eql? nil
     else
       if !current_user.has_household?
-        flash[:error] = "Please search for a household"
+        #flash[:error] = "Please search for a household"
         unless params[:search].blank?
           @households = Household.search(params[:search])
           @users = User.search(params[:search])
@@ -18,4 +19,5 @@ class Members::SearchController < Members::MembersController
       end
     end
   end
+
 end

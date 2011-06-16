@@ -5,4 +5,4 @@
   %h3 Remember...
   The cost of this request will be deducted immediately from your credit balance.  Credits will be reimbursed if the request is canceled or if you receive no volunteers when the request expires
 = render :partial => 'form'
-%p= link_to "Cancel", members_requests_path
+%p= link_to "<span class='cross icon'></span>Cancel", members_requests_path, :class => 'pill button negative'

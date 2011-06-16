@@ -1,6 +1,6 @@
 - title "Emergency Contacts"
 
-%p= link_to "+ Add a new emergency contact", new_members_emergency_contact_path
+%p= link_to "<span class='user icon'></span>Add a new emergency contact", new_members_emergency_contact_path, :class => 'pill button'
 
 #child-container
   -for contact in @emergency_contacts

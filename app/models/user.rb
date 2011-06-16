@@ -113,8 +113,8 @@ class User < ActiveRecord::Base
     end
 
     def remove_non_digits_in_phone
-      self.phone = self.phone.gsub(/\D/, "")
-      self.work_phone = self.work_phone.gsub(/\D/, "")
+      self.phone = self.phone.gsub(/\D/, "") unless self.phone.blank?
+      self.work_phone = self.work_phone.gsub(/\D/, "") unless self.work_phone.blank?
     end
 
     def clear_empty_attrs

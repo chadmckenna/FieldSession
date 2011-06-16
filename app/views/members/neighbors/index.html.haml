@@ -1,5 +1,5 @@
 -title "My Neighbors"
-= link_to "Find neighbors", members_search_path
+= link_to "<span class='magnifier icon'></span>Find neighbors", members_search_path, :class => 'pill button'
 - if @pending_neighbors.count > 0
   %h1 Pending Neighbor Requests
   %br
@@ -24,7 +24,7 @@
                 =h user.email
         .tools
           .volunteer-button
-            =link_to "Remove Request", members_neighbor_path(pending_neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
+            =link_to "<span class='cross icon'></span>Remove Request", members_neighbor_path(pending_neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
         .clear
 - if @neighbor_requests.count > 0
   %h1 Neighbor Requests
@@ -50,11 +50,11 @@
                 =h user.email
         .tools
           .volunteer-button
-            =link_to "Confirm as Neighbor", confirm_members_neighbor_path(neighbor_request)
-            =link_to "Deny Neighbor Request", members_neighbor_path(neighbor_request), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete
+            =link_to "<span class='user icon'></span>Confirm as Neighbor", confirm_members_neighbor_path(neighbor_request), :class => 'pill button'
+            =link_to "<span class='cross icon'></span>Deny Neighbor Request", members_neighbor_path(neighbor_request), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
         .clear
+%h1 My Neighbors
 - if @neighbors.count > 0
-  %h1 My Neighbors
   %br
     - for neighbor in @neighbors
       .request
@@ -84,7 +84,7 @@
                 =h user.email
         .tools
           .volunteer-button
-            =link_to "Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete
+            =link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
         .clear
 - else
   .request
@@ -92,5 +92,3 @@
       %span#red You do not have any neighbors. 
     %h3 You can check above to see if you have any pending requests or new neighbor requests.
     %h3 Also, you can add them by searching for households by their name or you can search for users by either their phone number or email.
-    
-= link_to "Find neighbors", members_search_path

@@ -55,8 +55,8 @@ class Members::RequestsController < Members::MembersController
       end
     end
 
-    @num_volunteer_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :pending => "true"}).count
-    @num_neighbor_requests = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => false, :neighbor_confirmed => true}).count
+    #@num_volunteer_requests = get_pending_requests_count(current_user)
+    #@num_neighbor_requests = get_neighbor_request_count(current_user)
     
     @hidden_requests = HiddenRequest.find_all_by_household_id(current_user.household.id)
     
@@ -184,7 +184,7 @@ class Members::RequestsController < Members::MembersController
         flash[:success] = "Thanks for confirming. You have successfully earned #{request.cost} credits."
         redirect_to members_requests_path
       else
-        flash[:error] = "There was a problem processing this request. 1"
+        flash[:error] = "There was a problem processing this request."
         redirect_to members_requests_path
       end
     else

@@ -3,6 +3,5 @@
 = render :partial => 'form'
 
 %p
-  = link_to "Show", members_addresses_path(@address)
-  |
-  = link_to "Back to profile", members_profile_path
+  = link_to "<span class='magnifier icon'></span>Show", members_addresses_path(@address), :class => 'pill button'
+  = link_to "<span class='leftarrow icon'></span>Back to profile", members_profile_path, :class => 'pill button'

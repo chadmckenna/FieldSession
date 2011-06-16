@@ -1,5 +1,12 @@
 one:
-  credits: 1
-
-two:
-  credits: 1
+  credits: 4
+  id: 1
+  name: Jonas
+  num_children: 1500
+  home_phone: 1234567890
+  created_at: <% 5.days.ago %>
+  updated_at: <% 5.days.ago %>
+  photo_file_name: string
+  photo_content_type: image/jpeg
+  photo_file_size: 1000000
+  photo_updated_at: <% 5.days.ago %>
