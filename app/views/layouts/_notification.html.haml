@@ -8,14 +8,14 @@
             #left
               = link_to image_tag (notification.neighbor.photo.url(:tiny)), members_neighbors_path
             #right
-              %font= link_to "The #{notification.neighbor} household has accepted your neighbor request", members_neighbors_path
+              %span= link_to "The #{notification.neighbor} household has accepted your neighbor request", members_neighbors_path
             #clear
           - elsif notification.class.name == 'PendingRequest'
             - @request_household = get_household(notification.belongs_to_household_id)
             #left
               = link_to image_tag (@request_household.photo.url(:tiny)), members_requests_path 
             #right
-              %font= link_to "Your volunteer request for #{notification.request.from_date.to_s(:dateNoYear)}  with the #{@request_household}'s has been confirmed", members_requests_path
+              %span= link_to "The #{@request_household} household has picked you to watch their children on #{notification.request.from_date.to_s(:dateNoYear)}.", members_requests_path
             #clear
     %li#notification-modified= get_notifications_count(current_user)
 - else

@@ -59,11 +59,11 @@ $(document).ready(function() {
 	
 	$("font#edit-child a").click(function(e) {
 		e.preventDefault();
-	$(this).parent().find("#user-submit input").show();
-		$(this).parent().find("#show-more").show();
-		$(this).find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $("#first-name font.text").text() + "'/>");
-		$(this).find("#last-name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $("#last-name font.text").text() + "'/>");
-		$("#DOB font.text").replaceWith("<input type='text' name='child[date_of_birth]' value='" + $("#DOB font.text").text() + "'/>");
+		$(this).parent().parent().parent().find("#user-submit input").show();
+		$(this).parent().parent().parent().find("#show-more").show();
+		$(this).parent().parent().parent().find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $(this).parent().parent().parent().find("#first-name font.text").text() + "'/>");
+		$(this).parent().parent().parent().find("#last-name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $(this).parent().parent().parent().find("#last-name font.text").text() + "'/>");
+		$(this).parent().parent().parent().find("#DOB font.text").replaceWith("<input type='text' name='child[date_of_birth]' value='" + $(this).parent().parent().parent().find("#DOB font.text").text() + "'/>");
 	});
 	
 	$("font#edit-address a").click(function(e) {
@@ -91,9 +91,10 @@ $(document).ready(function() {
 	});
 	
 	$("#show-more a").click(function(e) {
-		$("#allergies").show();
-		$("#medications").show();
-		$("#notes").show();
+		e.preventDefault();
+		$("#allergies font.text").replaceWith("<input type='text' name='child[allergies]' value='" + ("#allergies font.text").text() + "'/>");
+		("#medications font.text").replaceWith("<input type='text' name='child[medications]' value='" + ("#medications font.text").text() + "'/>");
+		("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + ("#notes font.text").text() + "'/>");
 		$(this).hide();
 	});
 	
