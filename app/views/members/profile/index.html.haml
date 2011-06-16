@@ -208,7 +208,8 @@
             .img
               = image_tag(pending_commitment.request.household.photo.url(:thumb), :alt => "#{pending_commitment.household.to_s}")
             .left
-              %h2#name= link_to "#{pending_commitment.request.household}'s", members_household_path(get_request_household(pending_commitment))
+              %h2.name= link_to "#{pending_commitment.request.household}", members_household_path(get_request_household(pending_commitment))
+              %h2.household household
 
             .right
               .title
@@ -251,7 +252,8 @@
             .img 
               =image_tag(commitment.request.household.photo.url(:thumb), :alt => "#{commitment.household.to_s}")
             .left
-              %h2#name= link_to "#{commitment.request.household}'s", members_household_path(get_request_household(commitment))
+              %h2.name= link_to "#{commitment.request.household}", members_household_path(get_request_household(commitment))
+              %h2.household household
         
             .right
               .title

@@ -145,6 +145,8 @@ a
           #right 
             float: right
             width: 83%
+            a
+              color: $contentLinkColor
           #clear
             clear: both
    
@@ -587,6 +589,8 @@ label
       font-size: 1.8em
       margin: 0 !important
       padding: 0 !important
+    .name
+      margin-left: .2em !important
       a
         padding: inherit
         margin: inherit
@@ -726,10 +730,16 @@ label
       .delete-link
         float: right
         a
-          background: none
+          padding: 0 .35em .05em .35em
+          background: #999
+          -moz-border-radius: 1em
+          -webkit-border-radius: 1em
+          border-radius: 1em
+          color: white
           border: none
           &:hover
-            text-decoration: underline
+            background: black
+            color: white
   #pending
     #no-pending
       font-size: .8em

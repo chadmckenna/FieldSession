@@ -28,17 +28,16 @@
       Address
       %span#small_link= link_to "(Map)", address_link
     %div
-      -#"#{@household.address}"
-      -#- unless @household.address.nil?
-      -#  %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
-      = @address.street1
-      = @address.street2
-      %br
-      = "#{@address.city}, "
-      = @address.state
-      = @address.zip
-      -#- else
-      -#  There is no address
+      - unless @household.address.nil?
+        %a{:href => address_link, :title => "View in Google Maps", :class => "extern_link", :target => "blank"}
+          = @address.street1
+          = @address.street2
+          %br
+          = "#{@address.city}, "
+          = @address.state
+          = @address.zip
+      - else
+        There is no address
       %p
     %div.title Phone
     %div
