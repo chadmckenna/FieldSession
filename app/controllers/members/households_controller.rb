@@ -65,6 +65,7 @@ class Members::HouseholdsController < Members::MembersController
     @household = Household.find(params[:household_id])
     @caregiver = current_user
     @caregiver.household_id = params[:household_id]
+    @caregiver.household_confirmed = false
     if @caregiver.save
       @caregiver.send_household_join_request_email(@household)
       flash[:success] = "You've sent a request to join the #{@household.name} household. You will recieve an email if your request is accepted"
