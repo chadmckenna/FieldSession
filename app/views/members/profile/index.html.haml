@@ -111,7 +111,7 @@
   #content
     - openRequests = false
     - if @household.requests.length > 0
-      - for r in @household.requests
+      - for r in @open_requests
         - if !commit(r)
           - openRequests = true
           - break
@@ -121,7 +121,7 @@
       - else
         %font.small-title My Open Requests
         #requests
-          - for request in @household.requests
+          - for request in @open_requests
             -unless commit(request)
               .request
                 .right
@@ -194,6 +194,47 @@
             .tools
               %span= link_to "Edit", edit_members_request_path(confirmed.request)
               %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+            .clear
+    - if @pending_commitments.count > 0
+      %font.small-title My Pending Commitments
+    - if @pending_commitments.count == 0
+      #no-requests
+        You have no pending commitments
+    - else
+      #requests
+        - for pending_commitment in @pending_commitments
+          .request
+            .img
+              = image_tag(pending_commitment.request.household.photo.url(:thumb), :alt => "#{pending_commitment.household.to_s}")
+            .left
+              %h2#name= link_to "#{pending_commitment.request.household}'s", members_household_path(get_request_household(pending_commitment))
+
+            .right
+              .title
+                = "#{link_to pending_commitment.request.title, members_request_path(pending_commitment.request)} (#{pending_commitment.request.cost} credits)"
+              .date
+                =h pending_commitment.request.start_time.to_s(:nicetime)
+                to
+                =h pending_commitment.request.end_time.to_s(:nicetime)
+                on
+                %br
+                =h "#{Date::DAYNAMES[pending_commitment.request.from_date.wday]}, #{Date::MONTHNAMES[pending_commitment.request.from_date.mon]} #{pending_commitment.request.from_date.mday}"
+                - if pending_commitment.request.from_date != pending_commitment.request.to_date
+                  to
+                  =h "#{Date::DAYNAMES[pending_commitment.request.to_date.wday]}, #{Date::MONTHNAMES[pending_commitment.request.to_date.mon]} #{pending_commitment.request.to_date.mday}"
+                .children
+                  Children
+                  - for child in pending_commitment.request.children
+                    - if pending_commitment.request.children.count == 1 or child.eql? pending_commitment.request.children.last
+                      =h "#{child.first_name}"
+                    - else
+                      =h "#{child.first_name}, "
+                - unless pending_commitment.request.notes.eql? ""
+                  .notes
+                    Notes:
+                    = pending_commitment.request.notes
+            .tools
+              %span= link_to "Show Details", detail_members_request_path(pending_commitment.request)
             .clear
 
     - if @commitments.length > 0

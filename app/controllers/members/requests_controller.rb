@@ -184,7 +184,7 @@ class Members::RequestsController < Members::MembersController
         flash[:success] = "Thanks for confirming. You have successfully earned #{request.cost} credits."
         redirect_to members_requests_path
       else
-        flash[:error] = "There was a problem processing this request. 1"
+        flash[:error] = "There was a problem processing this request."
         redirect_to members_requests_path
       end
     else

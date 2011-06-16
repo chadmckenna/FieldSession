@@ -6,7 +6,8 @@ class Members::ProfileController < Members::MembersController
     @num_requests = Request.find_all_by_household_id(@household.id).count
     @commitments = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "true"})
     @confirmed_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :confirmed => "true"})
-    @pending_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :pending => "true"})
+    @pending_commitments = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :pending => "true"})
+    @open_requests = Request.find(:all, :conditions => {:household_id => current_user.household.id, :is_completed => "f"})
   end
   
   def edit
