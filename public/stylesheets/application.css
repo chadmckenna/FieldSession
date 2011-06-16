@@ -211,8 +211,8 @@ a {
 #top #notifications_bold {
   opacity: 0.9;
   padding: 3px;
-  background-color: #ffeeaa;
-  border: solid thin #ffdd00; }
+  background-color: #ffaaaa;
+  border: solid thin red; }
   #top #notifications_bold:hover {
     opacity: 1; }
 #top #button {
