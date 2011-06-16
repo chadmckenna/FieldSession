@@ -210,7 +210,9 @@ a
     color: black
     a
       color: #555
-      text-decoration: underline
+      text-decoration: none
+      &:hover
+        text-decoration: underline
   span
     float: right
     margin-right: 1em
@@ -247,7 +249,7 @@ a
 #container
   min-height: 80%
   a
-    color: $contentLinkColor !important
+    //color: $contentLinkColor
   #video
     margin: 20px auto 0px auto
     width: 600px
@@ -299,6 +301,7 @@ a
   background: white
   position: relative
   #profile_notice
+    text-align: center
     strong
       font-size: 1.3em
       font-style: oblique
@@ -306,6 +309,7 @@ a
       margin: .2em 0
       font-style: oblique
     width: 100%
+    margin: 0 auto 0 auto
     background: #fea
     color: #333
     padding: .5em
@@ -313,7 +317,8 @@ a
     p
       margin: .5em 1em
   a
-    color: #375D38
+    //color: #375D38
+    color: $contentLinkColor
   #content
     padding: 20px 40px
     #title
@@ -360,6 +365,8 @@ a
               text-decoration: underline
           .name
             text-decoration: underline
+        #add-child
+          margin: 10px 0 10px 20px
     #right-column
       width: 75%
       float: right
@@ -380,7 +387,9 @@ a
         #buttons
           text-align: right
           float: right
-          margin: 10px 0 0 0
+          margin: 10px 0px 0 0
+          a
+            margin-right: -5px
       #content
         width: 98%
         font-weight: bold
@@ -412,7 +421,7 @@ a
     #form
       a
         color: #375D38
-  a, input[type="submit"], select
+  input[type="submit"], select
     border: 1px solid #aaa
     background: $lightGrey
     color: $mastheadBG
@@ -501,6 +510,9 @@ label
   width: 70%
   padding: .5em
   float: left
+  select
+    float: right
+    margin-right: 30%
   #no-requests
     font-size: 1.4em
     font-style: italic
@@ -525,7 +537,7 @@ label
     border-right: 1px solid #ccc
     border-bottom: 3px double #ccc
     border-left: 1px solid #ccc
-    opacity: 1
+    //opacity: 1
     -webkit-transition: all .5s ease-in-out
     -moz-transition: all .5s ease-in-out
     -o-transition: all .5s ease-in-out
@@ -711,11 +723,6 @@ label
       .link
         text-align: right
         margin-top: 5px
-        a
-          border: none
-          background: none
-          &:hover
-            text-decoration: underline
       .delete-link
         float: right
         a
@@ -738,11 +745,6 @@ label
       .link
         text-align: right
         margin-top: 5px
-        a
-          border: none
-          background: none
-          &:hover
-            text-decoration: underline
       .delete-link
         float: right
         a
@@ -863,11 +865,6 @@ input[type="text"], input[type="password"], textarea
     font-weight: bold
   font.edit
     font-weight: normal
-  a
-    background: none !important
-    border: none !important
-    &:hover
-      text-decoration: underline
   strong
     text-align: center
     font-size: 1.5em
@@ -887,16 +884,7 @@ input[type="text"], input[type="password"], textarea
   #delete-account
     text-align: right
     margin-bottom: 20px
-    a
-      border: 1px solid #aaa !important
-      background: $lightGrey !important
-      color: $mastheadBG
-      padding: .2em
-      -moz-border-radius: .3em
-      -webkit-border-radius: .3em
-      &:hover
-        border: 1px solid #777
-        text-decoration: none
+
   #user
     width: 100%
     margin-bottom: 30px

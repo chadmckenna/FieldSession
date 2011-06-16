@@ -196,7 +196,9 @@ a {
     color: black; }
     #footer:hover a {
       color: #555555;
-      text-decoration: underline; }
+      text-decoration: none; }
+      #footer:hover a:hover {
+        text-decoration: underline; }
   #footer span {
     float: right;
     margin-right: 1em; }
@@ -230,8 +232,6 @@ a {
  */
 #container {
   min-height: 80%; }
-  #container a {
-    color: #884411 !important; }
   #container #video {
     margin: 20px auto 0px auto;
     width: 600px;
@@ -283,7 +283,9 @@ a {
   background: white;
   position: relative; }
   #container #profile_notice {
+    text-align: center;
     width: 100%;
+    margin: 0 auto 0 auto;
     background: #ffeeaa;
     color: #333333;
     padding: 0.5em;
@@ -297,7 +299,7 @@ a {
     #container #profile_notice p {
       margin: 0.5em 1em; }
   #container a {
-    color: #375d38; }
+    color: #884411; }
   #container #content {
     padding: 20px 40px; }
     #container #content #title {
@@ -343,6 +345,8 @@ a {
             text-decoration: underline; }
         #container #content #left-column #info .child .name {
           text-decoration: underline; }
+        #container #content #left-column #info #add-child {
+          margin: 10px 0 10px 20px; }
     #container #content #right-column {
       width: 75%;
       float: right;
@@ -363,7 +367,9 @@ a {
         #container #content #right-column #top #buttons {
           text-align: right;
           float: right;
-          margin: 10px 0 0 0; }
+          margin: 10px 0px 0 0; }
+          #container #content #right-column #top #buttons a {
+            margin-right: -5px; }
       #container #content #right-column #content {
         width: 98%;
         font-weight: bold;
@@ -393,7 +399,7 @@ a {
           font-size: 1.2em; }
     #container #content #form a {
       color: #375d38; }
-  #container a, #container input[type="submit"], #container select {
+  #container input[type="submit"], #container select {
     border: 1px solid #aaaaaa;
     background: #eeeeee;
     color: #464f3f;
@@ -411,7 +417,7 @@ a {
     background-image: -webkit-linear-gradient(#eeeeee, #cccccc);
     /* Opera 11.10+ */
     background-image: -o-linear-gradient(#eeeeee, #cccccc); }
-    #container a:hover, #container input[type="submit"]:hover, #container select:hover {
+    #container input[type="submit"]:hover, #container select:hover {
       border: 1px solid #777777; }
 
 label {
@@ -481,6 +487,9 @@ label {
   width: 70%;
   padding: 0.5em;
   float: left; }
+  #request-container select {
+    float: right;
+    margin-right: 30%; }
   #request-container #no-requests {
     font-size: 1.4em;
     font-style: italic;
@@ -506,7 +515,6 @@ label {
     border-right: 1px solid #cccccc;
     border-bottom: 3px double #cccccc;
     border-left: 1px solid #cccccc;
-    opacity: 1;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -675,11 +683,6 @@ label {
     #commit-container #commitments .confirmed-request .link {
       text-align: right;
       margin-top: 5px; }
-      #commit-container #commitments .confirmed-request .link a {
-        border: none;
-        background: none; }
-        #commit-container #commitments .confirmed-request .link a:hover {
-          text-decoration: underline; }
     #commit-container #commitments .confirmed-request .delete-link {
       float: right; }
       #commit-container #commitments .confirmed-request .delete-link a {
@@ -701,11 +704,6 @@ label {
     #commit-container #pending .pending-request .link {
       text-align: right;
       margin-top: 5px; }
-      #commit-container #pending .pending-request .link a {
-        border: none;
-        background: none; }
-        #commit-container #pending .pending-request .link a:hover {
-          text-decoration: underline; }
     #commit-container #pending .pending-request .delete-link {
       float: right; }
       #commit-container #pending .pending-request .delete-link a {
@@ -825,11 +823,6 @@ input[type="text"], input[type="password"], textarea {
     font-weight: bold; }
   #user-household-info font.edit {
     font-weight: normal; }
-  #user-household-info a {
-    background: none !important;
-    border: none !important; }
-    #user-household-info a:hover {
-      text-decoration: underline; }
   #user-household-info strong {
     text-align: center;
     font-size: 1.5em; }
@@ -847,16 +840,6 @@ input[type="text"], input[type="password"], textarea {
   #user-household-info #delete-account {
     text-align: right;
     margin-bottom: 20px; }
-    #user-household-info #delete-account a {
-      border: 1px solid #aaaaaa !important;
-      background: #eeeeee !important;
-      color: #464f3f;
-      padding: 0.2em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em; }
-      #user-household-info #delete-account a:hover {
-        border: 1px solid #777777;
-        text-decoration: none; }
   #user-household-info #user {
     width: 100%;
     margin-bottom: 30px; }

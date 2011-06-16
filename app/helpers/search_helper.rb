@@ -8,4 +8,12 @@ module SearchHelper
     end
     return false
   end
+  
+  def find_plural(num)
+    if num > 1 || num == 0
+      return "were"
+    else
+      return "was"
+    end
+  end
 end

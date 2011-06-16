@@ -15,13 +15,13 @@
                   .name
                     = get_caregiver_volunteer(volunteer.caregiver_requestor_id)
                   .buttons
-                    = link_to 'Pick This Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :caregiver_commit_id => volunteer.caregiver_requestor_id, :request_id => volunteer.request_id}, :method => :post
+                    = link_to '<span class="user icon"></span>Pick This Caregiver', {:controller => 'my_volunteers', :action => "add_caregiver", :pending_request_id => volunteer.id, :caregiver_commit_id => volunteer.caregiver_requestor_id, :request_id => volunteer.request_id}, :method => :post, :class => 'pill button'
                 .clear
   -else
     .request
       %h2
         %span#red Currently, you do not have any requests. 
       %h3 You can create a new care request if you need to:
-      = link_to "+ Create a New Care Request", new_members_request_path
+      = link_to "<span class='plus icon'></span>Create a New Care Request", new_members_request_path, :class => 'pill button'
       %h3 You can also volunteer for your neighbors' requests:
-      = link_to "Requests", members_requests_path
+      = link_to "Requests", members_requests_path, :class => 'pill button'

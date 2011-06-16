@@ -93,9 +93,9 @@
                   -if @count != request.children.length
                     ,
             .tools
-              - if PendingRequest.find(:all, :conditions => {:request_id => request.id, :caregiver_requestor_id => current_user.household.id}).count > 0
-                .volunteer-button= link_to "Volunteered", members_request_path(request)
+              - if has_volunteered(request)
+                .volunteer-button= link_to "Volunteered", members_request_path(request), :class => 'pill button'
               - else  
-                .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post
+                .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post, :class => 'pill button'
             .clear
 

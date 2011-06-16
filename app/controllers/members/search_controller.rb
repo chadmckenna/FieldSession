@@ -1,5 +1,6 @@
 class Members::SearchController < Members::MembersController
   skip_before_filter :require_household
+  helper :search
   
   def index
     unless params[:search ].blank?
@@ -18,4 +19,5 @@ class Members::SearchController < Members::MembersController
       end
     end
   end
+
 end

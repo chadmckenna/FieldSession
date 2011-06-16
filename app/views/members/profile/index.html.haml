@@ -38,7 +38,8 @@
             =h link_to "#{child.first_name} #{child.last_name}", members_child_path(child)
         -else
           You have no children.
-      %p= link_to "+ Add Child", new_members_child_path
+      #add-child
+        = link_to "<span class='user icon'></span>Add Child", new_members_child_path, :class => 'button pill'
     %div.title
       = "Address"
       %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
@@ -106,8 +107,8 @@
       %br
       -#= "confirmed Credits: #{@household.requests.cost}"
     #buttons
-      = link_to 'Edit my Household', members_profile_edit_path
-      = link_to '+ Create New Request', new_members_request_path
+      = link_to '<span class="pen icon"></span>Edit my Household', members_profile_edit_path, :class => 'left pill button'
+      = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
   #content
     - openRequests = false
     - if @household.requests.length > 0
@@ -149,8 +150,8 @@
                       Notes:
                       =h request.notes
                 .tools
-                  %span= link_to "Edit", edit_members_request_path(request)
-                  %span= link_to "Cancel", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete
+                  = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(request), :class => 'pill button'
+                  = link_to "<span class='cross icon'></span>Cancel", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
                 .clear
     - else
       #no-requests
@@ -168,7 +169,7 @@
 
             .right
               .title
-                =h "#{confirmed.request.title} (#{confirmed.request.cost.to_i} credits)"
+                = "#{link_to confirmed.request.title, members_request_path(confirmed.request)} (#{confirmed.request.cost.to_i} credits)"
               .date
                 =h confirmed.request.start_time.to_s(:nicetime)
                 to
@@ -192,8 +193,8 @@
                     Notes:
                     = confirmed.request.notes
             .tools
-              %span= link_to "Edit", edit_members_request_path(confirmed.request)
-              %span= link_to "Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete
+              = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(confirmed.request), :class => 'button pill'
+              = link_to "<span class='cross icon'></span>Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
             .clear
     - if @pending_commitments.count > 0
       %font.small-title My Pending Commitments
@@ -234,7 +235,8 @@
                     Notes:
                     = pending_commitment.request.notes
             .tools
-              %span= link_to "Show Details", detail_members_request_path(pending_commitment.request)
+              = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(pending_commitment.request), :class => 'button pill'
+              = link_to "<span class='cross icon'></span>Cancel Care Request", members_pending_request_path(pending_commitment), :confirm => 'Are you sure you want to cancel this pending request?', :method => :delete, :class => 'pill button negative'
             .clear
 
     - if @commitments.length > 0
@@ -276,6 +278,7 @@
                     Notes:
                     = commitment.request.notes
             .tools
-              %span= link_to "Show Details", detail_members_request_path(commitment.request)
+              = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(commitment.request), :class => 'pill button'
+              = link_to "<span class='cross icon'></span>Cancel Commitment", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
             .clear
 
