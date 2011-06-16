@@ -59,15 +59,23 @@ $(document).ready(function() {
 	
 	$("font#edit-child a").click(function(e) {
 		e.preventDefault();
-		$("child-submit input").show();
-		$("#child-first_name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $("#first_name font.text").text() + "'/>");
-		$("#child-last_name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $("#last_name font.text").text() + "'/>");
-		$("#birthday font.text").replaceWith("<input type='text' name='child[birthday]' value='" + $("#birthday font.text").text() + "'/>");
-		$("#allergies font.text").replaceWith("<input type='text' name='child[allergies]' value='" + $("#allergies font.text").text() + "'/>");
-		$("#dietary_restrictions font.text").replaceWith("<input type='text' name='child[dietary_restrictions]' value='" + $("#dietary_restrictions font.text").text() + "'/>");
-		$("#medications font.text").replaceWith("<input type='text' name='child[medications]' value='" + $("#medications font.text").text() + "'/>");
-		$("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + $("#notes font.text").text() + "'/>");
+	$(this).parent().find("#user-submit input").show();
+		$(this).parent().find("#show-more").show();
+		$(this).find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $("#first-name font.text").text() + "'/>");
+		$(this).find("#last-name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $("#last-name font.text").text() + "'/>");
+		$("#DOB font.text").replaceWith("<input type='text' name='child[date_of_birth]' value='" + $("#DOB font.text").text() + "'/>");
 	});
+	
+	$("font#edit-address a").click(function(e) {
+		e.preventDefault();
+		$("#user-submit input").show();
+		$("#street1 font.text").replaceWith("<input type='text' name='@household.address[street1]' value='" + $("#street1 font.text").text() + "'/>");
+		$("#street2 font.text").replaceWith("<input type='text' name='@household.address[street2]' value='" + $("#street2 font.text").text() + "'/>");
+		$("#city font.text").replaceWith("<input type='text' name='@household.address[city]' value='" + $("#city font.text").text() + "'/>");
+		$("#state font.text").replaceWith("<input type='text' name='@household.address[state]' value='" + $("#state font.text").text() + "'/>");
+		$("#zip font.text").replaceWith("<input type='text' name='@household.address[zip]' value='" + $("#zip font.text").text() + "'/>");
+	});
+	
 
 	$("font#edit-household a").click(function(e) {
 		e.preventDefault();
@@ -79,6 +87,13 @@ $(document).ready(function() {
 	$("#change-password a").click(function(e) {
 		$("#new-password").show();
 		$("#password-confirmation").show();
+		$(this).hide();
+	});
+	
+	$("#show-more a").click(function(e) {
+		$("#allergies").show();
+		$("#medications").show();
+		$("#notes").show();
 		$(this).hide();
 	});
 	
