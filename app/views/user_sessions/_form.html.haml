@@ -1,12 +1,15 @@
 - form_for @user_session do |f|
+  #form_header 
+    %h2 Log In
+    .button= link_to "Sign up!", signup_path, :class => 'button'
+    %br
+    %font Log In to access your household account
   = f.error_messages
-  %p
-    = f.label :username
-    %br
-    = f.text_field :username, :size => 20, :autofocus => true
-    %p
-    = f.label :password
-    %br
-    = f.password_field :password, :size => 20
-    %p
-    = f.submit "Log in"
+  = f.label :username
+  = f.text_field :username, :size => 20, :autofocus => true
+  = f.label :password
+  = f.password_field :password, :size => 20
+  = f.label "&nbsp;"
+  = f.submit "Log in"
+
+.clear

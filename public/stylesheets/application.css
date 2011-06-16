@@ -287,7 +287,102 @@ a {
   line-height: 150%;
   margin: 100px auto 0 auto;
   background: white;
-  position: relative; }
+  position: relative;
+  padding-top: 30px; }
+  #container #login {
+    width: 700px;
+    margin: 20px auto 20px auto;
+    font-size: 1.1em; }
+  #container #form_new_user {
+    width: 700px;
+    margin: 30px auto 0 auto;
+    border: 1px solid;
+    padding-bottom: 20px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px; }
+    #container #form_new_user #form_header {
+      margin: 0 15px 20px 15px;
+      border-bottom: 1px solid;
+      padding: 1em 0.6em 1em 0.6em; }
+      #container #form_new_user #form_header h2 {
+        float: left;
+        margin: 0;
+        padding: 0;
+        font-size: 2em; }
+      #container #form_new_user #form_header .button {
+        float: right; }
+      #container #form_new_user #form_header font {
+        font-size: 1em;
+        color: darkGrey;
+        position: relative;
+        top: 10px;
+        font-weight: normal; }
+    #container #form_new_user label {
+      float: left;
+      text-align: right;
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      width: 250px;
+      font-size: 0.9em; }
+    #container #form_new_user input[type="text"], #container #form_new_user input[type="password"] {
+      float: left;
+      width: 250px;
+      margin-bottom: 10px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      margin-left: 15px; }
+    #container #form_new_user input[type="submit"] {
+      float: left;
+      height: 30px;
+      width: 90px;
+      margin-left: 15px;
+      font-size: 0.9em; }
+    #container #form_new_user .clear {
+      clear: both; }
+  #container #form {
+    width: 450px;
+    margin: 30px auto 0px auto;
+    border: 1px solid;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding-bottom: 30px; }
+    #container #form #form_header {
+      margin: 0 10px 20px 10px;
+      border-bottom: 1px solid;
+      padding: 1em 0.6em 1em 0.6em; }
+      #container #form #form_header h2 {
+        padding: 0;
+        margin: 0;
+        float: left;
+        font-size: 2em; }
+      #container #form #form_header .button {
+        float: right; }
+      #container #form #form_header font {
+        font-size: 1em;
+        color: darkGrey;
+        position: relative;
+        top: 10px;
+        font-weight: normal; }
+    #container #form label {
+      width: 150px;
+      display: block;
+      float: left;
+      text-align: right;
+      margin-bottom: 10px;
+      font-weight: bold; }
+    #container #form input[type="text"], #container #form input[type="password"] {
+      width: 200px;
+      float: left;
+      margin-bottom: 10px; }
+    #container #form input[type="submit"] {
+      float: left;
+      margin-bottom: 20px;
+      height: 30px;
+      width: 70px;
+      font-size: 0.9em; }
+  #container .clear {
+    clear: both; }
   #container #profile_notice {
     text-align: center;
     width: 100%;
