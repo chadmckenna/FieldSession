@@ -91,7 +91,7 @@
               =h request.notes
         .tools
           .delete 
-            %span= link_to image_tag("close.jpg"), "#"
+            %span= link_to 'x', "#"
           .subnav
             %ul
               %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id, :belongs_to => request.household.id}, :method => :post
