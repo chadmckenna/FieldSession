@@ -121,6 +121,7 @@ a
         position: relative
         top: 5px
       .notification-list
+        list-style-type: none
         display: none
         width: 330px
         padding: .5em
@@ -133,11 +134,14 @@ a
         -moz-box-shadow: 2px 2px 2px black
         -webkit-box-shadow: 2px 2px 2px black
         .notification
+          list-style-type: none
           margin: 1em 0 1em 0
           color: black
           font-size: .8em
           padding-bottom: .5em
           border-bottom: double 3px $lightGrey
+          a
+            color: black
           #left
             float: left
             width: 8%
@@ -145,6 +149,8 @@ a
           #right 
             float: right
             width: 83%
+            a
+              color: $contentLinkColor
           #clear
             clear: both
    
@@ -587,6 +593,8 @@ label
       font-size: 1.8em
       margin: 0 !important
       padding: 0 !important
+    .name
+      margin-left: .2em !important
       a
         padding: inherit
         margin: inherit
@@ -726,10 +734,16 @@ label
       .delete-link
         float: right
         a
-          background: none
+          padding: 0 .35em .05em .35em
+          background: #999
+          -moz-border-radius: 1em
+          -webkit-border-radius: 1em
+          border-radius: 1em
+          color: white
           border: none
           &:hover
-            text-decoration: underline
+            background: black
+            color: white
   #pending
     #no-pending
       font-size: .8em
@@ -829,7 +843,7 @@ input[type="text"], input[type="password"], textarea
 
 #hidden-requests-container
   width: 50%
-  float: left
+  float: right
   .hidden-title
     margin: 20px 0px 20px 20px
     font-size: 1.4em
@@ -857,7 +871,7 @@ input[type="text"], input[type="password"], textarea
       clear: both
 
 #user-household-info
-  float: right
+  float: left
   width: 48%
   input[type="submit"]
     display: none
@@ -948,16 +962,6 @@ input[type="text"], input[type="password"], textarea
   #address
     width: 100%
     margin-bottom: 30px
-    a
-      //border: 1px solid #aaa !important
-      //background: $lightGrey !important
-      color: $mastheadBG
-      padding: .2em
-      -moz-border-radius: .3em
-      -webkit-border-radius: .3em
-      &:hover
-        border: 1px solid #777
-        text-decoration: none
 
 
 .clear

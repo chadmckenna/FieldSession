@@ -22,7 +22,7 @@
           \-
           = hidden_request.request.to_date.to_s(:short)
       .button
-        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete, :class => 'pill button'
       .clear
 
   - if @hidden_household_requests.count > 0
@@ -35,7 +35,7 @@
       .household
         = find_hidden_household(hidden_household_request)
       .button
-        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete, :class => 'pill button'
       .clear
 
 #user-household-info

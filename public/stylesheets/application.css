@@ -110,6 +110,7 @@ a {
         position: relative;
         top: 5px; }
       #masthead .menubar li#notifications .notification-list {
+        list-style-type: none;
         display: none;
         width: 330px;
         padding: 0.5em;
@@ -121,11 +122,14 @@ a {
         -moz-box-shadow: 2px 2px 2px black;
         -webkit-box-shadow: 2px 2px 2px black; }
         #masthead .menubar li#notifications .notification-list .notification {
+          list-style-type: none;
           margin: 1em 0 1em 0;
           color: black;
           font-size: 0.8em;
           padding-bottom: 0.5em;
           border-bottom: double 3px #eeeeee; }
+          #masthead .menubar li#notifications .notification-list .notification a {
+            color: black; }
           #masthead .menubar li#notifications .notification-list .notification #left {
             float: left;
             width: 8%;
@@ -133,6 +137,8 @@ a {
           #masthead .menubar li#notifications .notification-list .notification #right {
             float: right;
             width: 83%; }
+            #masthead .menubar li#notifications .notification-list .notification #right a {
+              color: #884411; }
           #masthead .menubar li#notifications .notification-list .notification #clear {
             clear: both; }
     #masthead .menubar li.notification {
@@ -563,14 +569,16 @@ label {
       font-size: 1.8em;
       margin: 0 !important;
       padding: 0 !important; }
-      .request .left h2 a, .neighbor .left h2 a {
+    .request .left .name, .neighbor .left .name {
+      margin-left: 0.2em !important; }
+      .request .left .name a, .neighbor .left .name a {
         padding: inherit;
         margin: inherit;
         padding: 0;
         margin: 0 0 0 -0.2em;
         background: none !important;
         border: 0 !important; }
-        .request .left h2 a:hover, .neighbor .left h2 a:hover {
+        .request .left .name a:hover, .neighbor .left .name a:hover {
           text-decoration: underline; }
     .request .left .image, .neighbor .left .image {
       float: left; }
@@ -686,10 +694,16 @@ label {
     #commit-container #commitments .confirmed-request .delete-link {
       float: right; }
       #commit-container #commitments .confirmed-request .delete-link a {
-        background: none;
+        padding: 0 0.35em 0.05em 0.35em;
+        background: #999999;
+        -moz-border-radius: 1em;
+        -webkit-border-radius: 1em;
+        border-radius: 1em;
+        color: white;
         border: none; }
         #commit-container #commitments .confirmed-request .delete-link a:hover {
-          text-decoration: underline; }
+          background: black;
+          color: white; }
   #commit-container #pending #no-pending {
     font-size: 0.8em;
     color: #aaaaaa;
@@ -787,7 +801,7 @@ input[type="text"], input[type="password"], textarea {
 
 #hidden-requests-container {
   width: 50%;
-  float: left; }
+  float: right; }
   #hidden-requests-container .hidden-title {
     margin: 20px 0px 20px 20px;
     font-size: 1.4em;
@@ -815,7 +829,7 @@ input[type="text"], input[type="password"], textarea {
       clear: both; }
 
 #user-household-info {
-  float: right;
+  float: left;
   width: 48%; }
   #user-household-info input[type="submit"] {
     display: none; }
@@ -903,14 +917,6 @@ input[type="text"], input[type="password"], textarea {
   #user-household-info #address {
     width: 100%;
     margin-bottom: 30px; }
-    #user-household-info #address a {
-      color: #464f3f;
-      padding: 0.2em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em; }
-      #user-household-info #address a:hover {
-        border: 1px solid #777777;
-        text-decoration: none; }
 
 .clear {
   clear: both; }

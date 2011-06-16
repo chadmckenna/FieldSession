@@ -7,7 +7,7 @@
   %h3 Step 1 of 5
   Thanks for signing up!  First we'll have you create a caregiver profile, with which you can manage your household.  You'll have the option to create a household or join one in the next step.
 
-%p= "Already have an account? #{link_to 'Log in', login_path}."
+%p= "Already have an account? #{link_to 'Log in', login_path, :class => 'button'}."
 
 - form_for @user do |f|
   = f.error_messages

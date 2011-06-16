@@ -9,7 +9,7 @@
       %h2.household Household
   .right
     .title
-      =h "#{@request.title} (#{@request.cost.to_i} credits)"
+      =h "#{@request.title} (#{pluralize(@request.cost.to_i, "credit")})"
     .date
       =h @request.start_time.to_s(:nicetime)
       to
