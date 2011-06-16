@@ -49,8 +49,9 @@ $(document).ready(function() {
 		e.preventDefault();
 		$("#user-submit input").show();
 		$("#change-password").show();
-		$("#first-name font.text").replaceWith("<input type='text' name='user[first_name]' value='" + $("#first-name font.text").text() + "'/>");
-		$("#last-name font.text").replaceWith("<input type='text' name='user[last_name]' value='" + $("#last-name font.text").text() + "'/>");
+		$(this).parent().parent().find("#last-name").show();
+		$(this).parent().parent().find("#first-name font.text").replaceWith("<input type='text' name='user[first_name]' value='" + $(this).parent().parent().find("#first-name font.text").text() + "'/>");
+		$(this).parent().parent().find("#last-name font.text").replaceWith("<input type='text' name='user[last_name]' value='" + $(this).parent().parent().find("#last-name font.text").text() + "'/>");
 		$("#username font.text").replaceWith("<input type='text' name='user[username]' value='" + $("#username font.text").text() + "'/>");
 		$("#email font.text").replaceWith("<input type='text' name='user[email]' value='" + $("#email font.text").text() + "'/>");
 		$("#phone font.text").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone font.text").text() + "'/>");
@@ -59,11 +60,26 @@ $(document).ready(function() {
 	
 	$("font#edit-child a").click(function(e) {
 		e.preventDefault();
+		$(this).parent().parent().parent().find("user-submit").show();
+		//Show childrens information
+		$(this).parent().parent().parent().find("#first-name").show();
+		$(this).parent().parent().parent().find("#last-name").show();
+		$(this).parent().parent().parent().find("#DOB").show();
+		$(this).parent().parent().parent().find("#allergies").show();
+		$(this).parent().parent().parent().find("#medications").show();
+		$(this).parent().parent().parent().find("#notes").show();
+		
+		//Be able to edit childrens information
 		$(this).parent().parent().parent().find("#user-submit input").show();
-		$(this).parent().parent().parent().find("#show-more").show();
+		//$(this).parent().parent().parent().find("#show-more").show();
 		$(this).parent().parent().parent().find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $(this).parent().parent().parent().find("#first-name font.text").text() + "'/>");
 		$(this).parent().parent().parent().find("#last-name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $(this).parent().parent().parent().find("#last-name font.text").text() + "'/>");
 		$(this).parent().parent().parent().find("#DOB font.text").replaceWith("<input type='text' name='child[date_of_birth]' value='" + $(this).parent().parent().parent().find("#DOB font.text").text() + "'/>");
+		$(this).parent().parent().parent().find("#allergies font.text").replaceWith("<input type='text' name='child[allergies]' value='" + $(this).parent().parent().parent().find("#allergies font.text").text() + "'/>");
+		$(this).parent().parent().parent().find("#medications font.text").replaceWith("<input type='text' name='child[medications]' value='" + $(this).parent().parent().parent().find("#medications font.text").text() + "'/>");
+		$(this).parent().parent().parent().find("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + $(this).parent().parent().parent().find("#notes font.text").text() + "'/>");
+		$(this).hide();
+		
 	});
 	
 	$("font#edit-address a").click(function(e) {
@@ -90,18 +106,29 @@ $(document).ready(function() {
 		$(this).hide();
 	});
 	
-	$("#show-more a").click(function(e) {
+	$("font#display-child a").click(function(e) {
 		e.preventDefault();
 		//$(this).parent().parent().parent().find("#user-submit input").show());
+		$(this).parent().parent().parent().find("#first-name").show();
+		$(this).parent().parent().parent().find("#last-name").show();
+		$(this).parent().parent().parent().find("#DOB").show();
 		$(this).parent().parent().parent().find("#allergies").show();
-		$(this).parent().parent().parent().find("#allergies font.text").replaceWith("<input type='text' name='child[allergies]' value='" + $(this).parent().parent().parent().find("#allergies font.text").text() + "'/>");
-		
 		$(this).parent().parent().parent().find("#medications").show();
-		$(this).parent().parent().parent().find("#medications font.text").replaceWith("<input type='text' name='child[medications]' value='" + $(this).parent().parent().parent().find("#medications font.text").text() + "'/>");
-		
 		$(this).parent().parent().parent().find("#notes").show();
-		$(this).parent().parent().parent().find("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + $(this).parent().parent().parent().find("#notes font.text").text() + "'/>");
-		$(this).hide();
+		//$(this).hide();
+		//$(".tools").show();
+	});
+	
+	$("font#hide-child a").click(function(e) {
+		e.preventDefault();
+		$(this).parent().parent().parent().find("#first-name").show();
+		$(this).parent().parent().parent().find("#last-name").hide();
+		$(this).parent().parent().parent().find("#DOB").hide();
+		$(this).parent().parent().parent().find("#allergies").hide();
+		$(this).parent().parent().parent().find("#medications").hide();
+		$(this).parent().parent().parent().find("#notes").hide();
+		//$(this).hide();
+		//$(this).parent().parent().parent().parent().find("font#display-child").show();
 	});
 	
 	$("#change-photo a").click(function(e) {

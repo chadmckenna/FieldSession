@@ -49,7 +49,7 @@
     %font#edit-user= link_to '(edit)', '#'
     %br
     %br
-    - form_for edit_members_user_path(current_user) do |f|
+    - form_for [:members, @user] do |f|
       #username
         %font.small-title= f.label "Username:"
         %font.text= @user.username
@@ -72,12 +72,13 @@
         = link_to 'Change My Password', '#'
       #new-password
         %font.small-title= f.label "New Password:"
-        = f.password_field :password
+        = f.password_field :password, :value => ""
       #password-confirmation
         %font.small-title= f.label "Password Confirmation"
-        = f.password_field :password_confirmation
+        = f.password_field :password_confirmation, :value => ""
       #user-submit
         = f.submit
+
   #household
     %strong= "#{@user.household} Household Information"
     %font#edit-household= link_to '(edit)', '#'
@@ -118,33 +119,37 @@
           #first-name
             %font.small-title= f.label "First Name:"
             %font.text= child.first_name
+
+            %font#edit-child= link_to '(edit)', '#'
+            %font#display-child= link_to '(show all)', '#'
+            %font#hide-child= link_to '(hide all)', '#'
+
           #last-name
             %font.small-title= f.label "Last Name:"
             %font.text= child.last_name
-            %font#edit-child= link_to '(edit)', '#'
+
           #DOB
             %font.small-title= f.label "Date of Birth:"
             %font.text= child.date_of_birth.to_s(:nicetime)
-          #show-more
-            = link_to 'Show More', '#'
+
           #allergies
             %font.small-title= f.label "Allergies:"
-            - if !child.allergies.eql? ""
-              %font.text= child.allergies
-            - else
+            %font.text= child.allergies
+            - if child.allergies.eql? ""
               %br
+
           #medications
             %font.small-title= f.label "Medications:"
-            - if !child.medications.eql? ""
-              %font.text= child.medications
-            - else
+            %font.text= child.medications
+            - if child.medications.eql? ""
               %br
+
           #notes
             %font.small-title= f.label "Notes:"
-            - if !child.notes.eql? ""
-              %font.text= child.notes
-            - else
+            %font.text= child.notes
+            - if child.notes.eql? ""
               %br
+
           %br
           #user-submit
             = f.submit
