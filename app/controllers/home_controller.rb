@@ -10,5 +10,9 @@ class HomeController < ApplicationController
       format.xml  {render :xml}
     end
   end
+  
+  def how_it_works
+    
+  end
 end
 

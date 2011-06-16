@@ -240,7 +240,7 @@ a {
     height: 400px;
     width: 600px; }
   #container #learn_more {
-    width: 600px;
+    width: 900px;
     margin: 10px auto 0px auto; }
     #container #learn_more div {
       float: left;
@@ -270,6 +270,10 @@ a {
     #container #learn_more #sign_up a {
       background: url("../images/sign_up.jpg") no-repeat; }
       #container #learn_more #sign_up a:hover {
+        background-position: bottom; }
+    #container #learn_more #how_it_works a {
+      background: url("") no-repeat; }
+      #container #learn_more #how_it_works a:hover {
         background-position: bottom; }
 
 #container {

@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.vision 'vision', :controller => 'home', :action => 'vision'
   map.security 'security', :controller => 'home', :action => 'security'
+  map.how_it_works 'how_it_works', :controller => 'home', :action => 'how_it_works'
   map.tos 'TOS', :controller => 'home', :action => 'TOS'
   map.contact 'contact', :controller => 'home', :action => 'contact'
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
