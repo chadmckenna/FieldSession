@@ -641,11 +641,6 @@ label {
       z-index: 5; }
       .request .tools .delete span, .neighbor .tools .delete span {
         display: none; }
-      .request .tools .delete a, .neighbor .tools .delete a {
-        background: none !important;
-        border: none !important; }
-        .request .tools .delete a:hover, .neighbor .tools .delete a:hover {
-          background: #cccccc !important; }
     .request .tools .subnav ul, .neighbor .tools .subnav ul {
       list-style-type: none;
       margin-top: 20px;
@@ -663,8 +658,6 @@ label {
       .request .tools .subnav ul li, .neighbor .tools .subnav ul li {
         margin-right: 30px;
         padding: 0.2em; }
-        .request .tools .subnav ul li a:hover, .neighbor .tools .subnav ul li a:hover {
-          background: #dddddd !important; }
   .request .clear, .neighbor .clear {
     clear: both; }
 
@@ -691,39 +684,40 @@ label {
     #commit-container #commitments .confirmed-request .link {
       text-align: right;
       margin-top: 5px; }
-    #commit-container #commitments .confirmed-request .delete-link {
-      float: right; }
-      #commit-container #commitments .confirmed-request .delete-link a {
-        padding: 0 0.35em 0.05em 0.35em;
-        background: #999999;
-        -moz-border-radius: 1em;
-        -webkit-border-radius: 1em;
-        border-radius: 1em;
-        color: white;
-        border: none; }
-        #commit-container #commitments .confirmed-request .delete-link a:hover {
-          background: black;
-          color: white; }
-  #commit-container #pending #no-pending {
+
+.delete-link, .delete {
+  float: right; }
+  .delete-link a, .delete a {
+    padding: 0 0.35em 0.05em 0.35em;
+    background: #999999;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    color: white !important;
+    border: none; }
+    .delete-link a:hover, .delete a:hover {
+      background: black;
+      color: white; }
+  .delete-link #pending #no-pending, .delete #pending #no-pending {
     font-size: 0.8em;
     color: #aaaaaa;
     padding: 0.5em; }
-  #commit-container #pending .pending-request {
+  .delete-link #pending .pending-request, .delete #pending .pending-request {
     font-weight: none;
     font-size: 0.7em;
     border-bottom: 3px double #eeeeee;
     margin-bottom: 1em;
     padding: 0.5em;
     text-align: left; }
-    #commit-container #pending .pending-request .link {
+    .delete-link #pending .pending-request .link, .delete #pending .pending-request .link {
       text-align: right;
       margin-top: 5px; }
-    #commit-container #pending .pending-request .delete-link {
+    .delete-link #pending .pending-request .delete-link, .delete #pending .pending-request .delete-link {
       float: right; }
-      #commit-container #pending .pending-request .delete-link a {
+      .delete-link #pending .pending-request .delete-link a, .delete #pending .pending-request .delete-link a {
         background: none;
         border: none; }
-        #commit-container #pending .pending-request .delete-link a:hover {
+        .delete-link #pending .pending-request .delete-link a:hover, .delete #pending .pending-request .delete-link a:hover {
           text-decoration: underline; }
 
 input[type="text"], input[type="password"], textarea {
