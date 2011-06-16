@@ -22,7 +22,7 @@
           \-
           = hidden_request.request.to_date.to_s(:short)
       .button
-        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete, :class => 'pill button'
       .clear
 
   - if @hidden_household_requests.count > 0
@@ -35,7 +35,7 @@
       .household
         = find_hidden_household(hidden_household_request)
       .button
-        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete, :class => 'pill button'
       .clear
 
 #user-household-info
@@ -94,30 +94,83 @@
         = f.submit
     %br
     #users
-      Users: 
+      %strong= "Users:"
+      %font#edit-users= link_to '(edit)', '#' 
+      %br
       %br
       - for user in @users
-        .indent 
-          Username:
+        #username
+          %font.small-title= "Username:"
           %font= user.username
-          Name:
+        #name
+          %font.small-title= "Name:"
           %font= user.first_name + " " + user.last_name
-          %br
-
-      Children:
-      %br
-      - for child in @household.children
+        %br
+  #children
+    %strong= "Children:"
+    
+    %br
+    %br
+    - for child in @household.children
+      #partial-description
         - form_for edit_members_child_path(child) do |f|
-          .indent
-            #child-first-name
-              %font.small-title= f.label "First Name:"
-              %font.text= child.first_name
-            #child-last-name
-              %font.small-title= f.label "Last Name:"
-              %font.text= child.last_name
-            
-            #user-submit
-              = f.submit
+       
+          #first-name
+            %font.small-title= f.label "First Name:"
+            %font.text= child.first_name
+          #last-name
+            %font.small-title= f.label "Last Name:"
+            %font.text= child.last_name
+            %font#edit-child= link_to '(edit)', '#'
+          #DOB
+            %font.small-title= f.label "Date of Birth:"
+            %font.text= child.date_of_birth.to_s(:nicetime)
+          #show-more
+            = link_to 'Show More', '#'
+          #allergies
+            %font.small-title= f.label "Allergies:"
+            - if !child.allergies.eql? ""
+              %font.text= child.allergies
+            - else
+              %br
+          #medications
+            %font.small-title= f.label "Medications:"
+            - if !child.medications.eql? ""
+              %font.text= child.medications
+            - else
+              %br
+          #notes
+            %font.small-title= f.label "Notes:"
+            - if !child.notes.eql? ""
+              %font.text= child.notes
+            - else
+              %br
+          %br
+          #user-submit
+            = f.submit
+
+  #address
+    %strong= "Address:"
+    %font#edit-address= link_to '(edit)', '#'
+    - form_for edit_members_address_path(@household.address) do |f|
+      #street1
+        %font.small-title= f.label "Street 1:"
+        %font.text= @household.address.street1
+      #street2
+        %font.small-title= f.label "Street 2:"
+        %font.text= @household.address.street2
+      #city
+        %font.small-title= f.label "City:"
+        %font.text= @household.address.city
+      #state
+        %font.small-title= f.label "State:"
+        %font.text= @household.address.state
+      #zip
+        %font.small-title= f.label "Zip:"
+        %font.text= @household.address.zip
+      #user-submit
+        = f.submit
+
            
            
             
