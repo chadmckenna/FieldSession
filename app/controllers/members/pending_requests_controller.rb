@@ -30,7 +30,7 @@ class Members::PendingRequestsController < Members::MembersController
         redirect_to members_requests_path
       end
     else
-      flash[:error] = "You cannot volunteer for the same request twice."
+      flash[:error] = "You have already volunteered for this request"
       redirect_to members_requests_path
     end
   end
