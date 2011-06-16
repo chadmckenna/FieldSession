@@ -110,6 +110,7 @@ a {
         position: relative;
         top: 5px; }
       #masthead .menubar li#notifications .notification-list {
+        list-style-type: none;
         display: none;
         width: 330px;
         padding: 0.5em;
@@ -121,11 +122,14 @@ a {
         -moz-box-shadow: 2px 2px 2px black;
         -webkit-box-shadow: 2px 2px 2px black; }
         #masthead .menubar li#notifications .notification-list .notification {
+          list-style-type: none;
           margin: 1em 0 1em 0;
           color: black;
           font-size: 0.8em;
           padding-bottom: 0.5em;
           border-bottom: double 3px #eeeeee; }
+          #masthead .menubar li#notifications .notification-list .notification a {
+            color: black; }
           #masthead .menubar li#notifications .notification-list .notification #left {
             float: left;
             width: 8%;
