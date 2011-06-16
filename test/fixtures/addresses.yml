@@ -1,15 +1,7 @@
 one:
-  street1: MyString
-  street2: MyString
-  city: MyString
-  state: MyString
-  zip: 1
-  household_id: 1
-
-two:
-  street1: MyString
-  street2: MyString
-  city: MyString
-  state: MyString
-  zip: 1
+  street1: 123 3rd st
+  street2: Apartment 4
+  city: Denver
+  state: CO
+  zip: 80322
   household_id: 1
