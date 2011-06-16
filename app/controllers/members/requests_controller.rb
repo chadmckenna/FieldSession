@@ -119,17 +119,27 @@ class Members::RequestsController < Members::MembersController
 
   def destroy
     @request = Request.find(params[:id])
-    @pending_requests = PendingRequest.find_all_by_request_id(@request.id)
-    if !@request.household_id.eql? current_user.household_id
-      flash[:error] = "You do not have permission to access this page."
-      redirect_to members_request_path(@request)
-    else
-      @request.destroy
-      for pending_request in @pending_requests
-        pending_request.destroy
+    pending_request = PendingRequest.find(:first, :conditions => {:request_id => @request.id, :confirmed => "true"})
+    
+    start_time = Time.local(@request.from_date.year, @request.from_date.month, @request.from_date.day, @request.start_time.hour, @request.start_time.min)
+    start_time -= 1.hour
+    
+    if (Time.now < start_time) || ((Time.now > start_time) && (pending_request.eql? nil))
+      @pending_requests = PendingRequest.find_all_by_request_id(@request.id)
+      if !@request.household_id.eql? current_user.household_id
+        flash[:error] = "You do not have permission to access this page."
+        redirect_to members_request_path(@request)
+      else
+        @request.destroy
+        for pending_request in @pending_requests
+          pending_request.destroy
+        end
+        flash[:success] = "Successfully destroyed request."
+        redirect_to members_profile_path
       end
-      flash[:success] = "Successfully destroyed request."
-      redirect_to members_profile_path
+    else
+      flash[:error] = "You cannot delete a request that has a confirmed caregiver less than one hour before it is set to begin"
+      redirect_to members_request_path(@request)
     end
   end
   
