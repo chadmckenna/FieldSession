@@ -2,8 +2,9 @@ $primary_color: #aaffaa
 $errorBorder: #cc6666
 $noticeBorder: #66cc66
 /*$linkColor: #39f*/
-$linkColor: #C4D7A4
-$contentLinkColor: #841
+$linkColor: #571
+$linkHover: #793
+$contentLinkColor: #571
 $mastheadBG: #464F3F
 $lightGrey: #eee
 $darkGrey: #ccc
@@ -22,7 +23,7 @@ a
   color: $linkColor
   text-decoration: none
   &:hover
-    color: #E1E6B9
+    color: $linkHover
   img
     border: none
 
@@ -38,11 +39,18 @@ a
   background: white
 
 #masthead
+  min-height: 100px
   font-family: 'Rokkitt', serif
   padding: 0 !important
-  /*background: #c7e3ff*/
-  background: $mastheadBG
-  color: white
+  background: #eeeeaa
+  background: -moz-linear-gradient(top, #eeeeaa 0%, #b5d677 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeaa), color-stop(100%,#b5d677))
+  background: -webkit-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  background: -o-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  background: -ms-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeaa', endColorstr='#b5d677',GradientType=0 )
+  background: linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  color: #888
   position: fixed
   top: 0 !important
   width: 100%
@@ -69,21 +77,24 @@ a
     input[type="submit"]
       display: none
   h1
+    z-index: 10
     float: left
     width: 20%
     padding: 0 !important
     margin: .4em 0 -.1em .4em
     line-height: 1em
     font-size: 4em
+    position: relative
   h2
+    float: left
+    z-index: -20
     padding: 0 !important
-    width: 20%
-    margin: 0 0 .4em 3.5em
-    font-size: 1.2em
-    font-weight: normal
-    font-style: oblique
+    margin: -5px 0 .4em 2em
+    font-size: .9em
+    font-weight: 200
     font-family: Arial
-    color: $linkColor
+    color: white
+    position: relative
   #login
     float: right
     margin: 10px 10px 0px 0px
@@ -101,7 +112,7 @@ a
       display: inline
       margin-right: 1em
   .menubar
-    margin: 1.9em 0 0 0
+    margin: 2em 0 0 0
     list-style-type: none
     font-size: 1.4em
     float: right
@@ -256,6 +267,12 @@ a
   min-height: 80%
   a
     //color: $contentLinkColor
+  #tag_line
+    text-align: center
+    width: 800px
+    margin: 0 auto 0 auto
+    font-size: 3em
+    padding: 40px 0 60px 0
   #video
     margin: 20px auto 0px auto
     width: 600px
@@ -264,8 +281,8 @@ a
     height: 400px
     width: 600px
   #learn_more
-    width: 900px
     margin: 10px auto 0px auto
+    width: 800px
     div
       float: left
       width: 200px
