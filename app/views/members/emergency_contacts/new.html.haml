@@ -1,8 +1,9 @@
-- title "New Emergency Contact"
+- title "Add Emergency Contact"
 
-#profile_notice
-  %h3 Step 5 of 5
-  Enter some emergency contacts.
+-if EmergencyContact.find(:all, :conditions => {:household_id => current_user.household_id}).count < 1
+  #profile_notice
+    %h3 Step 5 of 5
+    Please enter as many emergency contacts as you wish.  These will be provided to caregivers each time you request care.  In addition to friends and family, you may want to also provide contact information for your family medical caregivers (doctor, dentist, etc.)
 
 = render :partial => 'form'
 %p= link_to "Back to all emergency contacts", members_emergency_contacts_path

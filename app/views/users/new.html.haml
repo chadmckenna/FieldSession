@@ -1,47 +1,37 @@
 - content_for :title do
   Villages: Sign Up
-  
-%h1 Create a new account
 
 #profile_notice
   %h3 Step 1 of 5
   Thanks for signing up!  First we'll have you create a caregiver profile, with which you can manage your household.  You'll have the option to create a household or join one in the next step.
 
-%p= "Already have an account? #{link_to 'Log in', login_path, :class => 'button'}."
-
-- form_for @user do |f|
-  = f.error_messages
-  %p
+#form_new_user
+  - form_for @user do |f|
+    #form_header 
+      %h2 Sign Up
+      .button= link_to 'Log in', login_path, :class => 'button'
+      %br
+      %font ChangeME
+    = f.error_messages
     = f.label :username
-    %br
     = f.text_field :username, :autofocus => true
-  %p
     = f.label :first_name
-    %br
     = f.text_field :first_name
-  %p
     = f.label :last_name
-    %br
     = f.text_field :last_name
-  %p
     = f.label :cell_phone_number, "Cell (or primary) phone number"
-    %br
     = f.text_field :phone
-  %p
     = f.label :work_phone_number
-    %br
     = f.text_field :work_phone
-  %p
     = f.label :email_address
-    %br
     = f.text_field :email
-  %p
     = f.label :password
-    %br
     = f.password_field :password
-  %p
     = f.label :password_confirmation, "Confirm Password"
-    %br
     = f.password_field :password_confirmation
-  %p
-    = f.submit "Continue >>"
+    = f.label "&nbsp;"
+    = f.label "&nbsp;"
+    = f.label "&nbsp;"
+    = f.submit "Continue"
+
+  .clear

@@ -1,10 +1,11 @@
-- title "New Child"
+- title "Add Child to the #{current_user.household.name} Household"
 
 %h2 Add children to your household
 
-#profile_notice
-  %h3 Step 4 of 5
-  = "When you created your household, you said that you have #{pluralize(current_user.household.num_children, 'child')}.  This is information that caregivers will be able to see when (and only when) they take care of your children."
+-if current_user.household.num_children > (Child.find(:all, :conditions => {:household_id => current_user.household_id}).count)
+  #profile_notice
+    %h3 Step 4 of 5
+    = "You have indicated you have #{pluralize(current_user.household.num_children, 'child')}. Please complete the following information for each child. This is information that caregivers will be able to see when (and only when) they take care of your children."
 
 = render :partial => 'form'
 

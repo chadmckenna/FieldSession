@@ -22,6 +22,7 @@
 #request-container
   .float{:style => "float: right; margin: 0 -15px 0 0"}
     = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+    |
     = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
   %br
   %br
@@ -62,8 +63,8 @@
       .request
         = image_tag request.household.photo.url(:thumb)
         .left
-          %h2.name= "#{request.household}'s"
-          -#%h2.name=link_to "#{request.household}", members_request_path(request)
+          %h2.name= "#{request.household}"
+          %h2.household Household
         .right
           .title
             =h "#{request.title} (#{request.cost.to_i} credits)"
@@ -90,7 +91,7 @@
               =h request.notes
         .tools
           .delete 
-            %span= link_to image_tag("close.jpg"), "#"
+            %span= link_to 'x', "#"
           .subnav
             %ul
               %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id, :belongs_to => request.household.id}, :method => :post
