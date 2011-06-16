@@ -1,0 +1,121 @@
+Unable to load request_child, underlying cause no such file to load -- request_child 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/test_helper.rb:35
+/home/ben/cs370/villages/test/unit/role_test.rb:1:in `require'
+/home/ben/cs370/villages/test/unit/role_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9:in `require'
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:5
+Unable to load request_child, underlying cause no such file to load -- request_child 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/test_helper.rb:35
+/home/ben/cs370/villages/test/unit/role_test.rb:1:in `require'
+/home/ben/cs370/villages/test/unit/role_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9:in `require'
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:9
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.9.0/lib/rake/rake_test_loader.rb:5
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mChild Load (0.5ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.4ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.4ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;35;1mChild Load (0.4ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mChild Load (0.3ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;35;1mChild Load (0.2ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mChild Load (0.4ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;35;1mChild Load (0.3ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mAddress Load (0.4ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+  [4;35;1mChild Load (0.4ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.3ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+  [4;35;1mChild Load (0.2ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.2ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+  [4;35;1mChild Load (0.2ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.2ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mAddress Load (0.4ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+  [4;35;1mChild Load (0.4ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.3ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m
+  [4;36;1mAddress Load (0.5ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+  [4;35;1mChild Load (0.4ms)[0m   [0mSELECT * FROM "children" WHERE ("children"."id" = 902541635) [0m
+  [4;36;1mChild Load (0.3ms)[0m   [0;1mSELECT * FROM "children" WHERE ("children"."id" = 107353986) [0m

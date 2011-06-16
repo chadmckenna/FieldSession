@@ -1,17 +1,13 @@
-one:
-  first_name: MyString
-  last_name: MyString
-  date_of_birth: 2011-05-24
-  dietary_restrictions: MyString
-  allergies: MyString
-  medications: MyString
-  notes: MyString
+bob:
+  first_name: Bob
+  last_name: Dole
+  date_of_birth: <% 5.years.ago %>
 
-two:
-  first_name: MyString
-  last_name: MyString
-  date_of_birth: 2011-05-24
-  dietary_restrictions: MyString
-  allergies: MyString
-  medications: MyString
-  notes: MyString
+sue:
+  first_name: Sue
+  last_name: Zee
+  date_of_birth: <% 5.years.ago %>
+  dietary_restrictions: money
+  allergies: candy
+  medications: pepper spray
+  notes: 42
