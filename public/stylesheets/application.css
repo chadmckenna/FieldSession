@@ -29,6 +29,7 @@ a {
   background: white; }
 
 #masthead {
+  min-height: 100px;
   font-family: "Rokkitt", serif;
   padding: 0 !important;
   /*background: #c7e3ff */
@@ -60,21 +61,24 @@ a {
     #masthead #search input[type="submit"] {
       display: none; }
   #masthead h1 {
+    z-index: 10;
     float: left;
     width: 20%;
     padding: 0 !important;
     margin: 0.4em 0 -0.1em 0.4em;
     line-height: 1em;
-    font-size: 4em; }
+    font-size: 4em;
+    position: relative; }
   #masthead h2 {
+    float: left;
+    z-index: -20;
     padding: 0 !important;
-    width: 20%;
-    margin: 0 0 0.4em 3.5em;
-    font-size: 1.2em;
-    font-weight: normal;
-    font-style: oblique;
+    margin: -5px 0 0.4em 2em;
+    font-size: 0.9em;
+    font-weight: 200;
     font-family: Arial;
-    color: #c4d7a4; }
+    color: white;
+    position: relative; }
   #masthead #login {
     float: right;
     margin: 10px 10px 0px 0px; }
@@ -238,6 +242,12 @@ a {
  */
 #container {
   min-height: 80%; }
+  #container #tag_line {
+    text-align: center;
+    width: 800px;
+    margin: 0 auto 0 auto;
+    font-size: 3em;
+    padding: 40px 0 60px 0; }
   #container #video {
     margin: 20px auto 0px auto;
     width: 600px;
@@ -246,8 +256,9 @@ a {
     height: 400px;
     width: 600px; }
   #container #learn_more {
-    width: 900px;
-    margin: 10px auto 0px auto; }
+    background-color: #999999;
+    margin: 10px auto 0px auto;
+    width: 800px; }
     #container #learn_more div {
       float: left;
       width: 200px; }
