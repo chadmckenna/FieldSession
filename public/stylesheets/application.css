@@ -588,6 +588,11 @@ label {
       font-style: oblique;
       font-weight: bold;
       font-size: 1.2em; }
+      .request .right .title a, .neighbor .right .title a {
+        border: none !important;
+        background: none !important; }
+        .request .right .title a:hover, .neighbor .right .title a:hover {
+          text-decoration: underline; }
     .request .right .children h3, .neighbor .right .children h3 {
       margin: 0;
       font-size: 1.3em; }

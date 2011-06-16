@@ -208,11 +208,11 @@
             .img 
               =image_tag(commitment.request.household.photo.url(:thumb), :alt => "#{commitment.household.to_s}")
             .left
-              %h2#name="#{commitment.request.household}'s"
+              %h2#name= link_to "#{commitment.request.household}'s", members_household_path(get_request_household(commitment))
         
             .right
               .title
-                =h "#{commitment.request.title} (#{commitment.request.cost} credits)"
+                = "#{link_to commitment.request.title, members_request_path(commitment.request)} (#{commitment.request.cost} credits)"
               .date
                 =h commitment.request.start_time.to_s(:nicetime)
                 to
