@@ -10,10 +10,10 @@ body {
   background: #dddddd; }
 
 a {
-  color: #c4d7a4;
+  color: #557711;
   text-decoration: none; }
   a:hover {
-    color: #e1e6b9; }
+    color: #779933; }
   a img {
     border: none; }
 
@@ -31,9 +31,15 @@ a {
 #masthead {
   font-family: "Rokkitt", serif;
   padding: 0 !important;
-  /*background: #c7e3ff */
-  background: #464f3f;
-  color: white;
+  background: #eeeeaa;
+  background: -moz-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeaa), color-stop(100%, #b5d677));
+  background: -webkit-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
+  background: -o-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
+  background: -ms-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeaa', endColorstr='#b5d677',GradientType=0 );
+  background: linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
+  color: #888888;
   position: fixed;
   top: 0 !important;
   width: 100%;
@@ -74,7 +80,7 @@ a {
     font-weight: normal;
     font-style: oblique;
     font-family: Arial;
-    color: #c4d7a4; }
+    color: #557711; }
   #masthead #login {
     float: right;
     margin: 10px 10px 0px 0px; }
@@ -92,7 +98,7 @@ a {
       display: inline;
       margin-right: 1em; }
   #masthead .menubar {
-    margin: 1.9em 0 0 0;
+    margin: 2em 0 0 0;
     list-style-type: none;
     font-size: 1.4em;
     float: right;
@@ -138,7 +144,7 @@ a {
             float: right;
             width: 83%; }
             #masthead .menubar li#notifications .notification-list .notification #right a {
-              color: #884411; }
+              color: #557711; }
           #masthead .menubar li#notifications .notification-list .notification #clear {
             clear: both; }
     #masthead .menubar li.notification {
@@ -305,7 +311,7 @@ a {
     #container #profile_notice p {
       margin: 0.5em 1em; }
   #container a {
-    color: #884411; }
+    color: #557711; }
   #container #content {
     padding: 20px 40px; }
     #container #content #title {
