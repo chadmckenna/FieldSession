@@ -6,9 +6,9 @@
 %ul.menubar
   %li= link_to 'household', members_profile_path, :title => 'View Profile'
   = admin_menu_items(current_user)
-  - unless current_user.household.nil?
-    -if has_caregivers(current_user)
-      %li.notification= get_caregiver_request_count(current_user)
+  -# unless current_user.household.nil?
+  -#if has_caregivers(current_user)
+  -#%li.notification= get_caregiver_request_count(current_user)
   %li= link_to 'neighbors', members_neighbors_path
   - unless current_user.household.nil?
     - if has_neighbors(current_user)

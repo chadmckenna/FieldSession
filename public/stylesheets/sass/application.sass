@@ -2,8 +2,9 @@ $primary_color: #aaffaa
 $errorBorder: #cc6666
 $noticeBorder: #66cc66
 /*$linkColor: #39f*/
-$linkColor: #C4D7A4
-$contentLinkColor: #841
+$linkColor: #571
+$linkHover: #793
+$contentLinkColor: #571
 $mastheadBG: #464F3F
 $lightGrey: #eee
 $darkGrey: #ccc
@@ -22,7 +23,7 @@ a
   color: $linkColor
   text-decoration: none
   &:hover
-    color: #E1E6B9
+    color: $linkHover
   img
     border: none
 
@@ -41,9 +42,15 @@ a
   min-height: 100px
   font-family: 'Rokkitt', serif
   padding: 0 !important
-  /*background: #c7e3ff*/
-  background: $mastheadBG
-  color: white
+  background: #eeeeaa
+  background: -moz-linear-gradient(top, #eeeeaa 0%, #b5d677 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeaa), color-stop(100%,#b5d677))
+  background: -webkit-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  background: -o-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  background: -ms-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeaa', endColorstr='#b5d677',GradientType=0 )
+  background: linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
+  color: #888
   position: fixed
   top: 0 !important
   width: 100%
@@ -105,7 +112,7 @@ a
       display: inline
       margin-right: 1em
   .menubar
-    margin: 1.9em 0 0 0
+    margin: 2em 0 0 0
     list-style-type: none
     font-size: 1.4em
     float: right
