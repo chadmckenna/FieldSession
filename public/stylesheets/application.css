@@ -791,7 +791,7 @@ input[type="text"], input[type="password"], textarea {
 
 #hidden-requests-container {
   width: 50%;
-  float: left; }
+  float: right; }
   #hidden-requests-container .hidden-title {
     margin: 20px 0px 20px 20px;
     font-size: 1.4em;
@@ -819,7 +819,7 @@ input[type="text"], input[type="password"], textarea {
       clear: both; }
 
 #user-household-info {
-  float: right;
+  float: left;
   width: 48%; }
   #user-household-info input[type="submit"] {
     display: none; }

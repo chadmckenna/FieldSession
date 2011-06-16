@@ -61,7 +61,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(this).parent().find("#user-submit input").show();
 		$(this).parent().find("#show-more").show();
-		$(this).parent().find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $("#first-name font.text").text() + "'/>");
+		$(this).find("#first-name font.text").replaceWith("<input type='text' name='child[first_name]' value='" + $("#first-name font.text").text() + "'/>");
 		$(this).find("#last-name font.text").replaceWith("<input type='text' name='child[last_name]' value='" + $("#last-name font.text").text() + "'/>");
 		$("#DOB font.text").replaceWith("<input type='text' name='child[date_of_birth]' value='" + $("#DOB font.text").text() + "'/>");
 	});
