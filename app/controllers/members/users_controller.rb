@@ -1,5 +1,5 @@
 class Members::UsersController < Members::MembersController
-  skip_before_filter :require_household
+  skip_before_filter :require_household, :only => [:new, :create, :add]
   
   def index
     @caregivers = User.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true})
