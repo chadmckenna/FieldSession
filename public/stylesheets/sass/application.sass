@@ -183,6 +183,7 @@ a
             width: 83%
             a
               color: $contentLinkColor
+              text-shadow: none !important
           #clear
             clear: both
    
@@ -579,6 +580,8 @@ a
           text-decoration: none !important
           &:hover
             color: #777
+        #relation
+          font-size: .8em
         .child
           a
             background: none
@@ -588,6 +591,7 @@ a
               text-decoration: underline
           .name
             text-decoration: underline
+
         #add-child
           margin: 10px 0 10px 20px
     #right-column
@@ -604,14 +608,16 @@ a
         height: 100px
         padding: 10px 0 10px 0
         #household-info
-          width: 70%
+          width: 100%
           float: left
           strong
             margin: 0px
             font-size: 2em
-          a
-            background: none !important
-            border: none !important
+          #title
+            float: left
+            font-size: 2em
+          #button
+            float: right
         #buttons
           text-align: right
           float: right
@@ -901,6 +907,9 @@ label
     .volunteer-button
       float: right
       margin-top: 10px
+      #delete
+        float: right
+        margin-left: 20px
     .delete
       text-align: center
       float: right
@@ -1047,6 +1056,9 @@ input[type="text"], input[type="password"], textarea
     .button
       float: right
       margin-top: 20px
+      #delete
+        margin-left: 20px
+        float: right
 
 
   

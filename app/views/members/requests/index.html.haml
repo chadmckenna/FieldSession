@@ -10,9 +10,10 @@
   #buttons
     #create-new= link_to "<span class='plus icon'></span>Create New Care Request", new_members_request_path, :class => 'pill button'
     .float
-      = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+      ="Sort By:  "
+      = link_to " Household", :sort => "name", :house_sort => "#{@house_direction}"
       |
-      = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
+      = link_to "Date", :sort => "from_date", :date_sort => "#{@date_direction}"
   .clear
 .clear
 #left-request

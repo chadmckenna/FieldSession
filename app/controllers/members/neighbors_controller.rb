@@ -29,14 +29,14 @@ class Members::NeighborsController < Members::MembersController
       if @neighbor.save && @neighbor2.save
         @neighbor.send_neighbor_request_email(@neighbor)
         flash[:success] = "You have successfully added #{@household} as a neighbor"
-        redirect_to members_neighbors_path
+        redirect_to :back
       else
         flash[:error] = "There were errors adding this neighbor"
-        redirect_to members_neighbors_path
+        redirect_to :back
       end
     else
       flash[:error] = "It appears that there is already a neighbor request in the system to be neighbors. Check your neighbors request for a request from this user."
-      redirect_to members_neighbors_path
+      redirect_to :back
     end  
   end
 

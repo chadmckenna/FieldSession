@@ -160,7 +160,8 @@ a {
             float: right;
             width: 83%; }
             #masthead .menubar li#notifications .notification-list .notification #right a {
-              color: #557711; }
+              color: #557711;
+              text-shadow: none !important; }
           #masthead .menubar li#notifications .notification-list .notification #clear {
             clear: both; }
     #masthead .menubar li.notification {
@@ -545,6 +546,8 @@ a {
           text-decoration: none !important; }
           #container #content #left-column #info #small_link:hover {
             color: #777777; }
+        #container #content #left-column #info #relation {
+          font-size: 0.8em; }
         #container #content #left-column #info .child a {
           background: none;
           border: none; }
@@ -569,14 +572,16 @@ a {
         height: 100px;
         padding: 10px 0 10px 0; }
         #container #content #right-column #top #household-info {
-          width: 70%;
+          width: 100%;
           float: left; }
           #container #content #right-column #top #household-info strong {
             margin: 0px;
             font-size: 2em; }
-          #container #content #right-column #top #household-info a {
-            background: none !important;
-            border: none !important; }
+          #container #content #right-column #top #household-info #title {
+            float: left;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info #button {
+            float: right; }
         #container #content #right-column #top #buttons {
           text-align: right;
           float: right;
@@ -844,6 +849,9 @@ label {
     .request .tools .volunteer-button, .neighbor .tools .volunteer-button {
       float: right;
       margin-top: 10px; }
+      .request .tools .volunteer-button #delete, .neighbor .tools .volunteer-button #delete {
+        float: right;
+        margin-left: 20px; }
     .request .tools .delete, .neighbor .tools .delete {
       text-align: center;
       float: right;
@@ -976,6 +984,9 @@ input[type="text"], input[type="password"], textarea {
     #result-container .result .button {
       float: right;
       margin-top: 20px; }
+      #result-container .result .button #delete {
+        margin-left: 20px;
+        float: right; }
 
 .neighbor {
   border-bottom: 3px double #cccccc; }

@@ -17,8 +17,12 @@ module SearchHelper
     return false
   end
   
-  def get_neighbor(household)
+  def get_pending_neighbor(household)
     return Neighbor.find(:last, :conditions => {:household_id => current_user.household.id, :neighbor_confirmed => 'f', :neighbor_id => household.id})
+  end
+  
+  def get_neighbor(household)
+    return Neighbor.find(:last, :conditions => {:household_id => current_user.household.id, :neighbor_confirmed => 't', :neighbor_id => household.id})
   end
   
   def find_plural(num)
