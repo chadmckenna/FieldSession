@@ -492,20 +492,21 @@ a {
     #container #content #title {
       text-align: center; }
     #container #content #left-column {
-      width: 20%;
+      width: 21%;
       float: left;
       background: white;
-      -moz-border-radius: 10px;
-      -webkit-border-radius: 10px;
-      radius: 10px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      radius: 5px;
       border: 1px solid #878c6d;
-      padding: 0.5em; }
+      padding: 0.5em;
+      margin: 0 0 30px 0; }
       #container #content #left-column img {
         max-width: 100%; }
       #container #content #left-column #photo {
         width: 100%;
         text-align: center;
-        margin: 10px auto 0px auto; }
+        margin: -10px auto 0px auto; }
         #container #content #left-column #photo a {
           padding: 0 !important;
           border: none !important;
@@ -558,15 +559,16 @@ a {
         #container #content #left-column #info #add-child {
           margin: 10px 0 10px 20px; }
     #container #content #right-column {
-      width: 72%;
-      float: right; }
+      width: 75%;
+      float: right;
+      margin: 0 0 30px 0; }
       #container #content #right-column #top {
         width: 98%;
         height: 100px;
         margin-bottom: 20px;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        radius: 10px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        radius: 5px;
         background: white;
         border: 1px solid #878c6d;
         padding: 1.2em; }
@@ -589,9 +591,9 @@ a {
         margin-bottom: 20px;
         width: 98%;
         font-weight: bold;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        radius: 10px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        radius: 5px;
         background: white;
         border: 1px solid #878c6d;
         padding: 0.5em 1.2em 0.5em 1.2em; }
