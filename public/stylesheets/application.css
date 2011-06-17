@@ -505,7 +505,7 @@ a {
         margin: 10px 10px 0px 10px; }
         #container #content #left-column #info .title {
           font-size: 1.1em;
-          border-bottom: 1px solid black; }
+          border-bottom: 1px solid #aaaaaa; }
           #container #content #left-column #info .title a {
             background: none;
             border: none; }
