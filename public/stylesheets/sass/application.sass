@@ -244,6 +244,8 @@ a
     margin-right: 1em
 
 #top
+  .clear
+    clear: both
   #notifications
     padding: 3px
     opacity: .9
@@ -252,22 +254,42 @@ a
   #notifications_bold
     opacity: .9
     padding: 3px
-    background-color: #faa
-    border: solid thin red
+    background-color: #fea
+    border: solid thin #fd0
     &:hover
       opacity: 1
   #button
-    float: left
-    width: 40%
-  #your-requests
     float: right
-    width: 40%
+    position: relative
+    margin-right: 6.5%
+    top: 20px
+  #your-requests
+    background: white
+    float: right
+    width: 26%
     text-align: right
+    padding-right: 1em
+    border: 1px solid $mastheadBG
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
     a
       background: none
       border: none
       &:hover
         text-decoration: underline
+
+#titles
+  width: 67.5%
+  padding-bottom: 35px
+  #stream-title
+    float: left
+    font-size: 2.2em
+    margin: 0
+    padding: 0
+  .float
+    float: right
+    position: relative
+    top: 5px
 
 /*
  * Splash Screen
@@ -653,8 +675,21 @@ label
 /*
  * Requests styles
  */
+.delete-link, .delete
+  float: right
+  a
+    padding: 0em .35em .2em .35em
+    background: #999
+    -moz-border-radius: 1em
+    -webkit-border-radius: 1em
+    border-radius: 1em
+    color: white !important
+    border: none
+    &:hover
+      background: black
+      color: white
 #request-container
-  width: 68%
+  width: 63%
   border: 1px solid $mastheadBG
   padding: 1em
   padding-right: 3em
@@ -843,18 +878,26 @@ label
     clear: both
 
 #commit-container
-  width: 25%
+  width: 24%
   padding: .5em
+  padding-right: 1.2em
   float: right
   text-align: right
   font-weight: bold
   font-size: 1.2em
+  background: white
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  radius: 10px
+  border: 1px solid $mastheadBG
   h2
-    font-size: 1.1em
+    font-size: 1.2em
   #commitments
     #no-commitment
-      font-size: .8em
+      font-size: 1em
       color: #AAA
+      font-style: oblique
+      font-weight: normal
       padding: .5em
     .confirmed-request
       font-weight: none
@@ -866,24 +909,26 @@ label
       .link
         text-align: right
         margin-top: 5px
-.delete-link, .delete
-  float: right
-  a
-    padding: 0 .35em .05em .35em
-    background: #999
-    -moz-border-radius: 1em
-    -webkit-border-radius: 1em
-    border-radius: 1em
-    color: white !important
-    border: none
-    &:hover
-      background: black
-      color: white
+  .delete-link, .delete
+    float: right
+    a
+      padding: 0 .35em .05em .35em
+      background: #999
+      -moz-border-radius: 1em
+      -webkit-border-radius: 1em
+      border-radius: 1em
+      color: white !important
+      border: none
+      &:hover
+        background: black
+        color: white
   #pending
     #no-pending
-      font-size: .8em
+      font-size: 1em
       color: #AAA
       padding: .5em
+      font-weight: normal
+      font-style: oblique
     .pending-request
       font-weight: none
       font-size: .7em
@@ -891,6 +936,7 @@ label
       margin-bottom: 1em
       padding: .5em
       text-align: left
+      margin-left: 30px
       .link
         text-align: right
         margin-top: 5px
