@@ -90,7 +90,7 @@ a
     float: left
     width: 20%
     padding: 0 !important
-    margin: .4em 0 -.1em .4em
+    margin: .25em 0 -.1em .4em
     line-height: 1em
     font-size: 4em
     position: relative
@@ -525,20 +525,22 @@ a
     #title
       text-align: center
     #left-column
-      width: 20%
+      width: 21%
       float: left
       background: white
-      -moz-border-radius: 10px
-      -webkit-border-radius: 10px
-      radius: 10px
+      -moz-border-radius: 5px
+      -webkit-border-radius: 5px
+      radius: 5px
       border: 1px solid $mastheadBG
       padding: .5em
+      margin: 0 0 30px 0
       img
         max-width: 100%
       #photo
         width: 100%
         text-align: center
-        margin: 10px auto 0px auto
+        margin: -20px auto 0px auto
+
         a
           padding: 0 !important
           border: none !important
@@ -593,39 +595,64 @@ a
         #add-child
           margin: 10px 0 10px 20px
     #right-column
-      width: 72%
+      width: 75%
       float: right
-      padding: 1.2em
-      -moz-border-radius: 10px
-      -webkit-border-radius: 10px
-      radius: 10px
-      background: white
-      border: 1px solid $mastheadBG
+      margin: 0 0 30px 0
+      //padding: 1.2em
+      //-moz-border-radius: 10px
+      //-webkit-border-radius: 10px
+      //radius: 10px
+      //background: white
+      //border: 1px solid $mastheadBG
       #top
-        width: 97%
-        height: 100px
-        padding: 10px 0 10px 0
+        width: 98%
+        height: 65px
+        margin-bottom: 10px
+        //padding: 10px 0 10px 0
+        -moz-border-radius: 5px
+        -webkit-border-radius: 5px
+        radius: 5px
+        background: white
+        border: 1px solid $mastheadBG
+        padding: 1.2em
         #household-info
+          //float: left
           width: 100%
-          float: left
           strong
             margin: 0px
             font-size: 2em
+          #balance
+            
           #title
             float: left
             font-size: 2em
           #button
             float: right
-        #buttons
-          text-align: right
-          float: right
-          margin: 10px 0px 0 0
-          a
-            margin-right: -5px
-      #content
+          #buttons
+            text-align: right
+            width: 45%
+            float: right
+            margin: -4px 0px 0 0
+            a
+              margin-right: -4px
+      #header
+        float:left
+        font-size: 2em
+        padding: 0.25em 0.125em 0.25em 0.125em
+        margin-bottom: 5px
+
+      #content-requests, #content-commitments
+        margin-bottom: 20px
         width: 98%
         font-weight: bold
-        padding: 0px
+        //padding: 5px
+        -moz-border-radius: 5px
+        -webkit-border-radius: 5px
+        radius: 5px
+        background: white
+        border: 1px solid $mastheadBG
+        padding: .5em 1.2em .5em 1.2em
+
         #no-requests
           text-align: center
           font-style: oblique
@@ -635,17 +662,32 @@ a
           -moz-border-radius: 5px
           -webkit-border-radius: 5px
           border-radius: 5px
-          margin: 2em 0
+          margin: .8em 0
           padding: 1em 0
+        .small-title
+          font-size: 1.3em
+
         #title
           text-align: left
           .small-title
             font-size: 1.3em
             margin-right: 10px
           span
-            background-image: url(/images/iconCollapseArrow.gif)
+            background: url(/images/iconCollapseArrow.gif) no-repeat center top
+            display: inline-block
             width: 16px
             height: 16px
+            -moz-transform: rotate(90deg)
+            o-transform: rotate(90deg)
+            -webkit-transform: rotate(90deg)
+            -ms-transform: rotate(90deg)
+            transform: rotate(90deg)
+            -moz-transition: all 0.3s ease-out
+            -o-transition: all 0.3s ease-out
+            -webkit-transition: all 0.3s ease-out
+            -ms-transition: all 0.3s ease-out
+            transition: all 0.3s ease-out
+
         #requests
           width: 100%
           //overflow: auto
@@ -657,6 +699,8 @@ a
             float: left
         #no-requests
           font-size: 1.2em
+
+
     #form
       a
         color: #375D38
@@ -784,7 +828,7 @@ label
   border-bottom: 3px double $lightGrey
   border-left: 1px solid #fff
   margin: 1em 0 1em 0
-  padding: 1em
+  //padding: 1em
   //padding: .5em .5em 1.5em .5em
   width: 100%
   opacity: .9
@@ -869,7 +913,7 @@ label
   .right
     max-width: 80%
     min-width: 40%
-    margin: 5px 0
+    //margin: 5px 0
     float: left
     margin-left: 3em
     color: #555

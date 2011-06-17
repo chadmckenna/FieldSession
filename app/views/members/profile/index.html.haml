@@ -103,12 +103,12 @@
           - open_requests_sum += request.cost.to_i
       
       = "Credit Balance: #{@household.credits - open_requests_sum}"
-      %br
-      -#= "confirmed Credits: #{@household.requests.cost}"
-    #buttons
-      = link_to '<span class="pen icon"></span>Edit my Household', members_settings_path, :class => 'left pill button'
-      = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
-  #content
+      #buttons
+        = link_to '<span class="pen icon"></span>Edit Household', members_settings_path, :class => 'left pill button'
+        = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
+  #header
+    My Requests
+  #content-requests
     - openRequests = false
     - if @household.requests.length > 0
       - for r in @open_requests
@@ -121,11 +121,15 @@
       - else
         #title
           %font.small-title My Open Requests
-          %span
         #requests
           - for request in @open_requests
             -unless commit(request)
               .request
+                .img 
+                  =image_tag(request.household.photo.url(:thumb), :alt => "#{request.household.to_s}")
+                .left
+                  %h2.name= "#{request.household}"
+                  %h2.household household
                 .right
                   .title
                     =h "#{request.title} (#{pluralize(request.cost.to_i, "credit")})"
@@ -152,15 +156,15 @@
                       =h request.notes
                 .tools
                   = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(request), :class => 'pill button'
-                  = link_to "<span class='cross icon'></span>Cancel", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
+                  = link_to "<span class='cross icon'></span>Delete", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
                 .clear
     - else
       #no-requests
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title Confirmed Care Requests
-      = image_tag '/images/iconCollapseArrow.gif'
+      #title
+        %font.small-title Confirmed Care Requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -196,11 +200,15 @@
                     = confirmed.request.notes
             .tools
               = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(confirmed.request), :class => 'button pill'
-              = link_to "<span class='cross icon'></span>Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
+              = link_to "<span class='cross icon'></span>Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
             .clear
+
+  #header
+    My Commitments
+  #content-commitments
     - if @pending_commitments.count > 0
-      %font.small-title My Pending Commitments
-      = image_tag '/images/iconCollapseArrow.gif'
+      #title
+        %font.small-title My Pending Commitments
     - if @pending_commitments.count == 0
       #no-requests
         You have no pending commitments
@@ -244,8 +252,8 @@
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My Commitments
-      = image_tag '/images/iconCollapseArrow.gif'
+      #title
+        %font.small-title My Commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
@@ -284,7 +292,8 @@
                     Notes:
                     = commitment.request.notes
             .tools
-              = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(commitment.request), :class => 'pill button'
-              = link_to "<span class='cross icon'></span>Cancel Commitment", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
+              = link_to "<span class='magnifier icon'></span>Details", detail_members_request_path(commitment.request), :class => 'pill button'
+              //%br
+              = link_to "<span class='cross icon'></span>Cancel", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
             .clear
 

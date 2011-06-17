@@ -1,6 +1,9 @@
 - title "Edit Request"
-= render :partial => 'form'
-%p
-  = link_to "Show", members_request_path(@request)
-  |
-  = link_to "View All", members_requests_path
+- content_for :header do  
+  #quick-nav
+    = link_to "<span class='leftarrow icon'></span>Back to profile", members_profile_path, :class => 'pill button' 
+    = link_to "<span class='cross icon'></span>Cancel", members_requests_path, :class => 'pill button negative'
+  %h2 Edit your care request
+  %p This form allows you to edit your care request. The changes for this request will be sent to your village once save this information.
+.new-forms	
+  = render :partial => 'form'

@@ -1,8 +1,13 @@
 - title "Create New Care Request"
-%h2 Create request
 
 #profile_notice
   %h3 Remember...
   The cost of this request will be deducted immediately from your credit balance.  Credits will be reimbursed if the request is canceled or if you receive no volunteers when the request expires
-= render :partial => 'form'
-%p= link_to "<span class='cross icon'></span>Cancel", members_requests_path, :class => 'pill button negative'
+- content_for :header do
+  #quick-nav
+    = link_to "<span class='leftarrow icon'></span>Back to profile", members_profile_path, :class => 'pill button' 
+    = link_to "<span class='cross icon'></span>Cancel", members_requests_path, :class => 'pill button negative'
+  %h2 Create a new care request
+  %p This form allows you to create a new care request that gets sent out to your village. Your neighbors will know that you need a caregiver to watch your children and they can volunteer.
+.new-forms
+  = render :partial => 'form'
