@@ -55,10 +55,10 @@ class Members::ChildrenController < Members::MembersController
     @child = Child.find(params[:id])
     if !@child.household_id.eql? current_user.household_id
       flash[:error] = "You do not have permission to view the details of this child."
-      redirect_to members_children_path
+      redirect_to members_settings_path
     elsif @child.update_attributes(params[:child])
-      flash[:notice] = "Successfully updated child."
-      redirect_to members_child_path(@child)
+      flash[:success] = "Successfully updated child."
+      redirect_to members_settings_path
     else
       render :action => 'edit'
     end
@@ -67,7 +67,7 @@ class Members::ChildrenController < Members::MembersController
   def destroy
     @child = Child.find(params[:id])
     @child.destroy
-    flash[:notice] = "Successfully destroyed child."
+    flash[:success] = "Successfully destroyed child."
     redirect_to members_children_path
   end
   

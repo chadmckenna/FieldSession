@@ -1,0 +1,16 @@
+- title "Household Info"
+
+%table
+  %tr
+    %th Name
+    %th Home Phone Number
+    %th Photo
+    %tr
+      %td= h @household.name
+      %td= h @household.home_phone
+      %td= h @household.photo
+      %td= link_to 'Show', @household
+      %td= link_to 'Edit', edit_household_path(@household)
+      %td= link_to 'Destroy', @household, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Address", new_household_path

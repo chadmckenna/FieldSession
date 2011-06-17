@@ -17,10 +17,22 @@ $(function() {
 $(document).ready(function() {
 
 	$(".request").hover(function() {
-		$(this).find(".delete span").fadeIn("fast").show();
+		$(this).find(".delete span").show();
 	}, function() {
-		$(this).find(".delete span").fadeOut("slow").hide();
+		$(this).find(".delete span").fadeOut("fast").hide();
 		$(this).find(".subnav ul").fadeOut("fast").hide();
+	});
+	
+	$(".confirmed-request").hover(function() {
+	  $(this).find(".delete-link").show();
+	}, function() {
+		$(this).find(".delete-link").hide();
+	});
+	
+	$(".pending-request").hover(function() {
+		$(this).find(".delete-link").show();
+	}, function() {
+		$(this).find(".delete-link").hide();
 	});
 	
 	$(document).click(function(event) {		
@@ -37,7 +49,7 @@ $(document).ready(function() {
 	});
 	
 	$(".delete").hover(function() {
-		$(this).parent().find(".subnav ul").fadeIn("medium").show();
+		$(this).parent().find(".subnav ul").fadeIn('fast').show();
 		
 		$(this).parent().hover(function() {
 		}, function() {
@@ -60,7 +72,7 @@ $(document).ready(function() {
 	
 	$("font#edit-child a").click(function(e) {
 		e.preventDefault();
-		$(this).parent().parent().parent().find("user-submit").show();
+		$(this).parent().parent().parent().find("#child-submit input").show();
 		//Show childrens information
 		$(this).parent().parent().parent().find("#first-name").show();
 		$(this).parent().parent().parent().find("#last-name").show();
@@ -79,17 +91,16 @@ $(document).ready(function() {
 		$(this).parent().parent().parent().find("#medications font.text").replaceWith("<input type='text' name='child[medications]' value='" + $(this).parent().parent().parent().find("#medications font.text").text() + "'/>");
 		$(this).parent().parent().parent().find("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + $(this).parent().parent().parent().find("#notes font.text").text() + "'/>");
 		$(this).hide();
-		
 	});
 	
 	$("font#edit-address a").click(function(e) {
 		e.preventDefault();
-		$("#user-submit input").show();
-		$("#street1 font.text").replaceWith("<input type='text' name='@household.address[street1]' value='" + $("#street1 font.text").text() + "'/>");
-		$("#street2 font.text").replaceWith("<input type='text' name='@household.address[street2]' value='" + $("#street2 font.text").text() + "'/>");
-		$("#city font.text").replaceWith("<input type='text' name='@household.address[city]' value='" + $("#city font.text").text() + "'/>");
-		$("#state font.text").replaceWith("<input type='text' name='@household.address[state]' value='" + $("#state font.text").text() + "'/>");
-		$("#zip font.text").replaceWith("<input type='text' name='@household.address[zip]' value='" + $("#zip font.text").text() + "'/>");
+		$("#address-submit input").show();
+		$("#street1 font.text").replaceWith("<input type='text' name='address[street1]' value='" + $("#street1 font.text").text() + "'/>");
+		$("#street2 font.text").replaceWith("<input type='text' name='address[street2]' value='" + $("#street2 font.text").text() + "'/>");
+		$("#city font.text").replaceWith("<input type='text' name='address[city]' value='" + $("#city font.text").text() + "'/>");
+		$("#state font.text").replaceWith("<input type='text' name='address[state]' value='" + $("#state font.text").text() + "'/>");
+		$("#zip font.text").replaceWith("<input type='text' name='address[zip]' value='" + $("#zip font.text").text() + "'/>");
 	});
 	
 
@@ -98,6 +109,14 @@ $(document).ready(function() {
 		$("#household-name font.text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name font.text").text() + "'/>");
 		$("#home-phone font.text").replaceWith("<input type='text' name='household[home_phone]' value='" + $("#home-phone font.text").text() + "'/>");
 		$("#household-submit input").show();
+	});
+	
+	$("font#edit-contacts a").click(function(e) {
+		e.preventDefault();
+		$("#contact-submit input").show();
+		$("#name font.text").replaceWith("<input type='text' name='emergency_contact[name]' value='" + $("#name font.text").text() + "'/>");
+		$("#relationship font.text").replaceWith("<input type='text' name='emergency_contact[relationship]' value='" + $("#relationship font.text").text() + "'/>");
+		$("#phone_number font.text").replaceWith("<input type='text' name='emergency_contact[phone]' value='" + $("#phone_number font.text").text() + "'/>");
 	});
 	
 	$("#change-password a").click(function(e) {

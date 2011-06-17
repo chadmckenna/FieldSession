@@ -30,7 +30,7 @@ class Members::AddressesController < Members::MembersController
     @address = Address.find(params[:id])
     if @address.update_attributes(params[:address])
       flash[:success] = "Successfully updated address."
-      redirect_to members_profile_path
+      redirect_to members_settings_path
     else
       render :action => 'edit'
     end

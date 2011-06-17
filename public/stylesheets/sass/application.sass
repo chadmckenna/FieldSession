@@ -2,15 +2,15 @@ $primary_color: #aaffaa
 $errorBorder: #cc6666
 $noticeBorder: #66cc66
 /*$linkColor: #39f*/
-$linkColor: #571
-$linkHover: #793
+$linkColor: #F5EEDB
+$linkHover: white
 $contentLinkColor: #571
-$mastheadBG: #464F3F
+$mastheadBG: #878C6D
 $lightGrey: #eee
 $darkGrey: #ccc
 
 html, body
-  height: 91%
+  height: 92%
 
 body
   background-color: #fff
@@ -37,29 +37,33 @@ a
   min-height: 100%
   height: auto !important
   margin: 0 auto -70px
-  background: white
+  background: #F5EEDB
 
 #masthead
   min-height: 100px
   font-family: 'Rokkitt', serif
   padding: 0 !important
-  background: #eeeeaa
-  background: -moz-linear-gradient(top, #eeeeaa 0%, #b5d677 100%)
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeaa), color-stop(100%,#b5d677))
-  background: -webkit-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
-  background: -o-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
-  background: -ms-linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeaa', endColorstr='#b5d677',GradientType=0 )
-  background: linear-gradient(top, #eeeeaa 0%,#b5d677 100%)
-  color: #888
+  background: #878C6D
+  //background-image: url(/images/villages-background.jpg)
+  //opacity: .8
+  background: -moz-linear-gradient(top, #878C6D 0%, #63674A 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#878C6D), color-stop(100%,#63674A))
+  background: -webkit-linear-gradient(top, #878C6D 0%,#63674A 100%)
+  background: -o-linear-gradient(top, #878C6D 0%,#63674A 100%)
+  background: -ms-linear-gradient(top, #878C6D 0%,#63674A 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#878C6D', endColorstr='#63674A',GradientType=0 )
+  background: linear-gradient(top, #878C6D 0%,#63674A 100%)
+  color: #eee
   position: fixed
   top: 0 !important
   width: 100%
   top: 0
   z-index: 10
-  border-bottom: 1px solid black
+  //border-bottom: 1px solid black
   -webkit-box-shadow: 0 0 12px #888
   -moz-box-shadow: 0 0 12px #888
+  a
+    text-shadow: 0px 2px 4px #222
   #search
     float: right
     margin: -1px 10px 0 -10px
@@ -86,6 +90,10 @@ a
     line-height: 1em
     font-size: 4em
     position: relative
+    -moz-transform: rotate(-5deg)
+    -webkit-transform: rotate(-5deg)
+    -o-transform: rotate(-5deg)
+    -ms-transform: rotate(-5deg)
   h2
     float: left
     z-index: -20
@@ -102,7 +110,7 @@ a
   #logout
     position: absolute
     top: 10px
-    right: 20px
+    right: 40px
   #userbar
     float: right
     /*width: 60%*/
@@ -113,7 +121,7 @@ a
       display: inline
       margin-right: 1em
   .menubar
-    margin: 2em 0 0 0
+    margin: 2em 1em 0 0
     list-style-type: none
     font-size: 1.4em
     float: right
@@ -123,6 +131,12 @@ a
       width: 300px
       /*float: left*/
       margin-right: 20px
+      //.button
+      //  float: left
+      //  margin-right: 40px
+      //  border: 2px solid $linkColor
+      //  padding: .5em
+      //  -moz-border-radius: 5em
     li#notifications
       //background: url(/images/notification_icon.png) no-repeat
       z-index: 15
@@ -200,10 +214,17 @@ a
   width: 100%
   clear: both
   color: #aaa
-  background: #ddd
+  background: #dddddd
+  background: -moz-linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%)
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dddddd), color-stop(50%,#ffffff), color-stop(100%,#dddddd))
+  background: -webkit-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
+  background: -o-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
+  background: -ms-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 )
+  background: linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
   padding: 10px 0 20px
   margin-top: 20px
-  height: 20px
+  height: 25px
   box-shadow: inset 0 5px 5px rgba(0,0,0,.2)
   -webkit-transition: all .5s ease-in-out
   -moz-transition: all .5s ease-in-out
@@ -235,7 +256,42 @@ a
     float: right
     margin-right: 1em
 
-#top
+#left-request
+  float: left
+  width: 60%
+  padding: 0 3em 1em 1em
+  //padding-right: 3em
+  //background: $mastheadBG
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  .float
+    float: right
+    margin-bottom: 10px
+    a
+      color: $linkColor
+
+#right-commit
+  float: right
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  background: $mastheadBG
+  width: 27%
+  padding: 1em
+  padding-right: 2em
+  #your-requests
+    background: white
+    width: 100%
+    text-align: right
+    border: 1px solid $mastheadBG
+    margin-bottom: 20px
+    padding-right: 1em
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
+    a
+      background: none
+      border: none
+      &:hover
+        text-decoration: underline
   #notifications
     padding: 3px
     opacity: .9
@@ -244,22 +300,33 @@ a
   #notifications_bold
     opacity: .9
     padding: 3px
-    background-color: #faa
-    border: solid thin red
+    background-color: #fea
+    border: solid thin #fd0
     &:hover
       opacity: 1
-  #button
+
+#titles
+  width: 61.5%
+  padding: 1em
+  padding-top: 0px
+  #stream-title
+    font-size: 2.2em
+    margin-bottom: 20px
+    padding: 0
     float: left
-    width: 40%
-  #your-requests
+  #buttons
     float: right
-    width: 40%
-    text-align: right
-    a
-      background: none
-      border: none
-      &:hover
-        text-decoration: underline
+    position: relative
+    top: 8px
+    .float
+      float: right
+    #create-new
+      float: right
+      margin-left: 20px
+      position: relative
+      top: -5px
+  .clear
+    clear: both
 
 /*
  * Splash Screen
@@ -271,16 +338,19 @@ a
   #tag_line
     text-align: center
     width: 800px
-    margin: 0 auto 0 auto
+    margin: 0 auto
     font-size: 3em
-    padding: 40px 0 60px 0
+    padding: 10px 0
   #video
     margin: 20px auto 0px auto
-    width: 600px
     text-align: center
-    border: 1px solid
-    height: 400px
+    height: 340px
     width: 600px
+    position: relative
+    span
+      font-size: 24pt
+      position: relative
+      top: 50%
   #learn_more
     margin: 10px auto 0px auto
     width: 800px
@@ -297,6 +367,7 @@ a
         background-position: top
         border: 0
         padding: 0
+        line-height: 1.4em
         /* for IE */
         filter: alpha(opacity=80)
         /* CSS3 standard */
@@ -314,7 +385,7 @@ a
       &:hover
         background-position: bottom
     #how_it_works a
-      background: url("") no-repeat
+      background: url("../images/how_it_works.jpg") no-repeat
       &:hover
         background-position: bottom
 
@@ -322,9 +393,10 @@ a
   width: 98%
   line-height: 150%
   margin: 100px auto 0 auto
-  background: white
+  //background: white
   position: relative
-  padding-top: 30px
+  padding-top: 20px
+  font-family: 'Ubuntu'
   #login
     width: 700px
     margin: 20px auto 20px auto
@@ -450,11 +522,17 @@ a
     #left-column
       width: 20%
       float: left
+      background: white
+      -moz-border-radius: 10px
+      -webkit-border-radius: 10px
+      radius: 10px
+      border: 1px solid $mastheadBG
+      padding: .5em
       img
         max-width: 100%
       #photo
-        padding: inherit
         width: 100%
+        text-align: center
         margin: 10px auto 0px auto
         a
           padding: 0 !important
@@ -492,9 +570,14 @@ a
         #add-child
           margin: 10px 0 10px 20px
     #right-column
-      width: 75%
+      width: 72%
       float: right
-      padding: 0px
+      padding: 1.2em
+      -moz-border-radius: 10px
+      -webkit-border-radius: 10px
+      radius: 10px
+      background: white
+      border: 1px solid $mastheadBG
       #top
         width: 97%
         height: 100px
@@ -524,9 +607,9 @@ a
           font-weight: normal
           border: 1px solid grey
           color: grey
-          -moz-border-radius: .5em
-          -webkit-border-radius: .5em
-          border-radius: .5em
+          -moz-border-radius: 5px
+          -webkit-border-radius: 5px
+          border-radius: 5px
           margin: 2em 0
           padding: 1em 0
         .small-title
@@ -630,13 +713,35 @@ label
 /*
  * Requests styles
  */
+.delete-link, .delete
+  float: right
+  a
+    padding: 0em .3em 0em .30em
+    background: #999 !important
+    -moz-border-radius: 1em
+    -webkit-border-radius: 1em
+    border-radius: 1em
+    font-size: 10pt
+    font-family: monospace
+    font-weight: bold
+    color: white !important
+    border: none
+    &:hover
+      background: black
+      color: white
+      -moz-box-shadow: 0 0 2px #444
+      -webkit-box-shadow: 1px 1px 2px #444
+      box-shadow: 0 0 2px #444
 #request-container
-  width: 70%
-  padding: .5em
-  float: left
-  select
-    float: right
-    margin-right: 30%
+  width: 95%
+  border: 1px solid $mastheadBG
+  padding: 1em
+  padding-right: 3em
+  background: white
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  #red
+    color: #900
   #no-requests
     font-size: 1.4em
     font-style: italic
@@ -646,33 +751,32 @@ label
   border-right: 1px solid #fff
   border-bottom: 3px double $lightGrey
   border-left: 1px solid #fff
-  margin-bottom: 1em
-  padding: .5em .5em 1.5em .5em
+  margin: 1em 0 1em 0
+  padding: 1em
+  //padding: .5em .5em 1.5em .5em
   width: 100%
   opacity: .9
-  -webkit-transition: all .5s ease-in-out
-  -moz-transition: all .5s ease-in-out
-  -o-transition: all .5s ease-in-out
-  -ms-transition: all .5s ease-in-out
-  transition: background-color .5s ease-in-out
+  //-webkit-transition: all .5s ease-in-out
+  //-moz-transition: all .5s ease-in-out
+  //-o-transition: all .5s ease-in-out
+  //ms-transition: all .5s ease-in-out
+  //transition: background-color .5s ease-in-out
   &:hover
-    background-color: #fff
-    border-top: 1px solid #ccc
-    border-right: 1px solid #ccc
-    border-bottom: 3px double #ccc
-    border-left: 1px solid #ccc
+    //background-color: #fff
+    //border-top: 1px solid #ccc
+    //border-right: 1px solid #ccc
+    //border-bottom: 3px double #ccc
+    //border-left: 1px solid #ccc
     //opacity: 1
-    -webkit-transition: all .5s ease-in-out
-    -moz-transition: all .5s ease-in-out
-    -o-transition: all .5s ease-in-out
-    -ms-transition: all .5s ease-in-out
-    transition: all .5s ease-in-out
+    //-webkit-transition: all .5s ease-in-out
+    //-moz-transition: all .5s ease-in-out
+    //-o-transition: all .5s ease-in-out
+    //-ms-transition: all .5s ease-in-out
+    //transition: all .5s ease-in-out
   img
     max-width: 8%
-    margin: 0 .5em .5em 0
+    margin-right: .5em
     float: left
-  #red
-    color: #900
   .no-volunteer
     color: #AAA
     margin-left: 10px
@@ -781,7 +885,6 @@ label
       float: right
       width: 20px
       height: 20px
-      font-size: 1.1em
       z-index: 5
       span
         display: none
@@ -817,64 +920,54 @@ label
     clear: both
 
 #commit-container
-  width: 25%
-  padding: .5em
-  float: right
+  width: 100%
   text-align: right
   font-weight: bold
-  font-size: 1.2em
+  font-size: 1em
+  padding: 1em 1em 1em 0
+  background: white
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  radius: 10px
   h2
-    font-size: 1.1em
+    font-size: 1.3em
   #commitments
     #no-commitment
-      font-size: .8em
+      font-size: 1em
       color: #AAA
+      font-style: oblique
+      font-weight: normal
       padding: .5em
     .confirmed-request
       font-weight: none
-      font-size: .7em
+      font-size: .9em
       border-bottom: 3px double $lightGrey
       margin-bottom: 1em
+      margin-left: 30px
       padding: .5em
       text-align: left
       .link
         text-align: right
         margin-top: 5px
-.delete-link, .delete
-  float: right
-  a
-    padding: 0 .35em .05em .35em
-    background: #999
-    -moz-border-radius: 1em
-    -webkit-border-radius: 1em
-    border-radius: 1em
-    color: white !important
-    border: none
-    &:hover
-      background: black
-      color: white
+        margin-bottom: 10px
   #pending
     #no-pending
-      font-size: .8em
+      font-size: 1em
       color: #AAA
       padding: .5em
+      font-weight: normal
+      font-style: oblique
     .pending-request
       font-weight: none
-      font-size: .7em
+      font-size: .9em
       border-bottom: 3px double $lightGrey
       margin-bottom: 1em
       padding: .5em
       text-align: left
+      margin-left: 30px
       .link
         text-align: right
-        margin-top: 5px
-      .delete-link
-        float: right
-        a
-          background: none
-          border: none
-          &:hover
-            text-decoration: underline
+        margin: 5px 0 10px 0
 
 input[type="text"], input[type="password"], textarea
   border: 1px solid $mastheadBG
@@ -891,44 +984,51 @@ input[type="text"], input[type="password"], textarea
 .center
   text-align: center
 
-.result
-  border-bottom: 3px double $lightGrey
-  width: 100%
-  margin-bottom: 1em
-  padding: .5em
-  img
-    max-width: 8%
-    margin: .5em 0 .5em 0
-    float: left
-  .info
-    width: 60%
-    float: left
-    padding: inherit
-    margin: inherit
-    .name
-      font-size: 1.2em
-      font-weight: bold
-      margin: 0 !important
-      padding: 0 !important
-      a
-        padding: inherit
-        margin: inherit
-        padding: 0
-        margin: 0 0 0 -.2em
-        background: none !important
-        border: 0 !important
-        &:hover
-          text-decoration: underline
-
-    .attributes
-      margin-bottom: 20px
-      .small-title
-        font-size: 1em
+#result-container
+  background: white
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  padding: 1em 3em .3em 1em
+  .result
+    border-bottom: 3px double $lightGrey
+    width: 100%
+    margin-bottom: 1em
+    padding: 1em
+    img
+      max-width: 8%
+      margin: .5em 0 .5em 0
+      float: left
+    .info
+      width: 60%
+      float: left
+      padding: inherit
+      margin: inherit
+      .name
+        font-size: 1.2em
         font-weight: bold
-  .button
-    float: right
-    margin-top: 20px
+        margin: 0 !important
+        padding: 0 !important
+        a
+          padding: inherit
+          margin: inherit
+          padding: 0
+          margin: 0 0 0 -.2em
+          background: none !important
+          border: 0 !important
+          &:hover
+            text-decoration: underline
+  
+      .attributes
+        margin-bottom: 20px
+        .small-title
+          font-size: 1em
+          font-weight: bold
+    .button
+      float: right
+      margin-top: 20px
 
+
+  
 .neighbor
   border-bottom: 3px double $darkGrey
   img
@@ -950,7 +1050,15 @@ input[type="text"], input[type="password"], textarea
 #num-results
   margin-left: 40px
 
+#delete-account
+  float: right
+  text-align: right
+  margin-bottom: 20px
+
 #hidden-requests-container
+
+
+
   width: 50%
   float: right
   .hidden-title
@@ -982,8 +1090,10 @@ input[type="text"], input[type="password"], textarea
 #user-household-info
   float: left
   width: 48%
+
   input[type="submit"]
     display: none
+  
   font.small-title
     font-weight: bold
   font.edit
@@ -1017,9 +1127,7 @@ input[type="text"], input[type="password"], textarea
     display: none
 
   
-  #delete-account
-    text-align: right
-    margin-bottom: 20px
+
 
   #user
     width: 100%
@@ -1079,6 +1187,9 @@ input[type="text"], input[type="password"], textarea
     width: 100%
     margin-bottom: 30px
 
+  #contacts
+    width: 100%
+    margin-bottom: 30px
 
 .clear
   clear: both

@@ -4,16 +4,19 @@
   = " | "
   = link_to 'log out', logout_path
 %ul.menubar
-  %li= link_to 'household', members_profile_path, :title => 'View Profile'
+  %li
+    = link_to 'household', members_profile_path, :title => 'View Profile'
   = admin_menu_items(current_user)
   -# unless current_user.household.nil?
   -#if has_caregivers(current_user)
   -#%li.notification= get_caregiver_request_count(current_user)
-  %li= link_to 'neighbors', members_neighbors_path
+  %li
+    = link_to 'neighbors', members_neighbors_path
   - unless current_user.household.nil?
     - if has_neighbors(current_user)
       %li.notification= get_neighbor_request_count(current_user)
-  %li= link_to 'requests', members_requests_path, :title => 'Requests'
+  %li
+    = link_to 'requests', members_requests_path, :title => 'Requests'
   - unless current_user.household.nil?
     - if has_requests(current_user)
       %li.notification= get_pending_requests_count(current_user)
