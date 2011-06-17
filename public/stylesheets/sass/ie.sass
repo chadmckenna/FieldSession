@@ -1,0 +1,50 @@
+#container, #content
+  height: 100% !important
+
+#push
+  height: 70px !important
+
+html, body
+  height: 92%
+
+#wrapper
+  height: 100%
+  height: auto !important
+  margin: 0 auto -70px
+  background: #F5EEDB
+
+#footer_container
+  clear: both
+#footer
+  width: 100%
+  clear: both
+  color: #aaa
+  padding: 0 0 20px
+  margin-top: 20px
+  height: 25px
+  background: #dddddd
+  ul
+    margin: 10px auto
+    list-style-type: none
+    li
+      float: left
+      margin-right: .5em
+      &:last-child
+        &:after
+          content: none
+      &:after
+        content: " | "
+      a
+        color: #aaa
+  &:hover
+    box-shadow: none
+    color: black
+    a
+      color: #555
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+  span
+    float: right
+    margin-right: 1em
+

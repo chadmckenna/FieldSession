@@ -5,6 +5,10 @@
     %title
       = h(yield(:title) || "Untitled")
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    /[if IE]
+      =stylesheet_link_tag 'ie'
+    /[if !IE]
+      =stylesheet_link_tag 'not-ie'
     = stylesheet_link_tag 'application', 'jquery-ui-1.8.13.custom.css', 'css3buttons.css'
     = stylesheet_link_tag 'forms'
     = google_webfont_stylesheet('Wire One')
