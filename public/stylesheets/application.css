@@ -798,6 +798,9 @@ label {
     .request .tools .volunteer-button, .neighbor .tools .volunteer-button {
       float: right;
       margin-top: 10px; }
+      .request .tools .volunteer-button #delete, .neighbor .tools .volunteer-button #delete {
+        float: right;
+        margin-left: 20px; }
     .request .tools .delete, .neighbor .tools .delete {
       text-align: center;
       float: right;
@@ -953,6 +956,9 @@ input[type="text"], input[type="password"], textarea {
     #result-container .result .button {
       float: right;
       margin-top: 20px; }
+      #result-container .result .button #delete {
+        margin-left: 20px;
+        float: right; }
 
 .neighbor {
   border-bottom: 3px double #cccccc; }
