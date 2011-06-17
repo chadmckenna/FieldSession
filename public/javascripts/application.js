@@ -15,11 +15,11 @@ $(function() {
 });
 
 $(document).ready(function() {
-	$("#right-column #content #title").append('<span></span>');
+	$("#right-column #content #title").append('<span><a></a></span>');
 	
-	$("#right-column #content #title span").click(function() {
+	$("#right-column #content #title span").click(function(e) {
+		e.preventDefault();
 		$(this).parent().parent().find("#requests").slideToggle();
-	//	$(this)
 	});
 
 	$(".request").hover(function() {
