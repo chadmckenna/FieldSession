@@ -219,52 +219,75 @@ a {
     float: right;
     margin-right: 1em; }
 
-#top .clear {
-  clear: both; }
-#top #notifications {
-  padding: 3px;
-  opacity: 0.9; }
-  #top #notifications:hover {
-    opacity: 1; }
-#top #notifications_bold {
-  opacity: 0.9;
-  padding: 3px;
-  background-color: #ffeeaa;
-  border: solid thin #ffdd00; }
-  #top #notifications_bold:hover {
-    opacity: 1; }
-#top #button {
-  float: right;
-  position: relative;
-  margin-right: 6.5%;
-  top: 20px; }
-#top #your-requests {
-  background: white;
-  float: right;
-  width: 26%;
-  text-align: right;
-  padding-right: 1em;
-  border: 1px solid #8a7e66;
+#left {
+  float: left;
+  width: 60%;
+  padding: 0 3em 1em 1em;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
-  #top #your-requests a {
-    background: none;
-    border: none; }
-    #top #your-requests a:hover {
-      text-decoration: underline; }
+  #left .float {
+    float: right;
+    margin-bottom: 10px; }
+    #left .float a {
+      color: #f5eedb; }
+
+#right {
+  float: right;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background: #878c6d;
+  width: 27%;
+  padding: 1em;
+  padding-right: 2em; }
+  #right #your-requests {
+    background: white;
+    width: 100%;
+    text-align: right;
+    border: 1px solid #878c6d;
+    margin-bottom: 20px;
+    padding-right: 1em;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px; }
+    #right #your-requests a {
+      background: none;
+      border: none; }
+      #right #your-requests a:hover {
+        text-decoration: underline; }
+  #right #notifications {
+    padding: 3px;
+    opacity: 0.9; }
+    #right #notifications:hover {
+      opacity: 1; }
+  #right #notifications_bold {
+    opacity: 0.9;
+    padding: 3px;
+    background-color: #ffeeaa;
+    border: solid thin #ffdd00; }
+    #right #notifications_bold:hover {
+      opacity: 1; }
 
 #titles {
-  width: 67.5%;
-  padding-bottom: 35px; }
+  width: 62.5%;
+  padding: 1em;
+  padding-top: 0px; }
   #titles #stream-title {
-    float: left;
     font-size: 2.2em;
-    margin: 0;
-    padding: 0; }
-  #titles .float {
+    margin-bottom: 20px;
+    padding: 0;
+    float: left; }
+  #titles #buttons {
     float: right;
     position: relative;
-    top: 5px; }
+    top: 8px; }
+    #titles #buttons .float {
+      float: right; }
+    #titles #buttons #create-new {
+      float: right;
+      margin-left: 20px;
+      position: relative;
+      top: -5px; }
+  #titles .clear {
+    clear: both; }
 
 /* Splash Screen
  */
@@ -325,7 +348,7 @@ a {
   line-height: 150%;
   margin: 100px auto 0 auto;
   position: relative;
-  padding-top: 30px;
+  padding-top: 20px;
   font-family: "Ubuntu"; }
   #container #login {
     width: 700px;
@@ -450,7 +473,7 @@ a {
       -moz-border-radius: 10px;
       -webkit-border-radius: 10px;
       radius: 10px;
-      border: 1px solid #8a7e66;
+      border: 1px solid #878c6d;
       padding: 0.5em; }
       #container #content #left-column img {
         max-width: 100%; }
@@ -500,7 +523,7 @@ a {
       -webkit-border-radius: 10px;
       radius: 10px;
       background: white;
-      border: 1px solid #8a7e66; }
+      border: 1px solid #878c6d; }
       #container #content #right-column #top {
         width: 97%;
         height: 100px;
@@ -552,7 +575,7 @@ a {
   #container input[type="submit"], #container select {
     border: 1px solid #aaaaaa;
     background: #eeeeee;
-    color: #8a7e66;
+    color: #878c6d;
     padding: 0.2em;
     -moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
@@ -648,11 +671,9 @@ label {
       color: white; }
 
 #request-container {
-  width: 63%;
-  border: 1px solid #8a7e66;
+  width: 100%;
+  border: 1px solid #878c6d;
   padding: 1em;
-  padding-right: 3em;
-  float: left;
   background: white;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
@@ -667,7 +688,6 @@ label {
   border-bottom: 3px double #eeeeee;
   border-left: 1px solid white;
   margin: 1em 0 1em 0;
-  padding: 1em;
   width: 100%;
   opacity: 0.9; }
   .request img, .neighbor img {
@@ -806,18 +826,15 @@ label {
     clear: both; }
 
 #commit-container {
-  width: 24%;
-  padding: 0.5em;
-  padding-right: 1.2em;
-  float: right;
+  width: 100%;
   text-align: right;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
+  padding: 1em 1em 1em 0;
   background: white;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  radius: 10px;
-  border: 1px solid #8a7e66; }
+  radius: 10px; }
   #commit-container h2 {
     font-size: 1.2em; }
   #commit-container #commitments #no-commitment {
@@ -865,7 +882,7 @@ label {
     margin-left: 30px; }
     #commit-container #pending .pending-request .link {
       text-align: right;
-      margin-top: 5px; }
+      margin: 5px 0 10px 0; }
     #commit-container #pending .pending-request .delete-link {
       float: right; }
       #commit-container #pending .pending-request .delete-link a {
@@ -875,7 +892,7 @@ label {
           text-decoration: underline; }
 
 input[type="text"], input[type="password"], textarea {
-  border: 1px solid #8a7e66;
+  border: 1px solid #878c6d;
   padding: 0.2em; }
 
 #main {
@@ -1023,7 +1040,7 @@ input[type="text"], input[type="password"], textarea {
       #user-household-info #user #change-password a {
         border: 1px solid #aaaaaa !important;
         background: #eeeeee !important;
-        color: #8a7e66;
+        color: #878c6d;
         padding: 0.2em;
         -moz-border-radius: 0.3em;
         -webkit-border-radius: 0.3em; }
@@ -1044,7 +1061,7 @@ input[type="text"], input[type="password"], textarea {
       #user-household-info #household #change-photo a {
         border: 1px solid #aaaaaa !important;
         background: #eeeeee !important;
-        color: #8a7e66;
+        color: #878c6d;
         padding: 0.2em;
         -moz-border-radius: 0.3em;
         -webkit-border-radius: 0.3em; }
@@ -1059,7 +1076,7 @@ input[type="text"], input[type="password"], textarea {
       #user-household-info #children #show-more a {
         border: 1px solid #aaaaaa !important;
         background: #eeeeee !important;
-        color: #8a7e66;
+        color: #878c6d;
         padding: 0.2em;
         -moz-border-radius: 0.3em;
         -webkit-border-radius: 0.3em; }

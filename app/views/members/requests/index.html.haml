@@ -4,7 +4,99 @@
 - @num_requests = 0
 - @num_volunteer_requests = get_pending_requests_count(current_user)
 - @num_neighbor_requests = get_neighbor_request_count(current_user)
-#top
+
+#titles
+  #stream-title Request Feed
+  #buttons
+    #create-new= link_to "<span class='plus icon'></span>Create New Care Request", new_members_request_path, :class => 'pill button'
+    .float
+      = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
+      |
+      = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
+  .clear
+.clear
+#left
+  #request-container
+    - for completed_request in @completed_requests
+      .request{:style => "background-color: #fea; border: solid thin #fd0"}
+        = image_tag completed_request.household.photo.url(:thumb)
+        .left
+          %h2.name= completed_request.household
+          %h2.household Household
+        .right
+          .title
+            =h completed_request.title
+          .date
+            =h completed_request.from_date.to_s(:short)
+            at
+            =h completed_request.start_time.to_s(:nicetime)
+            to
+            - if !completed_request.same_date
+              =h completed_request.to_date.to_s(:short)
+              at
+            =h completed_request.end_time.to_s(:nicetime)
+          .cost
+            Credits:
+            %font=h completed_request.cost.to_i
+          .children
+            Children:
+            =h completed_request.children
+        .tools
+          .volunteer-button Did you provide care for this request?
+          %br
+          .volunteer-button{:style => "padding: 2px"}= link_to "No", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => false}, :method => :post
+          .volunteer-button{:style => "padding: 2px"}= link_to "Yes", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => true}, :method => :post
+        .clear
+  
+    - for request in @requests
+      -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
+        - @num_requests += 1
+        .request
+          = image_tag request.household.photo.url(:thumb)
+          .left
+            %h2.name= "#{request.household}"
+            %h2.household Household
+          .right
+            .title
+              =h "#{request.title} (#{request.cost.to_i} credits)"
+            .date
+              =h request.start_time.to_s(:nicetime)
+              to
+              =h request.end_time.to_s(:nicetime)
+              on
+              %br
+              =h "#{Date::DAYNAMES[request.from_date.wday]}, #{Date::MONTHNAMES[request.from_date.mon]} #{request.from_date.mday}"
+              -if request.from_date != request.to_date
+                to
+                =h "#{Date::DAYNAMES[request.to_date.wday]}, #{Date::MONTHNAMES[request.to_date.mon]} #{request.to_date.mday}"
+            .children
+              Children:
+              -for child in request.children
+                -if request.children.count == 1
+                  =h "#{child.first_name}"
+                -else
+                  =h "#{child.first_name}, "
+            .notes
+              - if !request.notes.eql? ""
+                Additional notes:
+                =h request.notes
+          .tools
+            .delete 
+              %span= link_to 'x', "#"
+            .subnav
+              %ul
+                %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id, :belongs_to => request.household.id}, :method => :post
+                %li= link_to "Hide all by #{request.household}", {:controller => "requests", :action => "hide_all_by_household", :household_hidden_id => request.household.id}, :method => :post
+            .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post, :class => 'pill button'
+          .clear
+  
+    - if @num_requests == 0
+      - if @num_neighbors == 0
+        #no-requests You have no neighbors. Add neighbors to see their requests.
+      - else
+        #no-requests Your neighbors do not have any requests at this time.
+
+#right
   #your-requests
     %p
       - if @num_volunteer_requests > 0
@@ -17,143 +109,48 @@
       - else
         %span#notifications= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path
 
-  #button
-    %p= link_to "<span class='plus icon'></span>Create New Care Request", new_members_request_path, :class => 'pill button'
-  
-%br
-%br
-%br
-#titles
-  #stream-title
-    Request Feed
-  .float
-    = link_to "Sort by Household", :sort => "name", :house_sort => "#{@house_direction}"
-    |
-    = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
-  
-.clear
-#request-container
-  - for completed_request in @completed_requests
-    .request{:style => "background-color: #fea; border: solid thin #fd0"}
-      = image_tag completed_request.household.photo.url(:thumb)
-      .left
-        %h2.name= completed_request.household
-        %h2.household Household
-      .right
-        .title
-          =h completed_request.title
-        .date
-          =h completed_request.from_date.to_s(:short)
-          at
-          =h completed_request.start_time.to_s(:nicetime)
+  #commit-container
+    #commitments
+      %h2 My Commitments
+      - if @confirmed_requests.count == 0
+        #no-commitment
+          You have no commitments
+      - for confirmed_request in @confirmed_requests
+        .confirmed-request
+          .delete-link
+            = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
+            
+          ="#{confirmed_request.request.household} Household"
+          %br
+          =h confirmed_request.request.from_date.to_s(:short)
+          - if !confirmed_request.request.same_date
+            \-
+            =h confirmed_request.request.to_date.to_s(:short)
+          %br
+          =h confirmed_request.request.start_time.to_s(:nicetime)
           to
-          - if !completed_request.same_date
-            =h completed_request.to_date.to_s(:short)
-            at
-          =h completed_request.end_time.to_s(:nicetime)
-        .cost
-          Credits:
-          %font=h completed_request.cost.to_i
-        .children
-          Children:
-          =h completed_request.children
-      .tools
-        .volunteer-button Did you provide care for this request?
-        %br
-        .volunteer-button{:style => "padding: 2px"}= link_to "No", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => false}, :method => :post
-        .volunteer-button{:style => "padding: 2px"}= link_to "Yes", {:controller => "requests", :action => "complete_request", :request_id => completed_request.id, :completed => true}, :method => :post
-      .clear
-
-  - for request in @requests
-    -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
-      - @num_requests += 1
-      .request
-        = image_tag request.household.photo.url(:thumb)
-        .left
-          %h2.name= "#{request.household}"
-          %h2.household Household
-        .right
-          .title
-            =h "#{request.title} (#{request.cost.to_i} credits)"
-          .date
-            =h request.start_time.to_s(:nicetime)
-            to
-            =h request.end_time.to_s(:nicetime)
-            on
-            %br
-            =h "#{Date::DAYNAMES[request.from_date.wday]}, #{Date::MONTHNAMES[request.from_date.mon]} #{request.from_date.mday}"
-            -if request.from_date != request.to_date
-              to
-              =h "#{Date::DAYNAMES[request.to_date.wday]}, #{Date::MONTHNAMES[request.to_date.mon]} #{request.to_date.mday}"
-          .children
-            Children:
-            -for child in request.children
-              -if request.children.count == 1
-                =h "#{child.first_name}"
-              -else
-                =h "#{child.first_name}, "
-          .notes
-            - if !request.notes.eql? ""
-              Additional notes:
-              =h request.notes
-        .tools
-          .delete 
-            %span= link_to 'x', "#"
-          .subnav
-            %ul
-              %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id, :belongs_to => request.household.id}, :method => :post
-              %li= link_to "Hide all by #{request.household}", {:controller => "requests", :action => "hide_all_by_household", :household_hidden_id => request.household.id}, :method => :post
-          .volunteer-button= link_to "Volunteer", {:controller => "pending_requests", :action => "create", :request_id => request.id, :belongs_to_household_id => request.household.id}, :method => :post, :class => 'pill button'
-        .clear
-
-  - if @num_requests == 0
-    - if @num_neighbors == 0
-      #no-requests You have no neighbors. Add neighbors to see their requests.
-    - else
-      #no-requests Your neighbors do not have any requests at this time.
-
-#commit-container
-  #commitments
-    %h2 My Commitments
-    - if @confirmed_requests.count == 0
-      #no-commitment
-        You have no commitments
-    - for confirmed_request in @confirmed_requests
-      .confirmed-request
-        .delete-link
-          = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
-          
-        ="#{confirmed_request.request.household} Household"
-        %br
-        =h confirmed_request.request.from_date.to_s(:short)
-        - if !confirmed_request.request.same_date
-          \-
-          =h confirmed_request.request.to_date.to_s(:short)
-        %br
-        =h confirmed_request.request.start_time.to_s(:nicetime)
-        to
-        =h confirmed_request.request.end_time.to_s(:nicetime)
-        .link
-          = link_to '<span class="magnifier icon"></span>View More Details', detail_members_request_path(confirmed_request.request), :class => 'pill button'
-  #pending
-    %h2 My Pending Commitments
-    -if @pending_requests.count == 0
-      #no-pending
-        You have no pending requests
-    - for pending_request in @pending_requests
-      .pending-request
-        .delete-link
-          = link_to 'x', members_pending_request_path(pending_request), :confirm => 'Are you sure you want to remove this pending request?', :method => :delete
-        = "#{pending_request.request.household} Household"
-        %br
-        =h pending_request.request.from_date.to_s(:short)
-        - if !pending_request.request.same_date
-          \-
-          =h pending_request.request.to_date.to_s(:short)
-        %br
-        =h pending_request.request.start_time.to_s(:nicetime)
-        to
-        =h pending_request.request.end_time.to_s(:nicetime)
-        .link
-          = link_to '<span class="magnifier icon"></span>View More Details', members_request_path(pending_request.request), :class => 'pill button'
-
+          =h confirmed_request.request.end_time.to_s(:nicetime)
+          .link
+            = link_to '<span class="magnifier icon"></span>View More Details', detail_members_request_path(confirmed_request.request), :class => 'pill button'
+    #pending
+      %h2 My Pending Commitments
+      -if @pending_requests.count == 0
+        #no-pending
+          You have no pending requests
+      - for pending_request in @pending_requests
+        .pending-request
+          .delete-link
+            = link_to 'x', members_pending_request_path(pending_request), :confirm => 'Are you sure you want to remove this pending request?', :method => :delete
+          = "#{pending_request.request.household} Household"
+          %br
+          =h pending_request.request.from_date.to_s(:short)
+          - if !pending_request.request.same_date
+            \-
+            =h pending_request.request.to_date.to_s(:short)
+          %br
+          =h pending_request.request.start_time.to_s(:nicetime)
+          to
+          =h pending_request.request.end_time.to_s(:nicetime)
+          .link
+            = link_to '<span class="magnifier icon"></span>View More Details', members_request_path(pending_request.request), :class => 'pill button'
+  

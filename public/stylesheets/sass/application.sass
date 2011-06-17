@@ -5,7 +5,7 @@ $noticeBorder: #66cc66
 $linkColor: #F5EEDB
 $linkHover: white
 $contentLinkColor: #571
-$mastheadBG: #8A7E66
+$mastheadBG: #878C6D
 $lightGrey: #eee
 $darkGrey: #ccc
 
@@ -243,9 +243,42 @@ a
     float: right
     margin-right: 1em
 
-#top
-  .clear
-    clear: both
+#left
+  float: left
+  width: 60%
+  padding: 0 3em 1em 1em
+  //padding-right: 3em
+  //background: $mastheadBG
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  .float
+    float: right
+    margin-bottom: 10px
+    a
+      color: $linkColor
+
+#right
+  float: right
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  background: $mastheadBG
+  width: 27%
+  padding: 1em
+  padding-right: 2em
+  #your-requests
+    background: white
+    width: 100%
+    text-align: right
+    border: 1px solid $mastheadBG
+    margin-bottom: 20px
+    padding-right: 1em
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
+    a
+      background: none
+      border: none
+      &:hover
+        text-decoration: underline
   #notifications
     padding: 3px
     opacity: .9
@@ -258,38 +291,29 @@ a
     border: solid thin #fd0
     &:hover
       opacity: 1
-  #button
-    float: right
-    position: relative
-    margin-right: 6.5%
-    top: 20px
-  #your-requests
-    background: white
-    float: right
-    width: 26%
-    text-align: right
-    padding-right: 1em
-    border: 1px solid $mastheadBG
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
-    a
-      background: none
-      border: none
-      &:hover
-        text-decoration: underline
 
 #titles
-  width: 67.5%
-  padding-bottom: 35px
+  width: 62.5%
+  padding: 1em
+  padding-top: 0px
   #stream-title
-    float: left
     font-size: 2.2em
-    margin: 0
+    margin-bottom: 20px
     padding: 0
-  .float
+    float: left
+  #buttons
     float: right
     position: relative
-    top: 5px
+    top: 8px
+    .float
+      float: right
+    #create-new
+      float: right
+      margin-left: 20px
+      position: relative
+      top: -5px
+  .clear
+    clear: both
 
 /*
  * Splash Screen
@@ -354,7 +378,7 @@ a
   margin: 100px auto 0 auto
   //background: white
   position: relative
-  padding-top: 30px
+  padding-top: 20px
   font-family: 'Ubuntu'
   #login
     width: 700px
@@ -689,11 +713,9 @@ label
       background: black
       color: white
 #request-container
-  width: 63%
+  width: 100%
   border: 1px solid $mastheadBG
   padding: 1em
-  padding-right: 3em
-  float: left
   background: white
   -moz-border-radius: 10px
   -webkit-border-radius: 10px
@@ -707,7 +729,7 @@ label
   border-bottom: 3px double $lightGrey
   border-left: 1px solid #fff
   margin: 1em 0 1em 0
-  padding: 1em
+  //padding: 1em
   //padding: .5em .5em 1.5em .5em
   width: 100%
   opacity: .9
@@ -878,18 +900,15 @@ label
     clear: both
 
 #commit-container
-  width: 24%
-  padding: .5em
-  padding-right: 1.2em
-  float: right
+  width: 100%
   text-align: right
   font-weight: bold
-  font-size: 1.2em
+  font-size: 1em
+  padding: 1em 1em 1em 0
   background: white
   -moz-border-radius: 10px
   -webkit-border-radius: 10px
   radius: 10px
-  border: 1px solid $mastheadBG
   h2
     font-size: 1.2em
   #commitments
@@ -939,7 +958,7 @@ label
       margin-left: 30px
       .link
         text-align: right
-        margin-top: 5px
+        margin: 5px 0 10px 0
       .delete-link
         float: right
         a
