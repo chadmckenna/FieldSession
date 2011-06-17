@@ -28,7 +28,7 @@ class Members::NeighborsController < Members::MembersController
       
       if @neighbor.save && @neighbor2.save
         @neighbor.send_neighbor_request_email(@neighbor)
-        flash[:success] = "You have successfully added #{@household} as a neighbor"
+        flash[:success] = "You have successfully requested to add #{@household} as a neighbor"
         redirect_to :back
       else
         flash[:error] = "There were errors adding this neighbor"
@@ -88,7 +88,7 @@ class Members::NeighborsController < Members::MembersController
     end
     
     if @neighbor.destroy && @neighbor2.destroy
-      flash[:success] = "You have deleted your neighbor"
+      flash[:success] = "Success!"
       redirect_to members_neighbors_path
     else
       flash[:error] = "There was an error deleting your neighbor"
