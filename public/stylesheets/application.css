@@ -559,17 +559,17 @@ a {
           margin: 10px 0 10px 20px; }
     #container #content #right-column {
       width: 72%;
-      float: right;
-      padding: 1.2em;
-      -moz-border-radius: 10px;
-      -webkit-border-radius: 10px;
-      radius: 10px;
-      background: white;
-      border: 1px solid #878c6d; }
+      float: right; }
       #container #content #right-column #top {
-        width: 97%;
+        width: 98%;
         height: 100px;
-        padding: 10px 0 10px 0; }
+        margin-bottom: 20px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        radius: 10px;
+        background: white;
+        border: 1px solid #878c6d;
+        padding: 1.2em; }
         #container #content #right-column #top #household-info {
           width: 100%;
           float: left; }
@@ -585,13 +585,17 @@ a {
           text-align: right;
           float: right;
           margin: 10px 0px 0 0; }
-          #container #content #right-column #top #buttons a {
-            margin-right: -5px; }
-      #container #content #right-column #content {
+      #container #content #right-column #content-requests, #container #content #right-column #content-commitments {
+        margin-bottom: 20px;
         width: 98%;
         font-weight: bold;
-        padding: 0px; }
-        #container #content #right-column #content #no-requests {
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        radius: 10px;
+        background: white;
+        border: 1px solid #878c6d;
+        padding: 1.2em; }
+        #container #content #right-column #content-requests #no-requests, #container #content #right-column #content-commitments #no-requests {
           text-align: center;
           font-style: oblique;
           font-weight: normal;
@@ -602,36 +606,27 @@ a {
           border-radius: 5px;
           margin: 2em 0;
           padding: 1em 0; }
-        #container #content #right-column #content #title {
+        #container #content #right-column #content-requests .small-title, #container #content #right-column #content-commitments .small-title {
+          font-size: 1.3em; }
+        #container #content #right-column #content-requests #title, #container #content #right-column #content-commitments #title {
           text-align: left; }
-          #container #content #right-column #content #title .small-title {
+          #container #content #right-column #content-requests #title .small-title, #container #content #right-column #content-commitments #title .small-title {
             font-size: 1.3em;
             margin-right: 10px; }
-          #container #content #right-column #content #title span {
+          #container #content #right-column #content-requests #title span, #container #content #right-column #content-commitments #title span {
             background: url(/images/iconCollapseArrow.gif) no-repeat center top;
             display: inline-block;
             width: 16px;
             height: 16px; }
-            #container #content #right-column #content #title span:focus {
-              -moz-transform: rotate(90deg);
-              o-transform: rotate(90deg);
-              -webkit-transform: rotate(90deg);
-              -ms-transform: rotate(90deg);
-              transform: rotate(90deg);
-              -moz-transition: all 0.3s ease-out;
-              -o-transition: all 0.3s ease-out;
-              -webkit-transition: all 0.3s ease-out;
-              -ms-transition: all 0.3s ease-out;
-              transition: all 0.3s ease-out; }
-        #container #content #right-column #content #requests {
+        #container #content #right-column #content-requests #requests, #container #content #right-column #content-commitments #requests {
           width: 100%;
           margin-top: 10px;
           padding: 2px; }
-          #container #content #right-column #content #requests #img {
+          #container #content #right-column #content-requests #requests #img, #container #content #right-column #content-commitments #requests #img {
             max-width: 8%;
             margin: 0.5em 0.5em 0.5em 0;
             float: left; }
-        #container #content #right-column #content #no-requests {
+        #container #content #right-column #content-requests #no-requests, #container #content #right-column #content-commitments #no-requests {
           font-size: 1.2em; }
     #container #content #form a {
       color: #375d38; }
@@ -760,7 +755,6 @@ label {
   border-bottom: 3px double #eeeeee;
   border-left: 1px solid white;
   margin: 1em 0 1em 0;
-  padding: 1em;
   width: 100%;
   opacity: 0.9; }
   .request img, .neighbor img {
@@ -826,7 +820,6 @@ label {
   .request .right, .neighbor .right {
     max-width: 80%;
     min-width: 40%;
-    margin: 5px 0;
     float: left;
     margin-left: 3em;
     color: #555555;
