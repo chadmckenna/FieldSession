@@ -1,7 +1,10 @@
 - title "Edit Child"
 
-= render :partial => 'form'
+- content_for :header do
+  #quick-nav
+    = link_to "<span class='leftarrow icon'></span>Back to profile", members_profile_path, :class => 'pill button'
+  %h2  Edit a child in your household
+  %p This is where you edit details about the children that live in your household. You can #{link_to "view all your children", members_children_path} or #{link_to "view this child", members_child_path(@child)} in your household as well.
 
-%p
-  = link_to "View This Child", members_child_path(@child)
-  = link_to "View All Your Children", members_children_path
+.new-forms
+  = render :partial => 'form'

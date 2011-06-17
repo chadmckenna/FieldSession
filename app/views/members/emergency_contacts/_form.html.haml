@@ -1,18 +1,17 @@
-- form_for [:members, @emergency_contact] do |f|
+- form_for [:members, @emergency_contact], :html => {:id => 'signup-process-form'} do |f|
+  = yield :header
   = f.error_messages
   %p
     = f.label :name
-    %br
     = f.text_field :name, :autofocus => true
   %p
     = f.label :relationship
-    %br
     = f.text_field :relationship
   %p
     = f.label :phone
-    %br
     = f.text_field :phone
   %p
+    = f.label "&nbsp;"
     = f.submit "Save"
     = f.submit "Add another emergency contact"
     
