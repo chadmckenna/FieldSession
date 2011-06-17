@@ -26,13 +26,12 @@ $(document).ready(function() {
 		$(this).parent().parent().parent().find("#requests").slideToggle();
 	});
 	
-	$("#right-column #content-requests #title span").click(function() {
-		
-	})
-	
-	$("#right-column #content-commitments #title span").click(function(e) {
-		e.preventDefault();
-		$(this).parent().parent().find("#requests").slideToggle();
+	$("#right-column #content-commitments #title span").click(function() {
+		$(this).find("a").replaceWith('<a href="#">+</a>');	
+		$(this).parent().parent().parent().find("#requests").slideToggle();	
+	}, function (){
+		$(this).find("a").replaceWith('<a href="#">-</a>');
+		$(this).parent().parent().parent().find("#requests").slideToggle();
 	});
 
 	$(".request").hover(function() {
