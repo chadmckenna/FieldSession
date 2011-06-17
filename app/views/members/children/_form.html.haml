@@ -1,34 +1,29 @@
-- form_for [:members, @child] do |f|
+- form_for [:members, @child], :html => {:id => "signup-process-form"} do |f|
+  = yield :header
   = f.error_messages
   %p
     = f.label :first_name
-    %br
     = f.text_field :first_name, :autofocus => true
   %p
     = f.label :last_name
-    %br
     = f.text_field :last_name, :value => current_user.household.name
   %p
     = f.label :date_of_birth
-    %br
     = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year, :order => [:month, :day, :year], :default => 5.years.ago)
   %p
     = f.label :dietary_restrictions
-    %br
     = f.text_field :dietary_restrictions
   %p
     = f.label :allergies
-    %br
     = f.text_field :allergies
   %p
     = f.label :medications
-    %br
     = f.text_field :medications
   %p
     = f.label :notes
-    %br
     = f.text_area :notes, :size => "30x8"
   %p
+    = f.label "&nbsp;"
     = f.submit "Done"
     = f.submit "Add another child"
 

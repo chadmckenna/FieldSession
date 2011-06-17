@@ -5,5 +5,8 @@
 #profile_notice
   %h3 Step 3 of 5
   To verify that you are a real person, please enter your physical address.  Don't worry, we won't send you any subscriptions to Better Homes and Gardens!
-
-= render :partial => 'form'
+- content_for :header do
+  %h2 Enter your primary address
+  %p This will be the primary address that will be displayed on your profile page so the neighbors in your network can locate your household.
+.new-forms
+  = render :partial => 'form'

@@ -1,13 +1,15 @@
 - title "Add Child to the #{current_user.household.name} Household"
 
-%h2 Add children to your household
-
 -if current_user.household.num_children > (Child.find(:all, :conditions => {:household_id => current_user.household_id}).count)
   #profile_notice
     %h3 Step 4 of 5
     = "You have indicated you have #{pluralize(current_user.household.num_children, 'child')}. Please complete the following information for each child. This is information that caregivers will be able to see when (and only when) they take care of your children."
 
-= render :partial => 'form'
-
-%p= link_to "View all your children", members_children_path
+- content_for :header do
+  #quick-nav
+    = link_to "<span class='leftarrow icon'></span>Back to profile", members_profile_path, :class => 'pill button'
+  %h2  Add children to your household
+  %p This is where you add details about the children that live in your household. You can #{link_to "view all your children", members_children_path} in your household as well.
+.new-forms
+  = render :partial => 'form'
 
