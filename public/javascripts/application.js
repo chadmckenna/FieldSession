@@ -15,9 +15,15 @@ $(function() {
 });
 
 $(document).ready(function() {
-	$("#right-column #content #title").append('<span><a></a></span>');
+	$("#right-column #content-requests #title").append('<span></span>');
+	$("#right-column #content-commitments #title").append('<span></span>');
 	
-	$("#right-column #content #title span").click(function(e) {
+	$("#right-column #content-requests #title span").click(function(e) {
+		e.preventDefault();
+		$(this).parent().parent().find("#requests").slideToggle();
+	});
+	
+	$("#right-column #content-commitments #title span").click(function(e) {
 		e.preventDefault();
 		$(this).parent().parent().find("#requests").slideToggle();
 	});
