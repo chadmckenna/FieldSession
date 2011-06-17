@@ -2,13 +2,14 @@
 -if !current_user.has_household?
   %h3 Please find the Household you would like to join.  Please note, you can only be associated with one household
 -if current_user.has_household? or !params[:search].blank?
-  - unless @households.count + @users.count == 0
-    - if !current_user.household.nil?
-      - unless all_neighbors
-        #profile_notice
-          = image_tag ('/images/warning-icon.png')
-          %strong Caution: 
-          Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
+  - unless @households.nil? || @users.nil?
+    - unless @households.count + @users.count == 0
+      - if !current_user.household.nil?
+        - unless all_neighbors
+          #profile_notice
+            = image_tag ('/images/warning-icon.png')
+            %strong Caution: 
+            Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
   - unless params[:search].blank?
     - content_for :title do
       = "Search Results for: #{params[:search]}"
@@ -46,9 +47,10 @@
                   - if !current_user.has_household?
                     = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
                   - elsif neighbor(household)
+                    #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor from your village?', :method => :delete, :class => 'pill button negative'
                     = link_to '<span class="magnifier icon"></span>Show', members_household_path(household), :class => 'pill button'
                   - elsif pending_neighbor(household)
-                    = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_neighbor(household)), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
+                    = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_neighbor(household)), :method => :delete, :class => 'pill button negative'
                   - else
                     = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post, :class => 'pill button'
                 .clear
@@ -71,10 +73,11 @@
                 .button
                   - if !current_user.has_household?
                     = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
-                  - elsif neighbor(user.household)
-                    = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'
+                  - elsif neighbor(user.household) 
+                    #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
+                    = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'  
                   - elsif pending_neighbor(user.household)
-                    = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
+                    = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_pending_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor request?', :method => :delete, :class => 'pill button negative'
                   - else
                     = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post, :class => 'pill button'
                 .clear

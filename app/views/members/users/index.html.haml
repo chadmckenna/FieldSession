@@ -1,48 +1,51 @@
 - title "#{current_user.household.name} Household Caregivers"
 
-#caregiver-container
-  -if @pending_caregivers.count > 0
-    %h1 Pending Caregivers
-    %br
-      -for caregiver in @pending_caregivers
-        .caregiver
-          .top
-            %h2=link_to "#{caregiver}", members_user_path(caregiver)
-            %p
-            %strong First Name:
-            =h caregiver.first_name
-            %br
-            %strong Last Name:
-            =h caregiver.last_name
-            %br
-            %strong Phone Number:
-            =h caregiver.phone
-            %br
-            %strong Email Address:
-            =h caregiver.email
-            %p
-              = link_to '<span class="user icon"></span>Confirm Caregiver Request', {:controller => "households", :action => "confirm", :user => caregiver.id}, :method => :post, :class => 'pill button'
-              = link_to '<span class="cross icon"></span>Deny Caregiver Request', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :confirm => 'Are you sure?', :method => :post, :class => 'pill button negative'
-   
-  %h1 Caregivers
-  -for caregiver in @caregivers
-    .caregiver
-      .top
-        %h2=link_to "#{caregiver}", members_user_path(caregiver)
-        %p
-        %strong First Name:
-        =h caregiver.first_name
-        %br
-        %strong Last Name:
-        =h caregiver.last_name
-        %br
-        %strong Phone Number:
-        =h caregiver.phone
-        %br
-        %strong Email Address:
-        =h caregiver.email
-        %p
-          -#= link_to "Edit this user", edit_members_user_path(caregiver)
-          = link_to '<span class="cross icon"></span>Remove Caregiver', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :confirm => 'Are you sure?', :method => :post, :class => 'pill button negative'
-
-  
+#request-container
+  #caregiver-container
+    -if @pending_caregivers.count > 0
+      %h1 Pending Caregivers
+      %br
+        -for caregiver in @pending_caregivers
+          .caregiver
+            .top
+              %h2=link_to "#{caregiver}", members_user_path(caregiver)
+              %p
+              %strong First Name:
+              =h caregiver.first_name
+              %br
+              %strong Last Name:
+              =h caregiver.last_name
+              %br
+              %strong Phone Number:
+              =h caregiver.phone
+              %br
+              %strong Email Address:
+              =h caregiver.email
+              %p
+                = link_to '<span class="user icon"></span>Confirm Caregiver Request', {:controller => "households", :action => "confirm", :user => caregiver.id}, :method => :post, :class => 'pill button'
+                = link_to '<span class="cross icon"></span>Deny Caregiver Request', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :method => :post, :class => 'pill button negative'
+     
+    %h1 Caregivers
+    -for caregiver in @caregivers
+      .caregiver
+        .top
+          %h2=link_to "#{caregiver}", members_user_path(caregiver)
+          %p
+          %strong First Name:
+          =h caregiver.first_name
+          %br
+          %strong Last Name:
+          =h caregiver.last_name
+          %br
+          %strong Relationship to Child:
+          =h caregiver.relationship
+          %br  
+          %strong Phone Number:
+          =h caregiver.phone
+          %br
+          %strong Email Address:
+          =h caregiver.email
+          %p
+            = link_to '<span class="pen icon"></span>Edit this caregiver', edit_members_user_path(caregiver), :class =>'pill button negative'
+            = link_to '<span class="cross icon"></span>Remove Caregiver', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :confirm => "Are you sure you'd like to remove this caregiver from your household?", :method => :post, :class => 'pill button negative'
+  .clear
