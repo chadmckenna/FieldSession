@@ -614,10 +614,10 @@ a {
             font-size: 1.3em;
             margin-right: 10px; }
           #container #content #right-column #content-requests #title span, #container #content #right-column #content-commitments #title span {
-            background: url(/images/iconCollapseArrow.gif) no-repeat center top;
             display: inline-block;
             width: 16px;
-            height: 16px; }
+            height: 16px;
+            font-size: 1.5em; }
         #container #content #right-column #content-requests #requests, #container #content #right-column #content-commitments #requests {
           width: 100%;
           margin-top: 10px;

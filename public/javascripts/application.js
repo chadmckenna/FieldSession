@@ -15,13 +15,20 @@ $(function() {
 });
 
 $(document).ready(function() {
-	$("#right-column #content-requests #title").append('<span></span>');
-	$("#right-column #content-commitments #title").append('<span></span>');
+	$("#right-column #content-requests #title").append('<span><a href="#">-</span>');
+	$("#right-column #content-commitments #title").append('<span><a href="#">-</a></span>');
 	
-	$("#right-column #content-requests #title span").click(function(e) {
-		e.preventDefault();
-		$(this).parent().parent().find("#requests").slideToggle();
+	$("#right-column #content-requests #title span").toggle(function() {
+		$(this).find("a").replaceWith('<a href="#">+</a>');	
+		$(this).parent().parent().parent().find("#requests").slideToggle();	
+	}, function (){
+		$(this).find("a").replaceWith('<a href="#">-</a>');
+		$(this).parent().parent().parent().find("#requests").slideToggle();
 	});
+	
+	$("#right-column #content-requests #title span").click(function() {
+		
+	})
 	
 	$("#right-column #content-commitments #title span").click(function(e) {
 		e.preventDefault();
