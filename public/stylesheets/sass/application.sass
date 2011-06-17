@@ -18,8 +18,6 @@ body
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dddddd), color-stop(50%,#ffffff), color-stop(100%,#dddddd))
   background: -webkit-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
   background: -o-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  background: -ms-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 )
   background: linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
   /*font-family: Verdana, Helvetica, Arial*/
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
@@ -92,7 +90,7 @@ a
     float: left
     width: 20%
     padding: 0 !important
-    margin: .4em 0 -.1em .4em
+    margin: .25em 0 -.1em .4em
     line-height: 1em
     font-size: 4em
     position: relative
@@ -527,20 +525,22 @@ a
     #title
       text-align: center
     #left-column
-      width: 20%
+      width: 21%
       float: left
       background: white
-      -moz-border-radius: 10px
-      -webkit-border-radius: 10px
-      radius: 10px
+      -moz-border-radius: 5px
+      -webkit-border-radius: 5px
+      radius: 5px
       border: 1px solid $mastheadBG
       padding: .5em
+      margin: 0 0 30px 0
       img
         max-width: 100%
       #photo
         width: 100%
         text-align: center
-        margin: 10px auto 0px auto
+        margin: -20px auto 0px auto
+
         a
           padding: 0 !important
           border: none !important
@@ -595,8 +595,9 @@ a
         #add-child
           margin: 10px 0 10px 20px
     #right-column
-      width: 72%
+      width: 75%
       float: right
+      margin: 0 0 30px 0
       //padding: 1.2em
       //-moz-border-radius: 10px
       //-webkit-border-radius: 10px
@@ -605,43 +606,52 @@ a
       //border: 1px solid $mastheadBG
       #top
         width: 98%
-        height: 100px
-        margin-bottom: 20px
+        height: 65px
+        margin-bottom: 10px
         //padding: 10px 0 10px 0
-        -moz-border-radius: 10px
-        -webkit-border-radius: 10px
-        radius: 10px
+        -moz-border-radius: 5px
+        -webkit-border-radius: 5px
+        radius: 5px
         background: white
         border: 1px solid $mastheadBG
         padding: 1.2em
         #household-info
+          //float: left
           width: 100%
-          float: left
           strong
             margin: 0px
             font-size: 2em
+          #balance
+            
           #title
             float: left
             font-size: 2em
           #button
             float: right
-        #buttons
-          text-align: right
-          float: right
-          margin: 10px 0px 0 0
-          a
-            //margin-right: -2px
+          #buttons
+            text-align: right
+            width: 45%
+            float: right
+            margin: -4px 0px 0 0
+            a
+              margin-right: -4px
+      #header
+        float:left
+        font-size: 2em
+        padding: 0.25em 0.125em 0.25em 0.125em
+        margin-bottom: 5px
+
       #content-requests, #content-commitments
         margin-bottom: 20px
         width: 98%
         font-weight: bold
         //padding: 5px
-        -moz-border-radius: 10px
-        -webkit-border-radius: 10px
-        radius: 10px
+        -moz-border-radius: 5px
+        -webkit-border-radius: 5px
+        radius: 5px
         background: white
         border: 1px solid $mastheadBG
-        padding: 1.2em
+        padding: .5em 1.2em .5em 1.2em
 
         #no-requests
           text-align: center
@@ -652,7 +662,7 @@ a
           -moz-border-radius: 5px
           -webkit-border-radius: 5px
           border-radius: 5px
-          margin: 2em 0
+          margin: .8em 0
           padding: 1em 0
         .small-title
           font-size: 1.3em

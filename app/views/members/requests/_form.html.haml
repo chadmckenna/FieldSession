@@ -1,20 +1,18 @@
-- form_for [:members, @request] do |f|
+- form_for [:members, @request], :html => {:id => "request-form"} do |f|
+  = yield :header
   = f.error_messages
   %p
     = f.label :title
     .hint business meeting, vacation, etc.
-    %br
     = f.text_field :title, :value => (@request.title.blank? ? '' : @request.title)
   %h3 Date and time of care request:
   %p
     = f.label :from
-    %br/
     = f.text_field :from_date, :value => (@request.from_date.blank? ? '' : @request.from_date.to_s(:numDate))
     at
     = f.time_select :start_time, :minute_step => 15
   %p
     = f.label :to
-    %br/
     = f.text_field :to_date, :value => (@request.to_date.blank? ? '' : @request.to_date.to_s(:numDate))
     at
     = f.time_select :end_time, :minute_step => 15
