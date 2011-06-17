@@ -505,7 +505,7 @@ a {
       #container #content #left-column #photo {
         width: 100%;
         text-align: center;
-        margin: 10px auto 0px auto; }
+        margin: 0px auto 0px auto; }
         #container #content #left-column #photo a {
           padding: 0 !important;
           border: none !important;
