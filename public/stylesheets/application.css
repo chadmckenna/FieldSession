@@ -160,7 +160,8 @@ a {
             float: right;
             width: 83%; }
             #masthead .menubar li#notifications .notification-list .notification #right a {
-              color: #557711; }
+              color: #557711;
+              text-shadow: none !important; }
           #masthead .menubar li#notifications .notification-list .notification #clear {
             clear: both; }
     #masthead .menubar li.notification {
@@ -560,14 +561,16 @@ a {
         height: 100px;
         padding: 10px 0 10px 0; }
         #container #content #right-column #top #household-info {
-          width: 70%;
+          width: 100%;
           float: left; }
           #container #content #right-column #top #household-info strong {
             margin: 0px;
             font-size: 2em; }
-          #container #content #right-column #top #household-info a {
-            background: none !important;
-            border: none !important; }
+          #container #content #right-column #top #household-info #title {
+            float: left;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info #button {
+            float: right; }
         #container #content #right-column #top #buttons {
           text-align: right;
           float: right;
