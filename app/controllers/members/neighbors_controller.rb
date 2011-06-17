@@ -89,10 +89,10 @@ class Members::NeighborsController < Members::MembersController
     
     if @neighbor.destroy && @neighbor2.destroy
       flash[:success] = "Success!"
-      redirect_to members_neighbors_path
+      redirect_to :back
     else
       flash[:error] = "There was an error deleting your neighbor"
-      redirect_to members_neighbors_path
+      redirect_to :back
     end
   end
 end
