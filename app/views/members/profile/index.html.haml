@@ -103,11 +103,9 @@
           - open_requests_sum += request.cost.to_i
       
       = "Credit Balance: #{@household.credits - open_requests_sum}"
-      %br
-      -#= "confirmed Credits: #{@household.requests.cost}"
-    #buttons
-      = link_to '<span class="pen icon"></span>Edit my Household', members_settings_path, :class => 'left pill button'
-      = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
+      #buttons
+        = link_to '<span class="pen icon"></span>Edit Household', members_settings_path, :class => 'left pill button'
+        = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
   #header
     My Requests
   #content-requests
