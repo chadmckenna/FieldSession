@@ -15,7 +15,7 @@
       = link_to "Sort by Date", :sort => "from_date", :date_sort => "#{@date_direction}"
   .clear
 .clear
-#left
+#left-request
   #request-container
     - for completed_request in @completed_requests
       .request{:style => "background-color: #fea; border: solid thin #fd0"}
@@ -96,7 +96,7 @@
       - else
         #no-requests Your neighbors do not have any requests at this time.
 
-#right
+#right-commit
   #your-requests
     %p
       - if @num_volunteer_requests > 0

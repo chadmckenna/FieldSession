@@ -219,19 +219,19 @@ a {
     float: right;
     margin-right: 1em; }
 
-#left {
+#left-request {
   float: left;
   width: 60%;
   padding: 0 3em 1em 1em;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
-  #left .float {
+  #left-request .float {
     float: right;
     margin-bottom: 10px; }
-    #left .float a {
+    #left-request .float a {
       color: #f5eedb; }
 
-#right {
+#right-commit {
   float: right;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -239,7 +239,7 @@ a {
   width: 27%;
   padding: 1em;
   padding-right: 2em; }
-  #right #your-requests {
+  #right-commit #your-requests {
     background: white;
     width: 100%;
     text-align: right;
@@ -248,26 +248,26 @@ a {
     padding-right: 1em;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px; }
-    #right #your-requests a {
+    #right-commit #your-requests a {
       background: none;
       border: none; }
-      #right #your-requests a:hover {
+      #right-commit #your-requests a:hover {
         text-decoration: underline; }
-  #right #notifications {
+  #right-commit #notifications {
     padding: 3px;
     opacity: 0.9; }
-    #right #notifications:hover {
+    #right-commit #notifications:hover {
       opacity: 1; }
-  #right #notifications_bold {
+  #right-commit #notifications_bold {
     opacity: 0.9;
     padding: 3px;
     background-color: #ffeeaa;
     border: solid thin #ffdd00; }
-    #right #notifications_bold:hover {
+    #right-commit #notifications_bold:hover {
       opacity: 1; }
 
 #titles {
-  width: 62.5%;
+  width: 61.5%;
   padding: 1em;
   padding-top: 0px; }
   #titles #stream-title {
@@ -671,12 +671,15 @@ label {
       color: white; }
 
 #request-container {
-  width: 100%;
+  width: 95%;
   border: 1px solid #878c6d;
   padding: 1em;
+  padding-right: 3em;
   background: white;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px; }
+  #request-container #red {
+    color: #990000; }
   #request-container #no-requests {
     font-size: 1.4em;
     font-style: italic;
@@ -688,14 +691,13 @@ label {
   border-bottom: 3px double #eeeeee;
   border-left: 1px solid white;
   margin: 1em 0 1em 0;
+  padding: 1em;
   width: 100%;
   opacity: 0.9; }
   .request img, .neighbor img {
     max-width: 8%;
     margin-right: 0.5em;
     float: left; }
-  .request #red, .neighbor #red {
-    color: #990000; }
   .request .no-volunteer, .neighbor .no-volunteer {
     color: #aaaaaa;
     margin-left: 10px;
@@ -836,7 +838,7 @@ label {
   -webkit-border-radius: 10px;
   radius: 10px; }
   #commit-container h2 {
-    font-size: 1.2em; }
+    font-size: 1.3em; }
   #commit-container #commitments #no-commitment {
     font-size: 1em;
     color: #aaaaaa;
@@ -845,27 +847,27 @@ label {
     padding: 0.5em; }
   #commit-container #commitments .confirmed-request {
     font-weight: none;
-    font-size: 0.7em;
+    font-size: 0.9em;
     border-bottom: 3px double #eeeeee;
     margin-bottom: 1em;
+    margin-left: 30px;
     padding: 0.5em;
     text-align: left; }
     #commit-container #commitments .confirmed-request .link {
       text-align: right;
-      margin-top: 5px; }
-  #commit-container .delete-link, #commit-container .delete {
-    float: right; }
-    #commit-container .delete-link a, #commit-container .delete a {
-      padding: 0 0.35em 0.05em 0.35em;
-      background: #999999;
-      -moz-border-radius: 1em;
-      -webkit-border-radius: 1em;
-      border-radius: 1em;
-      color: white !important;
-      border: none; }
-      #commit-container .delete-link a:hover, #commit-container .delete a:hover {
-        background: black;
-        color: white; }
+      margin-top: 5px;
+      margin-bottom: 10px; }
+  #commit-container #commitments .delete-link {
+    float: right;
+    display: none; }
+    #commit-container #commitments .delete-link a {
+      background: none !important;
+      color: black !important;
+      border: none;
+      font-size: 1.3em; }
+      #commit-container #commitments .delete-link a:hover {
+        background: black !important;
+        color: white !important; }
   #commit-container #pending #no-pending {
     font-size: 1em;
     color: #aaaaaa;
@@ -874,7 +876,7 @@ label {
     font-style: oblique; }
   #commit-container #pending .pending-request {
     font-weight: none;
-    font-size: 0.7em;
+    font-size: 0.9em;
     border-bottom: 3px double #eeeeee;
     margin-bottom: 1em;
     padding: 0.5em;
@@ -884,12 +886,16 @@ label {
       text-align: right;
       margin: 5px 0 10px 0; }
     #commit-container #pending .pending-request .delete-link {
-      float: right; }
+      float: right;
+      display: none; }
       #commit-container #pending .pending-request .delete-link a {
         background: none;
+        color: black !important;
+        font-size: 1.3em;
         border: none; }
         #commit-container #pending .pending-request .delete-link a:hover {
-          text-decoration: underline; }
+          background: black;
+          color: white !important; }
 
 input[type="text"], input[type="password"], textarea {
   border: 1px solid #878c6d;
@@ -906,42 +912,47 @@ input[type="text"], input[type="password"], textarea {
 .center {
   text-align: center; }
 
-.result {
-  border-bottom: 3px double #eeeeee;
-  width: 100%;
-  margin-bottom: 1em;
-  padding: 0.5em; }
-  .result img {
-    max-width: 8%;
-    margin: 0.5em 0 0.5em 0;
-    float: left; }
-  .result .info {
-    width: 60%;
-    float: left;
-    padding: inherit;
-    margin: inherit; }
-    .result .info .name {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin: 0 !important;
-      padding: 0 !important; }
-      .result .info .name a {
-        padding: inherit;
-        margin: inherit;
-        padding: 0;
-        margin: 0 0 0 -0.2em;
-        background: none !important;
-        border: 0 !important; }
-        .result .info .name a:hover {
-          text-decoration: underline; }
-    .result .info .attributes {
-      margin-bottom: 20px; }
-      .result .info .attributes .small-title {
-        font-size: 1em;
-        font-weight: bold; }
-  .result .button {
-    float: right;
-    margin-top: 20px; }
+#result-container {
+  background: white;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 1em 3em 0.3em 1em; }
+  #result-container .result {
+    border-bottom: 3px double #eeeeee;
+    width: 100%;
+    margin-bottom: 1em;
+    padding: 1em; }
+    #result-container .result img {
+      max-width: 8%;
+      margin: 0.5em 0 0.5em 0;
+      float: left; }
+    #result-container .result .info {
+      width: 60%;
+      float: left;
+      padding: inherit;
+      margin: inherit; }
+      #result-container .result .info .name {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0 !important;
+        padding: 0 !important; }
+        #result-container .result .info .name a {
+          padding: inherit;
+          margin: inherit;
+          padding: 0;
+          margin: 0 0 0 -0.2em;
+          background: none !important;
+          border: 0 !important; }
+          #result-container .result .info .name a:hover {
+            text-decoration: underline; }
+      #result-container .result .info .attributes {
+        margin-bottom: 20px; }
+        #result-container .result .info .attributes .small-title {
+          font-size: 1em;
+          font-weight: bold; }
+    #result-container .result .button {
+      float: right;
+      margin-top: 20px; }
 
 .neighbor {
   border-bottom: 3px double #cccccc; }

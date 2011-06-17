@@ -243,7 +243,7 @@ a
     float: right
     margin-right: 1em
 
-#left
+#left-request
   float: left
   width: 60%
   padding: 0 3em 1em 1em
@@ -257,7 +257,7 @@ a
     a
       color: $linkColor
 
-#right
+#right-commit
   float: right
   -moz-border-radius: 10px
   -webkit-border-radius: 10px
@@ -293,7 +293,7 @@ a
       opacity: 1
 
 #titles
-  width: 62.5%
+  width: 61.5%
   padding: 1em
   padding-top: 0px
   #stream-title
@@ -713,12 +713,15 @@ label
       background: black
       color: white
 #request-container
-  width: 100%
+  width: 95%
   border: 1px solid $mastheadBG
   padding: 1em
+  padding-right: 3em
   background: white
   -moz-border-radius: 10px
   -webkit-border-radius: 10px
+  #red
+    color: #900
   #no-requests
     font-size: 1.4em
     font-style: italic
@@ -729,7 +732,7 @@ label
   border-bottom: 3px double $lightGrey
   border-left: 1px solid #fff
   margin: 1em 0 1em 0
-  //padding: 1em
+  padding: 1em
   //padding: .5em .5em 1.5em .5em
   width: 100%
   opacity: .9
@@ -754,8 +757,6 @@ label
     max-width: 8%
     margin-right: .5em
     float: left
-  #red
-    color: #900
   .no-volunteer
     color: #AAA
     margin-left: 10px
@@ -910,7 +911,7 @@ label
   -webkit-border-radius: 10px
   radius: 10px
   h2
-    font-size: 1.2em
+    font-size: 1.3em
   #commitments
     #no-commitment
       font-size: 1em
@@ -920,27 +921,27 @@ label
       padding: .5em
     .confirmed-request
       font-weight: none
-      font-size: .7em
+      font-size: .9em
       border-bottom: 3px double $lightGrey
       margin-bottom: 1em
+      margin-left: 30px
       padding: .5em
       text-align: left
       .link
         text-align: right
         margin-top: 5px
-  .delete-link, .delete
-    float: right
-    a
-      padding: 0 .35em .05em .35em
-      background: #999
-      -moz-border-radius: 1em
-      -webkit-border-radius: 1em
-      border-radius: 1em
-      color: white !important
-      border: none
-      &:hover
-        background: black
-        color: white
+        margin-bottom: 10px
+    .delete-link
+      float: right
+      display: none
+      a
+        background: none !important
+        color: black !important
+        border: none
+        font-size: 1.3em
+        &:hover
+          background: black !important
+          color: white !important
   #pending
     #no-pending
       font-size: 1em
@@ -950,7 +951,7 @@ label
       font-style: oblique
     .pending-request
       font-weight: none
-      font-size: .7em
+      font-size: .9em
       border-bottom: 3px double $lightGrey
       margin-bottom: 1em
       padding: .5em
@@ -961,11 +962,15 @@ label
         margin: 5px 0 10px 0
       .delete-link
         float: right
+        display: none
         a
           background: none
+          color: black !important
+          font-size: 1.3em
           border: none
           &:hover
-            text-decoration: underline
+            background: black
+            color: white !important
 
 input[type="text"], input[type="password"], textarea
   border: 1px solid $mastheadBG
@@ -982,43 +987,48 @@ input[type="text"], input[type="password"], textarea
 .center
   text-align: center
 
-.result
-  border-bottom: 3px double $lightGrey
-  width: 100%
-  margin-bottom: 1em
-  padding: .5em
-  img
-    max-width: 8%
-    margin: .5em 0 .5em 0
-    float: left
-  .info
-    width: 60%
-    float: left
-    padding: inherit
-    margin: inherit
-    .name
-      font-size: 1.2em
-      font-weight: bold
-      margin: 0 !important
-      padding: 0 !important
-      a
-        padding: inherit
-        margin: inherit
-        padding: 0
-        margin: 0 0 0 -.2em
-        background: none !important
-        border: 0 !important
-        &:hover
-          text-decoration: underline
-
-    .attributes
-      margin-bottom: 20px
-      .small-title
-        font-size: 1em
+#result-container
+  background: white
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  padding: 1em 3em .3em 1em
+  .result
+    border-bottom: 3px double $lightGrey
+    width: 100%
+    margin-bottom: 1em
+    padding: 1em
+    img
+      max-width: 8%
+      margin: .5em 0 .5em 0
+      float: left
+    .info
+      width: 60%
+      float: left
+      padding: inherit
+      margin: inherit
+      .name
+        font-size: 1.2em
         font-weight: bold
-  .button
-    float: right
-    margin-top: 20px
+        margin: 0 !important
+        padding: 0 !important
+        a
+          padding: inherit
+          margin: inherit
+          padding: 0
+          margin: 0 0 0 -.2em
+          background: none !important
+          border: 0 !important
+          &:hover
+            text-decoration: underline
+  
+      .attributes
+        margin-bottom: 20px
+        .small-title
+          font-size: 1em
+          font-weight: bold
+    .button
+      float: right
+      margin-top: 20px
 
 
   

@@ -23,6 +23,18 @@ $(document).ready(function() {
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
+	$(".confirmed-request").hover(function() {
+	  $(this).find(".delete-link").show();
+	}, function() {
+		$(this).find(".delete-link").hide();
+	});
+	
+	$(".pending-request").hover(function() {
+		$(this).find(".delete-link").show();
+	}, function() {
+		$(this).find(".delete-link").hide();
+	});
+	
 	$(document).click(function(event) {		
 		if($(event.target).is('#notifications a img')) {
 			$(".notification-list").fadeToggle('fast');
