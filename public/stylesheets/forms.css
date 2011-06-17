@@ -28,6 +28,10 @@
     font-size: 12px;
     clear: both;
     padding: 7px 0 7px 0; }
+  .new-forms form #quick-nav {
+    float: right;
+    padding: 0;
+    margin: 0; }
   .new-forms form .clear {
     clear: both; }
   .new-forms form#login-form {
@@ -41,10 +45,31 @@
       color: black; }
     .new-forms form#login-form input[type="submit"] {
       padding: 7px;
-      margin: 0;
+      margin: 0 0 0 10px;
       float: left; }
     .new-forms form#login-form #sign-up {
       float: right; }
+  .new-forms form#request-form {
+    width: 700px;
+    margin: 30px auto 0 auto; }
+    .new-forms form#request-form p {
+      margin: 0; }
+    .new-forms form#request-form h3 {
+      margin: 0; }
+    .new-forms form#request-form .hint {
+      width: 100%; }
+    .new-forms form#request-form label {
+      font-size: 14px;
+      text-align: left;
+      width: 100%; }
+    .new-forms form#request-form input[type="text"] {
+      margin: 10px;
+      padding: 10px;
+      width: 60%; }
+    .new-forms form#request-form textarea {
+      padding: 10px;
+      margin: 10px;
+      width: 60%; }
   .new-forms form#signup-process-form {
     width: 700px;
     margin: 30px auto 0 auto; }
@@ -74,7 +99,3 @@
       float: right; }
       .new-forms form#signup-process-form #log-in.button {
         font-size: 14px; }
-    .new-forms form#signup-process-form #quick-nav {
-      float: right;
-      padding: 0;
-      margin: 0; }

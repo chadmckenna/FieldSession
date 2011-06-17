@@ -158,7 +158,7 @@
                       =h request.notes
                 .tools
                   = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(request), :class => 'pill button'
-                  = link_to "<span class='cross icon'></span>Cancel", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
+                  = link_to "<span class='cross icon'></span>Delete", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
                 .clear
     - else
       #no-requests
@@ -202,7 +202,7 @@
                     = confirmed.request.notes
             .tools
               = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(confirmed.request), :class => 'button pill'
-              = link_to "<span class='cross icon'></span>Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
+              = link_to "<span class='cross icon'></span>Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
             .clear
 
   #header
