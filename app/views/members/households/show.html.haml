@@ -10,6 +10,8 @@
         -unless @household.users.eql? nil
           .child
             =h "#{user.first_name} #{user.last_name}"
+            -if user.relationship
+              ="(#{user.relationship})" 
         -else
           You have no caregivers
       %p
