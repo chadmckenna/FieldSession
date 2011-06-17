@@ -1,13 +1,20 @@
 /*$linkColor: #39f */
 html, body {
-  height: 91%; }
+  height: 92%; }
 
 body {
-  background-color: white;
-  font-family: Verdana, Helvetica, Arial;
+  background: #dddddd;
+  background: -moz-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #dddddd), color-stop(50%, white), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: -o-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: -ms-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 );
+  background: linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%);
+  /*font-family: Verdana, Helvetica, Arial */
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-size: 14px;
-  margin: 0 !important;
-  background: #dddddd; }
+  margin: 0 !important; }
 
 a {
   color: #f5eedb;
@@ -40,8 +47,7 @@ a {
   background: -ms-linear-gradient(top, #878c6d 0%, #63674a 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878C6D', endColorstr='#63674A',GradientType=0 );
   background: linear-gradient(top, #878c6d 0%, #63674a 100%);
-  text-shadow: 0px 2px 4px #222222;
-  color: white;
+  color: #eeeeee;
   position: fixed;
   top: 0 !important;
   width: 100%;
@@ -49,6 +55,8 @@ a {
   z-index: 10;
   -webkit-box-shadow: 0 0 12px #888888;
   -moz-box-shadow: 0 0 12px #888888; }
+  #masthead a {
+    text-shadow: 0px 2px 4px #222222; }
   #masthead #search {
     float: right;
     margin: -1px 10px 0 -10px;
@@ -74,7 +82,11 @@ a {
     margin: 0.4em 0 -0.1em 0.4em;
     line-height: 1em;
     font-size: 4em;
-    position: relative; }
+    position: relative;
+    -moz-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg); }
   #masthead h2 {
     float: left;
     z-index: -20;
@@ -91,7 +103,7 @@ a {
   #masthead #logout {
     position: absolute;
     top: 10px;
-    right: 20px; }
+    right: 40px; }
   #masthead #userbar {
     float: right;
     /*width: 60% */
@@ -185,10 +197,17 @@ a {
   width: 100%;
   clear: both;
   color: #aaaaaa;
-  background: #dddddd;
   padding: 10px 0 20px;
   margin-top: 20px;
-  height: 20px;
+  height: 25px;
+  background: #dddddd;
+  background: -moz-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #dddddd), color-stop(50%, white), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: -o-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: -ms-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 );
+  background: linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%);
   box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -296,16 +315,19 @@ a {
   #container #tag_line {
     text-align: center;
     width: 800px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     font-size: 3em;
-    padding: 40px 0 60px 0; }
+    padding: 10px 0; }
   #container #video {
     margin: 20px auto 0px auto;
-    width: 600px;
     text-align: center;
-    border: 1px solid;
-    height: 400px;
-    width: 600px; }
+    height: 340px;
+    width: 600px;
+    position: relative; }
+    #container #video span {
+      font-size: 24pt;
+      position: relative;
+      top: 50%; }
   #container #learn_more {
     margin: 10px auto 0px auto;
     width: 800px; }
@@ -322,6 +344,7 @@ a {
         background-position: top;
         border: 0;
         padding: 0;
+        line-height: 1.4em;
         /* for IE */
         filter: alpha(opacity=80);
         /* CSS3 standard */
@@ -339,7 +362,7 @@ a {
       #container #learn_more #sign_up a:hover {
         background-position: bottom; }
     #container #learn_more #how_it_works a {
-      background: url("") no-repeat; }
+      background: url("../images/how_it_works.jpg") no-repeat; }
       #container #learn_more #how_it_works a:hover {
         background-position: bottom; }
 
@@ -403,10 +426,12 @@ a {
       clear: both; }
   #container #form {
     width: 450px;
+    font-size: 1em;
+    font-weight: 100;
     margin: 30px auto 0px auto;
-    border: 1px solid;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    border: 4px solid #cccccc;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
     padding-bottom: 30px; }
     #container #form #form_header {
       margin: 0 10px 20px 10px;
@@ -433,7 +458,7 @@ a {
       margin-bottom: 10px;
       font-weight: bold; }
     #container #form input[type="text"], #container #form input[type="password"] {
-      width: 200px;
+      width: 150px;
       float: left;
       margin-bottom: 10px; }
     #container #form input[type="submit"] {
@@ -489,7 +514,7 @@ a {
         margin: 10px 10px 0px 10px; }
         #container #content #left-column #info .title {
           font-size: 1.1em;
-          border-bottom: 1px solid black; }
+          border-bottom: 1px solid #aaaaaa; }
           #container #content #left-column #info .title a {
             background: none;
             border: none; }
@@ -659,16 +684,22 @@ label {
 .delete-link, .delete {
   float: right; }
   .delete-link a, .delete a {
-    padding: 0em 0.35em 0.2em 0.35em;
-    background: #999999;
+    padding: 0em 0.3em 0em 0.3em;
+    background: #999999 !important;
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em;
+    font-size: 10pt;
+    font-family: monospace;
+    font-weight: bold;
     color: white !important;
     border: none; }
     .delete-link a:hover, .delete a:hover {
       background: black;
-      color: white; }
+      color: white;
+      -moz-box-shadow: 0 0 2px #444444;
+      -webkit-box-shadow: 1px 1px 2px #444444;
+      box-shadow: 0 0 2px #444444; }
 
 #request-container {
   width: 95%;
@@ -806,7 +837,6 @@ label {
       float: right;
       width: 20px;
       height: 20px;
-      font-size: 1.1em;
       z-index: 5; }
       .request .tools .delete span, .neighbor .tools .delete span {
         display: none; }
@@ -860,17 +890,6 @@ label {
       text-align: right;
       margin-top: 5px;
       margin-bottom: 10px; }
-  #commit-container #commitments .delete-link {
-    float: right;
-    display: none; }
-    #commit-container #commitments .delete-link a {
-      background: none !important;
-      color: black !important;
-      border: none;
-      font-size: 1.3em; }
-      #commit-container #commitments .delete-link a:hover {
-        background: black !important;
-        color: white !important; }
   #commit-container #pending #no-pending {
     font-size: 1em;
     color: #aaaaaa;
@@ -888,17 +907,6 @@ label {
     #commit-container #pending .pending-request .link {
       text-align: right;
       margin: 5px 0 10px 0; }
-    #commit-container #pending .pending-request .delete-link {
-      float: right;
-      display: none; }
-      #commit-container #pending .pending-request .delete-link a {
-        background: none;
-        color: black !important;
-        font-size: 1.3em;
-        border: none; }
-        #commit-container #pending .pending-request .delete-link a:hover {
-          background: black;
-          color: white !important; }
 
 input[type="text"], input[type="password"], textarea {
   border: 1px solid #878c6d;

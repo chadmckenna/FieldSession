@@ -1,32 +1,42 @@
 -form_for [:members, @user] do |f|
   = f.error_messages
-  %p
-    = f.label :first_name
+  -unless current_user.id.eql? @user.id
+    %p
+    =f.label :relationship
     %br
-    = f.text_field :first_name
-  %p
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
-  %p
-    = f.label :cell_phone_number
-    %br
-    = f.text_field :phone
-  %p
-    = f.label :work_phone_number
-    %br
-    = f.text_field :work_phone
-  %p
-    = f.label :email, "Email Address"
-    %br
-    = f.text_field :email
-  -#%p
-    -#= f.label :password
-    -#%br
-    -#= f.password_field :password
-  -#%p
-    -#= f.label :password_confirmation, "Confirm Password"
-    -#%br
-    -#= f.password_field :password_confirmation
+    =f.text_field :relationship
+  -else 
+    %p
+      = f.label :first_name
+      %br
+      = f.text_field :first_name
+    %p
+      = f.label :last_name
+      %br
+      = f.text_field :last_name
+    %p
+      =f.label :relationship
+      %br
+      =f.text_field :relationship
+    %p
+      = f.label :cell_phone_number
+      %br
+      = f.text_field :phone
+    %p
+      = f.label :work_phone_number
+      %br
+      = f.text_field :work_phone
+    %p
+      = f.label :email, "Email Address"
+      %br
+      = f.text_field :email
+    -#%p
+      -#= f.label :password
+      -#%br
+      -#= f.password_field :password
+    -#%p
+      -#= f.label :password_confirmation, "Confirm Password"
+      -#%br
+      -#= f.password_field :password_confirmation
   %p
     = f.submit

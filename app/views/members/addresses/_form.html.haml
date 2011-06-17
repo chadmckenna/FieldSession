@@ -1,24 +1,21 @@
-- form_for [:members, @address] do |f|
+- form_for [:members, @address], :html => { :id => 'signup-process-form'} do |f|
+  = yield :header
   = f.error_messages
   %p
     = f.label :street1, "Street 1"
-    %br
     = f.text_field :street1, :autofocus => true
   %p
     = f.label :street2, "Street 2 (optional)"
-    %br
     = f.text_field :street2
   %p
     = f.label :city
-    %br
     = f.text_field :city
   %p
     = f.label :state
-    %br
     = f.select :state, options_for_select([[ "Select a state", "" ]] + State::NAMES)
   %p
     = f.label :zip
-    %br
     = f.text_field :zip
   %p
+    = f.label "&nbsp;"
     = f.submit "Continue >>"
