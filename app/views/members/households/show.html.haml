@@ -11,7 +11,7 @@
           .child
             =h "#{user.first_name} #{user.last_name}"
             -if user.relationship
-              ="(#{user.relationship})" 
+              %span#relation="(#{user.relationship})" 
         -else
           You have no caregivers
       %p
