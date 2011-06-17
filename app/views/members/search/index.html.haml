@@ -71,8 +71,10 @@
                 .button
                   - if !current_user.has_household?
                     = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
-                  - elsif neighbor(user.household)
+                  - elsif neighbor(user.household) 
+                    #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(user.household), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
                     = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'
+                   
                   - elsif pending_neighbor(user.household)
                     = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
                   - else
