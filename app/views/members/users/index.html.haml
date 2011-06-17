@@ -46,6 +46,6 @@
           %strong Email Address:
           =h caregiver.email
           %p
-            = link_to '<span class="pen icon"></span>Edit this caregiver', edit_members_user_path(caregiver), :class =>'pill button negative'
+            = link_to '<span class="pen icon"></span>Edit this caregiver', edit_members_user_path(caregiver), :class =>'pill button'
             = link_to '<span class="cross icon"></span>Remove Caregiver', {:controller => "households", :action => "remove_caregiver", :user => caregiver.id}, :confirm => "Are you sure you'd like to remove this caregiver from your household?", :method => :post, :class => 'pill button negative'
   .clear
