@@ -10,10 +10,10 @@ body {
   background: #dddddd; }
 
 a {
-  color: white;
+  color: #f5eedb;
   text-decoration: none; }
   a:hover {
-    color: #779933; }
+    color: white; }
   a img {
     border: none; }
 
@@ -26,14 +26,22 @@ a {
   min-height: 100%;
   height: auto !important;
   margin: 0 auto -70px;
-  background: white; }
+  background: #f5eedb; }
 
 #masthead {
   min-height: 100px;
   font-family: "Rokkitt", serif;
   padding: 0 !important;
-  background: #948c75;
-  color: #888888;
+  background: #878c6d;
+  background: -moz-linear-gradient(top, #878c6d 0%, #63674a 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #878c6d), color-stop(100%, #63674a));
+  background: -webkit-linear-gradient(top, #878c6d 0%, #63674a 100%);
+  background: -o-linear-gradient(top, #878c6d 0%, #63674a 100%);
+  background: -ms-linear-gradient(top, #878c6d 0%, #63674a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878C6D', endColorstr='#63674A',GradientType=0 );
+  background: linear-gradient(top, #878c6d 0%, #63674a 100%);
+  text-shadow: 0px 2px 4px #222222;
+  color: white;
   position: fixed;
   top: 0 !important;
   width: 100%;
@@ -94,7 +102,7 @@ a {
       display: inline;
       margin-right: 1em; }
   #masthead .menubar {
-    margin: 2em 0 0 0;
+    margin: 2em 1em 0 0;
     list-style-type: none;
     font-size: 1.4em;
     float: right;
@@ -294,9 +302,9 @@ a {
   width: 98%;
   line-height: 150%;
   margin: 100px auto 0 auto;
-  background: white;
   position: relative;
-  padding-top: 30px; }
+  padding-top: 30px;
+  font-family: "Ubuntu"; }
   #container #login {
     width: 700px;
     margin: 20px auto 20px auto;
@@ -415,12 +423,18 @@ a {
       text-align: center; }
     #container #content #left-column {
       width: 20%;
-      float: left; }
+      float: left;
+      background: white;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      radius: 10px;
+      border: 1px solid #8a7e66;
+      padding: 0.5em; }
       #container #content #left-column img {
         max-width: 100%; }
       #container #content #left-column #photo {
-        padding: inherit;
         width: 100%;
+        text-align: center;
         margin: 10px auto 0px auto; }
         #container #content #left-column #photo a {
           padding: 0 !important;
@@ -457,9 +471,14 @@ a {
         #container #content #left-column #info #add-child {
           margin: 10px 0 10px 20px; }
     #container #content #right-column {
-      width: 75%;
+      width: 72%;
       float: right;
-      padding: 0px; }
+      padding: 1.2em;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      radius: 10px;
+      background: white;
+      border: 1px solid #8a7e66; }
       #container #content #right-column #top {
         width: 97%;
         height: 100px;
@@ -489,9 +508,9 @@ a {
           font-weight: normal;
           border: 1px solid grey;
           color: grey;
-          -moz-border-radius: 0.5em;
-          -webkit-border-radius: 0.5em;
-          border-radius: 0.5em;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
           margin: 2em 0;
           padding: 1em 0; }
         #container #content #right-column #content .small-title {
@@ -511,7 +530,7 @@ a {
   #container input[type="submit"], #container select {
     border: 1px solid #aaaaaa;
     background: #eeeeee;
-    color: #464f3f;
+    color: #8a7e66;
     padding: 0.2em;
     -moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
@@ -593,12 +612,14 @@ label {
 /* Requests styles
  */
 #request-container {
-  width: 70%;
-  padding: 0.5em;
-  float: left; }
-  #request-container select {
-    float: right;
-    margin-right: 30%; }
+  width: 68%;
+  border: 1px solid #8a7e66;
+  padding: 1em;
+  padding-right: 3em;
+  float: left;
+  background: white;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px; }
   #request-container #no-requests {
     font-size: 1.4em;
     font-style: italic;
@@ -609,29 +630,13 @@ label {
   border-right: 1px solid white;
   border-bottom: 3px double #eeeeee;
   border-left: 1px solid white;
-  margin-bottom: 1em;
-  padding: 0.5em 0.5em 1.5em 0.5em;
+  margin: 1em 0 1em 0;
+  padding: 1em;
   width: 100%;
-  opacity: 0.9;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out; }
-  .request:hover, .neighbor:hover {
-    background-color: white;
-    border-top: 1px solid #cccccc;
-    border-right: 1px solid #cccccc;
-    border-bottom: 3px double #cccccc;
-    border-left: 1px solid #cccccc;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; }
+  opacity: 0.9; }
   .request img, .neighbor img {
     max-width: 8%;
-    margin: 0 0.5em 0.5em 0;
+    margin-right: 0.5em;
     float: left; }
   .request #red, .neighbor #red {
     color: #990000; }
@@ -824,7 +829,7 @@ label {
           text-decoration: underline; }
 
 input[type="text"], input[type="password"], textarea {
-  border: 1px solid #464f3f;
+  border: 1px solid #8a7e66;
   padding: 0.2em; }
 
 #main {
@@ -972,7 +977,7 @@ input[type="text"], input[type="password"], textarea {
       #user-household-info #user #change-password a {
         border: 1px solid #aaaaaa !important;
         background: #eeeeee !important;
-        color: #464f3f;
+        color: #8a7e66;
         padding: 0.2em;
         -moz-border-radius: 0.3em;
         -webkit-border-radius: 0.3em; }
@@ -993,7 +998,7 @@ input[type="text"], input[type="password"], textarea {
       #user-household-info #household #change-photo a {
         border: 1px solid #aaaaaa !important;
         background: #eeeeee !important;
-        color: #464f3f;
+        color: #8a7e66;
         padding: 0.2em;
         -moz-border-radius: 0.3em;
         -webkit-border-radius: 0.3em; }
@@ -1008,7 +1013,7 @@ input[type="text"], input[type="password"], textarea {
       #user-household-info #children #show-more a {
         border: 1px solid #aaaaaa !important;
         background: #eeeeee !important;
-        color: #464f3f;
+        color: #8a7e66;
         padding: 0.2em;
         -moz-border-radius: 0.3em;
         -webkit-border-radius: 0.3em; }
