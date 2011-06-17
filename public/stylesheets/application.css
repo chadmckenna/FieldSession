@@ -594,7 +594,7 @@ a {
         radius: 10px;
         background: white;
         border: 1px solid #878c6d;
-        padding: 1.2em; }
+        padding: 0.5em 1.2em 0.5em 1.2em; }
         #container #content #right-column #content-requests #no-requests, #container #content #right-column #content-commitments #no-requests {
           text-align: center;
           font-style: oblique;
@@ -604,7 +604,7 @@ a {
           -moz-border-radius: 5px;
           -webkit-border-radius: 5px;
           border-radius: 5px;
-          margin: 2em 0;
+          margin: 0.8em 0;
           padding: 1em 0; }
         #container #content #right-column #content-requests .small-title, #container #content #right-column #content-commitments .small-title {
           font-size: 1.3em; }
