@@ -119,7 +119,9 @@
         #no-requests 
           You have no open requests.
       - else
-        %font.small-title My Open Requests
+        #title
+          %font.small-title My Open Requests
+          %span
         #requests
           - for request in @open_requests
             -unless commit(request)
@@ -158,6 +160,7 @@
 
     - if @confirmed_requests.length > 0
       %font.small-title Confirmed Care Requests
+      = image_tag '/images/iconCollapseArrow.gif'
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -197,6 +200,7 @@
             .clear
     - if @pending_commitments.count > 0
       %font.small-title My Pending Commitments
+      = image_tag '/images/iconCollapseArrow.gif'
     - if @pending_commitments.count == 0
       #no-requests
         You have no pending commitments
@@ -241,6 +245,7 @@
 
     - if @commitments.length > 0
       %font.small-title My Commitments
+      = image_tag '/images/iconCollapseArrow.gif'
     - if @commitments.length == 0
       #no-requests
         You have no commitments.

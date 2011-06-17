@@ -10,7 +10,7 @@ body {
   background: -o-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
   background: -ms-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 );
-  background: linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%);
   /*font-family: Verdana, Helvetica, Arial */
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-size: 14px;
@@ -208,7 +208,7 @@ a {
   background: -o-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
   background: -ms-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 );
-  background: linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
+  background: linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%);
   box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -310,7 +310,7 @@ a {
     clear: both; }
 
 /* Splash Screen
- */ */
+ */
 #container {
   min-height: 80%; }
   #container #tag_line {
@@ -603,8 +603,15 @@ a {
           border-radius: 5px;
           margin: 2em 0;
           padding: 1em 0; }
-        #container #content #right-column #content .small-title {
-          font-size: 1.3em; }
+        #container #content #right-column #content #title {
+          text-align: left; }
+          #container #content #right-column #content #title .small-title {
+            font-size: 1.3em;
+            margin-right: 10px; }
+          #container #content #right-column #content #title span {
+            background-image: url(/images/iconCollapseArrow.gif);
+            width: 16px;
+            height: 16px; }
         #container #content #right-column #content #requests {
           width: 100%;
           margin-top: 10px;
@@ -700,7 +707,7 @@ label {
       list-style: disc; }
 
 /* Requests styles
- */ */
+ */
 .delete-link, .delete {
   float: right; }
   .delete-link a, .delete a {
