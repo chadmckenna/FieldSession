@@ -15,6 +15,12 @@ $(function() {
 });
 
 $(document).ready(function() {
+	$("#right-column #content #title").append('<span></span>');
+	
+	$("#right-column #content #title span").click(function() {
+		$(this).parent().parent().find("#requests").slideToggle();
+	//	$(this)
+	});
 
 	$(".request").hover(function() {
 		$(this).find(".delete span").show();

@@ -121,7 +121,6 @@
       - else
         #title
           %font.small-title My Open Requests
-          %span
         #requests
           - for request in @open_requests
             -unless commit(request)
@@ -159,8 +158,8 @@
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title Confirmed Care Requests
-      = image_tag '/images/iconCollapseArrow.gif'
+      #title
+        %font.small-title Confirmed Care Requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -199,8 +198,8 @@
               = link_to "<span class='cross icon'></span>Cancel", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
             .clear
     - if @pending_commitments.count > 0
-      %font.small-title My Pending Commitments
-      = image_tag '/images/iconCollapseArrow.gif'
+      #title
+        %font.small-title My Pending Commitments
     - if @pending_commitments.count == 0
       #no-requests
         You have no pending commitments
@@ -244,8 +243,8 @@
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My Commitments
-      = image_tag '/images/iconCollapseArrow.gif'
+      #title
+        %font.small-title My Commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
