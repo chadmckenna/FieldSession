@@ -1,28 +1,26 @@
-- form_for([:members, @household], :html => { :multipart => true }) do |f|
+- form_for [:members, @household], :html => {:id => "signup-process-form", :multipart => true} do |f|
+  %h2 Create a new household
+  %p or #{link_to "join an existing household", members_search_path}
   = f.error_messages
   %p
     = f.label :name
-    %br
     = f.text_field :name, :value => current_user.last_name, :autofocus => true
   %p
     = f.label :home_phone_number
-    %br
     = f.text_field :home_phone, :value => number_to_phone(current_user.phone, :area_code => true) unless current_user.phone.nil?
 
   -if !@edit
     %p
-      Number of kids in your household
-      %br
-      
+      = f.label :Number_of_kids_in_your_household
       %select{:name => 'child_count'}
         -for i in 1..15
           %option{:value => "#{i}"} #{i}
   %p
     = f.label :photo
-    %br
     = f.file_field :photo
 
   %p
+    = f.label "&nbsp;"
     = f.submit "Continue >>"
-    %p
-    = link_to "Join an existing household", members_search_path 
+  %p
+    = f.label "&nbsp;"

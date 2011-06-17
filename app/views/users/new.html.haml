@@ -4,14 +4,11 @@
 #profile_notice
   %h3 Step 1 of 5
   Thanks for signing up!  First we'll have you create a caregiver profile, with which you can manage your household.  You'll have the option to create a household or join one in the next step.
-
-#form_new_user
-  - form_for @user do |f|
-    #form_header 
-      %h2 Sign Up
-      .button= link_to 'Log in', login_path, :class => 'button'
-      %br
-      %font ChangeME
+.new-forms
+  - form_for @user, :html => { :id => "signup-process-form" } do |f| 
+    %h2 Sign Up
+    #log-in= link_to 'Log in', login_path, :class => 'big button'
+    %p Use this form to sign-up for Villages.
     = f.error_messages
     = f.label :username
     = f.text_field :username, :autofocus => true
@@ -30,8 +27,6 @@
     = f.label :password_confirmation, "Confirm Password"
     = f.password_field :password_confirmation
     = f.label "&nbsp;"
-    = f.label "&nbsp;"
-    = f.label "&nbsp;"
     = f.submit "Continue"
-
-  .clear
+    %p{:style => "text-align: center"} By clicking 'Continue' you are agreeing to our #{link_to "Terms of Service", tos_path}.
+    .clear
