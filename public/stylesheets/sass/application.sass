@@ -597,16 +597,23 @@ a
     #right-column
       width: 72%
       float: right
-      padding: 1.2em
-      -moz-border-radius: 10px
-      -webkit-border-radius: 10px
-      radius: 10px
-      background: white
-      border: 1px solid $mastheadBG
+      //padding: 1.2em
+      //-moz-border-radius: 10px
+      //-webkit-border-radius: 10px
+      //radius: 10px
+      //background: white
+      //border: 1px solid $mastheadBG
       #top
-        width: 97%
+        width: 98%
         height: 100px
-        padding: 10px 0 10px 0
+        margin-bottom: 20px
+        //padding: 10px 0 10px 0
+        -moz-border-radius: 10px
+        -webkit-border-radius: 10px
+        radius: 10px
+        background: white
+        border: 1px solid $mastheadBG
+        padding: 1.2em
         #household-info
           width: 100%
           float: left
@@ -623,11 +630,19 @@ a
           float: right
           margin: 10px 0px 0 0
           a
-            margin-right: -5px
-      #content
+            //margin-right: -2px
+      #content-requests, #content-commitments
+        margin-bottom: 20px
         width: 98%
         font-weight: bold
-        padding: 0px
+        //padding: 5px
+        -moz-border-radius: 10px
+        -webkit-border-radius: 10px
+        radius: 10px
+        background: white
+        border: 1px solid $mastheadBG
+        padding: 1.2em
+
         #no-requests
           text-align: center
           font-style: oblique
@@ -641,6 +656,18 @@ a
           padding: 1em 0
         .small-title
           font-size: 1.3em
+
+        #title
+          text-align: left
+          .small-title
+            font-size: 1.3em
+            margin-right: 10px
+          span
+            background: url(/images/iconCollapseArrow.gif) no-repeat center top
+            display: inline-block
+            width: 16px
+            height: 16px
+
         #requests
           width: 100%
           //overflow: auto
@@ -652,6 +679,8 @@ a
             float: left
         #no-requests
           font-size: 1.2em
+
+
     #form
       a
         color: #375D38
@@ -779,7 +808,7 @@ label
   border-bottom: 3px double $lightGrey
   border-left: 1px solid #fff
   margin: 1em 0 1em 0
-  padding: 1em
+  //padding: 1em
   //padding: .5em .5em 1.5em .5em
   width: 100%
   opacity: .9
@@ -864,7 +893,7 @@ label
   .right
     max-width: 80%
     min-width: 40%
-    margin: 5px 0
+    //margin: 5px 0
     float: left
     margin-left: 3em
     color: #555
