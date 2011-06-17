@@ -564,7 +564,7 @@ a {
       margin: 0 0 30px 0; }
       #container #content #right-column #top {
         width: 98%;
-        height: 100px;
+        height: 65px;
         margin-bottom: 10px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
@@ -586,7 +586,9 @@ a {
             text-align: right;
             width: 45%;
             float: right;
-            margin: 0px 0px 0 0; }
+            margin: -4px 0px 0 0; }
+            #container #content #right-column #top #household-info #buttons a {
+              margin-right: -4px; }
       #container #content #right-column #header {
         font-size: 2em;
         padding: 0.25em 0.125em 0.25em 0.125em;
