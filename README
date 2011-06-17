@@ -1,9 +1,18 @@
+VILLAGES
+
+Villages is a social bookkeeping application, designed to streamline the process of finding temporary caregivers for one's children.  While many parents could hire a babysitter, they instead opt for neigborhood networks that accomplish much the same.  The drawbacks of the system is that it is hard to maintain a "balance" of who did what and how much it was worth.
+
+Villages changes all of that.
+
+Villages is a credit-based system that takes all the legwork of booking dates and managing a balance and frees parents up to take the time they need.
+
+Villages is a web-based app written in Ruby on Rails.
+
+Version 1.0 was completed in the summer of 2011 by Colorado School of Mines CS field session group #RK.
+
 Field Session Group:
 Chad McKenna (cmckenna@mines.edu)
 Ben Makuh (bmakuh@mines.edu)
 Josh Dinges (jdinges@mines.edu)
 Jerel Miller (jermille@mines.edu)
-Thomas Mesquita: tmesquit@mines.edu
-
-This is the working directory for CSCI 370 team R41nB0W K4TZ
-
+Thomas Mesquita (tmesquit@mines.edu)

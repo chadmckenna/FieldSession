@@ -58,7 +58,7 @@
             %h2.household Household
           .right
             .title
-              =h "#{request.title} (#{request.cost.to_i} credits)"
+              =h "#{request.title} (#{pluralize(request.cost.to_i, "credit")})"
             .date
               =h request.start_time.to_s(:nicetime)
               to
@@ -82,7 +82,7 @@
                 =h request.notes
           .tools
             .delete 
-              %span= link_to 'x', "#"
+              %span= link_to 'X', "#"
             .subnav
               %ul
                 %li= link_to 'Hide this request', {:controller => "requests", :action => "hide_request", :request_id => request.id, :belongs_to => request.household.id}, :method => :post
@@ -118,7 +118,7 @@
       - for confirmed_request in @confirmed_requests
         .confirmed-request
           .delete-link
-            = link_to 'x', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
+            = link_to 'X', members_pending_request_path(confirmed_request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
             
           ="#{confirmed_request.request.household} Household"
           %br
@@ -140,7 +140,7 @@
       - for pending_request in @pending_requests
         .pending-request
           .delete-link
-            = link_to 'x', members_pending_request_path(pending_request), :confirm => 'Are you sure you want to remove this pending request?', :method => :delete
+            = link_to 'X', members_pending_request_path(pending_request), :confirm => 'Are you sure you want to remove this pending request?', :method => :delete
           = "#{pending_request.request.household} Household"
           %br
           =h pending_request.request.from_date.to_s(:short)
