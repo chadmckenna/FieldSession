@@ -1,20 +1,21 @@
 - title "View caregiver: #{@user.first_name}"
 
-%p
-  = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button"
+#request-container
+  %p
+    = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button"
 
-%p
-  %strong First Name:
-  =h @user.first_name
-%p
-  %strong Last Name:
-  =h @user.last_name
-%p
-  %strong Phone Number:
-  =h @user.phone
-%p
-  %strong Email Address:
-  =h @user.email
+  %p
+    %strong First Name:
+    =h @user.first_name
+  %p
+    %strong Last Name:
+    =h @user.last_name
+  %p
+    %strong Phone Number:
+    =h number_to_phone(@user.phone, :area_code => true)
+  %p
+    %strong Email Address:
+    =h @user.email
 
-%p
-  = link_to "<span class='pen icon'></span>Edit this user", edit_members_user_path(@user), :class => "pill button"
+  %p
+    = link_to "<span class='pen icon'></span>Edit this caregiver", edit_members_user_path(@user), :class => "pill button"
