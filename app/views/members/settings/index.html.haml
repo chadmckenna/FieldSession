@@ -1,7 +1,16 @@
 - content_for :title do
   Settings
 
+
 %h1#title= "#{@user.household} Household Account Settings"
+
+#delete-account
+  - unless current_user.household.users.count > 1
+    = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related', :class => 'pill button negative'
+  - else
+    = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account', :class => 'pill button negative'
+
+%br
 
 #hidden-requests-container
   %h2.title Hidden Requests
@@ -39,11 +48,7 @@
       .clear
 
 #user-household-info
-  #delete-account
-    - unless current_user.household.users.count > 1
-      = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related', :class => 'pill button negative'
-    - else
-      = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account', :class => 'pill button negative'
+  
   #user
     %strong Your User Information 
     %font#edit-user= link_to '(edit)', '#'
@@ -87,7 +92,7 @@
     - form_for [:members, @user.household] do |f|
       #household-name
         %font.small-title= f.label "Household Name:"
-        %font.text= @user.household
+        %font.text= @user.household.name
       #home-phone
         %font.small-title= f.label "Household Phone:"
         %font.text= number_to_phone(@user.household.home_phone, :area_code => true)
@@ -109,13 +114,13 @@
         %br
   #children
     %strong= "Children:"
-    
     %br
     %br
     - for child in @household.children
       #partial-description
-        - form_for edit_members_child_path(child) do |f|
-       
+        -# form_for edit_members_child_path(child) do |f|
+        - form_for [:members, child] do |f|
+
           #first-name
             %font.small-title= f.label "First Name:"
             %font.text= child.first_name
@@ -130,7 +135,7 @@
 
           #DOB
             %font.small-title= f.label "Date of Birth:"
-            %font.text= child.date_of_birth.to_s(:nicetime)
+            = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year, :order => [:month, :day, :year], :default => 5.years.ago)
 
           #allergies
             %font.small-title= f.label "Allergies:"
@@ -149,21 +154,24 @@
             %font.text= child.notes
             - if child.notes.eql? ""
               %br
-
-          %br
-          #user-submit
+        
+          #child-submit
             = f.submit
 
   #address
     %strong= "Address:"
     %font#edit-address= link_to '(edit)', '#'
-    - form_for edit_members_address_path(@household.address) do |f|
+    %br
+    %br
+    - form_for [:members, @household.address] do |f|
       #street1
         %font.small-title= f.label "Street 1:"
         %font.text= @household.address.street1
       #street2
         %font.small-title= f.label "Street 2:"
         %font.text= @household.address.street2
+        -if @household.address.street2.eql? ""
+          %br
       #city
         %font.small-title= f.label "City:"
         %font.text= @household.address.city
@@ -173,8 +181,28 @@
       #zip
         %font.small-title= f.label "Zip:"
         %font.text= @household.address.zip
-      #user-submit
+      #address-submit
         = f.submit
+
+  #emergency_contacts
+    %strong= "Emergency Contacts:"
+    %font#edit-contacts= link_to '(edit)', '#'
+    %br
+    %br
+    - for contact in @household.emergency_contacts
+      - form_for [:members, contact] do |f|
+        #name
+          %font.small-title= f.label "Name:"
+          %font.text= contact.name
+        #relationship
+          %font.small-title= f.label "Relationship:"
+          %font.text= contact.relationship
+        #phone_number
+          %font.small-title= f.label "Phone:"
+          %font.text= number_to_phone(contact.phone, :area_code => true)
+        #contact-submit
+          = f.submit
+    
 
            
            

@@ -84,7 +84,7 @@
       %p
     %div.title 
       Emergency Contacts
-      %span#small_link= link_to " (edit)", members_emergency_contacts_path
+      %span#small_link= link_to " (edit)", members_profile_edit_path
     %div
       -for contact in @household.emergency_contacts
         -unless @household.users.eql? nil

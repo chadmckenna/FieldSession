@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
     members.resources :roles
     members.resources :users, :only => [:show, :edit, :update, :index]
     members.resources :children
-    members.resources :households, :member => {:join_request => :get}, :only => [:show, :new, :create]
+    members.resources :households, :member => {:join_request => :get}, :only => [:show, :new, :create, :update, :edit]
     members.resources :requests, :member => {:detail => :get}
     members.resources :addresses
     members.resources :notifications, :member => {:update_read => :get}

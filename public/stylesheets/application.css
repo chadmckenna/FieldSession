@@ -964,6 +964,11 @@ input[type="text"], input[type="password"], textarea {
 #num-results {
   margin-left: 40px; }
 
+#delete-account {
+  float: right;
+  text-align: right;
+  margin-bottom: 20px; }
+
 #hidden-requests-container {
   width: 50%;
   float: right; }
@@ -1029,9 +1034,6 @@ input[type="text"], input[type="password"], textarea {
     display: none; }
   #user-household-info #notes {
     display: none; }
-  #user-household-info #delete-account {
-    text-align: right;
-    margin-bottom: 20px; }
   #user-household-info #user {
     width: 100%;
     margin-bottom: 30px; }
@@ -1086,6 +1088,9 @@ input[type="text"], input[type="password"], textarea {
     #user-household-info #children .tools {
       display: none; }
   #user-household-info #address {
+    width: 100%;
+    margin-bottom: 30px; }
+  #user-household-info #contacts {
     width: 100%;
     margin-bottom: 30px; }
 
