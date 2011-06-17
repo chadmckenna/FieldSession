@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       :allow_nil => true
   end
   validates_presence_of :role, :message => "cannot be blank."
-  validates_confirmation_of :password
+  #validates_confirmation_of :password
   validates_presence_of :username
 
   belongs_to :household

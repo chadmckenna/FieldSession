@@ -51,8 +51,8 @@ class Members::EmergencyContactsController < Members::MembersController
       flash[:error] = "You do not have permission to view the details of emergency contact."
       redirect_to members_emergency_contact_path
     elsif @emergency_contact.update_attributes(params[:emergency_contact])
-      flash[:notice] = "Successfully updated emergency_contact."
-      redirect_to members_emergency_contact_path(@emergency_contact)
+      flash[:success] = "Successfully updated emergency_contact."
+      redirect_to members_settings_path
     else
       render :action => 'edit'
     end

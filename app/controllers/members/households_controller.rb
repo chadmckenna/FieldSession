@@ -1,6 +1,7 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household#, :only => [:join_request, :new, :create]
   filter_access_to :all
+  
 
   def show
     if current_user.is_neighbor?(params[:id])
@@ -109,7 +110,7 @@ class Members::HouseholdsController < Members::MembersController
       redirect_to members_settings_path
     elsif @household.update_attributes(params[:household])
       flash[:success] = "Successfully updated #{@household.name} household."
-      redirect_to members_profile_path
+      redirect_to members_settings_path
     else
       flash[:error] = "Error updating household"
       redirect_to members_settings_path
