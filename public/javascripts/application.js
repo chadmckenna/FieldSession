@@ -15,14 +15,16 @@ $(function() {
 });
 
 $(document).ready(function() {
-	$("#right-column #content-requests #title").append('<span><a href="#">-</span>');
-	$("#right-column #content-commitments #title").append('<span><a href="#">-</a></span>');
+	$("#right-column #content-requests #title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
+	$("#right-column #content-commitments #title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
 	
 	$("#right-column #content-requests #title span").toggle(function() {
-		$(this).find("a").replaceWith('<a href="#">+</a>');	
+		//$(this).find("a").replaceWith('<a href="#">+</a>');	
+		$(this).find("a img").animate({opacity: .2}, 700);
 		$(this).parent().parent().parent().find("#requests").slideToggle();	
 	}, function (){
-		$(this).find("a").replaceWith('<a href="#">-</a>');
+		//$(this).find("a").replaceWith('<a href="#">-</a>');
+		$(this).find("a img").animate({opacity: 1}, 700);
 		$(this).parent().parent().parent().find("#requests").slideToggle();
 	});
 	
