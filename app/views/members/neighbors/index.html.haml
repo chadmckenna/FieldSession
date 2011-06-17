@@ -88,7 +88,8 @@
                   =h user.email
           .tools
             .volunteer-button
-              =link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
+              #delete=link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
+              = link_to "<span class='magnifier icon'></span>Show", members_household_path(neighbor.neighbor), :class => 'pill button'
           .clear
 - else
   %h1 &nbsp;

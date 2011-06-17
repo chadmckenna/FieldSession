@@ -7,13 +7,9 @@
     %p=link_to "Add another child >>", new_members_child_path
 #left-column
   #photo
-
-    -#=link_to image_tag(@household.photo.url(:medium)) , edit_members_profile_path(@household)
-
-
-    -#= link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path(@household)
-
-    =link_to image_tag(@household.photo.url(:medium)) , members_profile_edit_path
+    %a{ :href => members_profile_edit_path } 
+      %span{ :id => "edit" } Edit your photo
+      =image_tag(@household.photo.url(:medium))
 
   #info
     %div.title 
@@ -25,6 +21,8 @@
           -if user.household_confirmed.eql? true
             .child
               =h link_to "#{user.first_name} #{user.last_name}", members_user_path(user)
+              -if user.relationship
+                %span#relation="(#{user.relationship})" 
         -else
           You have no caregivers
       %p
@@ -84,7 +82,7 @@
       %p
     %div.title 
       Emergency Contacts
-      %span#small_link= link_to " (edit)", members_profile_edit_path
+      %span#small_link= link_to " (edit)", members_emergency_contacts_path
     %div
       -for contact in @household.emergency_contacts
         -unless @household.users.eql? nil
@@ -95,7 +93,7 @@
   #top
     #household-info
       %strong= "The #{@household} Household "
-      %font= "(#{link_to 'edit', members_settings_path})"
+      %font= link_to "(edit)", members_settings_path
       %br
       %br
       // open requests should look like they deduct immediately
@@ -121,7 +119,8 @@
         #no-requests 
           You have no open requests.
       - else
-        %font.small-title My Open Requests
+        #title
+          %font.small-title My Open Requests
         #requests
           - for request in @open_requests
             -unless commit(request)
@@ -164,7 +163,8 @@
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      %font.small-title Confirmed Care Requests
+      #title
+        %font.small-title Confirmed Care Requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
@@ -206,7 +206,8 @@
 
   #content-commitments
     - if @pending_commitments.count > 0
-      %font.small-title My Pending Commitments
+      #title
+        %font.small-title My Pending Commitments
     - if @pending_commitments.count == 0
       #no-requests
         You have no pending commitments
@@ -250,7 +251,8 @@
             .clear
 
     - if @commitments.length > 0
-      %font.small-title My Commitments
+      #title
+        %font.small-title My Commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.

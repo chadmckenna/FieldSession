@@ -28,15 +28,15 @@ class Members::NeighborsController < Members::MembersController
       
       if @neighbor.save && @neighbor2.save
         @neighbor.send_neighbor_request_email(@neighbor)
-        flash[:success] = "You have successfully added #{@household} as a neighbor"
-        redirect_to members_neighbors_path
+        flash[:success] = "You have successfully requested to add #{@household} as a neighbor"
+        redirect_to :back
       else
         flash[:error] = "There were errors adding this neighbor"
-        redirect_to members_neighbors_path
+        redirect_to :back
       end
     else
       flash[:error] = "It appears that there is already a neighbor request in the system to be neighbors. Check your neighbors request for a request from this user."
-      redirect_to members_neighbors_path
+      redirect_to :back
     end  
   end
 
@@ -88,11 +88,11 @@ class Members::NeighborsController < Members::MembersController
     end
     
     if @neighbor.destroy && @neighbor2.destroy
-      flash[:success] = "You have deleted your neighbor"
-      redirect_to members_neighbors_path
+      flash[:success] = "Success!"
+      redirect_to :back
     else
       flash[:error] = "There was an error deleting your neighbor"
-      redirect_to members_neighbors_path
+      redirect_to :back
     end
   end
 end

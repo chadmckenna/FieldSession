@@ -1,6 +1,9 @@
-- title "Edit User Info"
+- title "Edit this caregiver"
 
-= render :partial => 'form'
+#request-container
+  %h1 Edit this caregiver
 
-%p
-  = link_to "Back to Household", members_profile_path
+  = render :partial => 'form'
+
+  %p
+    = link_to "<span class='home icon'></span>Back to Household", members_profile_path, :class => "pill button"
