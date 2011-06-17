@@ -611,17 +611,18 @@ a {
             background: url(/images/iconCollapseArrow.gif) no-repeat center top;
             display: inline-block;
             width: 16px;
-            height: 16px;
-            -moz-transform: rotate(90deg);
-            o-transform: rotate(90deg);
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            -moz-transition: all 0.3s ease-out;
-            -o-transition: all 0.3s ease-out;
-            -webkit-transition: all 0.3s ease-out;
-            -ms-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out; }
+            height: 16px; }
+            #container #content #right-column #content #title span:focus {
+              -moz-transform: rotate(90deg);
+              o-transform: rotate(90deg);
+              -webkit-transform: rotate(90deg);
+              -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+              -moz-transition: all 0.3s ease-out;
+              -o-transition: all 0.3s ease-out;
+              -webkit-transition: all 0.3s ease-out;
+              -ms-transition: all 0.3s ease-out;
+              transition: all 0.3s ease-out; }
         #container #content #right-column #content #requests {
           width: 100%;
           margin-top: 10px;
