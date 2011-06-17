@@ -10,7 +10,7 @@ body {
   background: #dddddd; }
 
 a {
-  color: #557711;
+  color: white;
   text-decoration: none; }
   a:hover {
     color: #779933; }
@@ -32,21 +32,13 @@ a {
   min-height: 100px;
   font-family: "Rokkitt", serif;
   padding: 0 !important;
-  background: #eeeeaa;
-  background: -moz-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeaa), color-stop(100%, #b5d677));
-  background: -webkit-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
-  background: -o-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
-  background: -ms-linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeaa', endColorstr='#b5d677',GradientType=0 );
-  background: linear-gradient(top, #eeeeaa 0%, #b5d677 100%);
+  background: #948c75;
   color: #888888;
   position: fixed;
   top: 0 !important;
   width: 100%;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid black;
   -webkit-box-shadow: 0 0 12px #888888;
   -moz-box-shadow: 0 0 12px #888888; }
   #masthead #search {
