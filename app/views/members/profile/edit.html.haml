@@ -1,14 +1,21 @@
 - title "Edit Household"
 #left-column
+  #photo
+    =image_tag(@household.photo.url(:medium))
   #info
-    %h3 Editable Items
 
 
 #right-column
-  #top
-    Top-Test
+  %h1 Upload a new photo
   #content
-    = render :partial => 'form'
+    - form_for([:members, @household], :html => { :multipart => true }) do |f|
+      = f.error_messages
+      %p
+        = f.label :photo
+        %br
+        = f.file_field :photo
+      %p
+        = f.submit 
 
-%p
-  -#= link_to "Cancel", members_profile_path
+    %p
+      = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button"
