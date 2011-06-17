@@ -17,9 +17,9 @@ $(function() {
 $(document).ready(function() {
 
 	$(".request").hover(function() {
-		$(this).find(".delete span").fadeIn("fast").show();
+		$(this).find(".delete span").show();
 	}, function() {
-		$(this).find(".delete span").fadeOut("slow").hide();
+		$(this).find(".delete span").fadeOut("fast").hide();
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
 	
@@ -37,7 +37,7 @@ $(document).ready(function() {
 	});
 	
 	$(".delete").hover(function() {
-		$(this).parent().find(".subnav ul").fadeIn("medium").show();
+		$(this).parent().find(".subnav ul").fadeIn('fast').show();
 		
 		$(this).parent().hover(function() {
 		}, function() {
