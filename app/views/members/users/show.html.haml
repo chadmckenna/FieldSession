@@ -1,7 +1,7 @@
 - title "View caregiver: #{@user.first_name}"
 
 %p
-  = link_to "<< Back to household", members_profile_path
+  = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button"
 
 %p
   %strong First Name:
@@ -17,4 +17,4 @@
   =h @user.email
 
 %p
-  = link_to "Edit this user", edit_members_user_path(@user)
+  = link_to "<span class='pen icon'></span>Edit this user", edit_members_user_path(@user), :class => "pill button"
