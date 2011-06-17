@@ -4,205 +4,213 @@
 
 %h1#title= "#{@user.household} Household Account Settings"
 
-#request-container
-  #delete-account
-    - unless current_user.household.users.count > 1
-      = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related', :class => 'pill button negative'
-    - else
-      = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account', :class => 'pill button negative'
+#delete-account
+  - unless current_user.household.users.count > 1
+    = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related', :class => 'pill button negative'
+  - else
+    = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account', :class => 'pill button negative'
+.clear
+#hidden-requests-container
+  %h2.title Hidden Requests
+  - if @hidden_requests.count == 0 && @hidden_household_requests.count == 0
+    .hidden-title You have no hidden requests
+  - if @hidden_requests.count > 0
+    .hidden-title You have chosen to hide these requests
 
-  %br
+  - for hidden_request in @hidden_requests
+    .hidden-household
+      .photo
+        = image_tag hidden_request.request.household.photo.url(:thumb)
+      .household
+        = hidden_request.request.household
+        %br
+        = hidden_request.request.from_date.to_s(:short)
+        - if !hidden_request.request.same_date
+          \-
+          = hidden_request.request.to_date.to_s(:short)
+      .button
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete, :class => 'pill button'
+      .clear
 
-  #hidden-requests-container
-    %h2.title Hidden Requests
-    - if @hidden_requests.count == 0 && @hidden_household_requests.count == 0
-      .hidden-title You have no hidden requests
-    - if @hidden_requests.count > 0
-      .hidden-title You have chosen to hide these requests
+  - if @hidden_household_requests.count > 0
+    .hidden-title You have chosen to hide requests from these households
 
-    - for hidden_request in @hidden_requests
-      .hidden-household
-        .photo
-          = image_tag hidden_request.request.household.photo.url(:thumb)
-        .household
-          = hidden_request.request.household
-          %br
-          = hidden_request.request.from_date.to_s(:short)
-          - if !hidden_request.request.same_date
-            \-
-            = hidden_request.request.to_date.to_s(:short)
-        .button
-          = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_request.id}, :confirm => 'Are you sure you want to unhide this request?', :method => :delete, :class => 'pill button'
-        .clear
+  -for hidden_household_request in @hidden_household_requests
+    .hidden-household
+      .photo
+        = image_tag find_hidden_household(hidden_household_request).photo.url(:thumb)
+      .household
+        = find_hidden_household(hidden_household_request)
+      .button
+        = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete, :class => 'pill button'
+      .clear
 
-    - if @hidden_household_requests.count > 0
-      .hidden-title You have chosen to hide requests from these households
-
-    -for hidden_household_request in @hidden_household_requests
-      .hidden-household
-        .photo
-          = image_tag find_hidden_household(hidden_household_request).photo.url(:thumb)
-        .household
-          = find_hidden_household(hidden_household_request)
-        .button
-          = link_to 'Unhide', {:controller => 'settings', :action => 'destroy', :id => hidden_household_request.id}, :confirm => "Are you sure you want to unhide all of #{find_hidden_household(hidden_household_request)}'s household's requests?", :method => :delete, :class => 'pill button'
-        .clear
-
-  #user-household-info
-    #user
-      %strong Your User Information 
-      %font#edit-user= link_to '(edit)', '#'
-      %br
-      %br
-      - form_for [:members, @user] do |f|
+#user-household-info
+  #user
+    %strong Your User Information 
+    #edit-user= link_to '(edit)', '#'
+    - form_for [:members, @user] do |f|
+      .setting
         #username
-          %font.small-title= f.label "Username:"
-          %font.text= @user.username
+          .small-title= f.label "Username:"
+          .text= @user.username
+      .setting
         #first-name
-          %font.small-title= f.label "First Name:" 
-          %font.text= @user.first_name
+          .small-title= f.label "First Name:" 
+          .text= @user.first_name
+      .setting
         #last-name
-          %font.small-title= f.label "Last Name:"
-          %font.text= @user.last_name
+          .small-title= f.label "Last Name:"
+          .text= @user.last_name
+      .setting
         #email
-          %font.small-title= f.label "Email:"
-          %font.text= @user.email
+          .small-title= f.label "Email:"
+          .text= @user.email
+      .setting
         #phone
-          %font.small-title= f.label "Phone:"
-          %font.text= number_to_phone(@user.phone, :area_code => true)
+          .small-title= f.label "Phone:"
+          .text= number_to_phone(@user.phone, :area_code => true)
+      .setting
         #work_phone
-          %font.small-title= f.label "Work Phone:"
-          %font.text= number_to_phone(@user.work_phone, :area_code => true)
+          .small-title= f.label "Work Phone:"
+          .text= number_to_phone(@user.work_phone, :area_code => true)
+      .setting
         #change-password
-          = link_to 'Change My Password', '#'
+          =link_to 'Change My Password', '#'
+      .setting
         #new-password
           %font.small-title= f.label "New Password:"
           = f.password_field :password, :value => ""
+      .setting
         #password-confirmation
-          %font.small-title= f.label "Password Confirmation"
+          .small-title= f.label "Password Confirmation"
           = f.password_field :password_confirmation, :value => ""
+      .setting
         #user-submit
           = f.submit
-
-    #household
-      %strong= "#{@user.household} Household Information"
-      %font#edit-household= link_to '(edit)', '#'
-      %br
-      %br
-      - form_for [:members, @user.household] do |f|
+  .clear
+  #household
+    %strong= "#{@user.household} Household Information"
+    #edit-household= link_to '(edit)', '#'
+    - form_for [:members, @user.household] do |f|
+      .setting
         #household-name
-          %font.small-title= f.label "Household Name:"
-          %font.text= @user.household.name
+          .small-title= f.label "Household Name:"
+          .text= @user.household.name
+      .setting
         #home-phone
-          %font.small-title= f.label "Household Phone:"
-          %font.text= number_to_phone(@user.household.home_phone, :area_code => true)
+          .small-title= f.label "Household Phone:"
+          .text= number_to_phone(@user.household.home_phone, :area_code => true)
+      .setting
         #household-submit
           = f.submit
-      %br
-      #users
-        %strong= "Users:"
-        %font#edit-users= link_to '(edit)', '#' 
-        %br
-        %br
-        - for user in @users
-          #username
-            %font.small-title= "Username:"
-            %font= user.username
-          #name
-            %font.small-title= "Name:"
-            %font= user.first_name + " " + user.last_name
-          %br
-    #children
-      %strong= "Children:"
-      %br
-      %br
-      - for child in @household.children
-        #partial-description
-          -# form_for edit_members_child_path(child) do |f|
-          - form_for [:members, child] do |f|
+    %br
+    -##users
+    -#  %strong= "Users:"
+    -#  %font#edit-users= link_to '(edit)', '#' 
+    -#  %br
+    -#  %br
+    -#  - for user in @users
+    -#    #username
+    -#      %font.small-title= "Username:"
+    -#      %font= user.username
+    -#    #name
+    -#      %font.small-title= "Name:"
+    -#      %font= user.first_name + " " + user.last_name
+    -#    %br
+  -##children
+  -#  %strong= "Children:"
+  -#  %br
+  -#  %br
+  -#  - for child in @household.children
+  -#    #partial-description
+  -#      -# form_for edit_members_child_path(child) do |f|
+  -#      - form_for [:members, child] do |f|
 
-            #first-name
-              %font.small-title= f.label "First Name:"
-              %font.text= child.first_name
+  -#        #first-name
+  -#          %font.small-title= f.label "First Name:"
+  -#          %font.text= child.first_name
 
-              %font#edit-child= link_to '(edit)', '#'
-              %font#display-child= link_to '(show all)', '#'
-              %font#hide-child= link_to '(hide all)', '#'
+  -#          %font#edit-child= link_to '(edit)', '#'
+  -#          %font#display-child= link_to '(show all)', '#'
+  -#          %font#hide-child= link_to '(hide all)', '#'
 
-            #last-name
-              %font.small-title= f.label "Last Name:"
-              %font.text= child.last_name
+  -#        #last-name
+  -#          %font.small-title= f.label "Last Name:"
+  -#          %font.text= child.last_name
 
-            #DOB
-              %font.small-title= f.label "Date of Birth:"
-              = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year, :order => [:month, :day, :year], :default => 5.years.ago)
+  -#        #DOB
+  -#          %font.small-title= f.label "Date of Birth:"
+  -#          = f.date_select(:date_of_birth, :start_year => Time.now.year - 18, :end_year => Time.now.year, :order => [:month, :day, :year], :default => 5.years.ago)
 
-            #allergies
-              %font.small-title= f.label "Allergies:"
-              %font.text= child.allergies
-              - if child.allergies.eql? ""
-                %br
+  -#        #allergies
+  -#          %font.small-title= f.label "Allergies:"
+  -#          %font.text= child.allergies
+  -#          - if child.allergies.eql? ""
+  -#            %br
 
-            #medications
-              %font.small-title= f.label "Medications:"
-              %font.text= child.medications
-              - if child.medications.eql? ""
-                %br
+  -#        #medications
+  -#          %font.small-title= f.label "Medications:"
+  -#          %font.text= child.medications
+  -#          - if child.medications.eql? ""
+  -#            %br
 
-            #notes
-              %font.small-title= f.label "Notes:"
-              %font.text= child.notes
-              - if child.notes.eql? ""
-                %br
-          
-            #child-submit
-              = f.submit
-
-    #address
-      %strong= "Address:"
-      %font#edit-address= link_to '(edit)', '#'
-      %br
-      %br
-      - form_for [:members, @household.address] do |f|
+  -#        #notes
+  -#          %font.small-title= f.label "Notes:"
+  -#          %font.text= child.notes
+  -#          - if child.notes.eql? ""
+  -#            %br
+        
+  -#        #child-submit
+  -#          = f.submit
+  .clear
+  #address
+    %strong= "Address:"
+    #edit-address= link_to '(edit)', '#'
+    - form_for [:members, @household.address] do |f|
+      .setting
         #street1
-          %font.small-title= f.label "Street 1:"
-          %font.text= @household.address.street1
+          .small-title= f.label "Street 1:"
+          .text= @household.address.street1
+      .setting
         #street2
-          %font.small-title= f.label "Street 2:"
-          %font.text= @household.address.street2
-          -if @household.address.street2.eql? ""
-            %br
+          .small-title= f.label "Street 2:"
+          .text= @household.address.street2
+      .setting
         #city
-          %font.small-title= f.label "City:"
-          %font.text= @household.address.city
+          .small-title= f.label "City:"
+          .text= @household.address.city
+      .setting
         #state
-          %font.small-title= f.label "State:"
-          %font.text= @household.address.state
+          .small-title= f.label "State:"
+          .text= @household.address.state
+      .setting
         #zip
-          %font.small-title= f.label "Zip:"
-          %font.text= @household.address.zip
+          .small-title= f.label "Zip:"
+          .text= @household.address.zip
+      .setting
         #address-submit
           = f.submit
-
-    #emergency_contacts
-      %strong= "Emergency Contacts:"
-      %font#edit-contacts= link_to '(edit)', '#'
-      %br
-      %br
-      - for contact in @household.emergency_contacts
-        - form_for [:members, contact] do |f|
-          #name
-            %font.small-title= f.label "Name:"
-            %font.text= contact.name
-          #relationship
-            %font.small-title= f.label "Relationship:"
-            %font.text= contact.relationship
-          #phone_number
-            %font.small-title= f.label "Phone:"
-            %font.text= number_to_phone(contact.phone, :area_code => true)
-          #contact-submit
-            = f.submit
   .clear
+  -##emergency_contacts
+  -#  %strong= "Emergency Contacts:"
+  -#  %font#edit-contacts= link_to '(edit)', '#'
+  -#  %br
+  -#  %br
+  -#  - for contact in @household.emergency_contacts
+  -#    - form_for [:members, contact] do |f|
+  -#      #name
+  -#        %font.small-title= f.label "Name:"
+  -#        %font.text= contact.name
+  -#      #relationship
+  -#        %font.small-title= f.label "Relationship:"
+  -#        %font.text= contact.relationship
+  -#      #phone_number
+  -#        %font.small-title= f.label "Phone:"
+  -#        %font.text= number_to_phone(contact.phone, :area_code => true)
+  -#      #contact-submit
+  -#        = f.submit
+    
 
            
            

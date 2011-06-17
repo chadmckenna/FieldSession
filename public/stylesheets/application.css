@@ -310,7 +310,7 @@ a {
     clear: both; }
 
 /* Splash Screen
- */ */
+ */
 #container {
   min-height: 80%; }
   #container #tag_line {
@@ -372,8 +372,7 @@ a {
   line-height: 150%;
   margin: 100px auto 0 auto;
   position: relative;
-  padding-top: 20px;
-  font-family: "Ubuntu"; }
+  padding-top: 20px; }
   #container #login {
     width: 700px;
     margin: 20px auto 20px auto;
@@ -700,7 +699,7 @@ label {
       list-style: disc; }
 
 /* Requests styles
- */ */
+ */
 .delete-link, .delete {
   float: right; }
   .delete-link a, .delete a {
@@ -1011,12 +1010,18 @@ input[type="text"], input[type="password"], textarea {
 
 #delete-account {
   float: right;
-  text-align: right;
-  margin-bottom: 20px; }
+  text-align: right; }
 
 #hidden-requests-container {
-  width: 50%;
-  float: right; }
+  width: 47%;
+  float: right;
+  padding: 10px;
+  background-color: white;
+  margin: 20px 0 0 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  radius: 5px;
+  border: 1px solid #aaaaaa; }
   #hidden-requests-container .hidden-title {
     margin: 20px 0px 20px 20px;
     font-size: 1.4em;
@@ -1045,23 +1050,56 @@ input[type="text"], input[type="password"], textarea {
 
 #user-household-info {
   float: left;
-  width: 48%; }
+  width: 46%;
+  padding: 10px 20px 10px 10px;
+  margin: 20px 0 0 0;
+  background-color: white;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  radius: 5px;
+  border: 1px solid #aaaaaa; }
+  #user-household-info input[type="text"], #user-household-info input[type="password"] {
+    width: 50%;
+    padding: 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    radius: 3px;
+    font-size: 14px; }
   #user-household-info input[type="submit"] {
     display: none; }
-  #user-household-info font.small-title {
-    font-weight: bold; }
-  #user-household-info font.edit {
-    font-weight: normal; }
+  #user-household-info .setting {
+    margin: 0;
+    clear: both;
+    text-align: left; }
+  #user-household-info .small-title {
+    font-size: 14px;
+    padding: 10px;
+    font-weight: bold;
+    float: left;
+    width: 30%;
+    text-align: right; }
+  #user-household-info .text {
+    font-size: 14px;
+    padding: 10px;
+    float: right;
+    width: 60%; }
+  #user-household-info .edit {
+    font-weight: normal;
+    clear: both; }
+  #user-household-info #edit-user, #user-household-info #edit-household, #user-household-info #edit-address {
+    float: right; }
   #user-household-info strong {
-    text-align: center;
-    font-size: 1.5em; }
+    clear: both;
+    text-align: left;
+    font-size: 1.6em; }
   #user-household-info div {
     margin-bottom: 5px; }
-  #user-household-info font#subtitle {
+  #user-household-info #subtitle {
     font-size: 0.7em; }
   #user-household-info #change-password {
     display: none;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    float: left; }
   #user-household-info #new-password {
     display: none; }
   #user-household-info #password-confirmation {

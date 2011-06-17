@@ -57,20 +57,20 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("font#edit-user a").click(function(e) {
+	$("#edit-user a").click(function(e) {
 		e.preventDefault();
 		$("#user-submit input").show();
 		$("#change-password").show();
 		$(this).parent().parent().find("#last-name").show();
-		$(this).parent().parent().find("#first-name font.text").replaceWith("<input type='text' name='user[first_name]' value='" + $(this).parent().parent().find("#first-name font.text").text() + "'/>");
-		$(this).parent().parent().find("#last-name font.text").replaceWith("<input type='text' name='user[last_name]' value='" + $(this).parent().parent().find("#last-name font.text").text() + "'/>");
-		$("#username font.text").replaceWith("<input type='text' name='user[username]' value='" + $("#username font.text").text() + "'/>");
-		$("#email font.text").replaceWith("<input type='text' name='user[email]' value='" + $("#email font.text").text() + "'/>");
-		$("#phone font.text").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone font.text").text() + "'/>");
-		$("#work_phone font.text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone font.text").text() + "'/>");
+		$(this).parent().parent().find("#first-name .text").replaceWith("<input type='text' name='user[first_name]' value='" + $(this).parent().parent().find("#first-name .text").text() + "'/>");
+		$(this).parent().parent().find("#last-name .text").replaceWith("<input type='text' name='user[last_name]' value='" + $(this).parent().parent().find("#last-name .text").text() + "'/>");
+		$("#username .text").replaceWith("<input type='text' name='user[username]' value='" + $("#username .text").text() + "'/>");
+		$("#email .text").replaceWith("<input type='text' name='user[email]' value='" + $("#email .text").text() + "'/>");
+		$("#phone .text").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone .text").text() + "'/>");
+		$("#work_phone .text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone .text").text() + "'/>");
 	});
 	
-	$("font#edit-child a").click(function(e) {
+	$("#edit-child a").click(function(e) {
 		e.preventDefault();
 		$(this).parent().parent().parent().find("#child-submit input").show();
 		//Show childrens information
@@ -93,25 +93,25 @@ $(document).ready(function() {
 		$(this).hide();
 	});
 	
-	$("font#edit-address a").click(function(e) {
+	$("#edit-address a").click(function(e) {
 		e.preventDefault();
 		$("#address-submit input").show();
-		$("#street1 font.text").replaceWith("<input type='text' name='address[street1]' value='" + $("#street1 font.text").text() + "'/>");
-		$("#street2 font.text").replaceWith("<input type='text' name='address[street2]' value='" + $("#street2 font.text").text() + "'/>");
-		$("#city font.text").replaceWith("<input type='text' name='address[city]' value='" + $("#city font.text").text() + "'/>");
-		$("#state font.text").replaceWith("<input type='text' name='address[state]' value='" + $("#state font.text").text() + "'/>");
-		$("#zip font.text").replaceWith("<input type='text' name='address[zip]' value='" + $("#zip font.text").text() + "'/>");
+		$("#street1 .text").replaceWith("<input type='text' name='address[street1]' value='" + $("#street1 .text").text() + "'/>");
+		$("#street2 .text").replaceWith("<input type='text' name='address[street2]' value='" + $("#street2 .text").text() + "'/>");
+		$("#city .text").replaceWith("<input type='text' name='address[city]' value='" + $("#city .text").text() + "'/>");
+		$("#state .text").replaceWith("<input type='text' name='address[state]' value='" + $("#state .text").text() + "'/>");
+		$("#zip .text").replaceWith("<input type='text' name='address[zip]' value='" + $("#zip .text").text() + "'/>");
 	});
 	
 
-	$("font#edit-household a").click(function(e) {
+	$("#edit-household a").click(function(e) {
 		e.preventDefault();
-		$("#household-name font.text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name font.text").text() + "'/>");
-		$("#home-phone font.text").replaceWith("<input type='text' name='household[home_phone]' value='" + $("#home-phone font.text").text() + "'/>");
+		$("#household-name .text").replaceWith("<input type='text' name='household[name]' value='" + $("#household-name .text").text() + "'/>");
+		$("#home-phone .text").replaceWith("<input type='text' name='household[home_phone]' value='" + $("#home-phone .text").text() + "'/>");
 		$("#household-submit input").show();
 	});
 	
-	$("font#edit-contacts a").click(function(e) {
+	$("#edit-contacts a").click(function(e) {
 		e.preventDefault();
 		$("#contact-submit input").show();
 		$("#name font.text").replaceWith("<input type='text' name='emergency_contact[name]' value='" + $("#name font.text").text() + "'/>");
@@ -125,7 +125,7 @@ $(document).ready(function() {
 		$(this).hide();
 	});
 	
-	$("font#display-child a").click(function(e) {
+	$("#display-child a").click(function(e) {
 		e.preventDefault();
 		//$(this).parent().parent().parent().find("#user-submit input").show());
 		$(this).parent().parent().parent().find("#first-name").show();
@@ -138,7 +138,7 @@ $(document).ready(function() {
 		//$(".tools").show();
 	});
 	
-	$("font#hide-child a").click(function(e) {
+	$("#hide-child a").click(function(e) {
 		e.preventDefault();
 		$(this).parent().parent().parent().find("#first-name").show();
 		$(this).parent().parent().parent().find("#last-name").hide();
