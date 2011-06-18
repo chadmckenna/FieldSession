@@ -92,8 +92,8 @@
 #right-column
   #top
     #household-info
-      %strong= "The #{@household} Household "
-      %font= link_to "(edit)", members_settings_path
+      #title= "The #{@household} Household "
+      %font{:style => "margin: 0 0 0 7px"}= link_to "(edit)", members_settings_path
       %br
       %br
       // open requests should look like they deduct immediately
