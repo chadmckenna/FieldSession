@@ -19,7 +19,7 @@
 #left-request
   #request-container
     - for completed_request in @completed_requests
-      .request{:style => "background-color: #fea; border: solid thin #fd0"}
+      .request{:style => "background-color: #fea; border: solid thin #fd0; padding: .4em"}
         = image_tag completed_request.household.photo.url(:thumb)
         .left
           %h2.name= completed_request.household
