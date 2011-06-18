@@ -626,6 +626,7 @@ a {
             font-size: 1.5em; }
         #container #content #right-column #content-requests #requests, #container #content #right-column #content-commitments #requests {
           width: 100%;
+          height: 100%;
           margin-top: 10px;
           padding: 2px; }
           #container #content #right-column #content-requests #requests #img, #container #content #right-column #content-commitments #requests #img {

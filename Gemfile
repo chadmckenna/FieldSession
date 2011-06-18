@@ -12,6 +12,8 @@ gem 'aws-s3'
 gem 'nifty-generators'
 gem 'formtastic'
 gem 'rmagick'
+gem "linecache", "0.43"
+gem 'sass'
 
 group :development, :test do
   gem 'aws-s3'
