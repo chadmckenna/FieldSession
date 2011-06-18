@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.3.10'
+gem 'rails', '2.3.11'
 gem 'paper_trail', '~> 1'
-gem 'will_paginate', '~> 2.3.10'
+gem 'will_paginate', '~> 2.3.11'
 gem 'paperclip', '~> 2.3'
 gem 'haml'
 gem 'sass'

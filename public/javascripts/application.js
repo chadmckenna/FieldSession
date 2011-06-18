@@ -187,7 +187,7 @@ $(document).ready(function() {
 	
 	setTimeout(function() { 
 		$(".flash.success").hide('blind', 'slow');
-	}, 3000);
+	}, 6000);
 });
 
 
