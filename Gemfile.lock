@@ -103,4 +103,4 @@ DEPENDENCIES
   ruby-debug
   sass
   sqlite3
-  will_paginate (~> 2.3.11)
+  will_paginate (~> 2.3.10)
