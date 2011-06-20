@@ -1,3 +1,28 @@
+#########################################################################################################
+# Teem R41nB0W K4Tz is powered by:                                                                      #
+#########################################################################################################
+#                                                                                                       #
+#                    `:oyhdmmdy+`                                                                       #  
+#                `/hNMMNy+:--+mN+                                                                       #
+#              .sNMMMm+`      .MM:                                          `+o.                        #
+#            `sNMMMN+  `::     mMy                                          dMMd                .`      #
+#   `-:.    :mMMMMh. `sNm`    .MMo                                         /MMM/             `/hMs      #
+#  /mMMs  `sMMMMMs`./dMMh    .dMN.  `.:+ooo/-`           `.:/++/-`        `mMMy`           `/mMNo       #
+#  +NMMs--dMMMMMNyhdhMMMMo:/smMN: .odNMMmNMMMd/       `:ymMMMMMNmmo`     `hNmMMh.         .hMMMo        #
+#   -oydNMMMMMMmo/-` sMMMMMMMNh.`oNMMMh/.dMhoMM/     /dMMMNy/yMy.sMh`  `:dd:+MMMy        /NmsMM+        #
+#      `dMMMMMM-      +dmmmdo- .hMMMd:   NM/ yMm    sMMMMy-  :MN-`NMo-odd+``mMMMh      `sNo``MMm`       #
+#      oMMMMMMh         `.`   .mMMMd`    sMd-hMM../yMMMN/     :hmhNMNdy/` .dMMMM:     .dd-   dMMo       #
+#     `NMMMMMM+              `mMMMN.     `+mNMMMddNMMMM+        .yMMo`   -mMMMMh     /Ny`    sMMN`      #
+#     :MMMMMMM/             `hMMMMy        .NMMs..mMMMm         :NMN`   /NMMMMN.   `yNo..    oMMMo      #
+#     /MMMMMMMh           .+mMMMMMo       `yMMm` oMMMMh        /NMMo   +MMMMMMo   /mM+-mh    +MMMm      #
+#     :MMMMMMMMy-`    `-+hNMdMMMMMd`    `/mMMN-  dMMMMm`     .yMMMd`  +MMMMMMm` :hMN:.NMm`  `dMMMN`:sd: #
+#      dMMMMMMMMNNdddmNNMMh:`mMMMMMms+oyNMMMm-   hMMMMMd/:-/yNMMMd`  .NMMMMMMMydMMd. oMMMmyymMMMMMNMNy  #
+#      .dMMMMMMMMMMMMMMNs-   /MMMMMMMMMMMMMy.    +MMMMMMMMMMMMMMs`   /MMMMMMMMMMMo`  +MMMMMMMMMMNs:.`   #
+#        +mMMMMMMMMMms:`      /NMMMMMMMMNy-       oMMMMMMMMMMNy.     `mMMMMMMMNy.    `yMMMMMMMMh.       #
+#          ./osso+:`            :oyyyso:`          .+ydmmdho:`        `+yddhs/`        .+yhhyo-         #
+#                                                                                                       #
+#########################################################################################################
+
 class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
