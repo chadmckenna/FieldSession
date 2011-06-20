@@ -1,7 +1,7 @@
 - content_for :title do
   View household: #{@household.name}
 #left-column
-  #photo
+  #photo{:style => "margin: 5px 0 0 0"}
     =image_tag @household.photo.url(:medium)
   #info
     %div.title Caregivers
@@ -56,7 +56,7 @@
       #title= "The #{@household} Household"
       #button= link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(@household), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
     .clear
-  #content
+  #content-requests
     - if @household.requests.length > 0
       %font.small-title The #{@household.name}'s Open Requests
     - if @household.requests.length == 0

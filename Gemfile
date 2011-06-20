@@ -5,14 +5,15 @@ gem 'paper_trail', '~> 1'
 gem 'will_paginate', '~> 2.3.11'
 gem 'paperclip', '~> 2.3'
 gem 'haml'
-gem 'compass', '>= 0.10.6'
+gem 'sass'
 gem 'authlogic'
 gem 'declarative_authorization'
-gem 'delayed_job', '~> 2.0.4'
 gem 'aws-s3'
 gem 'nifty-generators'
 gem 'formtastic'
 gem 'rmagick'
+gem "linecache", "0.43"
+gem 'sass'
 
 group :development, :test do
   gem 'aws-s3'

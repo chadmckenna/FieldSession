@@ -1,31 +1,32 @@
 - if get_notifications_count(current_user) > 0
-  %li#notifications
-    = link_to_remote image_tag('/images/notification_icon.png'), :update => {:complete => "notifications"}, :url => {:controller => 'notifications', :action => 'update_read'}
-    .notification-list
-      - for notification in get_notifications(current_user)
-        .notification
-          - if notification.class.name == 'Neighbor'
-            #left
-              = link_to image_tag (notification.neighbor.photo.url(:tiny)), members_neighbors_path
-            #right
-              %span= link_to "The #{notification.neighbor} household has accepted your neighbor request", members_neighbors_path
-            #clear
-          - elsif notification.class.name == 'PendingRequest'
-            - @request_household = get_household(notification.belongs_to_household_id)
-            #left
-              = link_to image_tag (@request_household.photo.url(:tiny)), members_requests_path 
-            #right
-              %span= link_to "The #{@request_household} household has picked you to watch their children on #{notification.request.from_date.to_s(:dateNoYear)}.", members_requests_path
-            #clear
-          - elsif notification.class.name == 'User'
-            -# @request_household = get_household(notification.belongs_to_household_id)
-            #left
-              -#= link_to image_tag (@request_household.photo.url(:tiny)), members_requests_path 
-            #right
-              -@user = get_user(notification.id)
-              %span= link_to "#{@user} has requested to become a caregiver in your household", members_users_path
-            #clear
-    %li#notification-modified= get_notifications_count(current_user)
+  -unless current_user.household_confirmed.eql? false
+    %li#notifications
+      = link_to_remote image_tag('/images/notification_icon.png'), :update => {:complete => "notifications"}, :url => {:controller => 'notifications', :action => 'update_read'}
+      .notification-list
+        - for notification in get_notifications(current_user)
+          .notification
+            - if notification.class.name == 'Neighbor'
+              #left
+                = link_to image_tag (notification.neighbor.photo.url(:tiny)), members_neighbors_path
+              #right
+                %span= link_to "The #{notification.neighbor} household has accepted your neighbor request", members_neighbors_path
+              #clear
+            - elsif notification.class.name == 'PendingRequest'
+              - @request_household = get_household(notification.belongs_to_household_id)
+              #left
+                = link_to image_tag (@request_household.photo.url(:tiny)), members_requests_path 
+              #right
+                %span= link_to "The #{@request_household} household has picked you to watch their children on #{notification.request.from_date.to_s(:dateNoYear)}.", members_requests_path
+              #clear
+            - elsif notification.class.name == 'User'
+              -# @request_household = get_household(notification.belongs_to_household_id)
+              #left
+                -#= link_to image_tag (@request_household.photo.url(:tiny)), members_requests_path 
+              #right
+                -@user = get_user(notification.id)
+                %span= link_to "#{@user} has requested to become a caregiver in your household", members_users_path
+              #clear
+      %li#notification-modified= get_notifications_count(current_user)
 - else
   %li#notifications
     = link_to image_tag('/images/notification_icon_grey.png'), '#', :title => 'Notifications'

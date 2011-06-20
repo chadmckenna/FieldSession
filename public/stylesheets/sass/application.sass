@@ -18,8 +18,6 @@ body
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dddddd), color-stop(50%,#ffffff), color-stop(100%,#dddddd))
   background: -webkit-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
   background: -o-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  background: -ms-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 )
   background: linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
   /*font-family: Verdana, Helvetica, Arial*/
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
@@ -611,12 +609,7 @@ a
         height: 65px
         margin-bottom: 15px
         //padding: 10px 0 10px 0
-        -moz-border-radius: 5px
-        -webkit-border-radius: 5px
         radius: 5px
-        background: white
-        border: 1px solid $mastheadBG
-        padding: 1.2em
         #household-info
           //float: left
           width: 100%
@@ -675,23 +668,13 @@ a
             font-size: 1.3em
             margin-right: 10px
           span
-            background: url(/images/iconCollapseArrow.gif) no-repeat center top
             display: inline-block
             width: 16px
-            height: 16px
-            -moz-transform: rotate(90deg)
-            o-transform: rotate(90deg)
-            -webkit-transform: rotate(90deg)
-            -ms-transform: rotate(90deg)
-            transform: rotate(90deg)
-            -moz-transition: all 0.3s ease-out
-            -o-transition: all 0.3s ease-out
-            -webkit-transition: all 0.3s ease-out
-            -ms-transition: all 0.3s ease-out
-            transition: all 0.3s ease-out
-
+            height: 16px 
+            font-size: 1.5em
         #requests
           width: 100%
+          height: 100%
           //overflow: auto
           margin-top: 10px
           padding: 2px
