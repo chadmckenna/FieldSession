@@ -15,33 +15,91 @@ $(function() {
 });
 
 $(document).ready(function() {
-	$("#right-column #content-requests #title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
-	$("#right-column #content-commitments #title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
+	$("#right-column #content-requests .title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
+	$("#right-column #content-commitments .title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
 	
-	var height = $("#right-column #content-requests #requests").height();
-	var div = $("#right-column #content-requests #requests");
+	//Expand/Collapse Open Requests
+	var openHeight = $("#right-column #content-requests .requests#open").height();
+	var div = $("#right-column #content-requests .requests#open");
 	var margin = div.css("margin-top");
-	$("#right-column #content-requests #title span").toggle(function() {
+	$("#right-column #content-requests .title#open span").toggle(function(e) {
+		e.preventDefault();
+		//$(this).remove
 		//$(this).find("a").replaceWith('<a href="#">+</a>');
 		$(this).find("a img").animate({opacity: .2}, 700);
 		//$(this).parent().parent().parent().find("#requests").slideToggle();	
-		$(this).parent().parent().parent().find("#requests").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
+		$(this).parent().siblings(".requests#open").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
 			$(this).hide();
 		} });
-	}, function (){
+	}, function(e){
+		//$(this).find("a").replaceWith('<a href="#">-</a>');
+		e.preventDefault();
+		$(this).find("a img").animate({opacity: 1}, 700);
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
+		$(this).parent().siblings(".requests#open").show().animate({ height: openHeight, "margin-top": margin }, { duration: 700 });
+	});
+	
+	//Expand/Collapse Confirmed Requests
+	var confirmedHeight = $("#right-column #content-requests .requests#confirmed").height();
+	var div = $("#right-column #content-requests .requests#confirmed");
+	var margin = div.css("margin-top");
+	$("#right-column #content-requests .title#confirmed span").toggle(function(e) {
+		e.preventDefault();
+		//$(this).remove
+		//$(this).find("a").replaceWith('<a href="#">+</a>');
+		$(this).find("a img").animate({opacity: .2}, 700);
+		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		$(this).parent().siblings(".requests#confirmed").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
+			$(this).hide();
+		} });
+	}, function(e){
+		e.preventDefault();
 		//$(this).find("a").replaceWith('<a href="#">-</a>');
 		$(this).find("a img").animate({opacity: 1}, 700);
 		//$(this).parent().parent().parent().find("#requests").slideToggle();
-		$(this).parent().parent().parent().find("#requests").show().animate({ height: height, "margin-top": margin }, { duration: 700 });
+		$(this).parent().siblings(".requests#confirmed").show().animate({ height: confirmedHeight, "margin-top": margin }, { duration: 700 });
 	});
 	
-	$("#right-column #content-commitments #title span").click(function() {
-		$(this).find("a").replaceWith('<a href="#">+</a>');	
-		$(this).parent().parent().parent().find("#requests").slideToggle();	
-	}, function (){
-		$(this).find("a").replaceWith('<a href="#">-</a>');
-		$(this).parent().parent().parent().find("#requests").slideToggle();
+	//Expand/Collapse Pending Commitments
+	var pendingHeight = $("#right-column #content-commitments .requests#pending").height();
+	var div = $("#right-column #content-commitments .requests#pending");
+	var margin = div.css("margin-top");
+	$("#right-column #content-commitments .title#pending span").toggle(function(e) {
+		e.preventDefault();
+		//$(this).find("a").replaceWith('<a href="#">+</a>');
+		$(this).find("a img").animate({opacity: .2}, 700);
+		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		$(this).parent().siblings(".requests#pending").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
+			$(this).hide();
+		} });
+	}, function(e){
+		e.preventDefault();
+		//$(this).find("a").replaceWith('<a href="#">-</a>');
+		$(this).find("a img").animate({opacity: 1}, 700);
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
+		$(this).parent().siblings(".requests#pending").show().animate({ height: pendingHeight, "margin-top": margin }, { duration: 700 });
 	});
+	
+	//Expand/Collapse Commitments
+	var commitmentHeight = $("#right-column #content-commitments .requests#commitments").height();
+	var div = $("#right-column #content-commitments .requests#commitments");
+	var margin = div.css("margin-top");
+	$("#right-column #content-commitments .title#commitments span").toggle(function(e) {
+		e.preventDefault();
+		//$(this).find("a").replaceWith('<a href="#">+</a>');
+		$(this).find("a img").animate({opacity: .2}, 700);
+		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		$(this).parent().parent().find(".requests#commitments").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
+			$(this).hide();
+		} });
+	}, function(e){
+		e.preventDefault();
+		//$(this).find("a").replaceWith('<a href="#">-</a>');
+		$(this).find("a img").animate({opacity: 1}, 700);
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
+		$(this).parent().parent().find(".requests#commitments").show().animate({ height: commitmentHeight, "margin-top": margin }, { duration: 700 });
+	});
+	
 
 	$(".request").hover(function() {
 		$(this).find(".delete span").show();
