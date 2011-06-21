@@ -176,7 +176,7 @@ a
             float: left
             width: 8%
             padding: .5em
-          #right 
+          #right
             float: right
             width: 83%
             a
@@ -184,7 +184,7 @@ a
               text-shadow: none !important
           #clear
             clear: both
-   
+
     li.notification
       background: red
       margin-left: -1.4em
@@ -345,8 +345,8 @@ a
   background: white
   -moz-border-radius: 5px
   -webkit-border-radius: 5px
-  
- 
+
+
 #container
   min-height: 80%
   a
@@ -388,20 +388,21 @@ a
         filter: alpha(opacity=80)
         /* CSS3 standard */
         opacity: 0.8
+    /* YJB: You had a path of "../images/foo", why? You'd never use ".." in a url. */
     #vision a
-      background: url("../images/vision.jpg") no-repeat
+      background: url("/images/vision.jpg") no-repeat
       &:hover
         background-position: bottom
     #security a
-      background: url("../images/security.jpg") no-repeat
+      background: url("/images/security.jpg") no-repeat
       &:hover
         background-position: bottom
     #sign_up a
-      background: url("../images/sign_up.jpg") no-repeat
+      background: url("/images/sign_up.jpg") no-repeat
       &:hover
         background-position: bottom
     #how_it_works a
-      background: url("../images/how_it_works.jpg") no-repeat
+      background: url("/images/how_it_works.jpg") no-repeat
       &:hover
         background-position: bottom
 
@@ -420,7 +421,7 @@ a
       margin: 0px
       font-size: 2em
     #balance
-      
+
     #title
       float: left
       font-size: 2em
@@ -585,7 +586,7 @@ a
           padding: 0 !important
           border: none !important
           background: none !important
-          outline: none   
+          outline: none
           #edit
             opacity: 0
             position: relative
@@ -650,7 +651,7 @@ a
             margin: 0px
             font-size: 2em
           #balance
-            
+
           #title
             float: left
             font-size: 2em
@@ -712,7 +713,7 @@ a
           span
             display: inline-block
             width: 16px
-            height: 16px 
+            height: 16px
             font-size: 1.5em
         .\requests
           width: 100%
@@ -740,7 +741,8 @@ a
     -webkit-border-radius: .3em
     /* fallback/image non-cover color */
     /* fallback image */
-    background-image: url(images/fallback-gradient.png)
+    /* YJB: This file doesn't exist, clutters your log with 404s. I'm commenting this out. */
+/*    background-image: url("images/fallback-gradient.png")  */
     /* Firefox 3.6+ */
     background-image: -moz-linear-gradient($lightGrey, $darkGrey)
     /* Safari 4+, Chrome 1+ */
@@ -946,7 +948,7 @@ label
     margin-left: 3em
     color: #555
     z-index: -5
-    
+
     .cost
       font-style: oblique
       font
@@ -1128,7 +1130,7 @@ input[type="text"], input[type="password"], textarea
           border: 0 !important
           &:hover
             text-decoration: underline
-  
+
       .attributes
         margin-bottom: 20px
         .small-title
@@ -1142,7 +1144,7 @@ input[type="text"], input[type="password"], textarea
         float: right
 
 
-  
+
 .neighbor
   border-bottom: 3px double $darkGrey
   img
@@ -1276,7 +1278,7 @@ input[type="text"], input[type="password"], textarea
   #notes
     display: none
 
-  
+
 
 
   #user
@@ -1316,7 +1318,7 @@ input[type="text"], input[type="password"], textarea
           border: 1px solid #777
           text-decoration: none
   #children
-    width: 100%  
+    width: 100%
     margin-bottom: 30px
     #show-more
       margin-top: 10px
@@ -1332,7 +1334,7 @@ input[type="text"], input[type="password"], textarea
           text-decoration: none
     .tools
       display: none
-     
+
   #address
     width: 100%
     margin-bottom: 30px
