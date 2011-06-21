@@ -132,7 +132,7 @@
                   =image_tag(request.household.photo.url(:thumb), :alt => "#{request.household.to_s}")
                 .right
                   .title
-                    =h "#{request.title} (#{pluralize(request.cost.to_i, "credit")})"
+                    = "#{link_to request.title, members_request_path(request)} (#{pluralize(request.cost.to_i, "credit")})"
                   .date
                     =h request.start_time.to_s(:nicetime)
                     to
@@ -172,7 +172,8 @@
       .requests#confirmed
         - for confirmed in @confirmed_requests
           .request
-
+            .img
+              =image_tag(confirmed.request.household.photo.url(:thumb), :alt => "#{confirmed.household.to_s}")
             .right
               .title
                 = "#{link_to confirmed.request.title, members_request_path(confirmed.request)} (#{pluralize(confirmed.request.cost.to_i, "credit")})"
