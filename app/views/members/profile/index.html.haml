@@ -206,6 +206,51 @@
   #header
     My Commitments
   #content-commitments
+    - if @commitments.length > 0
+      .title#commitments
+        %font.small-title My Commitments
+    - if @commitments.length == 0
+      #no-requests
+        You have no commitments.
+    - else
+      .requests#commitments
+        - for commitment in @commitments
+          .request
+            .img 
+              =image_tag(commitment.request.household.photo.url(:thumb), :alt => "#{commitment.household.to_s}")
+            .left
+              %h2.name= link_to "#{commitment.request.household}", members_household_path(get_request_household(commitment))
+              %h2.household household
+        
+            .right
+              .title
+                = "#{link_to commitment.request.title, members_request_path(commitment.request)} (#{pluralize(commitment.request.cost, "credit")})"
+              .date
+                =h commitment.request.start_time.to_s(:nicetime)
+                to
+                =h commitment.request.end_time.to_s(:nicetime)
+                on
+                %br
+                =h "#{Date::DAYNAMES[commitment.request.from_date.wday]}, #{Date::MONTHNAMES[commitment.request.from_date.mon]} #{commitment.request.from_date.mday}"
+                - if commitment.request.from_date != commitment.request.to_date
+                  to
+                  =h "#{Date::DAYNAMES[confirmed.request.to_date.wday]}, #{Date::MONTHNAMES[confirmed.request.to_date.mon]} #{confirmed.request.to_date.mday}"
+                .children
+                  Children
+                  -for child in commitment.request.children
+                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
+                      =h "#{child.first_name}"
+                    -else
+                      =h "#{child.first_name}, "
+                - unless commitment.request.notes.eql? ""
+                  .notes
+                    Notes:
+                    = commitment.request.notes
+            .tools
+              = link_to "<span class='magnifier icon'></span>Details", detail_members_request_path(commitment.request), :class => 'pill button'
+              = link_to "<span class='cross icon'></span>Cancel", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
+            .clear     
+            
     - if @pending_commitments.count > 0
       .title#pending
         %font.small-title My Pending Commitments
@@ -249,51 +294,5 @@
             .tools
               = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(pending_commitment.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Cancel Care Request", members_pending_request_path(pending_commitment), :confirm => 'Are you sure you want to cancel this pending request?', :method => :delete, :class => 'pill button negative'
-            .clear
-
-    - if @commitments.length > 0
-      .title#commitments
-        %font.small-title My Commitments
-    - if @commitments.length == 0
-      #no-requests
-        You have no commitments.
-    - else
-      .requests#commitments
-        - for commitment in @commitments
-          .request
-            .img 
-              =image_tag(commitment.request.household.photo.url(:thumb), :alt => "#{commitment.household.to_s}")
-            .left
-              %h2.name= link_to "#{commitment.request.household}", members_household_path(get_request_household(commitment))
-              %h2.household household
-        
-            .right
-              .title
-                = "#{link_to commitment.request.title, members_request_path(commitment.request)} (#{pluralize(commitment.request.cost, "credit")})"
-              .date
-                =h commitment.request.start_time.to_s(:nicetime)
-                to
-                =h commitment.request.end_time.to_s(:nicetime)
-                on
-                %br
-                =h "#{Date::DAYNAMES[commitment.request.from_date.wday]}, #{Date::MONTHNAMES[commitment.request.from_date.mon]} #{commitment.request.from_date.mday}"
-                - if commitment.request.from_date != commitment.request.to_date
-                  to
-                  =h "#{Date::DAYNAMES[confirmed.request.to_date.wday]}, #{Date::MONTHNAMES[confirmed.request.to_date.mon]} #{confirmed.request.to_date.mday}"
-                .children
-                  Children
-                  -for child in commitment.request.children
-                    -if commitment.request.children.count == 1 or child.eql? commitment.request.children.last
-                      =h "#{child.first_name}"
-                    -else
-                      =h "#{child.first_name}, "
-                - unless commitment.request.notes.eql? ""
-                  .notes
-                    Notes:
-                    = commitment.request.notes
-            .tools
-              = link_to "<span class='magnifier icon'></span>Details", detail_members_request_path(commitment.request), :class => 'pill button'
-              //%br
-              = link_to "<span class='cross icon'></span>Cancel", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
             .clear
 
