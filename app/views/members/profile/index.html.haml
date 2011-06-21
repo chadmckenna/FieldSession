@@ -67,7 +67,7 @@
     %div
       .child
         .name=h "Household:"
-        =h @household.home_phone
+        =h number_to_phone @household.home_phone, :area_code => true
       %br
       -for phone_number in @household.users
         -unless @household.users.eql? nil
@@ -78,7 +78,7 @@
               - unless phone_number.work_phone.eql? nil
                 %br
                 - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
-                  =h "Work: #{phone_number.work_phone}"
+                  =h "Work: #{number_to_phone phone_number.work_phone, :area_code => true}"
                   %br
         -else
           No known phone numbers
