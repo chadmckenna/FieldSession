@@ -67,7 +67,7 @@
     %div
       - if !@household.home_phone.eql? nil
         .child
-          =h "#{@household.home_phone} (household)"
+          =h "#{number_to_phone(@household.home_phone, :area_code => true)} (Household)"
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           -if ! phone_number.household_confirmed.eql? false
