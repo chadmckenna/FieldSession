@@ -1084,7 +1084,7 @@ input[type="text"], input[type="password"], textarea {
   border: 1px solid #aaaaaa; }
   #user-household-info input[type="text"], #user-household-info input[type="password"] {
     width: 50%;
-    padding: 10px;
+    padding: 6px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     radius: 3px;
@@ -1097,14 +1097,14 @@ input[type="text"], input[type="password"], textarea {
     text-align: left; }
   #user-household-info .small-title {
     font-size: 14px;
-    padding: 10px;
+    padding: 6px 10px 6px 10px;
     font-weight: bold;
     float: left;
     width: 30%;
     text-align: right; }
   #user-household-info .text {
     font-size: 14px;
-    padding: 10px;
+    padding: 6px 10px 6px 10px;
     float: right;
     width: 60%; }
   #user-household-info .edit {
