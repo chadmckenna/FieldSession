@@ -1,87 +1,88 @@
 -title "Find Neighbors "
--if !current_user.has_household?
-  %h3 Please find the Household you would like to join.  Please note, you can only be associated with one household
--if current_user.has_household? or !params[:search].blank?
-  - unless @households.nil? || @users.nil?
-    - unless @households.count + @users.count == 0
-      - if !current_user.household.nil?
-        - unless all_neighbors
-          #profile_notice
-            = image_tag ('/images/warning-icon.png')
-            %strong Caution: 
-            Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
-  - unless params[:search].blank?
-    - content_for :title do
-      = "Search Results for: #{params[:search]}"
-    
-    %h1= "Search Results for: '#{params[:search]}'" 
-    
-    -if @households.count == 0 and @users.count == 0
-      #no-results There were no results found for '#{params[:search]}'.
-    -else
-      %h3#num-results= "There #{find_plural(@households.count + @users.count)} #{pluralize(@households.count + @users.count, 'result')} found"
-    - if !@households.nil?
-      - if @households.count > 0
-        #result-container
-          - for household in @households
-            - unless household == current_user.household
-              .result
-                .image= image_tag household.photo.url(:thumb)
-                .info
-                  .name= link_to household, members_household_path(household)
-                  .attributes
-                    %span.small-title Household Phone:
-                    = number_to_phone(household.home_phone, :area_code => true)
-                  -for user in household.users
+#request-container
+  -if !current_user.has_household?
+    %h3 Please find the Household you would like to join.  Please note, you can only be associated with one household
+  -if current_user.has_household? or !params[:search].blank?
+    - unless @households.nil? || @users.nil?
+      - unless @households.count + @users.count == 0
+        - if !current_user.household.nil?
+          - unless all_neighbors
+            #profile_notice
+              = image_tag ('/images/warning-icon.png')
+              %strong Caution: 
+              Please remember that when you add someone as a neighbor, they will be able to view ALL of your information about your household.  Make sure to only add neighbors that you know and trust
+    - unless params[:search].blank?
+      - content_for :title do
+        = "Search Results for: #{params[:search]}"
+      
+      %h1= "Search Results for: '#{params[:search]}'" 
+      
+      -if @households.count == 0 and @users.count == 0
+        #no-results There were no results found for '#{params[:search]}'.
+      -else
+        %h3#num-results= "There #{find_plural(@households.count + @users.count)} #{pluralize(@households.count + @users.count, 'result')} found"
+      - if !@households.nil?
+        - if @households.count > 0
+          #result-container
+            - for household in @households
+              - unless household == current_user.household
+                .result
+                  .image= image_tag household.photo.url(:thumb)
+                  .info
+                    .name= link_to household, members_household_path(household)
                     .attributes
-                      %span.small-title Email:
+                      %span.small-title Household Phone:
+                      = number_to_phone(household.home_phone, :area_code => true)
+                    -for user in household.users
+                      .attributes
+                        %span.small-title Email:
+                        = user.email
+                        %br
+                        %span.small-title City:
+                        = household.address.city
+                        %br
+                        %span.small-title State:
+                        = household.address.state
+                        
+                  .button
+                    - if !current_user.has_household?
+                      = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
+                    - elsif neighbor(household)
+                      #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor from your village?', :method => :delete, :class => 'pill button negative'
+                      = link_to '<span class="magnifier icon"></span>Show', members_household_path(household), :class => 'pill button'
+                    - elsif pending_neighbor(household)
+                      = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_pending_neighbor(household)), :method => :delete, :class => 'pill button negative'
+                    - else
+                      = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post, :class => 'pill button'
+                  .clear
+      
+      - if !@users.nil?
+        - if @users.count > 0
+          #result-container
+            - for user in @users
+              - unless user.household == current_user.household
+                .result
+                  = image_tag user.household.photo.url(:thumb)
+                  .info
+                    .name= link_to user.household, members_household_path(user.household)
+                    .attributes
+                      %font.small-title Phone:
+                      = number_to_phone(user.phone, :area_code => true)
+                      %br
+                      %font.small-title Email:
                       = user.email
-                      %br
-                      %span.small-title City:
-                      = household.address.city
-                      %br
-                      %span.small-title State:
-                      = household.address.state
-                      
-                .button
-                  - if !current_user.has_household?
-                    = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
-                  - elsif neighbor(household)
-                    #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor from your village?', :method => :delete, :class => 'pill button negative'
-                    = link_to '<span class="magnifier icon"></span>Show', members_household_path(household), :class => 'pill button'
-                  - elsif pending_neighbor(household)
-                    = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_pending_neighbor(household)), :method => :delete, :class => 'pill button negative'
-                  - else
-                    = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post, :class => 'pill button'
-                .clear
-    
-    - if !@users.nil?
-      - if @users.count > 0
-        #result-container
-          - for user in @users
-            - unless user.household == current_user.household
-              .result
-                = image_tag user.household.photo.url(:thumb)
-                .info
-                  .name= link_to user.household, members_household_path(user.household)
-                  .attributes
-                    %font.small-title Phone:
-                    = number_to_phone(user.phone, :area_code => true)
-                    %br
-                    %font.small-title Email:
-                    = user.email
-                .button
-                  - if !current_user.has_household?
-                    = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
-                  - elsif neighbor(user.household) 
-                    #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
-                    = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'  
-                  - elsif pending_neighbor(user.household)
-                    = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_pending_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor request?', :method => :delete, :class => 'pill button negative'
-                  - else
-                    = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post, :class => 'pill button'
-                .clear
-          
-%h2 Search for Neighbors
-%h3 You can search by name, phone number, or email
-= render :partial => 'form'
+                  .button
+                    - if !current_user.has_household?
+                      = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
+                    - elsif neighbor(user.household) 
+                      #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
+                      = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'  
+                    - elsif pending_neighbor(user.household)
+                      = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_pending_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor request?', :method => :delete, :class => 'pill button negative'
+                    - else
+                      = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post, :class => 'pill button'
+                  .clear
+            
+  %h2 Search for Neighbors
+  %h3 You can search by name, phone number, or email
+  = render :partial => 'form'
