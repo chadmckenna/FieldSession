@@ -43,13 +43,23 @@
       %p
     %div.title Phone
     %div
+      .child
+        .name=h "Household:"
+        =h number_to_phone(@household.home_phone, :area_code => true)
+      %br
       -for phone_number in @household.users
         -unless @household.users.eql? nil
-          .child
-            =h "#{number_to_phone(phone_number.phone)}"
+          -if ! phone_number.household_confirmed.eql? false
+            .child
+              .name=h "#{phone_number.first_name}:"
+              =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
+              - unless phone_number.work_phone.eql? nil
+                %br
+                - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
+                  =h "Work: #{number_to_phone(phone_number.work_phone, :area_code => true)}"
+                  %br
         -else
-          No phone number.
-
+          No known phone numbers
 #right-column
   #top
     #household-info
