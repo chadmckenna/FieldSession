@@ -336,6 +336,17 @@ a
 /*
  * Splash Screen
  */
+#static_screen_container
+  width: 800px
+  border: 1px solid $mastheadBG
+  margin: 0 auto 4em
+  line-height: 170%
+  padding: 2em
+  background: white
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+  
+ 
 #container
   min-height: 80%
   a
@@ -393,6 +404,35 @@ a
       background: url("../images/how_it_works.jpg") no-repeat
       &:hover
         background-position: bottom
+
+#top
+  width: 74%
+  float: right
+  padding: 1em
+  height: 65px
+  margin-bottom: 10px
+  //padding: 10px 0 10px 0
+  radius: 5px
+  #household-info
+    //float: left
+    width: 100%
+    strong
+      margin: 0px
+      font-size: 2em
+    #balance
+      
+    #title
+      float: left
+      font-size: 2em
+    #button
+      float: right
+    #buttons
+      text-align: right
+      width: 45%
+      float: right
+      margin: -4px 0px 0 0
+      a
+        margin-right: -4px
 
 #container
   width: 98%
@@ -525,21 +565,21 @@ a
     #title
       text-align: center
     #left-column
-      width: 21%
+      width: 19%
       float: left
       background: white
       -moz-border-radius: 5px
       -webkit-border-radius: 5px
       radius: 5px
       border: 1px solid $mastheadBG
-      padding: .5em
+      padding: .3em
       margin: 0 0 30px 0
       img
         max-width: 100%
       #photo
         width: 100%
         text-align: center
-        margin: -20px auto 0px auto
+        margin: 0px auto 0px auto
 
         a
           padding: 0 !important
@@ -595,15 +635,8 @@ a
         #add-child
           margin: 10px 0 10px 0px
     #right-column
-      width: 75%
+      width: 74%
       float: right
-      margin: 0 0 30px 0
-      //padding: 1.2em
-      //-moz-border-radius: 10px
-      //-webkit-border-radius: 10px
-      //radius: 10px
-      //background: white
-      //border: 1px solid $mastheadBG
       #top
         width: 98%
         height: 65px
@@ -630,6 +663,15 @@ a
             margin: -4px 0px 0 0
             a
               margin-right: -4px
+
+      margin: 0 0 30px 10px
+      padding: 1em
+      -moz-border-radius: 5px
+      -webkit-border-radius: 5px
+      radius: 5px
+      background: white
+      border: 1px solid $mastheadBG
+
       #header
         float:left
         font-size: 2em
@@ -638,7 +680,7 @@ a
 
       #content-requests, #content-commitments
         margin-bottom: 20px
-        width: 98%
+        width: 95%
         font-weight: bold
         //padding: 5px
         -moz-border-radius: 5px
@@ -662,7 +704,7 @@ a
         .small-title
           font-size: 1.3em
 
-        #title
+        .title
           text-align: left
           .small-title
             font-size: 1.3em
@@ -672,7 +714,7 @@ a
             width: 16px
             height: 16px 
             font-size: 1.5em
-        #requests
+        .\requests
           width: 100%
           height: 100%
           //overflow: auto
@@ -799,8 +841,9 @@ label
   padding: 1em
   padding-right: 3em
   background: white
-  -moz-border-radius: 10px
-  -webkit-border-radius: 10px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+  border-radius: 5px
   #red
     color: #900
   #no-requests
@@ -996,6 +1039,7 @@ label
   h2
     font-size: 1.3em
   #commitments
+    line-height: 130%
     #no-commitment
       font-size: 1em
       color: #AAA
@@ -1006,15 +1050,17 @@ label
       font-weight: none
       font-size: .9em
       border-bottom: 3px double $lightGrey
-      margin-bottom: 1em
-      margin-left: 30px
-      padding: .5em
+      margin-bottom: .5em
+      margin-left: 15px
+      padding: 0 0 5px 0
       text-align: left
       .link
+        float: right
         text-align: right
-        margin-top: 5px
+        margin-top: -7px
         margin-bottom: 10px
   #pending
+    line-height: 130%
     #no-pending
       font-size: 1em
       color: #AAA
@@ -1025,13 +1071,14 @@ label
       font-weight: none
       font-size: .9em
       border-bottom: 3px double $lightGrey
-      margin-bottom: 1em
-      padding: .5em
+      margin-bottom: .5em
+      padding: 0 0 5px 0
       text-align: left
-      margin-left: 30px
+      margin-left: 15px
       .link
+        float: right
         text-align: right
-        margin: 5px 0 10px 0
+        margin: -7px 0 10px 0
 
 input[type="text"], input[type="password"], textarea
   border: 1px solid $mastheadBG
@@ -1170,7 +1217,7 @@ input[type="text"], input[type="password"], textarea
 
   input[type="text"], input[type="password"]
     width: 50%
-    padding: 10px
+    padding: 6px
     -moz-border-radius: 3px
     -webkit-border-radius: 3px
     radius: 3px
@@ -1184,14 +1231,14 @@ input[type="text"], input[type="password"], textarea
     text-align: left
   .small-title
     font-size: 14px
-    padding: 10px
+    padding: 6px 10px 6px 10px
     font-weight: bold
     float: left
     width: 30%
     text-align: right
   .text
     font-size: 14px
-    padding: 10px
+    padding: 6px 10px 6px 10px
     float: right
     width: 60%
   .edit

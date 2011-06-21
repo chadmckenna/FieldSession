@@ -7,7 +7,7 @@
 - content_for :header do
   - if EmergencyContact.find(:all, :conditions => {:household_id => current_user.household_id}).count >= 1
     #quick-nav
-      = link_to "<span class='leftarrow icon'></span>Back to profile", members_profile_path, :class => 'pill button'
+      = link_to "<span class='leftarrow icon'></span>Back to household", members_profile_path, :class => 'pill button'
   %h2 Add an Emergency contact
   %p This contact information will be given out to neighbors that you have chosen to watch your kids. You can #{link_to 'view all your emergency contacts', members_emergency_contacts_path} as well.
 .new-forms

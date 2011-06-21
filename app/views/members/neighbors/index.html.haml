@@ -1,5 +1,4 @@
 -title "My Neighbors"
-= link_to "<span class='magnifier icon'></span>Find neighbors", members_search_path, :class => 'pill button'
 - if @pending_neighbors.count > 0
   %h1 Pending Neighbor Requests
   #request-container
@@ -98,3 +97,5 @@
       %span#red You do not have any neighbors. 
     %h3 You can check above to see if you have any pending requests or new neighbor requests.
     %h3 Also, you can add them by searching for households by their name or you can search for users by either their phone number or email.
+%p
+= link_to "<span class='magnifier icon'></span>Find neighbors", members_search_path, :class => 'pill button'

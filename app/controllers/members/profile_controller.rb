@@ -4,7 +4,16 @@ class Members::ProfileController < Members::MembersController
     @my_requests = Request.find_all_by_household_id(current_user.household.id)
     @household = current_user.household
     @num_requests = Request.find_all_by_household_id(@household.id).count
-    @commitments = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "true"})
+    
+    @commitments = []
+    commitments = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "true"})
+    for commitment in commitments
+      request = Request.find_by_id(commitment.request_id)
+      end_time = Time.local(request.to_date.year, request.to_date.month, request.to_date.day, request.end_time.hour, request.end_time.min)
+      if end_time > Time.now
+        @commitments << commitment
+      end
+    end
     
     @confirmed_requests = []
     confirmed_requests = PendingRequest.find(:all, :conditions => {:belongs_to_household_id => current_user.household.id, :confirmed => "true"})
