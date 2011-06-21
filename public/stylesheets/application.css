@@ -609,22 +609,22 @@ a {
           padding: 1em 0; }
         #container #content #right-column #content-requests .small-title, #container #content #right-column #content-commitments .small-title {
           font-size: 1.3em; }
-        #container #content #right-column #content-requests #title, #container #content #right-column #content-commitments #title {
+        #container #content #right-column #content-requests .title, #container #content #right-column #content-commitments .title {
           text-align: left; }
-          #container #content #right-column #content-requests #title .small-title, #container #content #right-column #content-commitments #title .small-title {
+          #container #content #right-column #content-requests .title .small-title, #container #content #right-column #content-commitments .title .small-title {
             font-size: 1.3em;
             margin-right: 10px; }
-          #container #content #right-column #content-requests #title span, #container #content #right-column #content-commitments #title span {
+          #container #content #right-column #content-requests .title span, #container #content #right-column #content-commitments .title span {
             display: inline-block;
             width: 16px;
             height: 16px;
             font-size: 1.5em; }
-        #container #content #right-column #content-requests #requests, #container #content #right-column #content-commitments #requests {
+        #container #content #right-column #content-requests .\requests, #container #content #right-column #content-commitments .\requests {
           width: 100%;
           height: 100%;
           margin-top: 10px;
           padding: 2px; }
-          #container #content #right-column #content-requests #requests #img, #container #content #right-column #content-commitments #requests #img {
+          #container #content #right-column #content-requests .\requests #img, #container #content #right-column #content-commitments .\requests #img {
             max-width: 8%;
             margin: 0.5em 0.5em 0.5em 0;
             float: left; }

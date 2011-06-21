@@ -119,9 +119,9 @@
         #no-requests 
           You have no open requests.
       - else
-        #title
+        .title#open
           %font.small-title My Open Requests
-        #requests
+        .requests#open
           - for request in @open_requests
             -unless commit(request)
               .request
@@ -160,13 +160,13 @@
         You have no open requests.
 
     - if @confirmed_requests.length > 0
-      #title
+      .title#confirmed
         %font.small-title Confirmed Care Requests
     - if @confirmed_requests.length == 0
       #no-requests
         You have no confirmed requests.
     - else
-      #requests
+      .requests#confirmed
         - for confirmed in @confirmed_requests
           .request
 
@@ -204,13 +204,13 @@
     My Commitments
   #content-commitments
     - if @pending_commitments.count > 0
-      #title
+      .title#pending
         %font.small-title My Pending Commitments
     - if @pending_commitments.count == 0
       #no-requests
         You have no pending commitments
     - else
-      #requests
+      .requests#pending
         - for pending_commitment in @pending_commitments
           .request
             .img
@@ -249,13 +249,13 @@
             .clear
 
     - if @commitments.length > 0
-      #title
+      .title#commitments
         %font.small-title My Commitments
     - if @commitments.length == 0
       #no-requests
         You have no commitments.
     - else
-      #requests
+      .requests#commitments
         - for commitment in @commitments
           .request
             .img 
