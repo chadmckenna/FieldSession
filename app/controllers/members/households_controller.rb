@@ -9,7 +9,7 @@ class Members::HouseholdsController < Members::MembersController
       @num_requests = Request.find_all_by_household_id(@household.id).count
     else
       flash[:error] = "You are not neighbors with this person."
-      redirect_to members_profile_path
+      redirect_to :back
     end
   end
 

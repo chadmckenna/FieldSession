@@ -470,7 +470,7 @@ a {
   #container #profile_notice {
     text-align: center;
     width: 100%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto 20px auto;
     background: #ffeeaa;
     color: #333333;
     padding: 0.5em;
@@ -555,7 +555,7 @@ a {
         #container #content #left-column #info .child .name {
           text-decoration: underline; }
         #container #content #left-column #info #add-child {
-          margin: 10px 0 10px 20px; }
+          margin: 10px 0 10px 0px; }
     #container #content #right-column {
       width: 75%;
       float: right;
@@ -564,12 +564,7 @@ a {
         width: 98%;
         height: 65px;
         margin-bottom: 15px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        radius: 5px;
-        background: white;
-        border: 1px solid #878c6d;
-        padding: 1.2em; }
+        radius: 5px; }
         #container #content #right-column #top #household-info {
           width: 100%; }
           #container #content #right-column #top #household-info strong {

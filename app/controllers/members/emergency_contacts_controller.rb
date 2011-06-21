@@ -33,7 +33,13 @@ class Members::EmergencyContactsController < Members::MembersController
         redirect_to members_profile_path
       end
     else
-      render :action => 'new'
+      case params[:commit]
+      when 'Skip'
+        flash[:success] = "No emergency contacts added to your household. You can add more by editing the emergency contacts section under your household image."
+        redirect_to members_profile_path
+      else
+        render :action => 'new'
+      end
     end
   end
   

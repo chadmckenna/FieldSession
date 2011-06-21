@@ -1,7 +1,11 @@
 - title "Edit Household"
 #left-column
   #photo
-    =image_tag(@household.photo.url(:medium))
+    - if !@household.photo.url.eql? ""
+      =image_tag(@household.photo.url(:medium))
+    - else
+      %br
+      NO PHOTO
   #info
 
 

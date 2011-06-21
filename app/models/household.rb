@@ -32,7 +32,7 @@ class Household < ActiveRecord::Base
       :with => /^[\(\)0-9\- \+\.]{10,20}$/
       
   validates_associated :address
-  validates_attachment_presence :photo
+  #validates_attachment_presence :photo
   #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
   
   before_create :assign_default_credits

@@ -4,7 +4,7 @@
   #profile_notice
     %h3 Your household is incomplete!
     You have indicated that you have #{@household.num_children} children, but you have only created #{pluralize(@household.children.count, "child")} for your household.
-    %p=link_to "Add another child >>", new_members_child_path
+    %p= link_to "<span class='user icon'></span>Add a new child", new_members_child_path, :class => 'pill button'
 #left-column
   #photo
     %a{ :href => members_profile_edit_path } 
@@ -62,20 +62,18 @@
       Phone
       %span#small_link= link_to "(edit)", members_settings_path
     %div
-      .child
-        .name=h "Household:"
-        =h @household.home_phone
-      %br
+      - if !@household.home_phone.eql? nil
+        .child
+          =h "#{@household.home_phone} (household)"
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           -if ! phone_number.household_confirmed.eql? false
             .child
-              .name=h "#{phone_number.first_name}:"
-              =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
+              =h "#{number_to_phone(phone_number.phone, :area_code => true)} (#{phone_number.first_name} cell)"
               - unless phone_number.work_phone.eql? nil
                 %br
                 - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
-                  =h "Work: #{phone_number.work_phone}"
+                  =h "#{number_to_phone(phone_number.work_phone, :area_code => true)} (#{phone_number.first_name} work)"
                   %br
         -else
           No known phone numbers
