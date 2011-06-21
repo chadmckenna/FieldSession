@@ -1,31 +1,34 @@
 - title "View child: #{@child.first_name}"
 
-%p
-  = link_to "<< Back to household", members_profile_path
+#request-container
+  %p
+    = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button"
 
-%p
-  %strong First Name:
-  =h @child.first_name
-%p
-  %strong Last Name:
-  =h @child.last_name
-%p
-  %strong Date Of Birth:
-  =h @child.date_of_birth
-%p
-  %strong Dietary Restrictions:
-  =h @child.dietary_restrictions
-%p
-  %strong Allergies:
-  =h @child.allergies
-%p
-  %strong Medications:
-  =h @child.medications
-%p
-  %strong Notes:
-  =h @child.notes
+  %p
+    %strong First Name:
+    =h @child.first_name
+  %p
+    %strong Last Name:
+    =h @child.last_name
+  %p
+    %strong Date Of Birth:
+    =h @child.date_of_birth
+  %p
+    %strong Dietary Restrictions:
+    =h @child.dietary_restrictions
+  %p
+    %strong Allergies:
+    =h @child.allergies
+  %p
+    %strong Medications:
+    =h @child.medications
+  %p
+    %strong Notes:
+    =h @child.notes
 
-%p
-  = link_to "Edit this Child", edit_members_child_path(@child)
-  = link_to "Remove this Child", members_child_path(@child), :confirm => 'Are you sure?', :method => :delete
-  = link_to "View All Your Children", members_children_path
+  %p
+    = link_to "<span class='pen icon'></span>Edit", edit_members_child_path(@child), :class => "pill button"
+    = link_to "<span class='cross icon'></span>Remove", members_child_path(@child), :confirm => 'Are you sure?', :method => :delete, :class => "pill button negative"
+    %p
+    = link_to "<span class='leftarrow icon'></span>View All Your Children", members_children_path, :class => "pill button"
+  .clear
