@@ -1,57 +1,30 @@
 - title "Children"
 
-%p= link_to "<span class='user icon'></span>Add a new child", new_members_child_path, :class => 'pill button'
+#request-container
+  %p= link_to "<span class='user icon'></span>Add a new child", new_members_child_path, :class => 'pill button'
 
-#child-container
-  -for child in @children
-    .child_view
-      .top
-        %h2=link_to "#{child}", members_child_path(child)
-      .left
-        .info
-          Birthdate:
-          =h child.date_of_birth.to_s(:long)
-        .info
-          Diet Restrictions:
-          =h child.dietary_restrictions
-        .info
-          Allergies:
-          =h child.allergies
-        .info
-          Medications:
-          =h child.medications
-        .info
-          Other Notes:
-          =h child.notes
-        %p
-          = link_to '<span class="pen icon"></span>Edit Child', edit_members_child_path(child), :class => 'pill button'
-          = link_to '<span class="cross icon"></span>Remove Child', members_child_path(child), :confirm => 'Are you sure?', :method => :delete, :class => 'pill button negative'
--#    -#%strong "#{child}" 
--#    %font#edit-child= link_to '(edit)', '#'
--#    %br
--#    %br
--#    - form_for edit_members_child_path(child) do |f|
--#      #child-first_name
--#        %font.small-title= f.label "First Name:" 
--#        %font.text= child.first_name
--#      #child-last_name
--#        %font.small-title= f.label "Last Name:"
--#        %font.text= child.last_name
--#      #birthday
--#        %font.small-title= f.label "Birthday:"
--#        %font.text= child.date_of_birth
--#      #allergies
--#        %font.small-title= f.label "Allergies:"
--#        %font.text= child.allergies
--#      #dietary_restrictions
--#        %font.small-title= f.label "Dietary Restrictions:"
--#        %font.text= child.dietary_restrictions
--#      #medications
--#        %font.small-title= f.label "Medications:"
--#        %font.text= child.medications
--#      #note
--#        %font.small-title= f.label "Other Notes:"
--#        %font.text= child.notes
--#        
--#      #child-submit
--#        = f.submit
+  #child-container
+    -for child in @children
+      .child_view
+        .top
+          %h2=link_to "#{child}", members_child_path(child)
+        .left
+          .info
+            Birthdate:
+            =h child.date_of_birth.to_s(:long)
+          .info
+            Diet Restrictions:
+            =h child.dietary_restrictions
+          .info
+            Allergies:
+            =h child.allergies
+          .info
+            Medications:
+            =h child.medications
+          .info
+            Other Notes:
+            =h child.notes
+          %p
+            = link_to '<span class="pen icon"></span>Edit Child', edit_members_child_path(child), :class => 'pill button'
+            = link_to '<span class="cross icon"></span>Remove Child', members_child_path(child), :confirm => 'Are you sure?', :method => :delete, :class => 'pill button negative'
+  .clear
