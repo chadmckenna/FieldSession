@@ -127,9 +127,6 @@
               .request
                 .img 
                   =image_tag(request.household.photo.url(:thumb), :alt => "#{request.household.to_s}")
-                .left
-                  %h2.name= "#{request.household}"
-                  %h2.household household
                 .right
                   .title
                     =h "#{request.title} (#{pluralize(request.cost.to_i, "credit")})"

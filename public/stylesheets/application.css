@@ -309,6 +309,16 @@ a {
 
 /* Splash Screen
  */
+#static_screen_container {
+  width: 800px;
+  border: 1px solid #878c6d;
+  margin: 0 auto 4em;
+  line-height: 170%;
+  padding: 2em;
+  background: white;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
+
 #container {
   min-height: 80%; }
   #container #tag_line {
