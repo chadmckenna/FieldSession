@@ -1,20 +1,22 @@
 - title "Emergency Contacts"
 
-%p= link_to "<span class='user icon'></span>Add a new emergency contact", new_members_emergency_contact_path, :class => 'pill button'
+#request-container
+  %p= link_to "<span class='user icon'></span>Add a new emergency contact", new_members_emergency_contact_path, :class => 'pill button'
 
-#child-container
-  -for contact in @emergency_contacts
-    .child_view
-      .top
-        %h2=link_to "#{contact.name}", members_emergency_contact_path(contact)
-      .left
-        .info
-          Relationship:
-          =h contact.relationship
-        .info
-          Phone:
-          =h contact.phone
-        %p
-          = link_to 'Edit Emergency Contact', edit_members_emergency_contact_path(contact)
-          = link_to 'Remove Emergency Contact', members_emergency_contact_path(contact), :confirm => 'Are you sure?', :method => :delete
+  #child-container
+    -for contact in @emergency_contacts
+      .child_view
+        .top
+          %h2=link_to "#{contact.name}", members_emergency_contact_path(contact)
+        .left
+          .info
+            Relationship:
+            =h contact.relationship
+          .info
+            Phone:
+            =h contact.phone
+          %p
+            = link_to '<span class="pen icon"></span>Edit', edit_members_emergency_contact_path(contact), :class => "pill button"
+            = link_to '<span class="cross icon"></span>Remove Emergency Contact', members_emergency_contact_path(contact), :confirm => 'Are you sure?', :method => :delete, :class => "pill button negative"
+  .clear
 
