@@ -1,8 +1,8 @@
 - title "Edit Household"
 #left-column
   #photo
-    =image_tag(@household.photo.url(:medium))
-  #info
+    =image_tag @household.photo.url(:medium), :style => "margin: 1em"
+  .clear
 
 
 #right-column

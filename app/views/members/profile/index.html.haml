@@ -92,23 +92,23 @@
           .child
             =h link_to "#{contact.name} (#{contact.relationship})", members_emergency_contact_path(contact)
 
+#top
+  #household-info
+    #title= "The #{@household} Household "
+    %font{:style => "margin: 0 0 0 7px"}= link_to "(edit)", members_settings_path
+    %br
+    %br
+    // open requests should look like they deduct immediately
+    - open_requests_sum = 0
+    -for request in @household.requests
+      - unless commit(request)
+        - open_requests_sum += request.cost.to_i
+    
+    = "Credit Balance: #{@household.credits - open_requests_sum}"
+    #buttons
+      = link_to '<span class="pen icon"></span>Edit Household', members_settings_path, :class => 'left pill button'
+      = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
 #right-column
-  #top
-    #household-info
-      #title= "The #{@household} Household "
-      %font{:style => "margin: 0 0 0 7px"}= link_to "(edit)", members_settings_path
-      %br
-      %br
-      // open requests should look like they deduct immediately
-      - open_requests_sum = 0
-      -for request in @household.requests
-        - unless commit(request)
-          - open_requests_sum += request.cost.to_i
-      
-      = "Credit Balance: #{@household.credits - open_requests_sum}"
-      #buttons
-        = link_to '<span class="pen icon"></span>Edit Household', members_settings_path, :class => 'left pill button'
-        = link_to '<span class="plus icon"></span>Create New Request', new_members_request_path, :class => 'right pill button'
   #header
     My Requests
   #content-requests

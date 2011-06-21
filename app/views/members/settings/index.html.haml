@@ -6,9 +6,9 @@
 
 #delete-account
   - unless current_user.household.users.count > 1
-    = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related', :class => 'pill button negative'
+    = link_to '<span class="cross icon"></span>Delete My Account?', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? Deleting your account will also remove your household and all information related', :class => 'pill button negative'
   - else
-    = link_to '<span class="cross icon"></span>Delete My Account', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account', :class => 'pill button negative'
+    = link_to '<span class="cross icon"></span>Delete My Account?', {:controller => 'settings', :action => 'delete_account'}, :confirm => 'Are you sure? This will not delete your household, only your account', :class => 'pill button negative'
 .clear
 #hidden-requests-container
   %h2.title Hidden Requests

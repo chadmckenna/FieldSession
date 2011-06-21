@@ -375,6 +375,31 @@ a {
       #container #learn_more #how_it_works a:hover {
         background-position: bottom; }
 
+#top {
+  width: 74%;
+  float: right;
+  padding: 1em;
+  height: 65px;
+  margin-bottom: 10px;
+  radius: 5px; }
+  #top #household-info {
+    width: 100%; }
+    #top #household-info strong {
+      margin: 0px;
+      font-size: 2em; }
+    #top #household-info #title {
+      float: left;
+      font-size: 2em; }
+    #top #household-info #button {
+      float: right; }
+    #top #household-info #buttons {
+      text-align: right;
+      width: 45%;
+      float: right;
+      margin: -4px 0px 0 0; }
+      #top #household-info #buttons a {
+        margin-right: -4px; }
+
 #container {
   width: 98%;
   line-height: 150%;
@@ -500,21 +525,21 @@ a {
     #container #content #title {
       text-align: center; }
     #container #content #left-column {
-      width: 21%;
+      width: 19%;
       float: left;
       background: white;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
       radius: 5px;
       border: 1px solid #878c6d;
-      padding: 0.5em;
+      padding: 0.3em;
       margin: 0 0 30px 0; }
       #container #content #left-column img {
         max-width: 100%; }
       #container #content #left-column #photo {
         width: 100%;
         text-align: center;
-        margin: -20px auto 0px auto; }
+        margin: 0px auto 0px auto; }
         #container #content #left-column #photo a {
           padding: 0 !important;
           border: none !important;
@@ -567,38 +592,22 @@ a {
         #container #content #left-column #info #add-child {
           margin: 10px 0 10px 20px; }
     #container #content #right-column {
-      width: 75%;
+      width: 74%;
       float: right;
-      margin: 0 0 30px 0; }
-      #container #content #right-column #top {
-        width: 98%;
-        height: 65px;
-        margin-bottom: 10px;
-        radius: 5px; }
-        #container #content #right-column #top #household-info {
-          width: 100%; }
-          #container #content #right-column #top #household-info strong {
-            margin: 0px;
-            font-size: 2em; }
-          #container #content #right-column #top #household-info #title {
-            float: left;
-            font-size: 2em; }
-          #container #content #right-column #top #household-info #button {
-            float: right; }
-          #container #content #right-column #top #household-info #buttons {
-            text-align: right;
-            width: 45%;
-            float: right;
-            margin: -4px 0px 0 0; }
-            #container #content #right-column #top #household-info #buttons a {
-              margin-right: -4px; }
+      margin: 0 0 30px 10px;
+      padding: 1em;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      radius: 5px;
+      background: white;
+      border: 1px solid #878c6d; }
       #container #content #right-column #header {
         font-size: 2em;
         padding: 0.25em 0.125em 0.25em 0.125em;
         margin-bottom: 5px; }
       #container #content #right-column #content-requests, #container #content #right-column #content-commitments {
         margin-bottom: 20px;
-        width: 98%;
+        width: 95%;
         font-weight: bold;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
@@ -752,8 +761,9 @@ label {
   padding: 1em;
   padding-right: 3em;
   background: white;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px; }
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
   #request-container #red {
     color: #990000; }
   #request-container #no-requests {
