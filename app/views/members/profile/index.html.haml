@@ -36,8 +36,11 @@
             =h link_to "#{child.first_name} #{child.last_name}", members_child_path(child)
         -else
           You have no children.
-      #add-child
-        = link_to "<span class='user icon'></span>Add Child", new_members_child_path, :class => 'button pill'
+      - if @household.num_children < @household.children.count
+        #add-child
+          = link_to "<span class='user icon'></span>Add Child", new_members_child_path, :class => 'button pill'
+      - else
+        %br
     %div.title
       = "Address"
       %span#small_link= link_to " (edit)", edit_members_address_path(@household.address)
