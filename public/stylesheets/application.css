@@ -898,7 +898,11 @@ label {
         vertical-align: bottom; }
   .request .tools, .neighbor .tools {
     float: right;
-    z-index: 2; }
+    z-index: 2;
+    font-family: Nunito;
+    text-align: right; }
+    .request .tools font, .neighbor .tools font {
+      font-weight: normal; }
     .request .tools .volunteer-button, .neighbor .tools .volunteer-button {
       float: right;
       margin-top: 10px; }
