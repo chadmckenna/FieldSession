@@ -1,5 +1,5 @@
 #########################################################################################################
-# Teem R41nB0W K4Tz is powered by:                                                                      #
+# Teem R41nB0WK4Tz is powered by:                                                                       #
 #########################################################################################################
 #                                                                                                       #
 #                    `:oyhdmmdy+`                                                                       #  
@@ -27,8 +27,9 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   filter_parameter_logging :password
-  #before_filter :require_user
+  before_filter :require_user
   before_filter :require_household
+  before_filter :require_address
   helper_method :current_user_session, :current_user, :home_url_for
   before_filter :prepare_new_session
 
@@ -83,6 +84,13 @@ class ApplicationController < ActionController::Base
       unless current_user.has_household? or current_user.household_confirmed.eql? 0
         flash[:error] = "You must create or join a household"
         redirect_to new_members_household_path
+      end
+    end
+    
+    def require_address
+      if current_user.household.address.nil?
+        flash[:error] = "You must have an address for your household."
+        redirect_to new_members_address_path
       end
     end
 

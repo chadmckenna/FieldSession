@@ -1,5 +1,6 @@
 class Members::UsersController < Members::MembersController
-  skip_before_filter :require_household, :only => [:new, :create, :add]
+  skip_before_filter :require_household, :only => [:new, :create, :add, :show, :edit, :update]
+  skip_before_filter :require_address, :only => [:show]
   
   def index
     @caregivers = User.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true})
@@ -27,7 +28,11 @@ class Members::UsersController < Members::MembersController
       redirect_to members_profile_path
     elsif @user.update_attributes(params[:user])
       flash[:success] = "Successfully updated user profile."
-      redirect_to members_settings_path
+      if @user.household_confirmed.eql? false
+        redirect_to members_user_path(@user)
+      else
+        redirect_to members_settings_path
+      end
     else
       render :action => 'edit'
     end

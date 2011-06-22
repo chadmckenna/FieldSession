@@ -12,6 +12,7 @@
     = f.text_field :phone
   %p
     = f.label "&nbsp;"
-    = f.submit "Save"
-    = f.submit "Add another emergency contact"
+    = f.submit "Save", :disable_with => "Please wait..."
+    = f.submit "Skip", :disable_with => "Please wait..."
+    = f.submit "Add another contact", :disable_with => "Please wait..."
     

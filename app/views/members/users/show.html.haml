@@ -2,7 +2,7 @@
 
 #request-container
   %p
-    = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button"
+    = link_to "<span class='home icon'></span>Back to household", members_profile_path, :class => "pill button" unless !current_user.has_household?
 
   %p
     %strong First Name:
@@ -18,4 +18,7 @@
     =h @user.email
 
   %p
-    = link_to "<span class='pen icon'></span>Edit this caregiver", edit_members_user_path(@user), :class => "pill button"
+    - if !current_user.has_household?
+      = link_to "<span class='pen icon'></span>Edit", edit_members_user_path(current_user), :class => "pill button"
+    - else
+      = link_to "<span class='pen icon'></span>Edit this caregiver", edit_members_user_path(@user), :class => "pill button"

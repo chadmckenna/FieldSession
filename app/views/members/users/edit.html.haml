@@ -6,4 +6,7 @@
   = render :partial => 'form'
 
   %p
+  - if current_user.household_confirmed.eql? false
+    = link_to "<span class='leftarrow icon'></span>Back", members_user_path(current_user), :class => "pill button"
+  - else
     = link_to "<span class='home icon'></span>Back to Household", members_profile_path, :class => "pill button"

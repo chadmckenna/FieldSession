@@ -1,5 +1,6 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household#, :only => [:join_request, :new, :create]
+  skip_before_filter :require_address, :only => [:new, :create, :join_request]
   filter_access_to :all
   
 
@@ -9,7 +10,7 @@ class Members::HouseholdsController < Members::MembersController
       @num_requests = Request.find_all_by_household_id(@household.id).count
     else
       flash[:error] = "You are not neighbors with this person."
-      redirect_to members_profile_path
+      redirect_to :back
     end
   end
 

@@ -378,7 +378,7 @@ a {
 #top {
   width: 74%;
   float: right;
-  padding: 1em;
+  padding: 0 1em 1em 1em;
   height: 65px;
   margin-bottom: 10px;
   radius: 5px; }
@@ -505,7 +505,7 @@ a {
   #container #profile_notice {
     text-align: center;
     width: 100%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto 20px auto;
     background: #ffeeaa;
     color: #333333;
     padding: 0.5em;
@@ -590,17 +590,37 @@ a {
         #container #content #left-column #info .child .name {
           text-decoration: underline; }
         #container #content #left-column #info #add-child {
-          margin: 10px 0 10px 20px; }
+          margin: 10px 0 10px 0px; }
     #container #content #right-column {
       width: 74%;
       float: right;
-      margin: 0 0 30px 10px;
-      padding: 1em;
+      margin: 0 0 50px 10px;
+      padding: 0 1em 1em 1em;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
-      radius: 5px;
-      background: white;
-      border: 1px solid #878c6d; }
+      radius: 5px; }
+      #container #content #right-column #top {
+        width: 98%;
+        height: 65px;
+        margin-bottom: 15px;
+        radius: 5px; }
+        #container #content #right-column #top #household-info {
+          width: 100%; }
+          #container #content #right-column #top #household-info strong {
+            margin: 0px;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info #title {
+            float: left;
+            font-size: 2em; }
+          #container #content #right-column #top #household-info #button {
+            float: right; }
+          #container #content #right-column #top #household-info #buttons {
+            text-align: right;
+            width: 45%;
+            float: right;
+            margin: -4px 0px 0 0; }
+            #container #content #right-column #top #household-info #buttons a {
+              margin-right: -4px; }
       #container #content #right-column #header {
         font-size: 2em;
         padding: 0.25em 0.125em 0.25em 0.125em;
@@ -878,7 +898,11 @@ label {
         vertical-align: bottom; }
   .request .tools, .neighbor .tools {
     float: right;
-    z-index: 2; }
+    z-index: 2;
+    font-family: Nunito;
+    text-align: right; }
+    .request .tools font, .neighbor .tools font {
+      font-weight: normal; }
     .request .tools .volunteer-button, .neighbor .tools .volunteer-button {
       float: right;
       margin-top: 10px; }

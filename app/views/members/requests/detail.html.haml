@@ -1,8 +1,10 @@
 - content_for :title do
   Request details
 
-%h1 Request Details
-#request_container
+#titles{:style => "margin-bottom: 40px"}
+  #stream-title Request Details
+
+#request-container
   .request
     %img= image_tag @request.household.photo.url(:thumb)
     .left

@@ -24,6 +24,6 @@
     = f.text_area :notes, :size => "30x8"
   %p
     = f.label "&nbsp;"
-    = f.submit "Done"
-    = f.submit "Add another child"
+    = f.submit "Done", :disable_with => "Please wait..."
+    = f.submit "Add another child", :disable_with => "Please wait..."
 

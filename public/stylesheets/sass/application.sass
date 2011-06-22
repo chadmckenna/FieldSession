@@ -408,7 +408,7 @@ a
 #top
   width: 74%
   float: right
-  padding: 1em
+  padding: 0 1em 1em 1em
   height: 65px
   margin-bottom: 10px
   //padding: 10px 0 10px 0
@@ -550,7 +550,7 @@ a
       margin: .2em 0
       font-style: oblique
     width: 100%
-    margin: 0 auto 0 auto
+    margin: 0 auto 20px auto
     background: #fea
     color: #333
     padding: .5em
@@ -633,17 +633,45 @@ a
             text-decoration: underline
 
         #add-child
-          margin: 10px 0 10px 20px
+          margin: 10px 0 10px 0px
     #right-column
       width: 74%
       float: right
-      margin: 0 0 30px 10px
-      padding: 1em
+      #top
+        width: 98%
+        height: 65px
+        margin-bottom: 15px
+        //padding: 10px 0 10px 0
+        radius: 5px
+        #household-info
+          //float: left
+          width: 100%
+          strong
+            margin: 0px
+            font-size: 2em
+          #balance
+            
+          #title
+            float: left
+            font-size: 2em
+          #button
+            float: right
+          #buttons
+            text-align: right
+            width: 45%
+            float: right
+            margin: -4px 0px 0 0
+            a
+              margin-right: -4px
+
+      margin: 0 0 50px 10px
+      padding: 0 1em 1em 1em
       -moz-border-radius: 5px
       -webkit-border-radius: 5px
       radius: 5px
-      background: white
-      border: 1px solid $mastheadBG
+      //background: white
+      //border: 1px solid $mastheadBG
+
       #header
         float:left
         font-size: 2em
@@ -953,6 +981,10 @@ label
   .tools
     float: right
     z-index: 2
+    font-family: Nunito
+    text-align: right
+    font
+      font-weight: normal
     .volunteer-button
       float: right
       margin-top: 10px

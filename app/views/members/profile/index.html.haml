@@ -4,7 +4,7 @@
   #profile_notice
     %h3 Your household is incomplete!
     You have indicated that you have #{@household.num_children} children, but you have only created #{pluralize(@household.children.count, "child")} for your household.
-    %p=link_to "Add another child >>", new_members_child_path
+    %p= link_to "<span class='user icon'></span>Add a new child", new_members_child_path, :class => 'pill button'
 #left-column
   #photo
     %a{ :href => members_profile_edit_path } 
@@ -65,20 +65,18 @@
       Phone
       %span#small_link= link_to "(edit)", members_settings_path
     %div
-      .child
-        .name=h "Household:"
-        =h number_to_phone(@household.home_phone, :area_code => true)
-      %br
+      - if !@household.home_phone.eql? nil
+        .child
+          =h "#{number_to_phone(@household.home_phone, :area_code => true)} (Household)"
       -for phone_number in @household.users
         -unless @household.users.eql? nil
           -if ! phone_number.household_confirmed.eql? false
             .child
-              .name=h "#{phone_number.first_name}:"
-              =h "Cell: #{number_to_phone(phone_number.phone, :area_code => true)}"
+              =h "#{number_to_phone(phone_number.phone, :area_code => true)} (#{phone_number.first_name} cell)"
               - unless phone_number.work_phone.eql? nil
                 %br
                 - if !phone_number.work_phone.eql? nil or !phone_number.work_phone.eql? ""
-                  =h "Work: #{number_to_phone(phone_number.work_phone, :area_code => true)}"
+                  =h "#{number_to_phone(phone_number.work_phone, :area_code => true)} (#{phone_number.first_name} work)"
                   %br
         -else
           No known phone numbers
@@ -158,6 +156,7 @@
                   = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(request), :class => 'pill button'
                   = link_to "<span class='cross icon'></span>Delete", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
                 .clear
+      .clear
     - else
       #no-requests
         You have no open requests.
@@ -202,8 +201,13 @@
             .tools
               = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(confirmed.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
+              %br
+              %br
+              Confirmed Caregiver: 
+              - caregiver = get_caregiver(confirmed.caregiver_commit_id)
+              %font= "#{caregiver.first_name} #{caregiver.last_name}"
             .clear
-
+      .clear
   #header
     My Commitments
   #content-commitments
@@ -251,7 +255,7 @@
               = link_to "<span class='magnifier icon'></span>Details", detail_members_request_path(commitment.request), :class => 'pill button'
               = link_to "<span class='cross icon'></span>Cancel", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
             .clear     
-            
+      .clear
     - if @pending_commitments.count > 0
       .title#pending
         %font.small-title My Pending Commitments
@@ -296,4 +300,4 @@
               = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(pending_commitment.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Cancel Care Request", members_pending_request_path(pending_commitment), :confirm => 'Are you sure you want to cancel this pending request?', :method => :delete, :class => 'pill button negative'
             .clear
-
+      .clear

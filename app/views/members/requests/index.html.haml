@@ -100,10 +100,11 @@
 #right-commit
   #your-requests
     %p
+      -#edit me!!
       - if @num_volunteer_requests > 0
         %span#notifications_bold= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} for your care requests", members_my_volunteers_path
       - else
-        %span#notifications= link_to "You have #{pluralize(@num_volunteer_requests, 'volunteer')} for your care requests", members_my_volunteers_path
+        %span#notifications= link_to "You have #{@num_volunteer_requests} care requests volunteers", members_my_volunteers_path
     %p
       - if @num_neighbor_requests > 0
         %span#notifications_bold= link_to "You have #{pluralize(@num_neighbor_requests, 'neighbor request')}", members_neighbors_path

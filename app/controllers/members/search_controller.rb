@@ -1,5 +1,5 @@
 class Members::SearchController < Members::MembersController
-  skip_before_filter :require_household
+  skip_before_filter :require_household, :require_address
   helper :search
   
   def index
