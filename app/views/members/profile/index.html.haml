@@ -201,6 +201,11 @@
             .tools
               = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(confirmed.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
+              %br
+              %br
+              Confirmed Caregiver: 
+              - caregiver = get_caregiver(confirmed.caregiver_commit_id)
+              %font= "#{caregiver.first_name} #{caregiver.last_name}"
             .clear
       .clear
   #header
