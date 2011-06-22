@@ -2,7 +2,7 @@
 # Teem R41nB0WK4Tz is powered by:                                                                       #
 #########################################################################################################
 #                                                                                                       #
-#                    `:oyhdmmdy+`                                                                       #  
+#                    `:oyhdmmdy+`                                                                       #
 #                `/hNMMNy+:--+mN+                                                                       #
 #              .sNMMMm+`      .MM:                                          `+o.                        #
 #            `sNMMMN+  `::     mMy                                          dMMd                .`      #
@@ -43,14 +43,14 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  
+
     def home_url_for(user)
       return root_url if user.nil?
       user.is_admin? ? admin_root_url : members_root_url
     end
 
   private
-  
+
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.user
       return @current_user
     end
-    
+
     def require_user
       unless current_user
         session[:original_uri] = request.request_uri
@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
-     
+
     def require_no_user
       if current_user
         flash[:error] = "You must be logged out to access #{request.path}. <a href=\"/logout\">log out</a>?"
@@ -79,17 +79,21 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
-     
+
     def require_household
       unless current_user.has_household? or current_user.household_confirmed.eql? 0
         flash[:error] = "You must create or join a household"
         redirect_to new_members_household_path
       end
     end
-    
+
     def require_address
-      puts current_user.household.address
-      if current_user.household.address.eql? nil
+      # YJB: why is puts here? This isn't a console application.
+      # puts current_user.household.address
+      # if current_user.household.address.eql? nil
+      # YJB: Use nil?, not "eql? nil". And, you assuming current_user exists, and they have a household.
+      #      This raises exceptions in your app, so don't assume.
+      if current_user && current_user.household && current_user.household.address.nil?
         flash[:error] = "You must have an address for your household."
         redirect_to new_members_address_path
       end

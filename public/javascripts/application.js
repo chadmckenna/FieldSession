@@ -8,16 +8,16 @@ $(function() {
 											$('#request_to_date').datepicker();
 											$('#request_to_date').datepicker("option", "minDate", min);
 										}});
-										
-	var min = $('#request_from_date').datepicker("getDate")	;		
+
+	var min = $('#request_from_date').datepicker("getDate")	;
 	$('#request_to_date').datepicker({minDate: min, maxDate: '+1y', selectOtherMonths: true, showOtherMonths: true});
-																				
+
 });
 
 $(document).ready(function() {
 	$("#right-column #content-requests .title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
 	$("#right-column #content-commitments .title").append('<span><a href="#"><img src="/images/iconCollapseArrow.gif"></a></span>');
-	
+
 	//Expand/Collapse Open Requests
 	var openHeight = $("#right-column #content-requests .requests#open").height();
 	var div = $("#right-column #content-requests .requests#open");
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		//$(this).remove
 		//$(this).find("a").replaceWith('<a href="#">+</a>');
 		$(this).find("a img").animate({opacity: .2}, 700);
-		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().siblings(".requests#open").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
 			$(this).hide();
 		} });
@@ -38,7 +38,7 @@ $(document).ready(function() {
 		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().siblings(".requests#open").show().animate({ height: openHeight, "margin-top": margin }, { duration: 700 });
 	});
-	
+
 	//Expand/Collapse Confirmed Requests
 	var confirmedHeight = $("#right-column #content-requests .requests#confirmed").height();
 	var div = $("#right-column #content-requests .requests#confirmed");
@@ -48,7 +48,7 @@ $(document).ready(function() {
 		//$(this).remove
 		//$(this).find("a").replaceWith('<a href="#">+</a>');
 		$(this).find("a img").animate({opacity: .2}, 700);
-		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().siblings(".requests#confirmed").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
 			$(this).hide();
 		} });
@@ -59,7 +59,7 @@ $(document).ready(function() {
 		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().siblings(".requests#confirmed").show().animate({ height: confirmedHeight, "margin-top": margin }, { duration: 700 });
 	});
-	
+
 	//Expand/Collapse Pending Commitments
 	var pendingHeight = $("#right-column #content-commitments .requests#pending").height();
 	var div = $("#right-column #content-commitments .requests#pending");
@@ -68,7 +68,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		//$(this).find("a").replaceWith('<a href="#">+</a>');
 		$(this).find("a img").animate({opacity: .2}, 700);
-		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().siblings(".requests#pending").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
 			$(this).hide();
 		} });
@@ -79,7 +79,7 @@ $(document).ready(function() {
 		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().siblings(".requests#pending").show().animate({ height: pendingHeight, "margin-top": margin }, { duration: 700 });
 	});
-	
+
 	//Expand/Collapse Commitments
 	var commitmentHeight = $("#right-column #content-commitments .requests#commitments").height();
 	var div = $("#right-column #content-commitments .requests#commitments");
@@ -88,7 +88,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		//$(this).find("a").replaceWith('<a href="#">+</a>');
 		$(this).find("a img").animate({opacity: .2}, 700);
-		//$(this).parent().parent().parent().find("#requests").slideToggle();	
+		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().parent().find(".requests#commitments").animate({ height: 0, "margin-top": 0 }, { duration: 700, complete: function() {
 			$(this).hide();
 		} });
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		//$(this).parent().parent().parent().find("#requests").slideToggle();
 		$(this).parent().parent().find(".requests#commitments").show().animate({ height: commitmentHeight, "margin-top": margin }, { duration: 700 });
 	});
-	
+
 
 	$(".request").hover(function() {
 		$(this).find(".delete span").show();
@@ -107,41 +107,41 @@ $(document).ready(function() {
 		$(this).find(".delete span").fadeOut("fast").hide();
 		$(this).find(".subnav ul").fadeOut("fast").hide();
 	});
-	
+
 	$(".confirmed-request").hover(function() {
 	  $(this).find(".delete-link").show();
 	}, function() {
 		$(this).find(".delete-link").hide();
 	});
-	
+
 	$(".pending-request").hover(function() {
 		$(this).find(".delete-link").show();
 	}, function() {
 		$(this).find(".delete-link").hide();
 	});
-	
-	$(document).click(function(event) {		
+
+	$(document).click(function(event) {
 		if($(event.target).is('#notifications a img')) {
 			$(".notification-list").fadeToggle('fast');
 		} else {
 			$(".notification-list").fadeOut('fast');
 		}
 	});
-	
-	
+
+
 	$(".delete").click(function(e) {
 		e.preventDefault();
 	});
-	
+
 	$(".delete").hover(function() {
 		$(this).parent().find(".subnav ul").fadeIn('fast').show();
-		
+
 		$(this).parent().hover(function() {
 		}, function() {
 			$(this).parent().find(".subnav ul").hide();
 		});
 	});
-	
+
 	$("#edit-user a").click(function(e) {
 		e.preventDefault();
 		$("#user-submit input").show();
@@ -154,7 +154,7 @@ $(document).ready(function() {
 		$("#phone .text").replaceWith("<input type='text' name='user[phone]' value='" + $("#phone .text").text() + "'/>");
 		$("#work_phone .text").replaceWith("<input type='text' name='user[work_phone]' value='" + $("#work_phone .text").text() + "'/>");
 	});
-	
+
 	$("#edit-child a").click(function(e) {
 		e.preventDefault();
 		$(this).parent().parent().parent().find("#child-submit input").show();
@@ -165,7 +165,7 @@ $(document).ready(function() {
 		$(this).parent().parent().parent().find("#allergies").show();
 		$(this).parent().parent().parent().find("#medications").show();
 		$(this).parent().parent().parent().find("#notes").show();
-		
+
 		//Be able to edit childrens information
 		$(this).parent().parent().parent().find("#user-submit input").show();
 		//$(this).parent().parent().parent().find("#show-more").show();
@@ -177,7 +177,7 @@ $(document).ready(function() {
 		$(this).parent().parent().parent().find("#notes font.text").replaceWith("<input type='text' name='child[notes]' value='" + $(this).parent().parent().parent().find("#notes font.text").text() + "'/>");
 		$(this).hide();
 	});
-	
+
 	$("#edit-address a").click(function(e) {
 		e.preventDefault();
 		$("#address-submit input").show();
@@ -187,7 +187,7 @@ $(document).ready(function() {
 		$("#state .text").replaceWith("<input type='text' name='address[state]' value='" + $("#state .text").text() + "'/>");
 		$("#zip .text").replaceWith("<input type='text' name='address[zip]' value='" + $("#zip .text").text() + "'/>");
 	});
-	
+
 
 	$("#edit-household a").click(function(e) {
 		e.preventDefault();
@@ -195,7 +195,7 @@ $(document).ready(function() {
 		$("#home-phone .text").replaceWith("<input type='text' name='household[home_phone]' value='" + $("#home-phone .text").text() + "'/>");
 		$("#household-submit input").show();
 	});
-	
+
 	$("#edit-contacts a").click(function(e) {
 		e.preventDefault();
 		$("#contact-submit input").show();
@@ -203,13 +203,13 @@ $(document).ready(function() {
 		$("#relationship font.text").replaceWith("<input type='text' name='emergency_contact[relationship]' value='" + $("#relationship font.text").text() + "'/>");
 		$("#phone_number font.text").replaceWith("<input type='text' name='emergency_contact[phone]' value='" + $("#phone_number font.text").text() + "'/>");
 	});
-	
+
 	$("#change-password a").click(function(e) {
 		$("#new-password").show();
 		$("#password-confirmation").show();
 		$(this).hide();
 	});
-	
+
 	$("#display-child a").click(function(e) {
 		e.preventDefault();
 		//$(this).parent().parent().parent().find("#user-submit input").show());
@@ -222,7 +222,7 @@ $(document).ready(function() {
 		//$(this).hide();
 		//$(".tools").show();
 	});
-	
+
 	$("#hide-child a").click(function(e) {
 		e.preventDefault();
 		$(this).parent().parent().parent().find("#first-name").show();
@@ -234,16 +234,16 @@ $(document).ready(function() {
 		//$(this).hide();
 		//$(this).parent().parent().parent().parent().find("font#display-child").show();
 	});
-	
+
 	$("#change-photo a").click(function(e) {
 		e.preventDefault();
 		$(this).replaceWith('<input id="household_photo" name="household[photo]" size="30" type="file" />')
 	});
-	
+
 	$(".flash.success").show('highlight', 'slow');
 	$(".flash.error").show('highlight', 'slow');
-	
-	setTimeout(function() { 
+
+	setTimeout(function() {
 		$(".flash.success").hide('blind', 'slow');
 	}, 6000);
 });

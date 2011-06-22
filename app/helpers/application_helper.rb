@@ -28,6 +28,10 @@ module ApplicationHelper
      {:value => text, :onfocus => onFocusFunction, :onblur => onBlurFunction}
   end
 
+  # YJB
+  # So much of this stuff belongs in the model. You're programming to the "webapp" domain instead of the "caregiver" domain.
+  # That's like focusing on plumbing instead of washing the vegetables you'd like to cook.
+
   def has_requests(user)
     @num = get_pending_requests_count(user)
     if @num > 0
@@ -51,7 +55,7 @@ module ApplicationHelper
     return true if @num > 0
     return false
   end
-  
+
   def get_caregiver_request_count(user)
     return User.find(:all, :conditions => {:household_id => user.household_id, :household_confirmed => false}).count
   end
@@ -71,7 +75,7 @@ module ApplicationHelper
       end
       num_volunteer_requests += 1 if count.eql? 0
     end
-    
+
     return num_volunteer_requests
   end
 
@@ -121,11 +125,13 @@ module ApplicationHelper
   def get_user(id)
     return User.find(id)
   end
-  
+
   def get_household(id)
     return Household.find(id)
   end
 
+  # YJB: Nice, a magic mixin just floating around in your controller, just waiting to spring its behavior on
+  #      the unsuspecting teammate. Like a zombie, but worse. This belongs in it's own file in /lib.
   module ActionView
     module Helpers
       module DateHelper

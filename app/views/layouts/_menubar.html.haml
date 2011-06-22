@@ -6,23 +6,29 @@
 %ul.menubar
   %li
     = link_to 'household', members_profile_path, :title => 'View Profile'
+  / YJB: Are you sure this next line belongs outside the parent li?
   = admin_menu_items(current_user)
   -# unless current_user.household.nil?
   -#if has_caregivers(current_user)
   -#%li.notification= get_caregiver_request_count(current_user)
   %li
     = link_to 'neighbors', members_neighbors_path
+  / YJB: Get this logic out of the partial and into a helper. Really. If you're programming with unless next to if, you need to clarify your thoughts.
   - unless current_user.household.nil?
     - if has_neighbors(current_user)
       %li.notification= get_neighbor_request_count(current_user)
   %li
     = link_to 'requests', members_requests_path, :title => 'Requests'
+  / YJB: Get this logic out of the partial and into a helper. Really. If you're programming with unless next to if, you need to clarify your thoughts.
   - unless current_user.household.nil?
     - if has_requests(current_user)
       %li.notification= get_pending_requests_count(current_user)
-  - unless current_user.household.nil?
-    = render :partial => 'layouts/notification'
+  / - unless current_user.household.nil?
+  /   = render :partial => 'layouts/notification'
+  / YJB: Be expressive with ruby.
+  = render :partial => 'layouts/notification' unless current_user.household.nil?
   %li
+    / YJB: Use a helper that contains the if logic and renders the partial '_search_form'
     - if current_user
       #search
         - form_tag members_search_path, :method => 'get' do
