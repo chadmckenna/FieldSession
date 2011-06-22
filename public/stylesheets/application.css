@@ -400,6 +400,18 @@ a {
       #top #household-info #buttons a {
         margin-right: -4px; }
 
+#request-show-title {
+  margin-bottom: 10px; }
+  #request-show-title font {
+    float: left;
+    font-size: 2em; }
+  #request-show-title #buttons {
+    float: right; }
+    #request-show-title #buttons span#left-button {
+      margin-right: -5px; }
+  #request-show-title .clear {
+    clear: both; }
+
 #container {
   width: 98%;
   line-height: 150%;
