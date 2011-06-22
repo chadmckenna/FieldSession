@@ -133,7 +133,8 @@
           to
           =h confirmed_request.request.end_time.to_s(:nicetime)
           .link
-            = link_to '<span class="magnifier icon"></span>View More Details', detail_members_request_path(confirmed_request.request), :class => 'pill button'
+            = link_to '<span class="magnifier icon"></span>Details', detail_members_request_path(confirmed_request.request), :class => 'pill button'
+        .clear
     #pending
       %h2 My Pending Commitments
       -if @pending_requests.count == 0
@@ -154,5 +155,6 @@
           to
           =h pending_request.request.end_time.to_s(:nicetime)
           .link
-            = link_to '<span class="magnifier icon"></span>View More Details', members_request_path(pending_request.request), :class => 'pill button'
+            = link_to '<span class="magnifier icon"></span>Details', members_request_path(pending_request.request), :class => 'pill button'
+        .clear
   
