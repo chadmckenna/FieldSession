@@ -1,5 +1,6 @@
 class Members::HouseholdsController < Members::MembersController
   skip_before_filter :require_household#, :only => [:join_request, :new, :create]
+  skip_before_filter :require_address, :only => [:new, :create, :join_request]
   filter_access_to :all
   
 

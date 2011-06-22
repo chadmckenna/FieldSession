@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   skip_before_filter :require_household
+  skip_before_filter :require_address
 
   def index
   end

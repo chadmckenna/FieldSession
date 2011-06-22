@@ -88,8 +88,7 @@ class ApplicationController < ActionController::Base
     end
     
     def require_address
-      puts current_user.household.address
-      if current_user.household.address.eql? nil
+      if current_user.household.address.nil?
         flash[:error] = "You must have an address for your household."
         redirect_to new_members_address_path
       end

@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   def has_household?
     return false if self.household_confirmed.eql? false
-    return false if self.household_id.eql?(nil)
+    return false if self.household_id.nil?
     return true
   end
 
