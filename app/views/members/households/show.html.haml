@@ -100,11 +100,12 @@
               .children
                 Children:
                 -@count = 0
-                -for child in request.children
-                  =h "#{child}"
-                  -@count +=1
+                - for child in request.children
+                  -@count += 1
                   -if @count != request.children.length
-                    ,
+                    =h "#{child.first_name},"
+                  -else
+                    =h "#{child.first_name}"
             .tools
               - if has_volunteered(request)
                 .volunteer-button= link_to "Volunteered", members_request_path(request), :class => 'pill button'

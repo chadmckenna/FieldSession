@@ -71,10 +71,11 @@
             %br
             -@count = 0
             - for child in neighbor.neighbor.children
-              =h "#{child.first_name}"
               -@count += 1
               -if @count != neighbor.neighbor.children.length
-                ,
+                =h "#{child.first_name},"
+              -else
+                =h "#{child.first_name}"
             -#= pluralize neighbor.neighbor.users.count, "Caregiver"
             %br
             %strong Caregivers:
