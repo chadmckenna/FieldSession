@@ -56,7 +56,7 @@
         .clear
   
     - for request in @requests
-      -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
+      -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request) || already_committed(request)
         - @num_requests += 1
         .request
           = image_tag request.household.photo.url(:thumb)
