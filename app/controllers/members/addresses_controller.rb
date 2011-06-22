@@ -1,4 +1,5 @@
 class Members::AddressesController < Members::MembersController
+  skip_before_filter :require_address, :only => [:new, :create]
   def index
     @addresses = Address.all
   end

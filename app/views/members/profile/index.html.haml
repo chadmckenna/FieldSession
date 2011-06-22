@@ -156,6 +156,7 @@
                   = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(request), :class => 'pill button'
                   = link_to "<span class='cross icon'></span>Delete", members_request_path(request), :confirm => 'Are you sure you\'d like to cancel this Care Request?', :method => :delete, :class => 'pill button negative'
                 .clear
+      .clear
     - else
       #no-requests
         You have no open requests.
@@ -201,7 +202,7 @@
               = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(confirmed.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Delete", members_request_path(confirmed.request), :confirm => 'Are you sure?', :method => :delete, :class => 'button negative pill'
             .clear
-
+      .clear
   #header
     My Commitments
   #content-commitments
@@ -249,7 +250,7 @@
               = link_to "<span class='magnifier icon'></span>Details", detail_members_request_path(commitment.request), :class => 'pill button'
               = link_to "<span class='cross icon'></span>Cancel", members_pending_request_path(commitment), :confirm => 'Are you sure you want to cancel this commitment?', :method => :delete, :class => 'pill button negative'
             .clear     
-            
+      .clear
     - if @pending_commitments.count > 0
       .title#pending
         %font.small-title My Pending Commitments
@@ -294,4 +295,4 @@
               = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(pending_commitment.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Cancel Care Request", members_pending_request_path(pending_commitment), :confirm => 'Are you sure you want to cancel this pending request?', :method => :delete, :class => 'pill button negative'
             .clear
-
+      .clear
