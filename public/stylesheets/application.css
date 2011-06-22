@@ -537,7 +537,7 @@ a {
       #container #content #left-column img {
         max-width: 100%; }
       #container #content #left-column #photo {
-        width: 100%;
+        width: 90%;
         text-align: center;
         margin: 0px auto 0px auto; }
         #container #content #left-column #photo a {
