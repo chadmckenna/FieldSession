@@ -66,6 +66,7 @@
       #title= "The #{@household} Household"
       #button= link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(@household), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
     .clear
+  .clear
   #content-requests
     - if @household.requests.length > 0
       %font.small-title The #{@household.name}'s Open Requests
