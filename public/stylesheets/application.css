@@ -545,6 +545,8 @@ a {
           border: none !important;
           background: none !important;
           outline: none; }
+          #container #content #left-column #photo a img {
+            width: 100%; }
           #container #content #left-column #photo a #edit {
             opacity: 0;
             position: relative;
@@ -594,6 +596,13 @@ a {
     #container #content #right-column {
       width: 74%;
       float: right;
+      margin: 0 0 30px 10px;
+      padding: 1em;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      radius: 5px;
+      background: white;
+      border: 1px solid #878c6d;
       margin: 0 0 50px 10px;
       padding: 0 1em 1em 1em;
       -moz-border-radius: 5px;
