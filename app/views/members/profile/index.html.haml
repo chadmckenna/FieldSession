@@ -143,11 +143,13 @@
                 
                   .children
                     Children:
-                    -for child in request.children
-                      -if request.children.count == 1
-                        =h "#{child.first_name}"
+                    -@count = 0
+                    - for child in request.children
+                      -@count += 1
+                      -if @count != request.children.length
+                        =h "#{child.first_name},"
                       -else
-                        =h "#{child.first_name}, "              
+                        =h "#{child.first_name}"          
                   - unless request.notes.eql? ""
                     .notes
                       Notes:

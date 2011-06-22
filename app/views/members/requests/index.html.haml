@@ -41,7 +41,13 @@
             %font=h completed_request.cost.to_i
           .children
             Children:
-            =h completed_request.children
+            -@count = 0
+            - for child in completed_request.children
+              -@count += 1
+              -if @count != completed_request.children.length
+                =h "#{child.first_name},"
+              -else
+                =h "#{child.first_name}"
         .tools
           .volunteer-button Did you provide care for this request?
           %br
@@ -72,11 +78,13 @@
                 =h "#{Date::DAYNAMES[request.to_date.wday]}, #{Date::MONTHNAMES[request.to_date.mon]} #{request.to_date.mday}"
             .children
               Children:
-              -for child in request.children
-                -if request.children.count == 1
-                  =h "#{child.first_name}"
+              -@count = 0
+              - for child in request.children
+                -@count += 1
+                -if @count != request.children.length
+                  =h "#{child.first_name},"
                 -else
-                  =h "#{child.first_name}, "
+                  =h "#{child.first_name}"
             .notes
               - if !request.notes.eql? ""
                 Additional notes:
