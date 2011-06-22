@@ -536,6 +536,16 @@ a {
     padding: 20px 40px; }
     #container #content #title {
       text-align: center; }
+    #container #content #right-column-photo {
+      width: 74%;
+      float: right;
+      border: 1px solid;
+      background: white;
+      margin: 0 0 50px 10px;
+      padding: 0 1em 1em 1em;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      radius: 5px; }
     #container #content #left-column {
       width: 19%;
       float: left;
@@ -551,7 +561,7 @@ a {
       #container #content #left-column #photo {
         width: 90%;
         text-align: center;
-        margin: 0px auto 0px auto; }
+        margin: 0px auto 0px auto !important; }
         #container #content #left-column #photo a {
           padding: 0 !important;
           border: none !important;
