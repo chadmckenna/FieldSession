@@ -1,7 +1,12 @@
 - content_for :title do
   View request: #{@request.title}
 
-%h1= "View request: #{@request.title}" 
+#request-show-title
+  %font= "View request: #{@request.title}" 
+  #buttons
+    %span#left-button= link_to "<span class='magnifier icon'></span>View All Requests", members_requests_path, :class => "left pill button"
+    = link_to "<span class='home icon'></span>My household", members_profile_path, :class => "right pill button"
+  .clear
 
 #request-container
   .request
@@ -29,7 +34,5 @@
     .tools
       - if @request.household_id.eql? current_user.household_id
         = link_to "<span class='pen icon'></span>Edit", edit_members_request_path(@request), :class => "pill button"
-        = link_to "<span class='cross icon'></span>Remove", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete, :class => "pill button negative"
-      = link_to "<span class='magnifier icon'></span>View All Requests", members_requests_path, :class => "pill button"
-      = link_to "<span class='home icon'></span>My household", members_profile_path, :class => "pill button"
+        = link_to "<span class='cross icon'></span>Delete", members_request_path(@request), :confirm => 'Are you sure?', :method => :delete, :class => "pill button negative"
     .clear
