@@ -100,9 +100,9 @@
               .children
                 Children:
                 -@count = 0
-                - for child in neighbor.neighbor.children
+                - for child in request.children
                   -@count += 1
-                  -if @count != neighbor.neighbor.children.length
+                  -if @count != request.children.length
                     =h "#{child.first_name},"
                   -else
                     =h "#{child.first_name}"
