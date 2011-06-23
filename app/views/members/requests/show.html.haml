@@ -2,7 +2,7 @@
   View request: #{@request.title}
 
 #request-show-title
-  %font= "View request: #{@request.title}" 
+  %font Request Details 
   #buttons
     %span#left-button= link_to "<span class='magnifier icon'></span>View All Requests", members_requests_path, :class => "left pill button"
     = link_to "<span class='home icon'></span>My Household", members_profile_path, :class => "right pill button"

@@ -16,7 +16,7 @@
               #left
                 = link_to image_tag (@request_household.photo.url(:tiny)), members_requests_path 
               #right
-                %span= link_to "The #{@request_household} household has picked you to watch their children on #{notification.request.from_date.to_s(:dateNoYear)}.", members_requests_path
+                %span= link_to "The #{@request_household} household has picked you to watch their children on #{notification.request.from_date.to_s(:dateNoYear)}.", detail_members_request_path(notification.request)
               #clear
             - elsif notification.class.name == 'User'
               -# @request_household = get_household(notification.belongs_to_household_id)

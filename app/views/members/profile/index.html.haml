@@ -299,7 +299,7 @@
                     Notes:
                     = pending_commitment.request.notes
             .tools
-              = link_to "<span class='magnifier icon'></span>Show Details", detail_members_request_path(pending_commitment.request), :class => 'button pill'
+              = link_to "<span class='magnifier icon'></span>Details", members_request_path(pending_commitment.request), :class => 'button pill'
               = link_to "<span class='cross icon'></span>Cancel Care Request", members_pending_request_path(pending_commitment), :confirm => 'Are you sure you want to cancel this pending request?', :method => :delete, :class => 'pill button negative'
             .clear
       .clear
