@@ -55,6 +55,7 @@
                     - else
                       = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post, :class => 'pill button'
                   .clear
+                .clear
       
       - if !@users.nil?
         - if @users.count > 0
@@ -70,19 +71,20 @@
                       = number_to_phone(user.phone, :area_code => true)
                       %br
                       %span.small-title State:
-                      = household.address.state
+                      = user.household.address.state
                       
                 .button
                   - if !current_user.has_household?
                     = link_to '<span class="user icon"></span>Request to join household', {:controller => "households", :action => "join_request", :user_id => current_user.id, :household_id => household.id}, :method => :post, :class => 'pill button'
                   - elsif neighbor(household)
                     #delete= link_to '<span class="cross icon"></span>Remove Neighbor', members_neighbor_path(get_neighbor(user.household)), :confirm => 'Are you sure you want to cancel this neighbor from your village?', :method => :delete, :class => 'pill button negative'
-                    = link_to '<span class="magnifier icon"></span>Show', members_household_path(household), :class => 'pill button'
-                  - elsif pending_neighbor(household)
+                    = link_to '<span class="magnifier icon"></span>Show', members_household_path(user.household), :class => 'pill button'
+                  - elsif pending_neighbor(user.household)
                     = link_to '<span class="cross icon"></span>Cancel Request', members_neighbor_path(get_pending_neighbor(household)), :method => :delete, :class => 'pill button negative'
                   - else
-                    = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => household.id}, :method => :post, :class => 'pill button'
+                    = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household.id}, :method => :post, :class => 'pill button'
                 .clear
+              .clear
     
     - if !@users.nil?
       - if @users.count > 0
@@ -110,6 +112,7 @@
                   - else
                     = link_to '<span class="user icon"></span>Add as neighbor', {:controller => "neighbors", :action => "create", :household_id => user.household_id}, :method => :post, :class => 'pill button'
                 .clear
+              .clear
           
 %h2 Search for Neighbors
 You can search by name, phone number, or email

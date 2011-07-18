@@ -1,9 +1,9 @@
 class Members::NeighborsController < Members::MembersController
   
   def index
-    @neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true, :neighbor_confirmed => true})
-    @pending_neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true, :neighbor_confirmed => false})
-    @neighbor_requests = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => false, :neighbor_confirmed => true})
+    @neighbors = Neighbor.get_my_neighbors(current_user)
+    @pending_neighbors = Neighbor.get_my_pending_neighbors(current_user)
+    @neighbor_requests = Neighbor.get_my_neighbor_requests(current_user)
   end
   
   def new
