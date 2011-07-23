@@ -1,9 +1,9 @@
 class Members::NeighborsController < Members::MembersController
   
   def index
-    @neighbors = Neighbor.get_my_neighbors(current_user)
-    @pending_neighbors = Neighbor.get_my_pending_neighbors(current_user)
-    @neighbor_requests = Neighbor.get_my_neighbor_requests(current_user)
+    @neighbors = current_user.get_my_neighbors
+    @pending_neighbors = current_user.get_my_pending_neighbors
+    @neighbor_requests = current_user.get_my_neighbor_requests
   end
   
   def new
@@ -11,8 +11,7 @@ class Members::NeighborsController < Members::MembersController
   end
   
   def create
-    count = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :neighbor_id => params[:household_id]}).count
-    if count.eql? 0
+    if current_user.is_neighbor?(params[:household_id])
       @neighbor = Neighbor.new
       @neighbor.neighbor_id = params[:household_id]
       @neighbor.household_id = current_user.household.id
