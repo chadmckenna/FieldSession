@@ -12,22 +12,11 @@ class Members::NeighborsController < Members::MembersController
   
   def create
     if !current_user.is_neighbor?(params[:household_id])
-      #@neighbor = Neighbor.new
-      #@neighbor.neighbor_id = params[:household_id]
-      #@neighbor.household_id = current_user.household.id
-      #@neighbor.household_confirmed = true
-      #@neighbor.read = false
-    
-      #@neighbor2 = Neighbor.new
-      #@neighbor2.neighbor_id = current_user.household.id
-      #@neighbor2.household_id = params[:household_id]
-      #@neighbor2.neighbor_confirmed = true
-      #@neighbor2.read = true
-      #@household = Household.find(params[:household_id])
-      
-      #if @neighbor.save && @neighbor2.save
       if current_user.add_neighbor(params[:household_id])
-        @neighbor.send_neighbor_request_email(@neighbor)
+        # I broke this when I abstracted the addition of neighbors to the user model.
+        # maybe we should return the @neighbor so that we can send the email.
+        # thoughts?
+        #@neighbor.send_neighbor_request_email(@neighbor)
         flash[:success] = "You have successfully requested to add #{@household} as a neighbor"
         redirect_to :back
       else
