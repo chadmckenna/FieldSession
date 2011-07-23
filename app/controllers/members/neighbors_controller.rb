@@ -11,7 +11,7 @@ class Members::NeighborsController < Members::MembersController
   end
   
   def create
-    if current_user.is_neighbor?(params[:household_id])
+    if !current_user.is_neighbor?(params[:household_id])
       #@neighbor = Neighbor.new
       #@neighbor.neighbor_id = params[:household_id]
       #@neighbor.household_id = current_user.household.id
