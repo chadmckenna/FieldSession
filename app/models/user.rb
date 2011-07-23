@@ -81,12 +81,12 @@ class User < ActiveRecord::Base
   def add_neighbor(neighbor_id)
     @neighbor = Neighbor.new
     @neighbor.neighbor_id = neighbor_id
-    @neighbor.household_id = current_user.household.id
+    @neighbor.household_id = self.household.id
     @neighbor.household_confirmed = true
     @neighbor.read = false
   
     @neighbor2 = Neighbor.new
-    @neighbor2.neighbor_id = current_user.household.id
+    @neighbor2.neighbor_id = self.household.id
     @neighbor2.household_id = neighbor_id
     @neighbor2.neighbor_confirmed = true
     @neighbor2.read = true
