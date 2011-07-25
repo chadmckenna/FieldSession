@@ -9,7 +9,6 @@ body {
   background: -webkit-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
   background: -o-linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
   background: linear-gradient(left, #dddddd 0%, white 50%, #dddddd 100%);
-  /*font-family: Verdana, Helvetica, Arial */
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-size: 14px;
   margin: 0 !important; }
