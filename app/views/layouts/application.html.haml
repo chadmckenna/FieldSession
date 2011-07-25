@@ -22,6 +22,7 @@
   %body{:class => controller.action_name, :id => controller.controller_name}
     #wrapper
       #masthead
+        -#%h1= link_to image_tag('/images/villages_logo.png.bak'), root_path, :title => 'Home', :alt => 'Home'
         - if current_user
           - if current_user.is_admin?
             %h1= link_to "Villages", root_path, :title => 'Home'
@@ -35,6 +36,9 @@
         = userbar(current_user)
         = menubar(current_user)
         #clear
+        -#%h2= "It takes a village to raise a child"
+      #container
+        #content
           - unless flash.empty?
             - flash.each do |key, msg|
               %div{:class => "flash #{key}"}

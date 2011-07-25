@@ -1,7 +1,6 @@
 $primary_color: #aaffaa
 $errorBorder: #cc6666
 $noticeBorder: #66cc66
-/*$linkColor: #39f*/
 $linkColor: #F5EEDB
 $linkHover: white
 $contentLinkColor: #571
@@ -9,18 +8,52 @@ $mastheadBG: #878C6D
 $lightGrey: #eee
 $darkGrey: #ccc
 
+@mixin horiz-gradient($start, $end)
+  background: $start
+  background: -moz-linear-gradient(left, $start 0%, $end 50%, $start 100%)
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start), color-stop(50%,$end), color-stop(100%,$start))
+  background: -webkit-linear-gradient(left, $start 0%,$end 50%,$start 100%)
+  background: -o-linear-gradient(left, $start 0%,$end 50%,$start 100%)
+  background: linear-gradient(left, $start 0%,$end 50%,$start 100%)
 
+@mixin vert-gradient($start, $end)
+  background: $start
+  background: -moz-linear-gradient(top, $start 0%, $end 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop(100%,$end))
+  background: -webkit-linear-gradient(top, $start 0%,$end 100%)
+  background: -o-linear-gradient(top, $start 0%,$end 100%)
+  background: -ms-linear-gradient(top, $start 0%,$end 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start', endColorstr='$end',GradientType=0 )
+  background: linear-gradient(top, $start 0%,$end 100%)
+  
+@mixin tilt($deg)
+  -moz-transform: rotate($deg)
+  -webkit-transform: rotate($deg)
+  -o-transform: rotate($deg)
+  -ms-transform: rotate($deg)
+  
+@mixin radius($rad)
+  -moz-border-radius: $rad
+  -webkit-border-radius: $rad
+  border-radius: $rad
+  
+@mixin box-shadow($hoffset, $voffset, $rad, $color)
+  -webkit-box-shadow: $hoffset $voffset $rad $color
+  -moz-box-shadow: $hoffset $voffset $rad $color
+  box-shadow: $hoffset $voffset $rad $color
+  
+@mixin fade-in($all, $time, $type)
+  -webkit-transition: $all $time $type
+  -moz-transition: $all $time $type
+  -o-transition: $all $time $type
+  -ms-transition: $all $time $type
+  transition: $all $time $type
 
 html, body
   height: 92%
 
 body
-  background: #dddddd
-  background: -moz-linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%)
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dddddd), color-stop(50%,#ffffff), color-stop(100%,#dddddd))
-  background: -webkit-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  background: -o-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  background: linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
+  @include horiz-gradient(#ddd, #fff) // this is for the footer background
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
   font-size: 14px
   margin: 0 !important
@@ -48,25 +81,14 @@ a
   min-height: 100px
   font-family: 'Rokkitt', serif
   padding: 0 !important
-  background: #878C6D
-  //background-image: url(/images/villages-background.jpg)
-  //opacity: .8
-  background: -moz-linear-gradient(top, #878C6D 0%, #63674A 100%)
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#878C6D), color-stop(100%,#63674A))
-  background: -webkit-linear-gradient(top, #878C6D 0%,#63674A 100%)
-  background: -o-linear-gradient(top, #878C6D 0%,#63674A 100%)
-  background: -ms-linear-gradient(top, #878C6D 0%,#63674A 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#878C6D', endColorstr='#63674A',GradientType=0 )
-  background: linear-gradient(top, #878C6D 0%,#63674A 100%)
+  @include vert-gradient(#878C6D, #63674A)
   color: #eee
   position: fixed
   top: 0 !important
   width: 100%
   top: 0
   z-index: 10
-  //border-bottom: 1px solid black
-  -webkit-box-shadow: 0 0 12px #888
-  -moz-box-shadow: 0 0 12px #888
+  @include box-shadow(0, 0, 12px, #888)
   a
     text-shadow: 0px 2px 4px #222
   #search
@@ -77,9 +99,7 @@ a
       width: 150px
       float: left
       padding: .2em .5em
-      -moz-border-radius: .9em
-      -webkit-border-radius: .9em
-      border-radius: .9em
+      @include radius(.9em)
       color: grey
       &:focus
         outline: none !important
@@ -95,10 +115,7 @@ a
     line-height: 1em
     font-size: 4em
     position: relative
-    -moz-transform: rotate(-5deg)
-    -webkit-transform: rotate(-5deg)
-    -o-transform: rotate(-5deg)
-    -ms-transform: rotate(-5deg)
+    @include tilt(-5deg)
   h2
     float: left
     z-index: -20
@@ -134,18 +151,9 @@ a
     li
       display: inline
       width: 300px
-      /*float: left*/
       margin-right: 20px
-      //.button
-      //  float: left
-      //  margin-right: 40px
-      //  border: 2px solid $linkColor
-      //  padding: .5em
-      //  -moz-border-radius: 5em
     li#notifications
-      //background: url(/images/notification_icon.png) no-repeat
       z-index: 15
-      //position: absolute
       width: 22px
       img
         margin-top: -10px !important
@@ -161,9 +169,7 @@ a
         position: absolute
         right: 204px
         z-index: 10
-        //display: none
-        -moz-box-shadow: 2px 2px 2px black
-        -webkit-box-shadow: 2px 2px 2px black
+        @include box-shadow(2px, 2px, 2px, black)
         .notification
           list-style-type: none
           margin: 1em 0 1em 0
@@ -191,9 +197,7 @@ a
       margin-left: -1.4em
       position: relative
       padding: .1em .3em 0
-      -moz-border-radius: 1em
-      -webkit-border-radius: 1em
-      border-radius: 1em
+      @include radius(1em)
       font-size: .7em
       font-weight: bold
       top: -10px
@@ -202,8 +206,7 @@ a
       margin-left: -1.4em
       position: relative
       padding: 1px 3px 1px 3px
-      -moz-border-radius: .4em
-      -webkit-border-radius: .4em
+      @include radius(.4em)
       font-size: .75em
       top: -10px
       right: 8px
@@ -223,20 +226,9 @@ a
   padding: 10px 0 20px
   margin-top: 20px
   height: 25px
-  background: #dddddd
-  background: -moz-linear-gradient(left, #dddddd 0%, #ffffff 50%, #dddddd 100%)
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dddddd), color-stop(50%,#ffffff), color-stop(100%,#dddddd))
-  background: -webkit-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  background: -o-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  background: -ms-linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#dddddd',GradientType=1 )
-  background: linear-gradient(left, #dddddd 0%,#ffffff 50%,#dddddd 100%)
+  @include horiz-gradient(#ddd, #fff)
   box-shadow: inset 0 5px 5px rgba(0,0,0,.2)
-  -webkit-transition: all .5s ease-in-out
-  -moz-transition: all .5s ease-in-out
-  -o-transition: all .5s ease-in-out
-  -ms-transition: all .5s ease-in-out
-  transition: all .5s ease-in-out
+  @include fade-in(all, .5s, ease-in-out)
   ul
     margin: 10px auto
     list-style-type: none
@@ -266,10 +258,7 @@ a
   float: left
   width: 60%
   padding: 0 3em 1em 1em
-  //padding-right: 3em
-  //background: $mastheadBG
-  -moz-border-radius: 10px
-  -webkit-border-radius: 10px
+  @include radius(10px)
   .float
     float: right
     margin-bottom: 10px
@@ -278,8 +267,7 @@ a
 
 #right-commit
   float: right
-  -moz-border-radius: 10px
-  -webkit-border-radius: 10px
+  @include radius(10px)
   background: $mastheadBG
   width: 27%
   padding: 1em
@@ -291,8 +279,7 @@ a
     border: 1px solid $mastheadBG
     margin-bottom: 20px
     padding-right: 1em
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
+    @include radius(10px)
     a
       background: none
       border: none
@@ -344,14 +331,11 @@ a
   line-height: 170%
   padding: 2em
   background: white
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
+  @include radius(5px)
   
  
 #container
   min-height: 80%
-  a
-    //color: $contentLinkColor
   #tag_line
     text-align: center
     width: 800px
@@ -412,10 +396,8 @@ a
   padding: 0 1em 1em 1em
   height: 65px
   margin-bottom: 10px
-  //padding: 10px 0 10px 0
   radius: 5px
   #household-info
-    //float: left
     width: 100%
     strong
       margin: 0px
@@ -451,7 +433,6 @@ a
   width: 98%
   line-height: 150%
   margin: 100px auto 0 auto
-  //background: white
   position: relative
   padding-top: 20px
   #login
@@ -463,10 +444,7 @@ a
     margin: 30px auto 0 auto
     border: 1px solid
     padding-bottom: 20px
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
-    //-moz-box-shadow: 4px 4px 8px #555
-    //-webkit-box-shadow: -4px 4px 8px #555
+    @include radius(10px)
     #form_header
       margin: 0 15px 20px 15px
       border-bottom: 1px solid
@@ -480,7 +458,7 @@ a
         float: right
       font
         font-size: 1em
-        color: darkGrey
+        color: $darkGrey
         position: relative
         top: 10px
         font-weight: normal
@@ -496,8 +474,7 @@ a
       float: left
       width: 250px
       margin-bottom: 10px
-      -moz-border-radius: 5px
-      -webkit-border-radius: 5px
+      @include radius(5px)
       margin-left: 15px
     input[type="submit"]
       float: left
@@ -513,8 +490,7 @@ a
     font-weight: 100
     margin: 30px auto 0px auto
     border: 4px solid #ccc
-    -moz-border-radius: 8px
-    -webkit-border-radius: 8px
+    @include radius(8px)
     padding-bottom: 30px
     #form_header
       margin: 0 10px 20px 10px
@@ -570,7 +546,6 @@ a
     p
       margin: .5em 1em
   a
-    //color: #375D38
     color: $contentLinkColor
   #content
     padding: 20px 40px
@@ -583,16 +558,12 @@ a
       background: white
       margin: 0 0 50px 10px
       padding: 0 1em 1em 1em
-      -moz-border-radius: 5px
-      -webkit-border-radius: 5px
-      radius: 5px
+      @include radius(5px)
     #left-column
       width: 19%
       float: left
       background: white
-      -moz-border-radius: 5px
-      -webkit-border-radius: 5px
-      radius: 5px
+      @include radius(5px)
       border: 1px solid $mastheadBG
       padding: .3em
       margin: 0 0 30px 0
@@ -666,10 +637,8 @@ a
         width: 98%
         height: 65px
         margin-bottom: 15px
-        //padding: 10px 0 10px 0
         radius: 5px
         #household-info
-          //float: left
           width: 100%
           strong
             margin: 0px
@@ -691,9 +660,7 @@ a
 
       margin: 0 0 50px 10px
       padding: 0 1em 1em 1em
-      -moz-border-radius: 5px
-      -webkit-border-radius: 5px
-      radius: 5px
+      @include radius(5px)
 
       #header
         float:left
@@ -705,10 +672,7 @@ a
         margin-bottom: 20px
         width: 95%
         font-weight: bold
-        //padding: 5px
-        -moz-border-radius: 5px
-        -webkit-border-radius: 5px
-        radius: 5px
+        @include radius(5px)
         background: white
         border: 1px solid $mastheadBG
         padding: .5em 1.2em .5em 1.2em
@@ -719,9 +683,7 @@ a
           font-weight: normal
           border: 1px solid grey
           color: grey
-          -moz-border-radius: 5px
-          -webkit-border-radius: 5px
-          border-radius: 5px
+          @include radius(5px)
           margin: .8em 0
           padding: 1em 0
         .small-title
@@ -737,10 +699,9 @@ a
             width: 16px
             height: 16px 
             font-size: 1.5em
-        .\requests
+        .requests
           width: 100%
           height: 100%
-          //overflow: auto
           margin-top: 10px
           padding: 2px
           #img
@@ -759,19 +720,8 @@ a
     background: $lightGrey
     color: $mastheadBG
     padding: .2em
-    -moz-border-radius: .3em
-    -webkit-border-radius: .3em
-    /* fallback/image non-cover color */
-    /* fallback image */
-    background-image: url(images/fallback-gradient.png)
-    /* Firefox 3.6+ */
-    background-image: -moz-linear-gradient($lightGrey, $darkGrey)
-    /* Safari 4+, Chrome 1+ */
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($darkGrey), to($lightGrey))
-    /* Safari 5.1+, Chrome 10+ */
-    background-image: -webkit-linear-gradient($lightGrey, $darkGrey)
-    /* Opera 11.10+ */
-    background-image: -o-linear-gradient($lightGrey, $darkGrey)
+    @include radius(.3em)
+    @include vert-gradient($darkGrey, $lightGrey)
     &:hover
       border: 1px solid #777
 
@@ -796,8 +746,7 @@ label
   color: #060
   border: 1px solid #060
   text-align: center
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
+  @include radius(5px)
 
 .flash.error
   margin: .5em 0 .5em 0
@@ -805,9 +754,7 @@ label
   color: #900
   border: 1px solid #900
   text-align: center
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-
+  @include radius(5px)
 
 .fieldWithErrors
   display: inline
@@ -844,9 +791,7 @@ label
   a
     padding: 0em .3em 0em .30em
     background: #999 !important
-    -moz-border-radius: 1em
-    -webkit-border-radius: 1em
-    border-radius: 1em
+    @include radius(1em)
     font-size: 10pt
     font-family: monospace
     font-weight: bold
@@ -855,18 +800,14 @@ label
     &:hover
       background: black
       color: white
-      -moz-box-shadow: 0 0 2px #444
-      -webkit-box-shadow: 1px 1px 2px #444
-      box-shadow: 0 0 2px #444
+      @include box-shadow(0, 0, 2px, #444)
 #request-container
   width: 95%
   border: 1px solid $mastheadBG
   padding: 1em
   padding-right: 3em
   background: white
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  border-radius: 5px
+  @include radius(5px)
   #red
     color: #900
   #no-requests
@@ -879,27 +820,8 @@ label
   border-bottom: 3px double $lightGrey
   border-left: 1px solid #fff
   margin: 1em 0 1em 0
-  //padding: 1em
-  //padding: .5em .5em 1.5em .5em
   width: 100%
   opacity: .9
-  //-webkit-transition: all .5s ease-in-out
-  //-moz-transition: all .5s ease-in-out
-  //-o-transition: all .5s ease-in-out
-  //ms-transition: all .5s ease-in-out
-  //transition: background-color .5s ease-in-out
-  &:hover
-    //background-color: #fff
-    //border-top: 1px solid #ccc
-    //border-right: 1px solid #ccc
-    //border-bottom: 3px double #ccc
-    //border-left: 1px solid #ccc
-    //opacity: 1
-    //-webkit-transition: all .5s ease-in-out
-    //-moz-transition: all .5s ease-in-out
-    //-o-transition: all .5s ease-in-out
-    //-ms-transition: all .5s ease-in-out
-    //transition: all .5s ease-in-out
   img
     max-width: 8%
     margin-right: .5em
@@ -964,7 +886,6 @@ label
   .right
     max-width: 80%
     min-width: 40%
-    //margin: 5px 0
     float: left
     margin-left: 3em
     color: #555
@@ -1031,25 +952,14 @@ label
         z-index: 4
         background: $lightGrey
         border: 1px solid
-        -moz-border-radius: 10px
-        -webkit-border-radius: 10px
-        -moz-box-shadow: 2px 2px 4px #555
+        @include radius(10px)
+        @include box-shadow(2px, 2px, 4px, #555)
         a
           background: none !important
           border: none !important
-          &:hover
-            //text-decoration: underline
-            //background: #DDD !important
         li
           margin-right: 30px
           padding: .2em
-        // width: 200px
-        // border: 1px solid
-        // z-index: 3
-        //position: absolute
-    //position: relative
-    //bottom: -30px
-    //right: 0px
   .clear
     clear: both
 
@@ -1060,9 +970,7 @@ label
   font-size: 1em
   padding: 1em 1em 1em 0
   background: white
-  -moz-border-radius: 10px
-  -webkit-border-radius: 10px
-  radius: 10px
+  @include radius(10px)
   h2
     font-size: 1.3em
   #commitments
@@ -1124,8 +1032,7 @@ input[type="text"], input[type="password"], textarea
 
 #result-container
   background: white
-  -moz-border-radius: 10px
-  -webkit-border-radius: 10px
+  @include radius(10px)
   padding: 1em 3em .3em 1em
   .result
     border-bottom: 3px double $lightGrey
@@ -1201,9 +1108,7 @@ input[type="text"], input[type="password"], textarea
   padding: 10px
   background-color: #fff
   margin: 20px 0 0 0
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  radius: 5px
+  @include radius(5px)
   border: 1px solid #aaa
   .hidden-title
     margin: 20px 0px 20px 20px
@@ -1237,17 +1142,13 @@ input[type="text"], input[type="password"], textarea
   padding: 10px 20px 10px 10px
   margin: 20px 0 0 0
   background-color: #fff
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  radius: 5px
+  @include radius(5px)
   border: 1px solid #aaa
 
   input[type="text"], input[type="password"]
     width: 50%
     padding: 6px
-    -moz-border-radius: 3px
-    -webkit-border-radius: 3px
-    radius: 3px
+    @include radius(3px)
     font-size: 14px
 
   input[type="submit"]
@@ -1316,8 +1217,7 @@ input[type="text"], input[type="password"], textarea
         background: $lightGrey !important
         color: $mastheadBG
         padding: .2em
-        -moz-border-radius: .3em
-        -webkit-border-radius: .3em
+        @include radius(.3em)
         &:hover
           border: 1px solid #777
           text-decoration: none
@@ -1337,8 +1237,7 @@ input[type="text"], input[type="password"], textarea
         background: $lightGrey !important
         color: $mastheadBG
         padding: .2em
-        -moz-border-radius: .3em
-        -webkit-border-radius: .3em
+        @include radius(.3em)
         &:hover
           border: 1px solid #777
           text-decoration: none
@@ -1352,8 +1251,7 @@ input[type="text"], input[type="password"], textarea
         background: $lightGrey !important
         color: $mastheadBG
         padding: .2em
-        -moz-border-radius: .3em
-        -webkit-border-radius: .3em
+        @include radius(.3em)
         &:hover
           border: 1px solid #777
           text-decoration: none
