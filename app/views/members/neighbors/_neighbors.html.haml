@@ -1,0 +1,34 @@
+%h1= neighbor_view_type_msg
+#request-container
+  %br
+    -for neighbor in neighbors
+      .request
+        = image_tag(neighbor.neighbor.photo.url(:thumb), :alt => "#{neighbor.neighbor.to_s}")
+        .left
+          %h2.name= neighbor.neighbor
+          %h2.household Household
+        .right
+          - for user in neighbor.neighbor.users
+            .user
+              .user_name
+                %strong Caregiver:  
+                =h user.first_name 
+                =h user.last_name
+              .phone
+                %strong Phone:
+                =h number_to_phone(user.phone, :area_code => true)
+              .email
+                %strong Email:
+                =h user.email
+        .tools
+          .volunteer-button
+            - case neighbor_view_type
+            - when 'pending'
+              = link_to "<span class='cross icon'></span>Cancel Request", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
+            - when 'request'
+              =link_to "<span class='user icon'></span>Confirm as Neighbor", confirm_members_neighbor_path(neighbor), :class => 'pill button'
+              =link_to "<span class='cross icon'></span>Deny Neighbor Request", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button negative'
+            - when 'neighbor'
+              #delete=link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
+              = link_to "<span class='magnifier icon'></span>Show", members_household_path(neighbor.neighbor), :class => 'pill button'
+        .clear

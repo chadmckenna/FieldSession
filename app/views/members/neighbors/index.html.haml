@@ -1,97 +1,14 @@
 -title "My Neighbors"
-- if @pending_neighbors.count > 0
-  %h1 Pending Neighbor Requests
-  #request-container
-    %br
-      -for pending_neighbor in @pending_neighbors
-        .request
-          = image_tag(pending_neighbor.neighbor.photo.url(:thumb), :alt => "#{pending_neighbor.neighbor.to_s}")
-          .left
-            %h2.name= pending_neighbor.neighbor
-            %h2.household Household
-          .right
-            - for user in pending_neighbor.neighbor.users
-              .user
-                .user_name
-                  %strong Caregiver:  
-                  =h user.first_name 
-                  =h user.last_name
-                .phone
-                  %strong Phone:
-                  =h number_to_phone(user.phone, :area_code => true)
-                .email
-                  %strong Email:
-                  =h user.email
-          .tools
-            .volunteer-button
-              =link_to "<span class='cross icon'></span>Cancel Request", members_neighbor_path(pending_neighbor), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button'
-          .clear
-- if @neighbor_requests.count > 0
-  %h1 Neighbor Requests
-  #request-container
-    %br
-      -for neighbor_request in @neighbor_requests
-        .request
-          = image_tag(neighbor_request.neighbor.photo.url(:thumb), :alt => "#{neighbor_request.neighbor.to_s}")
-          .left
-            %h2.name= neighbor_request.neighbor
-            %h2.household Household
-          .right
-            - for user in neighbor_request.neighbor.users
-              .user
-                .user_name
-                  %strong Caregiver:  
-                  =h user.first_name 
-                  =h user.last_name
-                .phone
-                  %strong Phone:
-                  =h number_to_phone(user.phone, :area_code => true)
-                .email
-                  %strong Email:
-                  =h user.email
-          .tools
-            .volunteer-button
-              =link_to "<span class='user icon'></span>Confirm as Neighbor", confirm_members_neighbor_path(neighbor_request), :class => 'pill button'
-              =link_to "<span class='cross icon'></span>Deny Neighbor Request", members_neighbor_path(neighbor_request), :confirm => 'Are you sure you want to remove this neighbor request?', :method => :delete, :class => 'pill button negative'
-          .clear
 
-- if @neighbors.count > 0
-  %h1 My Neighbors
-  #request-container
-    %br
-      - for neighbor in @neighbors
-        .request
-          = image_tag(neighbor.neighbor.photo.url(:thumb), :alt => "#{neighbor.neighbor.to_s}")
-          .left
-            %h2.name= link_to neighbor.neighbor, members_household_path(neighbor.neighbor)
-            -#%h2.name=link_to "#{neighbor.neighbor}", members_household_path(neighbor.neighbor)
-            %h2.household Household
-          .right
-            %strong Children:
-            %br
-            -@count = 0
-            - for child in neighbor.neighbor.children
-              =h "#{child.first_name}"
-              -@count += 1
-              -if @count != neighbor.neighbor.children.length
-                ,
-            -#= pluralize neighbor.neighbor.users.count, "Caregiver"
-            %br
-            %strong Caregivers:
-            - for user in neighbor.neighbor.users
-              .user
-                .user_name
-                  =h user.first_name 
-                  =h user.last_name + ","
-                  =h number_to_phone(user.phone, :area_code => true) + ","
-                  =h user.email
-          .tools
-            .volunteer-button
-              #delete=link_to "<span class='cross icon'></span>Remove Neighbor", members_neighbor_path(neighbor), :confirm => 'Are you sure you want to remove this neighbor from your village?', :method => :delete, :class => 'pill button negative'
-              = link_to "<span class='magnifier icon'></span>Show", members_household_path(neighbor.neighbor), :class => 'pill button'
-          .clear
+- if Neighbor.can_render?(@pending_neighbors)
+  = render :partial => "members/neighbors/neighbors", :locals => { :neighbors => @pending_neighbors, :neighbor_view_type => 'pending', :neighbor_view_type_msg => 'My Pending Neighbor Requests'}
+- if Neighbor.can_render?(@neighbor_requests)
+  = render :partial => "members/neighbors/neighbors", :locals => { :neighbors => @neighbor_requests, :neighbor_view_type => 'request', :neighbor_view_type_msg => 'My Neighbor Requests'}
+
+- if Neighbor.can_render?(@neighbors)
+  = render :partial => "members/neighbors/neighbors", :locals => { :neighbors => @neighbors, :neighbor_view_type => 'neighbor', :neighbor_view_type_msg => 'My Neighbors'}
 - else
-  %h1 &nbsp;
+  %p
   #request-container
     %h2
       %span#red You do not have any neighbors. 

@@ -21,4 +21,8 @@ class Neighbor < ActiveRecord::Base
   	 UserMailer.deliver_neighbor_confirmation_email(self, user)
    end
   end
+  
+  def self.can_render?(neighbors)
+    true if neighbors.count > 0    
+  end
 end

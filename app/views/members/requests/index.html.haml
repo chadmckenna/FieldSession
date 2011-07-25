@@ -41,7 +41,13 @@
             %font=h completed_request.cost.to_i
           .children
             Children:
-            =h completed_request.children
+            -@count = 0
+            - for child in completed_request.children
+              -@count += 1
+              -if @count != completed_request.children.length
+                =h "#{child.first_name},"
+              -else
+                =h "#{child.first_name}"
         .tools
           .volunteer-button Did you provide care for this request?
           %br
@@ -50,7 +56,7 @@
         .clear
   
     - for request in @requests
-      -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request)
+      -unless request.household == current_user.household || pending(request) || commit(request) || hidden_request(request) || !check_neighbor(request) || already_committed(request)
         - @num_requests += 1
         .request
           = image_tag request.household.photo.url(:thumb)
@@ -72,11 +78,13 @@
                 =h "#{Date::DAYNAMES[request.to_date.wday]}, #{Date::MONTHNAMES[request.to_date.mon]} #{request.to_date.mday}"
             .children
               Children:
-              -for child in request.children
-                -if request.children.count == 1
-                  =h "#{child.first_name}"
+              -@count = 0
+              - for child in request.children
+                -@count += 1
+                -if @count != request.children.length
+                  =h "#{child.first_name},"
                 -else
-                  =h "#{child.first_name}, "
+                  =h "#{child.first_name}"
             .notes
               - if !request.notes.eql? ""
                 Additional notes:
@@ -133,7 +141,8 @@
           to
           =h confirmed_request.request.end_time.to_s(:nicetime)
           .link
-            = link_to '<span class="magnifier icon"></span>View More Details', detail_members_request_path(confirmed_request.request), :class => 'pill button'
+            = link_to '<span class="magnifier icon"></span>Details', detail_members_request_path(confirmed_request.request), :class => 'pill button'
+        .clear
     #pending
       %h2 My Pending Commitments
       -if @pending_requests.count == 0
@@ -154,5 +163,6 @@
           to
           =h pending_request.request.end_time.to_s(:nicetime)
           .link
-            = link_to '<span class="magnifier icon"></span>View More Details', members_request_path(pending_request.request), :class => 'pill button'
+            = link_to '<span class="magnifier icon"></span>Details', members_request_path(pending_request.request), :class => 'pill button'
+        .clear
   

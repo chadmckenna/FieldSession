@@ -1,9 +1,9 @@
 class Members::NeighborsController < Members::MembersController
   
   def index
-    @neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true, :neighbor_confirmed => true})
-    @pending_neighbors = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => true, :neighbor_confirmed => false})
-    @neighbor_requests = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :household_confirmed => false, :neighbor_confirmed => true})
+    @neighbors = current_user.get_my_neighbors
+    @pending_neighbors = current_user.get_my_pending_neighbors
+    @neighbor_requests = current_user.get_my_neighbor_requests
   end
   
   def new
@@ -11,23 +11,12 @@ class Members::NeighborsController < Members::MembersController
   end
   
   def create
-    count = Neighbor.find(:all, :conditions => {:household_id => current_user.household_id, :neighbor_id => params[:household_id]}).count
-    if count.eql? 0
-      @neighbor = Neighbor.new
-      @neighbor.neighbor_id = params[:household_id]
-      @neighbor.household_id = current_user.household.id
-      @neighbor.household_confirmed = true
-      @neighbor.read = false
-    
-      @neighbor2 = Neighbor.new
-      @neighbor2.neighbor_id = current_user.household.id
-      @neighbor2.household_id = params[:household_id]
-      @neighbor2.neighbor_confirmed = true
-      @neighbor2.read = true
-      @household = Household.find(params[:household_id])
-      
-      if @neighbor.save && @neighbor2.save
-        @neighbor.send_neighbor_request_email(@neighbor)
+    if !current_user.is_neighbor?(params[:household_id])
+      if current_user.add_neighbor(params[:household_id])
+        # I broke this when I abstracted the addition of neighbors to the user model.
+        # maybe we should return the @neighbor so that we can send the email.
+        # thoughts?
+        #@neighbor.send_neighbor_request_email(@neighbor)
         flash[:success] = "You have successfully requested to add #{@household} as a neighbor"
         redirect_to :back
       else

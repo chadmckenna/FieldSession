@@ -65,6 +65,35 @@ class User < ActiveRecord::Base
     return true if Neighbor.find(:all, :conditions => {:household_id => self.household_id, :neighbor_id => neighbor_id, :household_confirmed => true, :neighbor_confirmed => true}).count > 0
     return false
   end
+  
+  def get_my_neighbors
+    return Neighbor.find(:all, :conditions => {:household_id => self.household_id, :household_confirmed => true, :neighbor_confirmed => true})
+  end
+  
+  def get_my_pending_neighbors
+    return Neighbor.find(:all, :conditions => {:household_id => self.household_id, :household_confirmed => true, :neighbor_confirmed => false})
+  end
+  
+  def get_my_neighbor_requests
+    return Neighbor.find(:all, :conditions => {:household_id => self.household_id, :household_confirmed => false, :neighbor_confirmed => true})
+  end
+  
+  def add_neighbor(neighbor_id)
+    @neighbor = Neighbor.new
+    @neighbor.neighbor_id = neighbor_id
+    @neighbor.household_id = self.household.id
+    @neighbor.household_confirmed = true
+    @neighbor.read = false
+  
+    @neighbor2 = Neighbor.new
+    @neighbor2.neighbor_id = self.household.id
+    @neighbor2.household_id = neighbor_id
+    @neighbor2.neighbor_confirmed = true
+    @neighbor2.read = true
+    @household = Household.find(neighbor_id)
+    
+    @neighbor.save && @neighbor2.save
+  end
 
   def role_symbols
     [role.name.downcase.to_sym]

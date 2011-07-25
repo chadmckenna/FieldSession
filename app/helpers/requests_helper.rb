@@ -10,9 +10,20 @@ module RequestsHelper
     return @same
   end
   
+  def already_committed(request)
+    @pending = PendingRequest.find(:all, :conditions => {:request_id => request.id})
+    for pending in @pending
+      if pending.request_id == request.id
+        if pending.confirmed == "true"
+          return true
+        end
+      end
+    end
+    return false
+  end
+  
   def commit(request)
     @same = false
-    puts @confirmed_requests.count
     for confirmed_request in @confirmed_requests
       if confirmed_request.request_id == request.id
         @same = true

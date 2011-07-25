@@ -28,7 +28,7 @@
           %h3= "#{child.first_name} #{child.last_name}"
           .child
             %h3 Date of Birth:
-            .value=h child.date_of_birth
+            .value=h "#{Date::MONTHNAMES[child.date_of_birth.month]} #{child.date_of_birth.day}, #{child.date_of_birth.year}"
             .clear
             -unless child.dietary_restrictions.eql? ""
               %h3 Dietary Restrictions:
