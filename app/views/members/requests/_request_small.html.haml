@@ -1,0 +1,35 @@
+%h2= header
+- if num_requests.count == 0
+  - case request_type
+  - when 'confirmed'
+    #no-commitment
+      You have no commitments
+  - when 'pending'
+    #no-pending
+      You have no pending commitments
+- for request in requests
+  .confirmed-request
+    .delete-link
+      - case request_type
+      - when 'confirmed'
+        = link_to 'X', members_pending_request_path(request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
+      - when 'pending'
+        = link_to 'X', members_pending_request_path(request), :confirm => 'Are you sure you want to remove this confirmed request?', :method => :delete
+      
+    ="#{confirmed_request.request.household} Household"
+    %br
+    =h request.request.from_date.to_s(:short)
+    - if !request.request.same_date
+      \-
+      =h request.request.to_date.to_s(:short)
+    %br
+    =h request.request.start_time.to_s(:nicetime)
+    to
+    =h request.request.end_time.to_s(:nicetime)
+    .link
+      - case request_type
+      - when 'confirmed'
+        = link_to '<span class="magnifier icon"></span>Details', detail_members_request_path(request.request), :class => 'pill button'
+      - when 'pending'
+        = link_to '<span class="magnifier icon"></span>Details', members_request_path(request.request), :class => 'pill button'
+  .clear

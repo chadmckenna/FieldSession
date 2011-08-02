@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110617161055) do
+ActiveRecord::Schema.define(:version => 20110713020653) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street1",      :null => false
@@ -86,27 +86,24 @@ ActiveRecord::Schema.define(:version => 20110617161055) do
   create_table "pending_requests", :force => true do |t|
     t.integer  "request_id"
     t.integer  "caregiver_requestor_id"
-    t.string   "pending"
     t.integer  "caregiver_commit_id"
     t.string   "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "belongs_to_household_id"
-    t.string   "read"
   end
 
   create_table "requests", :force => true do |t|
-    t.datetime "from_date"
+    t.datetime "start_date"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.decimal  "cost"
+    t.decimal  "credits"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "household_id"
-    t.datetime "to_date"
+    t.datetime "end_date"
     t.string   "title"
     t.string   "notes"
-    t.boolean  "is_completed", :default => false
   end
 
   create_table "roles", :force => true do |t|

@@ -11,16 +11,16 @@ class Members::RequestsController < Members::MembersController
         requests = Request.find(:all, :order => params[:sort] + " #{@date_direction}")
       end
     else
-      requests = Request.find(:all, :order => 'from_date')
+      requests = Request.find(:all, :order => 'start_date')
     end
     
     @requests = []
     for request in requests
-      end_time = Time.local(request.to_date.year, request.to_date.month, request.to_date.day, request.end_time.hour, request.end_time.min)
+      end_time = Time.local(request.end_date.year, request.end_date.month, request.end_date.day, request.end_time.hour, request.end_time.min)
       if (end_time > Time.now)
         @requests << request    
       elsif (end_time < Time.now)
-        pending_requests = PendingRequest.find(:all, :conditions => {:request_id => request.id, :caregiver_requestor_id => current_user.id, :pending => "true"})
+        pending_requests = PendingRequest.find(:all, :conditions => {:request_id => request.id, :caregiver_requestor_id => current_user.id, :confirmed => "false"})
         for pending_request in pending_requests
           pending_request.destroy
         end
@@ -42,7 +42,7 @@ class Members::RequestsController < Members::MembersController
       end
     end
     
-    @pending_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :pending => "true"})
+    @pending_requests = PendingRequest.find(:all, :conditions => {:caregiver_requestor_id => current_user.id, :confirmed => "false"})
     @pending_requests.sort!{|a, b| a.request.from_date <=> b.request.from_date}
     
     @confirmed_requests = []

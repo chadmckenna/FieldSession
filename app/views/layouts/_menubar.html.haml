@@ -23,8 +23,8 @@
       %li
         = link_to 'requests', members_requests_path, :title => 'Requests'
       - unless current_user.household.nil?
-        - if has_requests(current_user)
-          %li.notification= get_pending_requests_count(current_user)
+        -# - if has_requests(current_user)
+          -# %li.notification= get_pending_requests_count(current_user)
       - unless current_user.household.nil?
         = render :partial => 'layouts/notification'
       %li
